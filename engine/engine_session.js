@@ -2,6 +2,17 @@
 // BUG FIX (TTS desync): global timer handle so rapid Next/Skip clicks can cancel
 // any pending audio from a skipped question before scheduling new audio.
 let _qTtsTimer = null;
+function _cancelQueuedTTS(){
+  if(_qTtsTimer!==null)clearTimeout(_qTtsTimer);
+  _qTtsTimer=null;
+}
+function _scheduleQueuedTTS(fn,delay){
+  _cancelQueuedTTS();
+  _qTtsTimer=setTimeout(()=>{
+    _qTtsTimer=null;
+    fn();
+  },delay);
+}
 
 const S = {
   lang:'finnish', cats:new Set(), catsCleared:false, pool:'all', 
@@ -41,6 +52,8 @@ const S = {
 /* ─── ENGINE ──────────────────────────────────────────────── */
 let _sessionTimer=null;
 function startSession(immediate){
+  _cancelQueuedTTS();
+  try{TTS.stop();}catch(e){}
   if(immediate){_doStartSession();return;}
   clearTimeout(_sessionTimer);
   _sessionTimer=setTimeout(_doStartSession,180);
@@ -150,6 +163,7 @@ function _buildLessonCardHtml(){
 }
 
 function showReadyScreen(pool, fromRound=false){
+  _cancelQueuedTTS();
   TTS.stop();
   // Hide game strip
   const strip=eid('game-strip');if(strip)strip.style.display='none';
@@ -248,7 +262,7 @@ function _statsDeltaHtml(){
 }
 
 function G_endRound(){
-  SFX.click();TTS.stop();
+  SFX.click();_cancelQueuedTTS();TTS.stop();
   // Just show the results — same as finishing naturally.
   // The only extra affordance is a small "go back" link if they tapped by accident.
   const canResume=S.q&&S.qi<S.queue.length;
@@ -277,6 +291,10 @@ function G_endRound(){
 }
 
 function loadQ(){
+  // Stop BOTH an already-playing clip and a delayed clip that has not fired yet.
+  // Without this, an old 300/500ms timer can wake up on the next card and cancel its
+  // iPhone playback — especially when the next mode is matching/sentenceTiles.
+  _cancelQueuedTTS();
   TTS.stop();
   if(S.qi>=S.queue.length){showComplete();return;}
   const q=S.queue[S.qi];
@@ -324,8 +342,7 @@ function loadQ(){
     const isSentenceTiles = q.mode==='sentenceTiles';
     if(!isSentenceTiles){
       const delay = isListeningMode ? 500 : 300;
-      clearTimeout(_qTtsTimer);
-      _qTtsTimer=setTimeout(()=>TTS.say(q.tts,LC[S.lang].ttsLang,0.85),delay);
+      _scheduleQueuedTTS(()=>TTS.say(q.tts,LC[S.lang].ttsLang,0.85),delay);
     }
   }
 }

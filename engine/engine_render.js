@@ -140,8 +140,7 @@ function showIntroCard(q){
   q._introTts=tts;
 
   // Auto-play — use _qTtsTimer so G_introDone can cancel this if tapped within 400ms.
-  clearTimeout(_qTtsTimer);
-  _qTtsTimer=setTimeout(()=>TTS.say(tts,lc.ttsLang,0.85),400);
+  _scheduleQueuedTTS(()=>TTS.say(tts,lc.ttsLang,0.85),400);
 
   // Repurpose btn-next as Got it button
   const btnNext=eid('btn-next');
@@ -153,6 +152,7 @@ function showIntroCard(q){
 }
 function G_introSpeak(){
   SFX.click();
+  _cancelQueuedTTS(); // manual replay wins; do not let the pending auto-play cut it off
   const q=S.q;if(!q)return;
   const tts=q._introTts||q.tts;
   if(tts) TTS.say(tts,LC[S.lang].ttsLang,0.85);
@@ -178,6 +178,7 @@ function G_introNextSent(){
     });
   }
   // Auto-play the new sentence
+  _cancelQueuedTTS();
   TTS.say(slide.tts,lc.ttsLang,0.85);
 }
 
@@ -187,7 +188,7 @@ function G_introDone(){
   // showIntroCard() schedules a 400ms auto-play; if the player taps "Got it" before
   // 400ms elapses, the old timer fires AFTER renderQ() schedules its own TTS,
   // causing the word to play twice. Cancelling here ensures only one audio plays.
-  clearTimeout(_qTtsTimer);
+  _cancelQueuedTTS();
   // Restore btn-next to normal behavior
   const btnNext=eid('btn-next');
   const btnHint=eid('btn-hint');
@@ -199,7 +200,7 @@ function G_introDone(){
   // Only auto-play for listening modes, where the audio IS the question stimulus
   // and must play again now that the question card is visible.
   if(q.tts && (q.mode==='listeningWord'||q.mode==='listeningSentence')){
-    _qTtsTimer=setTimeout(()=>TTS.say(q.tts,LC[S.lang].ttsLang,0.85),500);
+    _scheduleQueuedTTS(()=>TTS.say(q.tts,LC[S.lang].ttsLang,0.85),500);
   }
 }
 
@@ -876,7 +877,8 @@ function G_ctTap(idx){
       SFX.done();
       // Give the last-letter audio time to finish before playing the full word.
       // 1000ms covers single-char Hebrew/kana audio (typically 400-600ms) + buffer.
-      setTimeout(()=>{TTS.stop();TTS.say(S.q.tts,LC[S.lang].ttsLang,0.85);},1000);
+      const completedWord=S.q.tts, completedLang=LC[S.lang].ttsLang;
+      _scheduleQueuedTTS(()=>{TTS.stop();TTS.say(completedWord,completedLang,0.85);},1000);
       showFeedback(true,null);
       showNextBtn();
     }
@@ -1066,7 +1068,8 @@ function G_ksTap(idx){
       const wasFlawless=ct.wrongCount===0;
       finishQuestion(wasFlawless,S.q.wordId);
       SFX.done();
-      setTimeout(()=>{TTS.stop();TTS.say(S.q.tts,LC[S.lang].ttsLang,0.85);},1000);
+      const completedWord=S.q.tts, completedLang=LC[S.lang].ttsLang;
+      _scheduleQueuedTTS(()=>{TTS.stop();TTS.say(completedWord,completedLang,0.85);},1000);
       showFeedback(true,null);
       showNextBtn();
     }
@@ -1404,7 +1407,7 @@ function showInterstitialCard(nextQ){
     ? `<div class="ic-term-row"${rtl}>
          <span class="ic-term${cjk}">${lc.rtl?`<bdi dir="rtl">${term}</bdi>`:termForDisplay}</span>
          <button class="ic-say-btn" data-word="${term.replace(/"/g,'&quot;')}" data-lang="${lc.ttsLang}"
-           onclick="event.stopPropagation();SFX.click();TTS.say(this.dataset.word,this.dataset.lang,0.8)"
+           onclick="event.stopPropagation();SFX.click();_cancelQueuedTTS();TTS.say(this.dataset.word,this.dataset.lang,0.8)"
            aria-label="Pronounce">🔊</button>
        </div>
        ${translit?`<div class="ic-translit" dir="ltr">${translit}</div>`:''}`
@@ -1422,8 +1425,7 @@ function showInterstitialCard(nextQ){
   // Auto-pronounce the idiom itself once the pop-in animation settles — same
   // delayed-autoplay pattern used for intro cards and listening questions.
   if(term){
-    clearTimeout(_qTtsTimer);
-    _qTtsTimer=setTimeout(()=>TTS.say(term,lc.ttsLang,0.8),550);
+    _scheduleQueuedTTS(()=>TTS.say(term,lc.ttsLang,0.8),550);
   }
 }
 

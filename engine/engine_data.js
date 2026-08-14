@@ -705,36 +705,80 @@ const TTS = (() => {
   // iOS grants autoplay permission per media element. Keep ONE Audio instance for the
   // whole app: the Start tap unlocks this exact player, and later New Word / Listening
   // questions can reuse it without asking the player to tap a speaker every time.
+  // Native speechSynthesis has its OWN iOS gesture gate, so unlock it separately during
+  // the same Start tap. Unlocking HTMLAudio alone does not unlock speechSynthesis.
   const player = new Audio();
   player.preload = 'auto';
   player.setAttribute('playsinline','');
+  player.setAttribute('webkit-playsinline','');
   const SILENT_AUDIO='data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA';
   let isPlaying = false;
-  let unlocked = false;
+  let mediaUnlocked = false;
+  let nativeSpeechPrimed = false;
+  let unlockPromise = null;
   let sourceTimer = null;
+  let speechStartTimer = null;
   let playToken = 0;
   let webUtterance = null;
 
   // en-GB for IELTS — British English pronunciation (schedule, either, clerk differ from en-US)
   const LANG_MAP = { fi: 'fi-FI', fr: 'fr-FR', es: 'es-ES', it: 'it-IT', he: 'he-IL', ja: 'ja-JP', en: 'en-GB', de: 'de-DE' };
 
-  async function unlock() {
-    if (unlocked) return true;
+  // WebKit on iPhone requires the FIRST speechSynthesis.speak() call to happen while
+  // a real user gesture is active. Prime it silently here so it remains a usable last
+  // resort if every Google/dictionary audio URL fails later in an automatic question.
+  function _primeNativeSpeechFromGesture() {
+    if(nativeSpeechPrimed||!window.speechSynthesis||typeof SpeechSynthesisUtterance==='undefined')return nativeSpeechPrimed;
+    // If the browser exposes userActivation, never incorrectly mark an async attempt as
+    // primed. Older Safari versions do not expose it, so they are allowed to try.
+    if(navigator.userActivation&&navigator.userActivation.isActive===false)return false;
+    try{
+      window.speechSynthesis.cancel();
+      const prime=new SpeechSynthesisUtterance('\u00a0');
+      prime.lang='en-US';
+      prime.volume=0;
+      prime.rate=10;
+      webUtterance=prime; // retain the utterance; iOS may drop unreferenced utterances
+      window.speechSynthesis.speak(prime);
+      nativeSpeechPrimed=true;
+      return true;
+    }catch(e){return false;}
+  }
+
+  function unlock() {
+    // This function must be ENTERED directly from a Start/Lesson tap. Everything before
+    // the first await therefore runs inside the iOS user-activation window.
+    if (mediaUnlocked) {
+      _primeNativeSpeechFromGesture();
+      return Promise.resolve(true);
+    }
+    // Coalesce accidental double taps instead of cancelling the first unlock attempt.
+    if(unlockPromise)return unlockPromise;
     stop();
     const token=playToken;
-    try {
-      player.src=SILENT_AUDIO;
-      player.playbackRate=1;
-      player.load();
-      await player.play();
-      if(token!==playToken)return false;
-      player.pause();
-      try{player.currentTime=0;}catch{}
-      unlocked=true;
-      return true;
-    } catch(e) {
-      return false;
-    }
+    _primeNativeSpeechFromGesture();
+    player.src=SILENT_AUDIO;
+    player.playbackRate=1;
+    player.volume=1;
+    player.load();
+    let attempt;
+    attempt=(async()=>{
+      try {
+        await player.play();
+        if(token!==playToken)return false;
+        player.pause();
+        try{player.currentTime=0;}catch{}
+        mediaUnlocked=true;
+        return true;
+      } catch(e) {
+        mediaUnlocked=false;
+        return false;
+      } finally {
+        if(unlockPromise===attempt)unlockPromise=null;
+      }
+    })();
+    unlockPromise=attempt;
+    return attempt;
   }
 
   function say(text, lang, rate = 0.9) {
@@ -801,7 +845,7 @@ const TTS = (() => {
       player.onplaying=()=>{
         if(token!==playToken)return;
         clearTimeout(sourceTimer);
-        unlocked=true;
+        mediaUnlocked=true;
       };
       player.src = sources[currentSourceIndex];
       player.playbackRate = rate;
@@ -823,7 +867,13 @@ const TTS = (() => {
       // Play it!
       sourceTimer=setTimeout(failOnce,7000);
       const playPromise=player.play();
-      if(playPromise&&typeof playPromise.catch==='function')playPromise.catch(failOnce);
+      if(playPromise&&typeof playPromise.catch==='function')playPromise.catch(err=>{
+        // A rejected autoplay attempt means the remembered media permission is no
+        // longer usable (common after an interrupted iOS/PWA lifecycle). Do not keep
+        // reporting a stale unlocked state on the next real Start tap.
+        if(err&&err.name==='NotAllowedError')mediaUnlocked=false;
+        failOnce();
+      });
     }
 
     // Start the waterfall process
@@ -833,7 +883,9 @@ const TTS = (() => {
   function stop() {
     playToken++;
     clearTimeout(sourceTimer);
+    clearTimeout(speechStartTimer);
     sourceTimer=null;
+    speechStartTimer=null;
     player.onplaying=null;
     player.onended=null;
     player.onerror=null;
@@ -847,7 +899,10 @@ const TTS = (() => {
 
   // 4. Hidden Native Fallback (The robotic voice if offline)
   function _speakWeb(text, lang, rate, token) {
-    if (!window.speechSynthesis) return;
+    if (!window.speechSynthesis) {
+      isPlaying=false;
+      return;
+    }
     window.speechSynthesis.cancel();
     isPlaying = true; // Re-set so stop() can guard against the stuck-state
     TTS._lastPlay = Date.now();
@@ -862,14 +917,43 @@ const TTS = (() => {
       const voices = window.speechSynthesis.getVoices();
       const match = voices.find(v => v.lang.startsWith(LANG_MAP[lang]?.split('-')[0] || lang));
       if (match) u.voice = match;
+      let started=false;
+      u.onstart = () => {
+        if(token!==playToken)return;
+        started=true;
+        clearTimeout(speechStartTimer);
+        speechStartTimer=null;
+      };
       u.onend = () => {
         if(token!==playToken)return;
+        clearTimeout(speechStartTimer);
+        speechStartTimer=null;
         webUtterance = null;
         isPlaying = false;
         if(typeof G_unlockListenMC==='function'&&S?.q?.mode==='listeningWord') G_unlockListenMC();
       };
-      u.onerror = () => { if(token===playToken){webUtterance=null;isPlaying=false;} };
-      window.speechSynthesis.speak(u);
+      u.onerror = () => {
+        if(token!==playToken)return;
+        clearTimeout(speechStartTimer);
+        speechStartTimer=null;
+        webUtterance=null;
+        isPlaying=false;
+      };
+      try{
+        window.speechSynthesis.speak(u);
+        // iOS can silently ignore an unprimed utterance without firing onerror. Avoid
+        // leaving the engine stuck forever when that happens.
+        speechStartTimer=setTimeout(()=>{
+          if(token!==playToken||started)return;
+          try{window.speechSynthesis.cancel();}catch{}
+          webUtterance=null;
+          isPlaying=false;
+          speechStartTimer=null;
+        },3000);
+      }catch(e){
+        webUtterance=null;
+        isPlaying=false;
+      }
     };
 
     // Speaking does not require waiting for voiceschanged; the browser can select its
