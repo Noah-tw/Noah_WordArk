@@ -334,7 +334,7 @@ function G_continueFromInterstitial(){
                              // old idiom over the next (already-rendered) question.
   // Re-prime from this real tap if iOS revoked audio permission, but NEVER wait for it:
   // the question UI must continue even if Safari leaves play() pending.
-  try{void TTS.unlock();}catch(e){}
+  try{void TTS.unlock(LC[S.lang].ttsLang);}catch(e){}
   // Restore bot-bar and game-strip, then render the queued question
   const bb=eid('bot-bar'); if(bb) bb.style.display='flex';
   const strip=eid('game-strip');
@@ -374,7 +374,7 @@ function G_startLesson(groupNum){
   // G_tab() intentionally stops old audio, so it MUST run before unlock(). The previous
   // order started the iOS unlock and immediately cancelled it with G_tab()->TTS.stop().
   G_tab('play');
-  try{void TTS.unlock();}catch(e){}
+  try{void TTS.unlock(LC[S.lang].ttsLang);}catch(e){}
   startSession(true);
 }
 function buildLessonMap(){

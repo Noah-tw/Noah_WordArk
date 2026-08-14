@@ -248,7 +248,7 @@ function G_startRound(){
   // Unlock the SAME persistent Google-TTS player used by all later automatic audio.
   // IMPORTANT: never await this on iPhone. Safari can leave play() pending, but the
   // question UI must load immediately. loadQ(true) preserves this in-flight unlock.
-  try{void TTS.unlock();}catch(e){}
+  try{void TTS.unlock(LC[S.lang].ttsLang);}catch(e){}
   // BUG-FIX: coin button = Random mode. Clear lesson lock so pool is unrestricted.
   S.lessonGroup=null;
   SFX.pop();

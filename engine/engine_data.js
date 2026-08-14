@@ -735,6 +735,8 @@ const TTS = (() => {
   // iOS grants autoplay permission per media element. Keep ONE Audio instance for the
   // whole app: the Start tap unlocks this exact player, and later New Word / Listening
   // questions can reuse it without asking the player to tap a speaker every time.
+  // Do not replace it merely because mobile buffering is slower than a desktop: the old
+  // standalone games let Google's request keep loading and proved that path works here.
   // Native speechSynthesis has its OWN iOS gesture gate, so unlock it separately during
   // the same Start tap. Unlocking HTMLAudio alone does not unlock speechSynthesis.
   const player = new Audio();
@@ -748,8 +750,10 @@ const TTS = (() => {
   // native speech. The next real user tap can safely re-arm the SAME Audio element.
   let needsGestureRecovery = false;
   let nativeSpeechPrimed = false;
+  let nativePrimedLang = null;
   let unlockPromise = null;
   let sourceTimer = null;
+  let voiceReadyTimer = null;
   let speechStartTimer = null;
   let playToken = 0;
   let webUtterance = null;
@@ -757,40 +761,69 @@ const TTS = (() => {
   // en-GB for IELTS — British English pronunciation (schedule, either, clerk differ from en-US)
   const LANG_MAP = { fi: 'fi-FI', fr: 'fr-FR', es: 'es-ES', it: 'it-IT', he: 'he-IL', ja: 'ja-JP', en: 'en-GB', de: 'de-DE' };
 
+  function _activeTtsLang(){
+    try{
+      return (typeof S!=='undefined'&&typeof LC!=='undefined'&&LC[S.lang]&&LC[S.lang].ttsLang)||'en';
+    }catch(e){return'en';}
+  }
+
+  function _nativeLocale(lang){return LANG_MAP[lang]||lang||'en-US';}
+
+  function _findNativeVoice(lang){
+    if(!window.speechSynthesis||typeof window.speechSynthesis.getVoices!=='function')return null;
+    let voices=[];
+    try{voices=window.speechSynthesis.getVoices()||[];}catch(e){return null;}
+    const norm=value=>String(value||'').replace(/_/g,'-').toLowerCase();
+    const target=norm(_nativeLocale(lang));
+    const base=target.split('-')[0];
+    // Some WebKit builds still expose Hebrew under its legacy ISO code "iw".
+    const bases=base==='he'?['he','iw']:[base];
+    return voices.find(v=>norm(v.lang)===target)||
+      voices.find(v=>bases.some(b=>norm(v.lang)===b||norm(v.lang).startsWith(b+'-')))||null;
+  }
+
   // WebKit on iPhone requires the FIRST speechSynthesis.speak() call to happen while
   // a real user gesture is active. Prime it silently here so it remains a usable last
   // resort if every Google/dictionary audio URL fails later in an automatic question.
-  function _primeNativeSpeechFromGesture() {
-    if(nativeSpeechPrimed||!window.speechSynthesis||typeof SpeechSynthesisUtterance==='undefined')return nativeSpeechPrimed;
+  // Prime the CURRENT language on every real round/lesson gesture; a single hard-coded
+  // en-US prime can otherwise make Safari pronounce French/Hebrew/etc. with English rules.
+  function _primeNativeSpeechFromGesture(lang) {
+    if(!window.speechSynthesis||typeof SpeechSynthesisUtterance==='undefined')return nativeSpeechPrimed;
     // If the browser exposes userActivation, never incorrectly mark an async attempt as
     // primed. Older Safari versions do not expose it, so they are allowed to try.
-    if(navigator.userActivation&&navigator.userActivation.isActive===false)return false;
+    if(navigator.userActivation&&navigator.userActivation.isActive===false)return nativeSpeechPrimed;
+    const requestedLang=lang||_activeTtsLang();
     try{
       window.speechSynthesis.cancel();
       const prime=new SpeechSynthesisUtterance('\u00a0');
-      prime.lang='en-US';
+      prime.lang=_nativeLocale(requestedLang);
+      const voice=_findNativeVoice(requestedLang);
+      if(voice)prime.voice=voice;
       prime.volume=0;
       prime.rate=10;
       webUtterance=prime; // retain the utterance; iOS may drop unreferenced utterances
       window.speechSynthesis.speak(prime);
       nativeSpeechPrimed=true;
+      nativePrimedLang=requestedLang;
       return true;
     }catch(e){return false;}
   }
 
-  function unlock() {
+  function unlock(requestedLang) {
+    const lang=requestedLang||_activeTtsLang();
     // This function must be ENTERED directly from a Start/Lesson tap. Everything before
     // the first await therefore runs inside the iOS user-activation window.
     if (mediaUnlocked) {
       needsGestureRecovery=false;
-      _primeNativeSpeechFromGesture();
+      _primeNativeSpeechFromGesture(lang);
       return Promise.resolve(true);
     }
     // Coalesce accidental double taps instead of cancelling the first unlock attempt.
-    if(unlockPromise)return unlockPromise;
+    // Still prime the newly requested language while this fresh gesture is available.
+    if(unlockPromise){_primeNativeSpeechFromGesture(lang);return unlockPromise;}
     stop();
     const token=playToken;
-    _primeNativeSpeechFromGesture();
+    _primeNativeSpeechFromGesture(lang);
     player.src=SILENT_AUDIO;
     player.playbackRate=1;
     player.volume=1;
@@ -865,16 +898,23 @@ const TTS = (() => {
     // next TTS.say() always promotes Google back to the first position.
     const sources = [];
 
-    // Source 1: Standard Google Translate. Give both Google endpoints one quick retry;
-    // 3.5s × 4 keeps the same 14s worst-case Google budget as the old 7s × 2 flow.
+    // Source 1: Standard Google Translate. One attempt per host is intentional: every
+    // NEW utterance rebuilds this list and starts at Google again, so hammering the same
+    // failed URL 250ms later only creates a burst and does not improve future words.
+    // iPhone may need several seconds before `playing` even though Google is healthy.
+    // The former 3.5s watchdog aborted that valid request by replacing player.src, which
+    // made an English dictionary rescue sound as if Google had lost priority. Give the
+    // primary the same patient behaviour as the proven standalone games, with only a
+    // generous emergency bound so a genuinely hung Listening question cannot lock forever.
     sources.push({
-      id:'google-primary', isGoogle:true, maxAttempts:2, timeoutMs:3500,
+      id:'google-primary', timeoutMs:15000,
       url:`https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=${lang}&q=${encodeURIComponent(clean)}`
     });
 
-    // Source 2: Backup Google Server (Bypasses IP blocks)
+    // Source 2: Backup Google Server (Bypasses IP blocks). It also gets a patient window;
+    // dictionary/native voices remain rescue tools, never a fast substitute for Google.
     sources.push({
-      id:'google-backup', isGoogle:true, maxAttempts:2, timeoutMs:3500,
+      id:'google-backup', timeoutMs:10000,
       url:`https://translate.googleapis.com/translate_tts?ie=UTF-8&client=gtx&tl=${lang}&q=${encodeURIComponent(clean)}`
     });
 
@@ -882,17 +922,21 @@ const TTS = (() => {
     if (lang === 'en' && !clean.includes(' ')) {
       const lowerWord = clean.toLowerCase();
       // Keep every original rescue source. They are used only after both Google hosts
-      // (including their retry) fail for this particular utterance.
-      sources.push({id:'dictionary-gstatic-gb',maxAttempts:1,timeoutMs:7000,
+      // fail for this particular utterance.
+      sources.push({id:'dictionary-gstatic-gb',timeoutMs:7000,
         url:`https://ssl.gstatic.com/dictionary/static/sounds/20200429/${lowerWord}--_gb_1.mp3`});
-      sources.push({id:'dictionary-gstatic-us',maxAttempts:1,timeoutMs:7000,
+      sources.push({id:'dictionary-gstatic-us',timeoutMs:7000,
         url:`https://ssl.gstatic.com/dictionary/static/sounds/20200429/${lowerWord}--_us_1.mp3`});
-      sources.push({id:'dictionary-api-uk',maxAttempts:1,timeoutMs:7000,
+      sources.push({id:'dictionary-api-uk',timeoutMs:7000,
         url:`https://api.dictionaryapi.dev/media/pronunciations/en/${lowerWord}-uk.mp3`});
     }
 
     let currentSourceIndex = 0;
-    let currentSourceAttempt = 0;
+    TTS._sourceAttempts=[];
+    TTS._lastRequestedLang=lang;
+    TTS._lastSource=null;
+    TTS._lastNativeVoice=null;
+    TTS._lastFailure=null;
 
     // 3. Try URLs one by one until one works, always through the SAME player.
     function tryNextSource() {
@@ -905,7 +949,7 @@ const TTS = (() => {
       }
 
       const source=sources[currentSourceIndex];
-      currentSourceAttempt++;
+      TTS._sourceAttempts.push(source.id);
       let settled=false;
       const failOnce=(reason='source-error',err=null)=>{
         if(settled||token!==playToken)return;
@@ -926,18 +970,7 @@ const TTS = (() => {
           return;
         }
 
-        // Google remains primary: retry the same Google host once before moving down the
-        // waterfall. This retry is local to the current utterance and is never sticky.
-        if(source.isGoogle&&currentSourceAttempt<source.maxAttempts){
-          sourceTimer=setTimeout(()=>{
-            sourceTimer=null;
-            tryNextSource();
-          },250);
-          return;
-        }
-
         currentSourceIndex++;
-        currentSourceAttempt=0;
         tryNextSource();
       };
 
@@ -951,7 +984,9 @@ const TTS = (() => {
       };
       player.src = source.url;
       player.playbackRate = rate;
-      player.load();
+      // Assigning src already starts the media selection algorithm. Calling load() here
+      // forcibly aborted/restarted the shared iOS element on every source and introduced
+      // another race that the old working `new Audio(url).play()` code never had.
 
       // When audio finishes successfully, allow clicking again
       player.onended = () => {
@@ -989,8 +1024,10 @@ const TTS = (() => {
   function stop() {
     playToken++;
     clearTimeout(sourceTimer);
+    clearTimeout(voiceReadyTimer);
     clearTimeout(speechStartTimer);
     sourceTimer=null;
+    voiceReadyTimer=null;
     speechStartTimer=null;
     player.onplaying=null;
     player.onended=null;
@@ -1004,9 +1041,14 @@ const TTS = (() => {
   }
 
   // 4. Hidden Native Fallback (The robotic voice if offline)
+  function _releaseListeningAfterAudioFailure(){
+    if(typeof G_unlockListenMC==='function'&&S?.q?.mode==='listeningWord')G_unlockListenMC();
+  }
+
   function _speakWeb(text, lang, rate, token) {
     if (!window.speechSynthesis) {
       isPlaying=false;
+      _releaseListeningAfterAudioFailure();
       return;
     }
     window.speechSynthesis.cancel();
@@ -1014,22 +1056,21 @@ const TTS = (() => {
     TTS._lastPlay = Date.now();
 
     const u = new SpeechSynthesisUtterance(text);
-    u.lang = LANG_MAP[lang] || 'en-US';
+    u.lang = _nativeLocale(lang);
     u.rate = rate;
     webUtterance = u;
-    TTS._lastSource='ios-native';
 
-    const doSpeak = () => {
+    const doSpeak = match => {
       if(token!==playToken)return;
-      const voices = window.speechSynthesis.getVoices();
-      const match = voices.find(v => v.lang.startsWith(LANG_MAP[lang]?.split('-')[0] || lang));
-      if (match) u.voice = match;
+      u.voice=match;
+      TTS._lastNativeVoice={lang:match.lang||'',name:match.name||''};
       let started=false;
       u.onstart = () => {
         if(token!==playToken)return;
         started=true;
         clearTimeout(speechStartTimer);
         speechStartTimer=null;
+        TTS._lastSource='ios-native';
       };
       u.onend = () => {
         if(token!==playToken)return;
@@ -1039,12 +1080,14 @@ const TTS = (() => {
         isPlaying = false;
         if(typeof G_unlockListenMC==='function'&&S?.q?.mode==='listeningWord') G_unlockListenMC();
       };
-      u.onerror = () => {
+      u.onerror = event => {
         if(token!==playToken)return;
         clearTimeout(speechStartTimer);
         speechStartTimer=null;
         webUtterance=null;
         isPlaying=false;
+        TTS._lastFailure={source:'ios-native',reason:'speech-error',name:event&&event.error||'',at:Date.now()};
+        _releaseListeningAfterAudioFailure();
       };
       try{
         window.speechSynthesis.speak(u);
@@ -1056,16 +1099,41 @@ const TTS = (() => {
           webUtterance=null;
           isPlaying=false;
           speechStartTimer=null;
+          TTS._lastFailure={source:'ios-native',reason:'speech-not-started',name:u.lang,at:Date.now()};
+          _releaseListeningAfterAudioFailure();
         },3000);
       }catch(e){
         webUtterance=null;
         isPlaying=false;
+        TTS._lastFailure={source:'ios-native',reason:'speak-error',name:e&&e.name||'',at:Date.now()};
+        _releaseListeningAfterAudioFailure();
       }
     };
 
-    // Speaking does not require waiting for voiceschanged; the browser can select its
-    // default voice from u.lang. Waiting here could leave iOS silent forever.
-    doSpeak();
+    // Safari may briefly return an empty voice list. Wait for it for a bounded 600ms,
+    // but NEVER call speak() without a matching-language voice: an unset u.voice can
+    // make iOS reuse its default/last-primed English voice for words such as "merci".
+    const voiceDeadline=Date.now()+600;
+    const chooseVoice=()=>{
+      if(token!==playToken)return;
+      const match=_findNativeVoice(lang);
+      if(match){
+        clearTimeout(voiceReadyTimer);
+        voiceReadyTimer=null;
+        doSpeak(match);
+        return;
+      }
+      if(Date.now()<voiceDeadline){
+        voiceReadyTimer=setTimeout(chooseVoice,120);
+        return;
+      }
+      voiceReadyTimer=null;
+      webUtterance=null;
+      isPlaying=false;
+      TTS._lastFailure={source:'ios-native',reason:'voice-unavailable',name:_nativeLocale(lang),at:Date.now()};
+      _releaseListeningAfterAudioFailure();
+    };
+    chooseVoice();
   }
 
   // BUG-FIX #122: if app was backgrounded while audio played, onended may never fire,
@@ -1081,7 +1149,7 @@ const TTS = (() => {
     if(event&&event.isTrusted===false)return false;
     if(!needsGestureRecovery||isPlaying||unlockPromise)return false;
     if(navigator.userActivation&&navigator.userActivation.isActive===false)return false;
-    try{void unlock();return true;}catch(e){return false;}
+    try{void unlock(_activeTtsLang());return true;}catch(e){return false;}
   }
   if(typeof document!=='undefined'&&document.addEventListener){
     document.addEventListener('click',recoverFromGesture,false);
@@ -1091,7 +1159,12 @@ const TTS = (() => {
     return {
       mediaUnlocked,
       needsGestureRecovery,
+      nativeSpeechPrimed,
+      nativePrimedLang,
+      lastRequestedLang:TTS._lastRequestedLang||null,
+      attemptedSources:[...(TTS._sourceAttempts||[])],
       lastSource:TTS._lastSource||null,
+      lastNativeVoice:TTS._lastNativeVoice||null,
       lastFailure:TTS._lastFailure||null
     };
   }
