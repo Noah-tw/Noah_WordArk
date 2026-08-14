@@ -1660,6 +1660,21 @@ function updateLandingStats(){
   if(ge('l-pfill'))   ge('l-pfill').style.width=pct+'%';
   if(ge('l-pct'))     ge('l-pct').textContent=pct+'%';
 }
+
+// Do not show the previous language's word count while the newly selected catalogue
+// is still loading. Cached languages replace this state synchronously; first loads show
+// a neutral ellipsis instead of misleading transitions such as Italian 10 -> English 1,017.
+function _showLanguageLoadingState(){
+  const btn=eid('filter-btn'),lbl=eid('filter-btn-label'),wc=eid('filter-word-count');
+  if(btn)btn.className='btn-filter';
+  if(lbl)lbl.textContent='📂 All words';
+  if(wc){wc.textContent='';wc.style.display='none';}
+  const total=eid('l-total'),mastered=eid('l-mastered'),pct=eid('l-pct'),fill=eid('l-pfill');
+  if(total)total.textContent='…';
+  if(mastered)mastered.textContent='…';
+  if(pct)pct.textContent='…';
+  if(fill)fill.style.width='0%';
+}
 const LANG_CODE={finnish:'FI',french:'FR',spanish:'ES',italian:'IT',hebrew:'HE',japanese:'JP',english_ielts:'EN',german:'DE'};
 function updateLangBtn(){
   const lc=LC[S.lang];
@@ -1702,21 +1717,26 @@ function buildLandingLangs(){
     b.title=lc.name;
     b.onclick=()=>{
       if(lc.id===S.lang) return; // already selected, no-op
-      // BUG FIX (landing RAM leak): unload the previous language before switching,
-      // mirroring what G_switchLang() does in-game. Without this, every language
-      // tapped on the landing screen stays in VOCAB_DATA memory permanently,
-      // which can crash low-end Android devices after visiting 3+ languages.
-      const prevLang=S.lang;
-      Store.unload(prevLang);
+      const switchSeq=++_langSwitchSeq;
+      cancelSessionBuild();
+      _cancelQueuedTTS();
+      TTS.stop();
       S.lang=lc.id;S.cats=new Set();S.pool='all';
       S.catsCleared=false;
       S.modes=[...lc.defaultModes];
       if(lc.id==='japanese') S.romaji=true;
       // BUG-FIX: clear lesson state on landing lang switch (mirrors G_switchLang fix)
       S.lessonGroup=null; S._viewingLessonMap=false; S._lessonAutoStart=false;
-      // BUG-FIX (landing async load): Store.load() is async — without a callback,
-      // updateLandingStats() fired before vocab finished loading, showing 0 words.
-      Store.load(lc.id, () => {
+      // Reset any in-progress session so next Start uses the new language.
+      S.queue=[]; S.qi=0; S.q=null;
+      _showLanguageLoadingState();
+      row.querySelectorAll('.l-lang').forEach(x=>x.classList.remove('sel'));
+      b.classList.add('sel');
+
+      // Ignore a callback from a language the player has already left. Store.load()
+      // performs the same guard before it can replace the active catalogue.
+      Store.load(lc.id, activated => {
+        if(activated===false||switchSeq!==_langSwitchSeq||S.lang!==lc.id)return;
         updateLandingStats();
         updateLangBtn();
         buildLangGrid();
@@ -1725,10 +1745,6 @@ function buildLandingLangs(){
         buildModeBtns();
         _syncRomajiBtn();
       });
-      row.querySelectorAll('.l-lang').forEach(x=>x.classList.remove('sel'));
-      b.classList.add('sel');
-      // Reset any in-progress session so next Start uses the new language
-      S.queue=[]; S.qi=0; S.q=null;
     };
     row.appendChild(b);
   });

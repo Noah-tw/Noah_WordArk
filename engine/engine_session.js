@@ -51,10 +51,27 @@ const S = {
 
 /* ─── ENGINE ──────────────────────────────────────────────── */
 let _sessionTimer=null;
-function startSession(immediate){
-  if(immediate){_doStartSession();return;}
+// Both counters invalidate work that was started for an older UI state. Language
+// switches are asynchronous, and queue construction also yields with setTimeout(0),
+// so either one can otherwise finish late and overwrite the current language's screen.
+let _langSwitchSeq=0;
+let _sessionBuildSeq=0;
+
+function cancelSessionBuild(){
+  _sessionBuildSeq++;
   clearTimeout(_sessionTimer);
-  _sessionTimer=setTimeout(_doStartSession,180);
+  _sessionTimer=null;
+}
+
+function startSession(immediate){
+  const buildSeq=++_sessionBuildSeq;
+  clearTimeout(_sessionTimer);
+  _sessionTimer=null;
+  if(immediate){_doStartSession(buildSeq);return;}
+  _sessionTimer=setTimeout(()=>{
+    _sessionTimer=null;
+    _doStartSession(buildSeq);
+  },180);
 }
 function G_playAgain(){
   S.fromRound=true; // badge should show on the upcoming ready screen
@@ -65,7 +82,8 @@ function G_playAgain(){
   S.score={ok:0,no:0};
   startSession();
 }
-function _doStartSession(){
+function _doStartSession(buildSeq){
+  if(buildSeq!==_sessionBuildSeq)return;
   // If user is viewing lesson map, don't overwrite q-area with ready/empty screen.
   // Lesson map manages q-area itself; startSession() is a no-op while it's open.
   if(S._viewingLessonMap) return;
@@ -81,6 +99,7 @@ function _doStartSession(){
 
   S.introSeen=new Set();
   S.phase='waiting';
+  const buildLang=S.lang;
   const fromRound=S.fromRound; // capture before resetting
   S.fromRound=false;
   const lc=LC[S.lang];
@@ -101,10 +120,11 @@ function _doStartSession(){
   if(!pool.length){toast('No words here. Try "All Words".');showEmpty();return;}
   // Build queue in background, then show ready screen
   setTimeout(()=>{
+    if(buildSeq!==_sessionBuildSeq||S.lang!==buildLang)return;
     S.queue=buildQueue(pool,valid,pool,lc);
     S.qi=0;S.score={ok:0,no:0};
     S.goal=S.queue.length;
-    S.statsSnapshot=Prog.stats(S.lang); // snapshot before round for end-of-round delta
+    S.statsSnapshot=Prog.stats(buildLang); // snapshot before round for end-of-round delta
     if(!S.queue.length){S._lessonAutoStart=false;toast('Enable more question modes.');return;}
     // LESSON AUTO-START: skip ready screen and go straight into the round
     if(S._lessonAutoStart){

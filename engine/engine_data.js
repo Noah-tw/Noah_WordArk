@@ -168,6 +168,27 @@ const Store = (() => {
   // (3 real words → 6). Track in-flight loads so a concurrent call attaches to the same
   // promise instead of starting a second full injection cycle.
   const _loadingPromises = {};
+  // Keep the current and immediately previous catalogue in memory. This makes the
+  // common EN -> another language -> EN path instant without allowing every language
+  // visited during a long session to remain in RAM forever on mobile devices.
+  const MAX_CACHED_LANGUAGES = 2;
+  let _recentLanguages = [];
+
+  function _trimLanguageCache() {
+    const keep = new Set(_recentLanguages.slice(-MAX_CACHED_LANGUAGES));
+    [..._loaded].forEach(loadedId => {
+      if (!keep.has(loadedId) && !_loadingPromises[loadedId]) unload(loadedId);
+    });
+  }
+
+  function _rememberLanguage(langId) {
+    _recentLanguages = _recentLanguages.filter(id => id !== langId);
+    _recentLanguages.push(langId);
+    if (_recentLanguages.length > MAX_CACHED_LANGUAGES)
+      _recentLanguages = _recentLanguages.slice(-MAX_CACHED_LANGUAGES);
+    _trimLanguageCache();
+  }
+
   function loadScript(langId, callback) {
     if (_loaded.has(langId)) { callback(); return; }
     if (_loadingPromises[langId]) { _loadingPromises[langId].then(callback); return; }
@@ -235,6 +256,16 @@ const Store = (() => {
       loadScript(langId, () => load(langId, onReady));
       return [];
     }
+
+    // A slower, older request may finish after the player has already selected a new
+    // language. Never let that stale request replace the one active Store catalogue.
+    // The raw data remains cached, so selecting this language again is still immediate.
+    if (typeof S !== 'undefined' && S.lang !== langId) {
+      _trimLanguageCache();
+      if (typeof onReady === 'function') onReady(false);
+      return [];
+    }
+
     recs = (VOCAB_DATA[langId] || []).map(r => {
       // BUG-FIX #111 (Hebrew Cantillation Marks): database entries sourced from biblical/
       // dictionary APIs often contain invisible Ta'amim (U+0591–U+05AF) embedded in the
@@ -394,7 +425,8 @@ const Store = (() => {
     // BUG-FIX (lang switch stale count): snapshot this language's word count now so
     // Prog.stats(langId) can compute new-word counts correctly after a language switch.
     if(typeof Prog !== 'undefined') Prog.setLangCatalog(langId, recs.map(r=>r.id));
-    if (typeof onReady === 'function') onReady();
+    _rememberLanguage(langId);
+    if (typeof onReady === 'function') onReady(true);
     return recs;
   }
   function getAll()  { return recs; }
@@ -415,13 +447,12 @@ const Store = (() => {
         inProgress: started>0 && mastered<total };
     }).sort((a,b)=>a.group-b.group);
   }
-  // BUG-FIX (lang switch re-load): G_switchLang() deleted VOCAB_DATA[prevLang] to
-  // free RAM but left _loaded stale. On switch-back loadScript() saw _loaded.has()=true
-  // and short-circuited; load() saw VOCAB_DATA=undefined and retried loadScript()
-  // → infinite callback loop, recs always empty, blank game screen.
-  // Fix: expose unload() so G_switchLang keeps _loaded in sync with VOCAB_DATA.
+  // Safe eviction is performed only after a complete load. Never evict the language
+  // being left at click time: its scripts may still be in flight, and deleting its
+  // array mid-load can corrupt later batch pushes. Keep unload() for bounded LRU cleanup.
   function unload(langId) {
     _loaded.delete(langId);
+    _recentLanguages = _recentLanguages.filter(id => id !== langId);
     if (window.VOCAB_DATA) delete window.VOCAB_DATA[langId];
   }
 
@@ -649,10 +680,9 @@ const Prog = (() => {
       // data into localStorage.
       //
       // BUG FIX (cross-device import data loss): this used to validate the "lang:id"
-      // key against Object.keys(VOCAB_DATA) — but VOCAB_DATA only ever holds ONE
-      // language's word list at a time (Store.unload() clears the previous language on
-      // every G_switchLang() call, and only the default language is preloaded on first
-      // paint). So importing a full multi-language export code — the whole point of
+      // key against Object.keys(VOCAB_DATA) — but VOCAB_DATA only holds whichever
+      // catalogues happen to be in the small runtime cache, not every supported language.
+      // So importing a full multi-language export code — the whole point of
       // this feature, e.g. restoring progress on a new device — silently kept only the
       // currently-loaded language and dropped every other language's progress, with no
       // error shown. Fix: validate the LANGUAGE against LC (the static language config,
@@ -714,6 +744,9 @@ const TTS = (() => {
   const SILENT_AUDIO='data:audio/wav;base64,UklGRigAAABXQVZFZm10IBIAAAABAAEARKwAAIhYAQACABAAAABkYXRhAgAAAAEA';
   let isPlaying = false;
   let mediaUnlocked = false;
+  // If iOS rejects the first media unlock, do not leave the whole session stuck on
+  // native speech. The next real user tap can safely re-arm the SAME Audio element.
+  let needsGestureRecovery = false;
   let nativeSpeechPrimed = false;
   let unlockPromise = null;
   let sourceTimer = null;
@@ -749,6 +782,7 @@ const TTS = (() => {
     // This function must be ENTERED directly from a Start/Lesson tap. Everything before
     // the first await therefore runs inside the iOS user-activation window.
     if (mediaUnlocked) {
+      needsGestureRecovery=false;
       _primeNativeSpeechFromGesture();
       return Promise.resolve(true);
     }
@@ -763,7 +797,7 @@ const TTS = (() => {
     player.load();
     let playResult;
     try{playResult=player.play();}
-    catch(e){mediaUnlocked=false;return Promise.resolve(false);}
+    catch(e){mediaUnlocked=false;needsGestureRecovery=true;return Promise.resolve(false);}
     let attempt;
     attempt=new Promise(resolve=>{
       let settled=false;
@@ -771,8 +805,8 @@ const TTS = (() => {
         if(settled)return;
         settled=true;
         clearTimeout(timeout);
-        if(ok)mediaUnlocked=true;
-        else if(token===playToken)mediaUnlocked=false;
+        if(ok){mediaUnlocked=true;needsGestureRecovery=false;}
+        else if(token===playToken){mediaUnlocked=false;needsGestureRecovery=true;}
         if(unlockPromise===attempt)unlockPromise=null;
         resolve(ok);
       };
@@ -781,7 +815,7 @@ const TTS = (() => {
       const timeout=setTimeout(()=>{
         if(token===playToken){try{player.pause();player.currentTime=0;}catch{}}
         finish(false);
-      },800);
+      },1500);
       Promise.resolve(playResult).then(()=>{
         if(token!==playToken){finish(false);return;}
         player.pause();
@@ -797,7 +831,7 @@ const TTS = (() => {
     if (!text) return;
     // Automatic New Word / Listening audio may be scheduled while the Start trigger is
     // still resolving. Queue only the voice request — never the question UI — and play
-    // it as soon as unlock succeeds or reaches its 800ms safety timeout.
+    // it as soon as unlock succeeds or reaches its bounded 1.5s safety timeout.
     if(unlockPromise){
       const token=playToken;
       unlockPromise.finally(()=>{
@@ -826,24 +860,39 @@ const TTS = (() => {
       clean = text.replace(/[!?.]/g, ' ').trim();
     }
 
-    // 2. Build the "Waterfall" of free audio sources
+    // 2. Build the "Waterfall" of free audio sources. This array is rebuilt for EVERY
+    // utterance, so a Google failure applies only to the current word/sentence — the
+    // next TTS.say() always promotes Google back to the first position.
     const sources = [];
 
-    // Source 1: Standard Google Translate
-    sources.push(`https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=${lang}&q=${encodeURIComponent(clean)}`);
+    // Source 1: Standard Google Translate. Give both Google endpoints one quick retry;
+    // 3.5s × 4 keeps the same 14s worst-case Google budget as the old 7s × 2 flow.
+    sources.push({
+      id:'google-primary', isGoogle:true, maxAttempts:2, timeoutMs:3500,
+      url:`https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=${lang}&q=${encodeURIComponent(clean)}`
+    });
 
     // Source 2: Backup Google Server (Bypasses IP blocks)
-    sources.push(`https://translate.googleapis.com/translate_tts?ie=UTF-8&client=gtx&tl=${lang}&q=${encodeURIComponent(clean)}`);
+    sources.push({
+      id:'google-backup', isGoogle:true, maxAttempts:2, timeoutMs:3500,
+      url:`https://translate.googleapis.com/translate_tts?ie=UTF-8&client=gtx&tl=${lang}&q=${encodeURIComponent(clean)}`
+    });
 
     // Source 3: Real Human Dictionary Voice (Only for single English words in IELTS mode)
     if (lang === 'en' && !clean.includes(' ')) {
       const lowerWord = clean.toLowerCase();
-      sources.push(`https://ssl.gstatic.com/dictionary/static/sounds/20200429/${lowerWord}--_gb_1.mp3`); // UK Accent
-      sources.push(`https://ssl.gstatic.com/dictionary/static/sounds/20200429/${lowerWord}--_us_1.mp3`); // US Accent
-      sources.push(`https://api.dictionaryapi.dev/media/pronunciations/en/${lowerWord}-uk.mp3`);        // Backup API
+      // Keep every original rescue source. They are used only after both Google hosts
+      // (including their retry) fail for this particular utterance.
+      sources.push({id:'dictionary-gstatic-gb',maxAttempts:1,timeoutMs:7000,
+        url:`https://ssl.gstatic.com/dictionary/static/sounds/20200429/${lowerWord}--_gb_1.mp3`});
+      sources.push({id:'dictionary-gstatic-us',maxAttempts:1,timeoutMs:7000,
+        url:`https://ssl.gstatic.com/dictionary/static/sounds/20200429/${lowerWord}--_us_1.mp3`});
+      sources.push({id:'dictionary-api-uk',maxAttempts:1,timeoutMs:7000,
+        url:`https://api.dictionaryapi.dev/media/pronunciations/en/${lowerWord}-uk.mp3`});
     }
 
     let currentSourceIndex = 0;
+    let currentSourceAttempt = 0;
 
     // 3. Try URLs one by one until one works, always through the SAME player.
     function tryNextSource() {
@@ -855,21 +904,52 @@ const TTS = (() => {
         return;
       }
 
+      const source=sources[currentSourceIndex];
+      currentSourceAttempt++;
       let settled=false;
-      const failOnce=()=>{
+      const failOnce=(reason='source-error',err=null)=>{
         if(settled||token!==playToken)return;
         settled=true;
         clearTimeout(sourceTimer);
+        sourceTimer=null;
+        TTS._lastFailure={source:source.id,reason,name:err&&err.name||'',at:Date.now()};
+
+        // NotAllowedError is an iOS media-permission failure, not a bad Google URL.
+        // Trying every other <audio> URL would fail for the same reason, so preserve all
+        // rescue sources for real network/decode failures and use the already-primed
+        // native voice for this one utterance. A later real tap will re-arm Google audio.
+        if(reason==='not-allowed'){
+          mediaUnlocked=false;
+          needsGestureRecovery=true;
+          isPlaying=false;
+          _speakWeb(text,lang,rate,token);
+          return;
+        }
+
+        // Google remains primary: retry the same Google host once before moving down the
+        // waterfall. This retry is local to the current utterance and is never sticky.
+        if(source.isGoogle&&currentSourceAttempt<source.maxAttempts){
+          sourceTimer=setTimeout(()=>{
+            sourceTimer=null;
+            tryNextSource();
+          },250);
+          return;
+        }
+
         currentSourceIndex++;
+        currentSourceAttempt=0;
         tryNextSource();
       };
 
       player.onplaying=()=>{
         if(token!==playToken)return;
         clearTimeout(sourceTimer);
+        sourceTimer=null;
         mediaUnlocked=true;
+        needsGestureRecovery=false;
+        TTS._lastSource=source.id;
       };
-      player.src = sources[currentSourceIndex];
+      player.src = source.url;
       player.playbackRate = rate;
       player.load();
 
@@ -884,17 +964,21 @@ const TTS = (() => {
       };
 
       // If this specific URL fails (404 error, or Google block), try the next one instantly
-      player.onerror = failOnce;
+      player.onerror = ()=>failOnce('source-error');
 
       // Play it!
-      sourceTimer=setTimeout(failOnce,7000);
-      const playPromise=player.play();
+      sourceTimer=setTimeout(()=>failOnce('timeout'),source.timeoutMs||7000);
+      let playPromise;
+      try{playPromise=player.play();}
+      catch(err){
+        failOnce(err&&err.name==='NotAllowedError'?'not-allowed':'play-rejected',err);
+        return;
+      }
       if(playPromise&&typeof playPromise.catch==='function')playPromise.catch(err=>{
         // A rejected autoplay attempt means the remembered media permission is no
         // longer usable (common after an interrupted iOS/PWA lifecycle). Do not keep
         // reporting a stale unlocked state on the next real Start tap.
-        if(err&&err.name==='NotAllowedError')mediaUnlocked=false;
-        failOnce();
+        failOnce(err&&err.name==='NotAllowedError'?'not-allowed':'play-rejected',err);
       });
     }
 
@@ -933,6 +1017,7 @@ const TTS = (() => {
     u.lang = LANG_MAP[lang] || 'en-US';
     u.rate = rate;
     webUtterance = u;
+    TTS._lastSource='ios-native';
 
     const doSpeak = () => {
       if(token!==playToken)return;
@@ -988,7 +1073,29 @@ const TTS = (() => {
   function resetIfStuck(){
     if(isPlaying&&TTS._lastPlay&&(Date.now()-TTS._lastPlay)>8000){ stop(); }
   }
-  return { say, stop, unlock, resetIfStuck };
+
+  // Recovery happens after the clicked control's own handler has run. It never waits,
+  // never speaks a word, and never changes question state; it only re-arms the persistent
+  // Audio element when an earlier iOS NotAllowed/initial-unlock failure requested it.
+  function recoverFromGesture(event){
+    if(event&&event.isTrusted===false)return false;
+    if(!needsGestureRecovery||isPlaying||unlockPromise)return false;
+    if(navigator.userActivation&&navigator.userActivation.isActive===false)return false;
+    try{void unlock();return true;}catch(e){return false;}
+  }
+  if(typeof document!=='undefined'&&document.addEventListener){
+    document.addEventListener('click',recoverFromGesture,false);
+  }
+
+  function diagnostics(){
+    return {
+      mediaUnlocked,
+      needsGestureRecovery,
+      lastSource:TTS._lastSource||null,
+      lastFailure:TTS._lastFailure||null
+    };
+  }
+  return { say, stop, unlock, recoverFromGesture, diagnostics, resetIfStuck };
 })();
 
 

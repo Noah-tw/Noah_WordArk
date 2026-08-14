@@ -151,13 +151,12 @@ function G_switchLang(id){
   SFX.click();
   if(id===S.lang){G_closeOv('ov-lang');return;}
 
-  // BUG-FIX (RAM + reload race): Store.unload() removes prevLang from both
-  // VOCAB_DATA AND the internal _loaded Set atomically, preventing the infinite
-  // callback loop that caused a blank game screen on language switch-back.
-  const prevLang = S.lang;
-  Store.unload(prevLang);
+  const switchSeq=++_langSwitchSeq;
+  cancelSessionBuild();
+  _cancelQueuedTTS();
+  TTS.stop();
 
-  S.lang=id;S.cats=new Set();S.pool='all';
+  S.lang=id;S.cats=new Set();S.catsCleared=false;S.pool='all';
   // Always use the new language's full default modes — prevents blank screen
   S.modes=[...LC[id].defaultModes];
   // Reset romaji to ON whenever switching to Japanese
@@ -171,7 +170,8 @@ function G_switchLang(id){
   const area=eid('q-area');
   if(area) area.innerHTML='<div style="text-align:center;padding-top:60px;color:#A0A6BF;font-weight:700;font-size:1.1em;">Loading vocabulary… 📚</div>';
 
-  updateLangBtn();updateCatBtn();updatePoolBtn();
+  updateLangBtn();
+  _showLanguageLoadingState();
   buildModeBtns();buildLangGrid();
   _syncRomajiBtn();
   // BUG-FIX: updateLandingStats() was called here (before Store.load() callback),
@@ -181,7 +181,9 @@ function G_switchLang(id){
   // BUG-FIX (race condition): Store.load() is async — vocab file may not yet be parsed
   // when startSession() was called on the next line. Pass onReady callback so
   // startSession() only fires after the full vocab array is loaded and processed.
-  Store.load(id, () => {
+  Store.load(id, activated => {
+    if(activated===false||switchSeq!==_langSwitchSeq||S.lang!==id)return;
+    updateCatBtn();updatePoolBtn();
     updateLandingStats();
     G_tab('play');
     startSession(true);
