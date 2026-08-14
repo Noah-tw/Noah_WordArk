@@ -2080,3 +2080,80 @@ rt {
   0% { opacity: 1; transform: translate(-50%,-50%) scale(.3); }
   100% { opacity: 0; transform: translate(var(--dx),var(--dy)) scale(1) rotate(var(--rot)); }
 }
+
+/* ═══════════════════════════════════════════════════════════
+   iPhone / narrow-phone readability pass
+   Typography only: no dimensions, positioning, overflow, or game logic changes.
+   The primary word and question sizes were already large, so they stay untouched.
+═══════════════════════════════════════════════════════════ */
+@media (max-width:430px){
+  /* Landing */
+  .l-byline,.l-lang-label,.l-lang-code,.l-sl{font-size:.8rem;}
+  .l-sub{font-size:.88rem;}
+  .l-mchip{font-size:.84rem;}
+  .l-cat-btn{font-size:.94rem;}
+  .l-prog-label{font-size:.78rem;}
+
+  /* Game navigation and session status */
+  .g-tab,.btn-filter{font-size:.9rem;}
+  .prog-mini-stat{font-size:.84rem;}
+  .filter-word-count,.gs-frac,.gs-end{font-size:.8rem;}
+
+  /* Ready screen */
+  .ready-topic-label{font-size:.8rem;}
+  .ready-pill{font-size:.75rem;}
+  .ready-question-count{font-size:.86rem;}
+
+  /* Question cards and playable answers */
+  .wc-badge{font-size:.76rem;}
+  .wc-romaji,.q-prompt{font-size:.8rem;}
+  .wc-pron{font-size:.94rem;}
+  .wc-hint{font-size:1rem;}
+  .wc-sent-toggle{font-size:.86rem;}
+  .wc-sent-reading,.wc-sent-en{font-size:.94rem;}
+  .mc-opt{font-size:1rem;}
+  .mc-opt .mc-t{font-size:clamp(.9rem,4vw,1.05rem);}
+  .mc-sub,.blank-trans{font-size:.9rem;}
+  .listen-big-label{font-size:.88rem;}
+  .tile{font-size:1rem;}
+  .tile-trans{font-size:.92rem;}
+  .ct-meaning{font-size:.86rem;}
+  .ct-hint-btn{font-size:.9rem;}
+  .mbtn.meaning{font-size:.96rem;}
+  .tip-toggle,.tip-body{font-size:.95rem;}
+  .r-tip-wrap{font-size:.94rem;}
+
+  /* Results, review, filters, and settings */
+  .ccs-l{font-size:.75rem;}
+  /* Five review/filter tabs already use nearly all available width; keep their
+     compact label size so "Practice" / "Mastered" cannot collide. */
+  .r-cat{font-size:.88rem;}
+  .r-meaning{font-size:.96rem;}
+  .r-hint{font-size:.88rem;}
+  .r-zh{font-size:.94rem;}
+  .lc-n{font-size:.9rem;}
+  .fs-section-label,.cat-topic-label,.ss-lbl{font-size:.78rem;}
+  .cat-action-label{font-size:.78rem;}
+  .btn-cat-select-all,.btn-cat-clear-all{font-size:.82rem;}
+  .cat-item-name{font-size:.86rem;}
+  .cat-item-count{font-size:.78rem;}
+  .mode-btn,.xp-btn{font-size:.92rem;}
+
+  /* Intro, IELTS detail, and interstitial cards */
+  .ielts-pos{font-size:.75rem;}
+  .ielts-ipa{font-size:.85rem;}
+  .ielts-def-toggle{font-size:.88rem;}
+  .ielts-def-text{font-size:.92rem;}
+  .ielts-meaning-pill,.ielts-zh-def{font-size:.86rem;}
+  .intro-badge{font-size:.82rem;}
+  .intro-sent{font-size:1rem;}
+  .intro-dict-zh-inline{font-size:.94rem;}
+  .intro-dict-def{font-size:.9rem;}
+  .intro-dict-zh-def{font-size:.92rem;}
+  .intro-tip{font-size:.95rem;}
+  .intro-sent-next{font-size:.88rem;}
+  .intro-sent-en{font-size:.95rem;}
+  .ic-eyebrow{font-size:.8rem;}
+  .ic-translit{font-size:.85rem;}
+  .ic-zh{font-size:.92rem;}
+}
