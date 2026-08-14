@@ -1,0 +1,52 @@
+/* word_forms_it.js — italian per-word variant dictionary (engine's answer key).
+   Double layer alongside each word's own forms[] field — either alone is enough.
+   Loaded lazily alongside this language's vocab data, not on every page load. */
+window.WordForms = window.WordForms || {};
+Object.assign(window.WordForms, {
+  it_0012: ["buona", "buon"],
+  it_0013: ["cattiva", "cattive"],
+  it_0018: ["tua"],
+  it_0019: ["nomi"],
+  it_0027: ["vuoi", "voglio"],
+  it_0028: ["bisogno"],
+  it_0029: ["pensando"],
+  it_0030: ["posso"],
+  it_0032: ["mangiato"],
+  it_0033: ["bevi", "bevo"],
+  it_0034: ["pipì"],
+  it_0035: ["cacca"],
+  it_0036: ["dormito"],
+  it_0038: ["calda"],
+  it_0043: ["quell'"],
+  it_0044: ["queste"],
+  it_0045: ["quelle"],
+  it_0046: ["una"],
+  it_0050: ["uova"],
+
+  it_0067: ["minima"],
+  it_0072: ["sorridi", "sorridono", "sorridete"],
+  it_0074: ["pianto"],
+  it_0079: ["sarò", "eri"],
+  it_0080: ["dov'"],
+  it_0083: ["dovrei", "dovresti", "dovremmo"],
+  it_0084: ["vederci", "vediamoci", "vedo"],
+
+  it_0061: ["risparmiando", "risparmiato"],
+
+  it_0112: ["vedi", "vedo"],
+  it_0113: ["occhi"],
+  it_0115: ["senti", "sentito", "sento"],
+  it_0116: ["orecchie"],
+  it_0118: ["nitida"],
+  it_0119: ["sento", "senti", "sentito"],
+  it_0135: ["sederci", "sedermi", "sederti"],
+  it_0137: ["sentito", "sento"],
+  it_0138: ["stanca"],
+  it_0139: ["riposarmi", "riposarci"],
+  it_0140: ["sonno"],
+  it_0143: ["toccarlo", "toccato"],
+  it_0147: ["con la mano"],
+  it_0148: ["applaudendo", "applaudito"],
+  it_0149: ["la mano"],
+  it_0150: ["scosso"],
+});

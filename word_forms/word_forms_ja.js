@@ -1,0 +1,51 @@
+/* word_forms_ja.js — japanese per-word variant dictionary (engine's answer key).
+   Double layer alongside each word's own forms[] field — either alone is enough.
+   Loaded lazily alongside this language's vocab data, not on every page load. */
+window.WordForms = window.WordForms || {};
+Object.assign(window.WordForms, {
+  ja_0029: ["考えさせて", "考えて"],
+  ja_0032: ["食べて", "食べました"],
+  ja_0033: ["飲み", "飲めません"],
+  ja_0034: ["おしっこ"],
+  ja_0035: ["うんち"],
+  ja_0036: ["寝られません", "寝ました"],
+  ja_0038: ["熱すぎ"],
+  ja_0039: ["寒く"],
+
+  ja_0061: ["貯め"],
+  ja_0069: ["すぎ"],
+  ja_0073: ["悲し"],
+  ja_0074: ["泣き"],
+  ja_0075: ["怒っ"],
+  ja_0076: ["空い"],
+  ja_0077: ["渇"],
+  ja_0079: ["います", "いました"],
+  ja_0081: ["来"],
+  ja_0083: ["たほうがいい"],
+  ja_0084: ["会"],
+  ja_0099: ["行"],
+
+  ja_0112: ["見え"],
+  ja_0115: ["聞こえ"],
+  ja_0121: ["詰まっ"],
+  ja_0123: ["強"],
+  ja_0124: ["軽"],
+  ja_0127: ["辛"],
+  ja_0128: ["酸っぱ"],
+  ja_0130: ["しょっぱ"],
+  ja_0133: ["立"],
+  ja_0135: ["座"],
+  ja_0137: ["感じ"],
+  ja_0138: ["疲れて"],
+  ja_0139: ["休"],
+  ja_0140: ["眠く"],
+  ja_0141: ["あくび"],
+  ja_0142: ["忙し"],
+  ja_0143: ["触"],
+  ja_0147: ["手を振"],
+  ja_0148: ["拍手"],
+  ja_0149: ["握手"],
+  ja_0150: ["振"],
+
+  ja_0119: ["匂いが"],
+});

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- CACHE VERSION:
+     During active refinement (hundreds of saves), set CACHE_DEV_MODE = true below —
+     every script load then gets tagged with the current timestamp automatically, so
+     every visit force-refetches everything and you never touch this again. This is
+     also just the engine's original built-in behavior: engine_data.js already falls
+     back to Date.now() whenever window.APP_VERSION is unset — CACHE_DEV_MODE simply
+     keeps that fallback active on purpose instead of overriding it with a fixed string.
+
+     Once you're done refining and ready for a real release where you WANT returning
+     players' phones to cache files between visits (skip re-downloading everything on
+     every open), flip CACHE_DEV_MODE = false and bump RELEASE_VERSION by hand each
+     time you ship an actual update after that point. -->
+<script>
+  const CACHE_DEV_MODE = false;     // release: allow browser/PWA caching
+  const RELEASE_VERSION = '30-official-mascot-asset'; // bump for every public release
+  window.APP_VERSION = CACHE_DEV_MODE ? Date.now() : RELEASE_VERSION;
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="WordArk">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#58CC02">
+<!-- Safe area insets for iPhone notch / Dynamic Island / home indicator -->
+<style>
+  :root {
+    --sat: env(safe-area-inset-top, 0px);
+    --sab: env(safe-area-inset-bottom, 0px);
+    --sal: env(safe-area-inset-left, 0px);
+    --sar: env(safe-area-inset-right, 0px);
+  }
+  body {
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+</style>
+<title>Noah's WordArk</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Outfit:wght@700;800;900&family=Rubik:wght@500;700;900&family=Playfair+Display:wght@700;900&family=DM+Mono:wght@500&family=Noto+Sans+Hebrew:wght@500;700;900&display=swap" rel="stylesheet">
+<script>document.write('<link rel="stylesheet" href="styles.css?v='+encodeURIComponent(window.APP_VERSION)+'">');</script>
+<noscript><link rel="stylesheet" href="styles.css"></noscript>
+</head>
+<body>
+
+<!-- ====================================================  LANDING  ==================================================== -->
+<div id="scr-landing" class="screen">
+<div class="l-inner">
+  <!-- Hero -->
+  <div class="l-hero">
+    <div class="l-owl-wrap"><div class="l-owl">🦜</div></div>
+    <div class="l-title">Noah's <em>WordArk</em></div>
+    <div class="l-byline">crafted by <span class="l-byline-emphasis">Noah</span></div>
+    <div class="l-sub">Learn languages by playing</div>
+  </div>
+
+  <!-- Language picker -->
+  <div class="l-lang-section">
+    <span class="l-lang-label">Language</span>
+    <div class="l-langs" id="l-lang-row"></div>
+  </div>
+
+  <!-- Progress stats -->
+  <div class="l-stats">
+    <div class="l-stat"><div class="l-sv" id="l-total">0</div><div class="l-sl">Words</div></div>
+    <div class="l-stat"><div class="l-sv" id="l-mastered">0</div><div class="l-sl">Mastered</div></div>
+  </div>
+
+  <!-- Progress bar -->
+  <div class="l-prog">
+    <div class="l-prog-label"><span>Progress</span><span id="l-pct">0%</span></div>
+    <div class="prog-track"><div class="prog-fill" id="l-pfill" style="width:0%"></div></div>
+  </div>
+
+  <!-- CTA -->
+  <button class="btn-go" id="btn-go">Start 🚀</button>
+  <button class="btn-ghost" onclick="G_openOv('ov-settings')">⚙️ Settings &amp; Export/Import</button>
+</div><!-- /l-inner -->
+</div>
+
+<!-- ====================================================  GAME SCREEN  ==================================================== -->
+<div id="scr-game" class="screen hidden">
+
+  <!-- Header: notch-safe -->
+  <div class="g-header">
+    <button class="btn-cfg" onclick="G_goHome()" title="Home">←</button>
+    <div class="g-tabs">
+      <button class="g-tab on" data-t="play"   onclick="G_tab('play')">Game</button>
+      <button class="g-tab"    data-t="review" onclick="G_tab('review')">Review</button>
+    </div>
+    <button class="btn-cfg" onclick="G_openOv('ov-modes')" title="Question modes">🎮</button>
+    <button class="btn-lang-sw" id="cur-lang" onclick="G_openOv('ov-lang')">
+      <span class="blsw-flag">🇫🇮</span>
+      <span class="blsw-code">FI</span>
+    </button>
+  </div>
+
+  <!-- Sub-bar: swaps between game filter and review status+topic -->
+  <div class="g-subbar" id="g-subbar">
+    <!-- GAME mode -->
+    <div id="subbar-game" style="display:contents">
+      <button class="btn-filter" id="filter-btn" onclick="G_openOv('ov-cats')">
+        <span class="btn-filter-label" id="filter-btn-label">📂 All</span>
+        <span class="filter-word-count" id="filter-word-count"></span>
+        <span class="btn-filter-arrow">▾</span>
+      </button>
+      <button class="romaji-toggle-btn" id="btn-romaji-toggle" onclick="G_toggleRomaji()" style="display:none" title="Toggle romaji">
+        <div class="romaji-track"><div class="romaji-thumb" style="left:14px"></div></div>
+        <span>Rōmaji</span>
+      </button>
+    </div>
+    <!-- REVIEW mode: status tabs + topic bar, stacked in same parent -->
+    <div id="subbar-review" style="display:none;flex-direction:column;width:100%;gap:0;">
+      <div class="rev-tabs" id="rev-tabs-row" style="padding:7px 14px;gap:8px;border-bottom:none;">
+        <button class="rev-tab on" data-f="all"        onclick="G_revFilter('all')">       <span>📚</span>All</button>
+        <button class="rev-tab"    data-f="new"        onclick="G_revFilter('new')">       <span>✨</span>New</button>
+        <button class="rev-tab"    data-f="unfamiliar" onclick="G_revFilter('unfamiliar')"><span>🔁</span>Practice</button>
+        <button class="rev-tab"    data-f="mastered"   onclick="G_revFilter('mastered')">  <span>🏆</span>Mastered</button>
+        <button class="rev-tab"    data-f="favorite"   onclick="G_revFilter('favorite')">  <span>❤️</span>Fav</button>
+      </div>
+      <div style="padding:0 14px 7px;background:var(--card);">
+        <button class="btn-filter" id="rev-topic-btn" onclick="G_openOv('ov-topic')" style="width:100%;box-sizing:border-box;">
+          <span class="btn-filter-label" id="rev-topic-label">📂 All topics</span>
+          <span class="btn-filter-arrow">▾</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PLAY PANEL -->
+  <div class="g-panel on" id="panel-play">
+    <!-- Game strip — shown only while playing, hidden on ready screen -->
+    <div id="game-strip" style="display:none">
+      <div class="gs-bar-wrap"><div class="gs-bar-fill" id="gs-bar-fill"></div></div>
+      <span class="gs-frac" id="gs-frac"></span>
+      <button class="gs-end" onclick="G_endRound()">✕ End</button>
+    </div>
+    <div id="q-area"></div>
+  </div>
+
+  <!-- REVIEW PANEL -->
+  <div class="g-panel" id="panel-review">
+    <div id="rev-list"></div>
+  </div>
+
+  <!-- Bottom bar -->
+  <div id="bot-bar">
+    <button class="btn-skip" id="btn-skip" onclick="G_skip()">Skip</button>
+    <button class="btn-hint" id="btn-hint" onclick="G_hint()">💡</button>
+    <button class="btn-next" id="btn-next" onclick="G_next()">Next →</button>
+  </div>
+</div>
+
+<!-- ====================================================  OVERLAYS  ==================================================== -->
+
+<!-- Language -->
+<div class="ov" id="ov-lang" onclick="if(event.target===this)G_closeOv('ov-lang')">
+  <div class="sheet">
+    <div class="sh-handle"></div>
+    <div class="sh-title">🌐 Choose Language</div>
+    <div id="lang-grid"></div>
+    <button class="btn-close" onclick="G_closeOv('ov-lang')">Close</button>
+    <button class="btn-ghost" onclick="G_closeOv('ov-lang');G_openOv('ov-settings')" style="margin-top:4px;">⚙️ Settings &amp; Export/Import</button>
+  </div>
+</div>
+
+<!-- Filter sheet: pool tabs pinned top, topic panel below -->
+<div class="ov" id="ov-cats" onclick="if(event.target===this)G_closeOv('ov-cats')">
+  <div class="cat-sheet-outer">
+    <!-- Pinned top: handle + pool tabs -->
+    <div class="cat-sheet-top">
+      <div class="sh-handle"></div>
+      <span class="fs-section-label" style="margin:0 0 8px;">Words to practice</span>
+      <div class="fs-pool-row pool-tabs-all" id="fs-pool-row">
+        <button class="fs-pool-chip sel" data-p="all"         onclick="G_setPool('all')">        <span class="fs-pool-chip-icon">📚</span>All</button>
+        <button class="fs-pool-chip"    data-p="new"         onclick="G_setPool('new')">        <span class="fs-pool-chip-icon">✨</span>New</button>
+        <button class="fs-pool-chip"    data-p="unfamiliar"  onclick="G_setPool('unfamiliar')"> <span class="fs-pool-chip-icon">🔁</span>Practice</button>
+        <button class="fs-pool-chip"    data-p="mastered"    onclick="G_setPool('mastered')">   <span class="fs-pool-chip-icon">🏆</span>Mastered</button>
+        <button class="fs-pool-chip"    data-p="favorite"    onclick="G_setPool('favorite')">   <span class="fs-pool-chip-icon">❤️</span>Fav</button>
+      </div>
+    </div>
+    <!-- Scrollable category grid inside coloured panel -->
+    <div class="cat-scroll">
+      <!-- Bridge inside cat-scroll so it shares the same margin/width as the panel -->
+      <div class="cat-panel-bridge" id="cat-panel-bridge"></div>
+      <div class="cat-panel panel-all" id="cat-panel">
+        <div class="cat-panel-inner">
+          <div class="cat-action-row">
+            <span class="cat-action-label">Topics</span>
+            <button class="btn-cat-select-all" id="btn-cat-select-all" onclick="G_selectAllCats()">☐ Select All</button>
+            <button class="btn-cat-clear-all" id="btn-cat-clear-all" onclick="G_clearAllCats()">✕ Clear</button>
+          </div>
+          <div class="cat-list" id="cat-list"></div>
+        </div>
+      </div>
+    </div>
+    <!-- Pinned bottom -->
+    <div class="cat-sheet-bottom">
+      <button class="btn-close" id="cats-done-btn" onclick="G_closeOv('ov-cats')">Done</button>
+    </div>
+  </div>
+</div>
+
+<!-- Question modes — dedicated sheet -->
+<div class="ov" id="ov-modes" onclick="if(event.target===this)G_closeOv('ov-modes')">
+  <div class="sheet">
+    <div class="sh-handle"></div>
+    <div class="sh-title">🎮 Question Types</div>
+    <div id="mode-btns"></div>
+    <button class="btn-close" onclick="G_closeOv('ov-modes')" style="margin-top:8px;">Done</button>
+  </div>
+</div>
+
+<!-- Settings -->
+<div class="ov" id="ov-settings" onclick="if(event.target===this)G_closeOv('ov-settings')">
+  <div class="sheet">
+    <div class="sh-handle"></div>
+    <div class="sh-title">⚙️ Settings</div>
+    <span class="ss-lbl">Export / Import Progress</span>
+    <p class="xp-note">Tap <b>Copy Code</b> to save your progress. Paste it on another device and tap <b>Import</b>.</p>
+    <textarea class="xp-area" id="xp-box" placeholder="Paste your progress code here…" rows="3" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
+    <div class="xp-row">
+      <button class="xp-btn p" onclick="G_exportProgress()">📋 Copy Code</button>
+      <button class="xp-btn s" onclick="G_importProgress()">📥 Import</button>
+    </div>
+    <span class="ss-lbl">Danger Zone</span>
+    <button class="btn-danger" onclick="G_closeOv('ov-settings');G_openOv('ov-reset')">Reset All Progress</button>
+    <button class="btn-close" onclick="G_closeOv('ov-settings')">Close</button>
+  </div>
+</div>
+
+<!-- Reset -->
+<div class="ov" id="ov-reset">
+  <div class="m-sheet">
+    <h3>Reset Progress?</h3>
+    <p>All your mastered words and history will be permanently deleted.</p>
+    <div class="m-btns">
+      <button class="m-btn c" onclick="G_closeOv('ov-reset')">Cancel</button>
+      <button class="m-btn d" onclick="G_doReset()">Reset</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<!-- Topic picker for Review mode -->
+<div class="ov" id="ov-topic" onclick="if(event.target===this)G_closeOv('ov-topic')">
+  <div class="cat-sheet-outer">
+    <div class="cat-sheet-top">
+      <div class="sh-handle"></div>
+      <span class="fs-section-label" style="margin:0 0 8px;">Topic — tap to focus</span>
+    </div>
+    <div class="cat-scroll">
+      <div class="cat-list" id="rev-cat-list"></div>
+    </div>
+    <div class="cat-sheet-bottom">
+      <button class="btn-close" onclick="G_closeOv('ov-topic')">Done</button>
+    </div>
+  </div>
+</div>
+
+<!-- vocab files are loaded on demand by Store.load() in engine_data.js -->
+<!-- bootstrap: pre-load the default language (finnish) so first paint is instant -->
+<!-- fi_001.js 等小檔案由 engine_data.js 自動載入，不需要手動加 <script> -->
+<!-- lang_rules_core.js: shared matcher + per-language registry — small, always needed.
+     Per-language rules (lang_rules_<code>.js) and the per-word answer key
+     (word_forms_<code>.js) now load lazily alongside that language's vocab data,
+     inside loadScript() in engine_data.js — not on every page load. -->
+<script>window.WordForms = window.WordForms || {};</script>
+<script>document.write('<script src="lang_rules/lang_rules_core.js?v='+window.APP_VERSION+'"></'+'script>');</script>
+<script>document.write('<script src="engine/engine_data.js?v='+window.APP_VERSION+'"></'+'script>');</script>
+<script>document.write('<script src="engine/engine_modes.js?v='+window.APP_VERSION+'"></'+'script>');</script>
+<script>document.write('<script src="engine/engine_session.js?v='+window.APP_VERSION+'"></'+'script>');</script>
+<!-- Interstitial tip cards (tips/tips_<lang>.js) now load lazily alongside that
+     language's vocab data — same reasoning as lang_rules/word_forms above.
+     They used to all load upfront here (8 files, ~150KB each = ~1.2MB every visit,
+     regardless of which language you're actually practicing). Now only the
+     current language's tips load, inside loadScript() in engine_data.js. -->
+<script>document.write('<script src="engine/engine_render.js?v='+window.APP_VERSION+'"></'+'script>');</script>
+<script>document.write('<script src="engine/engine_mascot_base_actions_only_v7.js?v='+window.APP_VERSION+'"></'+'script>');</script>
+<script>document.write('<script src="engine/engine_actions.js?v='+window.APP_VERSION+'"></'+'script>');</script>
+<script>
+  // ⚠️ 上線前把這裡改成 false
+  const DEV_MODE = false;
+  if(DEV_MODE) {
+  const _validators = {
+    'lang_rules/validator_core.js': true,
+    'lang_rules/validator_finnish.js': true, 'lang_rules/validator_french.js': true,
+    'lang_rules/validator_spanish.js': true, 'lang_rules/validator_italian.js': true,
+    'lang_rules/validator_hebrew.js': true, 'lang_rules/validator_japanese.js': true,
+    'lang_rules/validator_english_ielts.js': true,
+  };
+  Object.keys(_validators).forEach(f => document.write('<script src="'+f+'?v='+window.APP_VERSION+'"></'+'script>'));
+}
+</script>
+<script>
+(function(){
+  function patchTab(){
+    var orig=window.G_tab;
+    if(!orig){setTimeout(patchTab,50);return;}
+    window.G_tab=function(t){
+      orig(t);
+      var sr=document.getElementById("subbar-review");
+      var gsub=document.getElementById("g-subbar");
+      if(sr&&gsub){
+        if(t==="review"){sr.style.display="flex";gsub.classList.add("review-mode");}
+        else{sr.style.display="none";gsub.classList.remove("review-mode");}
+      }
+    };
+  }
+  patchTab();
+})();
+</script>
+</body>
+</html>
