@@ -325,14 +325,14 @@ function G_doReset(){SFX.click();Prog.reset();S.introSeen=new Set();S.lessonGrou
 
 
 /* ─── INTERSTITIAL ACTIONS ───────────────────────────────── */
-async function G_continueFromInterstitial(){
+function G_continueFromInterstitial(){
   SFX.click();
   _cancelQueuedTTS();       // BUG-FIX: if tapped inside the 550ms auto-pronounce delay,
   TTS.stop();               // the pending timer would otherwise fire late and speak the
                              // old idiom over the next (already-rendered) question.
-  // Usually this resolves immediately. If iOS revoked media permission after the PWA
-  // was backgrounded, this same Continue tap silently restores it before the next card.
-  try{await TTS.unlock();}catch(e){}
+  // Re-prime from this real tap if iOS revoked audio permission, but NEVER wait for it:
+  // the question UI must continue even if Safari leaves play() pending.
+  try{void TTS.unlock();}catch(e){}
   // Restore bot-bar and game-strip, then render the queued question
   const bb=eid('bot-bar'); if(bb) bb.style.display='flex';
   const strip=eid('game-strip');
@@ -359,7 +359,7 @@ function G_closeLessonMap(){
   const sb=eid('g-subbar'); if(sb) sb.style.display='';
   startSession();
 }
-async function G_startLesson(groupNum){
+function G_startLesson(groupNum){
   SFX.click();
   S.lessonGroup=groupNum;
   S._viewingLessonMap=false; // BUG-FIX: clear map view flag before startSession fires
@@ -372,7 +372,7 @@ async function G_startLesson(groupNum){
   // G_tab() intentionally stops old audio, so it MUST run before unlock(). The previous
   // order started the iOS unlock and immediately cancelled it with G_tab()->TTS.stop().
   G_tab('play');
-  try{await TTS.unlock();}catch(e){}
+  try{void TTS.unlock();}catch(e){}
   startSession(true);
 }
 function buildLessonMap(){
@@ -442,7 +442,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     updateLangBtn();updateCatBtn();updatePoolBtn();_updateFilterBtn();updateLandingStats();
     _syncRomajiBtn();
   });
-  eid('btn-go').onclick=async()=>{
+  eid('btn-go').onclick=()=>{
     SFX.click();
     eid('scr-landing').classList.add('hidden');
     eid('scr-game').classList.remove('hidden');
@@ -451,10 +451,6 @@ document.addEventListener('DOMContentLoaded',()=>{
     // via btn-go would show review's leftover DOM/CSS state for the OLD language until
     // the user manually clicked a tab. Starting a session should always land on Play.
     G_tab('play');
-    // Prime iPhone TTS on the earliest reliable user gesture. The round's Start button
-    // repeats this check, but normally returns immediately because this player is now
-    // already authorised for automatic New Word / Listening audio.
-    try{await TTS.unlock();}catch(e){}
     startSession(true);
   };
 });

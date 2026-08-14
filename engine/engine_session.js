@@ -52,8 +52,6 @@ const S = {
 /* ─── ENGINE ──────────────────────────────────────────────── */
 let _sessionTimer=null;
 function startSession(immediate){
-  _cancelQueuedTTS();
-  try{TTS.stop();}catch(e){}
   if(immediate){_doStartSession();return;}
   clearTimeout(_sessionTimer);
   _sessionTimer=setTimeout(_doStartSession,180);
@@ -226,10 +224,11 @@ function showReadyScreen(pool, fromRound=false){
 </div>`;
 }
 
-async function G_startRound(){
+function G_startRound(){
   // Unlock the SAME persistent Google-TTS player used by all later automatic audio.
-  // The player only taps Start once; New Word and Listening can then auto-play.
-  try{await TTS.unlock();}catch(e){}
+  // IMPORTANT: never await this on iPhone. Safari can leave play() pending, but the
+  // question UI must load immediately. loadQ(true) preserves this in-flight unlock.
+  try{void TTS.unlock();}catch(e){}
   // BUG-FIX: coin button = Random mode. Clear lesson lock so pool is unrestricted.
   S.lessonGroup=null;
   SFX.pop();
@@ -237,7 +236,7 @@ async function G_startRound(){
   const strip=eid('game-strip');
   if(strip)strip.style.display='flex';
   _updateGameStrip();
-  loadQ();
+  loadQ(true);
 }
 
 function _updateGameStrip(){
@@ -290,12 +289,12 @@ function G_endRound(){
   const bh=eid('btn-hint');if(bh)bh.style.display='none';
 }
 
-function loadQ(){
+function loadQ(preserveTTSUnlock=false){
   // Stop BOTH an already-playing clip and a delayed clip that has not fired yet.
   // Without this, an old 300/500ms timer can wake up on the next card and cancel its
   // iPhone playback — especially when the next mode is matching/sentenceTiles.
   _cancelQueuedTTS();
-  TTS.stop();
+  if(!preserveTTSUnlock)TTS.stop();
   if(S.qi>=S.queue.length){showComplete();return;}
   const q=S.queue[S.qi];
   S.q=q; S.phase='waiting';

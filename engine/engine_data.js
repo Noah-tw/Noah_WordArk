@@ -761,28 +761,50 @@ const TTS = (() => {
     player.playbackRate=1;
     player.volume=1;
     player.load();
+    let playResult;
+    try{playResult=player.play();}
+    catch(e){mediaUnlocked=false;return Promise.resolve(false);}
     let attempt;
-    attempt=(async()=>{
-      try {
-        await player.play();
-        if(token!==playToken)return false;
+    attempt=new Promise(resolve=>{
+      let settled=false;
+      const finish=ok=>{
+        if(settled)return;
+        settled=true;
+        clearTimeout(timeout);
+        if(ok)mediaUnlocked=true;
+        else if(token===playToken)mediaUnlocked=false;
+        if(unlockPromise===attempt)unlockPromise=null;
+        resolve(ok);
+      };
+      // A media play Promise is allowed to remain pending by browser implementations.
+      // Cap the trigger attempt so it can never hold any later TTS request indefinitely.
+      const timeout=setTimeout(()=>{
+        if(token===playToken){try{player.pause();player.currentTime=0;}catch{}}
+        finish(false);
+      },800);
+      Promise.resolve(playResult).then(()=>{
+        if(token!==playToken){finish(false);return;}
         player.pause();
         try{player.currentTime=0;}catch{}
-        mediaUnlocked=true;
-        return true;
-      } catch(e) {
-        mediaUnlocked=false;
-        return false;
-      } finally {
-        if(unlockPromise===attempt)unlockPromise=null;
-      }
-    })();
+        finish(true);
+      }).catch(()=>finish(false));
+    });
     unlockPromise=attempt;
     return attempt;
   }
 
   function say(text, lang, rate = 0.9) {
     if (!text) return;
+    // Automatic New Word / Listening audio may be scheduled while the Start trigger is
+    // still resolving. Queue only the voice request — never the question UI — and play
+    // it as soon as unlock succeeds or reaches its 800ms safety timeout.
+    if(unlockPromise){
+      const token=playToken;
+      unlockPromise.finally(()=>{
+        if(token===playToken)say(text,lang,rate);
+      });
+      return;
+    }
     text = text.replace(/\|/g, ' '); // strip pipe-phrase separators before speaking
     // A manual replay or a new question must interrupt a stalled/older request rather
     // than being swallowed forever by an isPlaying guard.
