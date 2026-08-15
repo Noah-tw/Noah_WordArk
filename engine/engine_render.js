@@ -199,8 +199,10 @@ function G_introDone(){
   renderQ(q);
   // Only auto-play for listening modes, where the audio IS the question stimulus
   // and must play again now that the question card is visible.
+  // BUG-FIX (silent auto-play): call synchronously, inside this "Got it" tap, instead
+  // of via setTimeout — see matching fix + comment in engine_session.js loadQ().
   if(q.tts && (q.mode==='listeningWord'||q.mode==='listeningSentence')){
-    _scheduleQueuedTTS(()=>TTS.say(q.tts,LC[S.lang].ttsLang,0.85),500);
+    TTS.say(q.tts,LC[S.lang].ttsLang,0.85);
   }
 }
 

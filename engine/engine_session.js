@@ -359,9 +359,16 @@ function loadQ(preserveTTSUnlock=false){
     // or doubled audio. Only auto-play for listening modes where audio IS the question.
     const isListeningMode = q.mode==='listeningWord' || q.mode==='listeningSentence';
     const isSentenceTiles = q.mode==='sentenceTiles';
-    if(!isSentenceTiles){
-      const delay = isListeningMode ? 500 : 300;
-      _scheduleQueuedTTS(()=>TTS.say(q.tts,LC[S.lang].ttsLang,0.85),delay);
+    if(isListeningMode){
+      // BUG-FIX (silent auto-play): fire synchronously, inside the same tap that
+      // triggered loadQ() (Next/Start/Got it). iOS Safari's native speechSynthesis
+      // fallback requires a LIVE user gesture — a setTimeout callback runs outside
+      // that window, so once Google fails and it drops to native voice, the
+      // scheduled auto-play went silent and only a manual 🔊 tap (a real gesture)
+      // could produce sound. Calling say() here keeps it inside the live gesture.
+      TTS.say(q.tts,LC[S.lang].ttsLang,0.85);
+    } else if(!isSentenceTiles){
+      _scheduleQueuedTTS(()=>TTS.say(q.tts,LC[S.lang].ttsLang,0.85),300);
     }
   }
 }
