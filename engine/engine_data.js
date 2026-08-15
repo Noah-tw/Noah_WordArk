@@ -732,13 +732,22 @@ const Prog = (() => {
 
 /* ─── TTS ─────────────────────────────────────────────────── */
 const TTS = (() => {
-  // iOS grants autoplay permission per media element. Keep ONE Audio instance for the
-  // whole app: the Start tap unlocks this exact player, and later New Word / Listening
-  // questions can reuse it without asking the player to tap a speaker every time.
-  // Do not replace it merely because mobile buffering is slower than a desktop: the old
-  // standalone games let Google's request keep loading and proved that path works here.
-  // Native speechSynthesis has its OWN iOS gesture gate, so unlock it separately during
-  // the same Start tap. Unlocking HTMLAudio alone does not unlock speechSynthesis.
+  // FIX (v38): every word/sentence now plays through its OWN fresh `new Audio(url)`
+  // instance — exactly what the two standalone reference games already did successfully,
+  // including their setTimeout-delayed auto-play after a correct answer. The old assumption
+  // ("iOS grants autoplay permission per media element") is what led this engine to reuse
+  // ONE long-lived <audio> element and only reassign .src on it. Reassigning .src on a
+  // persistent element WITHOUT calling .load() is a known-unreliable pattern in WebKit/
+  // Safari for cross-origin sources: the element does not reliably notice the source
+  // changed and start fetching, which then trips this module's own onerror/timeout
+  // watchdog and looks exactly like "Google is blocking us" when the shared element is
+  // actually just stuck. `player` below is now used ONLY as a silent capability probe on
+  // the Start tap (see unlock()) — it never carries real speech audio anymore; see
+  // activeEl for that.
+  //
+  // Native speechSynthesis has its OWN iOS gesture gate, unrelated to <audio> elements,
+  // so it is still primed separately during the same Start tap. Unlocking HTMLAudio does
+  // not unlock speechSynthesis, and vice versa.
   const player = new Audio();
   player.preload = 'auto';
   player.setAttribute('playsinline','');
@@ -747,7 +756,7 @@ const TTS = (() => {
   let isPlaying = false;
   let mediaUnlocked = false;
   // If iOS rejects the first media unlock, do not leave the whole session stuck on
-  // native speech. The next real user tap can safely re-arm the SAME Audio element.
+  // native speech. The next real user tap can safely retry the probe.
   let needsGestureRecovery = false;
   let nativeSpeechPrimed = false;
   let nativePrimedLang = null;
@@ -757,6 +766,7 @@ const TTS = (() => {
   let speechStartTimer = null;
   let playToken = 0;
   let webUtterance = null;
+  let activeEl = null; // fresh per-utterance Audio element currently playing/attempting real TTS content
 
   // en-GB for IELTS — British English pronunciation (schedule, either, clerk differ from en-US)
   const LANG_MAP = { fi: 'fi-FI', fr: 'fr-FR', es: 'es-ES', it: 'it-IT', he: 'he-IL', ja: 'ja-JP', en: 'en-GB', de: 'de-DE' };
@@ -938,7 +948,9 @@ const TTS = (() => {
     TTS._lastNativeVoice=null;
     TTS._lastFailure=null;
 
-    // 3. Try URLs one by one until one works, always through the SAME player.
+    // 3. Try URLs one by one until one works. FIX (v38): each attempt gets its OWN fresh
+    // Audio element (matching the proven standalone-game pattern) instead of reassigning
+    // .src on one shared element — see the module-level comment for why that was unreliable.
     function tryNextSource() {
       if(token!==playToken)return;
       if (currentSourceIndex >= sources.length) {
@@ -950,12 +962,22 @@ const TTS = (() => {
 
       const source=sources[currentSourceIndex];
       TTS._sourceAttempts.push(source.id);
+      const el = new Audio(source.url); // fresh element per attempt — no shared .src mutation
+      activeEl = el;
+      el.playbackRate = rate;
       let settled=false;
       const failOnce=(reason='source-error',err=null)=>{
         if(settled||token!==playToken)return;
         settled=true;
         clearTimeout(sourceTimer);
         sourceTimer=null;
+        // Fully detach this element before moving on, so a late/slow response from an
+        // abandoned attempt can never fire onplaying/onended and clobber the NEXT
+        // source's timer or diagnostics (a risk unique to using per-attempt elements).
+        el.onplaying=null;
+        el.onended=null;
+        el.onerror=null;
+        try{el.pause();}catch{}
         TTS._lastFailure={source:source.id,reason,name:err&&err.name||'',at:Date.now()};
 
         // NotAllowedError is an iOS media-permission failure, not a bad Google URL.
@@ -974,7 +996,7 @@ const TTS = (() => {
         tryNextSource();
       };
 
-      player.onplaying=()=>{
+      el.onplaying=()=>{
         if(token!==playToken)return;
         clearTimeout(sourceTimer);
         sourceTimer=null;
@@ -982,14 +1004,9 @@ const TTS = (() => {
         needsGestureRecovery=false;
         TTS._lastSource=source.id;
       };
-      player.src = source.url;
-      player.playbackRate = rate;
-      // Assigning src already starts the media selection algorithm. Calling load() here
-      // forcibly aborted/restarted the shared iOS element on every source and introduced
-      // another race that the old working `new Audio(url).play()` code never had.
 
       // When audio finishes successfully, allow clicking again
-      player.onended = () => {
+      el.onended = () => {
         if(token!==playToken)return;
         settled=true;
         clearTimeout(sourceTimer);
@@ -999,12 +1016,12 @@ const TTS = (() => {
       };
 
       // If this specific URL fails (404 error, or Google block), try the next one instantly
-      player.onerror = ()=>failOnce('source-error');
+      el.onerror = ()=>failOnce('source-error');
 
       // Play it!
       sourceTimer=setTimeout(()=>failOnce('timeout'),source.timeoutMs||7000);
       let playPromise;
-      try{playPromise=player.play();}
+      try{playPromise=el.play();}
       catch(err){
         failOnce(err&&err.name==='NotAllowedError'?'not-allowed':'play-rejected',err);
         return;
@@ -1029,10 +1046,13 @@ const TTS = (() => {
     sourceTimer=null;
     voiceReadyTimer=null;
     speechStartTimer=null;
-    player.onplaying=null;
-    player.onended=null;
-    player.onerror=null;
-    try { player.pause(); player.currentTime = 0; } catch {}
+    if(activeEl){
+      activeEl.onplaying=null;
+      activeEl.onended=null;
+      activeEl.onerror=null;
+      try { activeEl.pause(); activeEl.currentTime = 0; } catch {}
+      activeEl=null;
+    }
     webUtterance=null;
     isPlaying = false;
     // Cancel Web Speech regardless — covers both the Audio waterfall fallback path
