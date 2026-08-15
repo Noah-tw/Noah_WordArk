@@ -130,6 +130,8 @@ function G_setPool(p){
   startSession();
 }
 function G_toggleMode(id){
+  // BUG-FIX (silent mode chip): the Question Modes overlay's chips had no SFX at all.
+  SFX.click();
   const lc=LC[S.lang];if(!lc.defaultModes.includes(id))return;
   const i=S.modes.indexOf(id);
   if(i>=0){if(S.modes.length<=1){toast('Keep at least one mode.');return;}S.modes.splice(i,1);}
@@ -260,6 +262,12 @@ function G_openOv(id){
   eid(id)?.classList.add('on');
 }
 function G_closeOv(id){
+  // NOTE: deliberately no SFX.click() here — several callers (G_switchLang,
+  // G_doReset, G_setRevTopic) already play their own click before reaching this,
+  // and two HTML buttons chain straight into G_openOv() which also plays one.
+  // Adding a click here would double-fire in those cases. The genuinely silent
+  // call sites (backdrop-tap-to-dismiss + standalone Close/Done/Cancel buttons)
+  // get SFX.click() added at the call site in index.html instead — see there.
   if(id==='ov-cats') S._catsSnapshot=null; // clear snapshot on close
   eid(id)?.classList.remove('on');
 }

@@ -743,6 +743,9 @@ function G_stPut(i){
 }
 function G_stRem(i){
   if(S.phase==='done')return;
+  // BUG-FIX (silent tile removal): G_stPut() (placing a tile) plays SFX.click(),
+  // but G_stRem() (tapping a placed tile to send it back to the bank) played nothing.
+  SFX.click();
   const st=S.st;
   st.avail.unshift(st.placed.splice(i,1)[0]);
   refreshST();

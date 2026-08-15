@@ -74,6 +74,9 @@ function startSession(immediate){
   },180);
 }
 function G_playAgain(){
+  // BUG-FIX (silent Play Again): the main CTA button on the round-complete screen
+  // had no SFX at all.
+  SFX.click();
   S.fromRound=true; // badge should show on the upcoming ready screen
   // BUG FIX (stale game-strip): reset qi and score before startSession so that
   // _updateGameStrip() never briefly shows the previous round's values (e.g. "31/30")
@@ -302,7 +305,7 @@ function G_endRound(){
     </div>
     <button class="btn-cc p" onclick="G_playAgain()">Play Again</button>
     ${S.lessonGroup!==null?`<button class="btn-cc s" onclick="G_openLessonMap()">📖 Back to Lessons</button>`:''}
-    ${canResume?`<button class="btn-cc s" onclick="G_leaveResume()">↩ Back to question</button>`:''}
+    ${canResume?`<button class="btn-cc s" onclick="G_leaveAndReady()">↩ Back</button>`:''}
   </div>`;
   eid('btn-next').style.display='none';
   eid('btn-skip').style.display='none';
@@ -359,6 +362,15 @@ function loadQ(preserveTTSUnlock=false){
     // or doubled audio. Only auto-play for listening modes where audio IS the question.
     const isListeningMode = q.mode==='listeningWord' || q.mode==='listeningSentence';
     const isSentenceTiles = q.mode==='sentenceTiles';
+    // BUG-FIX (blank mode spoiler): for 'blank', q.tts is the FULL original sentence
+    // with the answer word still in it (sentenceDisplay is only the visual "___" —
+    // audio can't blank anything). Auto-playing it on load reads the answer straight
+    // out loud before the player has even tried, in every language. Most noticeable in
+    // English IELTS since the player already understands the words at full speed, but
+    // the leak exists everywhere blank mode exists. Excluded here exactly like
+    // sentenceTiles is above; the wc-top 🔊 button still lets the player replay it
+    // voluntarily (e.g. after answering).
+    const isBlank = q.mode==='blank';
     if(isListeningMode){
       // BUG-FIX (silent auto-play): fire synchronously, inside the same tap that
       // triggered loadQ() (Next/Start/Got it). iOS Safari's native speechSynthesis
@@ -367,7 +379,7 @@ function loadQ(preserveTTSUnlock=false){
       // scheduled auto-play went silent and only a manual 🔊 tap (a real gesture)
       // could produce sound. Calling say() here keeps it inside the live gesture.
       TTS.say(q.tts,LC[S.lang].ttsLang,0.85,false);
-    } else if(!isSentenceTiles){
+    } else if(!isSentenceTiles && !isBlank){
       _scheduleQueuedTTS(()=>TTS.say(q.tts,LC[S.lang].ttsLang,0.85),300);
     }
   }
