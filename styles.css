@@ -2,6 +2,12 @@
    TOKENS
 ═══════════════════════════════════════ */
 :root{
+  /* READABILITY (Aug 2026): global text-scale bump. Everything below uses rem,
+     so this one line raises every font-size in the app ~12.5% at once (16px→18px
+     base) without touching each rule. The primary word/question text is sized
+     with clamp(...,Nvw,...) and is driven by the vw term, not rem, so it is
+     unaffected by this and stays exactly as large as it already was. */
+  font-size:112.5%;
   --bg:#F4F6F9;
   --card:#FFFFFF;
   --border:#E4E8EE;
@@ -24,7 +30,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;
   -webkit-tap-highlight-color:transparent;touch-action:manipulation;
   -webkit-user-select:none;user-select:none}
-html,body{height:100%;height:100dvh;overflow:hidden;
+html,body{height:100%;height:100dvh;height:var(--vh100,100dvh);overflow:hidden;
   background:var(--bg);font-family:'Nunito',sans-serif;font-weight:700;color:var(--ink);
   /* FIX #249: prevent pull-to-refresh from wiping SentenceTiles progress on Chrome Android/iOS */
   overscroll-behavior-y:none;
@@ -154,7 +160,7 @@ body{display:flex;justify-content:center;
    GAME HEADER
    — language as icon-style tab, not text pill
 ═══════════════════════════════════════ */
-#scr-game{overflow:hidden;display:flex;flex-direction:column;height:100%;height:100dvh;}
+#scr-game{overflow:hidden;display:flex;flex-direction:column;height:100%;height:100dvh;height:var(--vh100,100dvh);}
 
 .g-header{
   flex-shrink:0;

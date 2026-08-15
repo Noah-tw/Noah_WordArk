@@ -15,7 +15,7 @@
      time you ship an actual update after that point. -->
 <script>
   const CACHE_DEV_MODE = false;     // release: allow browser/PWA caching
-  const RELEASE_VERSION = '37-google-patient-ios'; // Patient Google-first TTS; preserves every language-safe rescue
+  const RELEASE_VERSION = '38-fresh-audio-per-word'; // Each TTS attempt now uses its own Audio element (fixes shared-element .src race)
   window.APP_VERSION = CACHE_DEV_MODE ? Date.now() : RELEASE_VERSION;
 </script>
 <meta charset="UTF-8">
@@ -25,21 +25,25 @@
 <meta name="apple-mobile-web-app-title" content="WordArk">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#58CC02">
-<!-- Safe area insets for iPhone notch / Dynamic Island / home indicator -->
-<style>
-  :root {
-    --sat: env(safe-area-inset-top, 0px);
-    --sab: env(safe-area-inset-bottom, 0px);
-    --sal: env(safe-area-inset-left, 0px);
-    --sar: env(safe-area-inset-right, 0px);
+<!-- FIX (Aug 2026, iPhone bottom-gap): on iOS Safari, 100dvh can settle on the
+     wrong value on first paint — especially here, since html/body deliberately
+     never scroll (overflow:hidden, to stop pull-to-refresh), so Safari's toolbar
+     never gets the scroll cue it normally uses to finish sizing the viewport.
+     That can leave a sliver of unaccounted space below the game that isn't the
+     home-indicator safe area, just an unmatched height. This measures the real
+     visible viewport with JS and republishes it as --vh100; styles.css prefers
+     --vh100 over 100dvh wherever the game must fill the screen exactly, and
+     falls back to 100dvh until this first runs. (Safe-area tokens --sat/--sab/
+     --sal/--sar live only in styles.css now — the old duplicate copy here, and
+     the body padding it added, were dead weight and have been removed.) -->
+<script>
+  function setRealVH(){
+    document.documentElement.style.setProperty('--vh100', window.innerHeight + 'px');
   }
-  body {
-    padding-top: env(safe-area-inset-top);
-    padding-bottom: env(safe-area-inset-bottom);
-    padding-left: env(safe-area-inset-left);
-    padding-right: env(safe-area-inset-right);
-  }
-</style>
+  setRealVH();
+  window.addEventListener('resize', setRealVH);
+  window.addEventListener('orientationchange', function(){ setTimeout(setRealVH, 50); });
+</script>
 <title>Noah's WordArk</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Outfit:wght@700;800;900&family=Rubik:wght@500;700;900&family=Playfair+Display:wght@700;900&family=DM+Mono:wght@500&family=Noto+Sans+Hebrew:wght@500;700;900&display=swap" rel="stylesheet">
 <script>document.write('<link rel="stylesheet" href="styles.css?v='+encodeURIComponent(window.APP_VERSION)+'">');</script>
