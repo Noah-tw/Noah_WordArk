@@ -809,8 +809,25 @@ const TTS = (() => {
     const base=target.split('-')[0];
     // Some WebKit builds still expose Hebrew under its legacy ISO code "iw".
     const bases=base==='he'?['he','iw']:[base];
-    return voices.find(v=>norm(v.lang)===target)||
-      voices.find(v=>bases.some(b=>norm(v.lang)===b||norm(v.lang).startsWith(b+'-')))||null;
+    const exact=voices.filter(v=>norm(v.lang)===target);
+    const partial=voices.filter(v=>norm(v.lang)!==target&&bases.some(b=>norm(v.lang)===b||norm(v.lang).startsWith(b+'-')));
+    // BUG-FIX (native voice quality): getVoices() can expose several candidates for the
+    // same locale — e.g. a flat offline OS voice alongside Chrome's network "Google ..."
+    // voice. .find() previously just took whichever the browser happened to list first,
+    // which was often the worse one. Rank the pool instead of taking the first match:
+    // Chrome/Android's "Google ..." network voices sound closest to real speech, so try
+    // those first; otherwise prefer any non-local ("network") voice over an on-device
+    // one. iOS has no such split — every Safari voice reports localService=true, so this
+    // tier is a no-op there and the browser's own default pick stands (already Apple's
+    // good on-device neural voice).
+    const rank=v=>{
+      const name=norm(v.name);
+      if(name.includes('google'))return 0;
+      if(v.localService===false)return 1;
+      return 2;
+    };
+    const pick=pool=>pool.length?pool.slice().sort((a,b)=>rank(a)-rank(b))[0]:null;
+    return pick(exact)||pick(partial)||null;
   }
 
   // WebKit on iPhone requires the FIRST speechSynthesis.speak() call to happen while
