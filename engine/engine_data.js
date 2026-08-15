@@ -953,14 +953,14 @@ const TTS = (() => {
     // primary the same patient behaviour as the proven standalone games, with only a
     // generous emergency bound so a genuinely hung Listening question cannot lock forever.
     sources.push({
-      id:'google-primary', timeoutMs: patient?15000:2500,
+      id:'google-primary', timeoutMs: patient?15000:6000,
       url:`https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=${lang}&q=${encodeURIComponent(clean)}`
     });
 
     // Source 2: Backup Google Server (Bypasses IP blocks). It also gets a patient window;
     // dictionary/native voices remain rescue tools, never a fast substitute for Google.
     sources.push({
-      id:'google-backup', timeoutMs: patient?10000:1500,
+      id:'google-backup', timeoutMs: patient?10000:4000,
       url:`https://translate.googleapis.com/translate_tts?ie=UTF-8&client=gtx&tl=${lang}&q=${encodeURIComponent(clean)}`
     });
 
