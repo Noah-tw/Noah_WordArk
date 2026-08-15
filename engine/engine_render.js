@@ -202,7 +202,7 @@ function G_introDone(){
   // BUG-FIX (silent auto-play): call synchronously, inside this "Got it" tap, instead
   // of via setTimeout — see matching fix + comment in engine_session.js loadQ().
   if(q.tts && (q.mode==='listeningWord'||q.mode==='listeningSentence')){
-    TTS.say(q.tts,LC[S.lang].ttsLang,0.85);
+    TTS.say(q.tts,LC[S.lang].ttsLang,0.85,false);
   }
 }
 

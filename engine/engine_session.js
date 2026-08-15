@@ -366,7 +366,7 @@ function loadQ(preserveTTSUnlock=false){
       // that window, so once Google fails and it drops to native voice, the
       // scheduled auto-play went silent and only a manual 🔊 tap (a real gesture)
       // could produce sound. Calling say() here keeps it inside the live gesture.
-      TTS.say(q.tts,LC[S.lang].ttsLang,0.85);
+      TTS.say(q.tts,LC[S.lang].ttsLang,0.85,false);
     } else if(!isSentenceTiles){
       _scheduleQueuedTTS(()=>TTS.say(q.tts,LC[S.lang].ttsLang,0.85),300);
     }

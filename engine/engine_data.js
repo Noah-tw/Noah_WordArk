@@ -891,7 +891,14 @@ const TTS = (() => {
     return attempt;
   }
 
-  function say(text, lang, rate = 0.9) {
+  // BUG-FIX (silent auto-play / "must tap to hear"): patient=true (default, used by every
+  // manual 🔊 tap) keeps the original long Google timeouts — worth the wait for the better
+  // voice when the player is actively waiting. patient=false (used only by the automatic
+  // listening-question auto-play) shortens every source's timeout drastically, so when
+  // Google is down the fallback to native voice happens in ~2s total instead of up to 46s
+  // (15s+10s+3×7s for English) — which is why auto-play looked broken: it WAS eventually
+  // reaching native, just far too late for anyone to wait for.
+  function say(text, lang, rate = 0.9, patient = true) {
     if (!text) return;
     // Automatic New Word / Listening audio may be scheduled while the Start trigger is
     // still resolving. Queue only the voice request — never the question UI — and play
@@ -899,7 +906,7 @@ const TTS = (() => {
     if(unlockPromise){
       const token=playToken;
       unlockPromise.finally(()=>{
-        if(token===playToken)say(text,lang,rate);
+        if(token===playToken)say(text,lang,rate,patient);
       });
       return;
     }
@@ -946,14 +953,14 @@ const TTS = (() => {
     // primary the same patient behaviour as the proven standalone games, with only a
     // generous emergency bound so a genuinely hung Listening question cannot lock forever.
     sources.push({
-      id:'google-primary', timeoutMs:15000,
+      id:'google-primary', timeoutMs: patient?15000:2500,
       url:`https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=${lang}&q=${encodeURIComponent(clean)}`
     });
 
     // Source 2: Backup Google Server (Bypasses IP blocks). It also gets a patient window;
     // dictionary/native voices remain rescue tools, never a fast substitute for Google.
     sources.push({
-      id:'google-backup', timeoutMs:10000,
+      id:'google-backup', timeoutMs: patient?10000:1500,
       url:`https://translate.googleapis.com/translate_tts?ie=UTF-8&client=gtx&tl=${lang}&q=${encodeURIComponent(clean)}`
     });
 
@@ -962,11 +969,12 @@ const TTS = (() => {
       const lowerWord = clean.toLowerCase();
       // Keep every original rescue source. They are used only after both Google hosts
       // fail for this particular utterance.
-      sources.push({id:'dictionary-gstatic-gb',timeoutMs:7000,
+      const dictTimeout = patient?7000:1000;
+      sources.push({id:'dictionary-gstatic-gb',timeoutMs:dictTimeout,
         url:`https://ssl.gstatic.com/dictionary/static/sounds/20200429/${lowerWord}--_gb_1.mp3`});
-      sources.push({id:'dictionary-gstatic-us',timeoutMs:7000,
+      sources.push({id:'dictionary-gstatic-us',timeoutMs:dictTimeout,
         url:`https://ssl.gstatic.com/dictionary/static/sounds/20200429/${lowerWord}--_us_1.mp3`});
-      sources.push({id:'dictionary-api-uk',timeoutMs:7000,
+      sources.push({id:'dictionary-api-uk',timeoutMs:dictTimeout,
         url:`https://api.dictionaryapi.dev/media/pronunciations/en/${lowerWord}-uk.mp3`});
     }
 
