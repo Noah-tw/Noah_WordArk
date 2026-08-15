@@ -947,6 +947,11 @@ const TTS = (() => {
     TTS._lastSource=null;
     TTS._lastNativeVoice=null;
     TTS._lastFailure=null;
+    // TEMP DIAGNOSTIC (Aug 2026): Noah reported hearing the native fallback voice
+    // instead of Google's. Surface exactly why Google/dictionary sources failed —
+    // once per session only, same "don't spam toasts" pattern as the storage
+    // warning above — so this can be read straight off the phone with no devtools.
+    // Safe to delete this block (and TTS._diagShown) once the cause is confirmed.
 
     // 3. Try URLs one by one until one works. FIX (v38): each attempt gets its OWN fresh
     // Audio element (matching the proven standalone-game pattern) instead of reassigning
@@ -955,6 +960,12 @@ const TTS = (() => {
       if(token!==playToken)return;
       if (currentSourceIndex >= sources.length) {
         // All web URLs failed (or user has no internet). Use robotic native voice.
+        if(!TTS._diagShown && typeof toast==='function'){
+          TTS._diagShown=true;
+          const last=TTS._lastFailure;
+          toast('🔧 TTS fallback — tried: '+TTS._sourceAttempts.join(', ')+
+            (last?(' — last reason: '+last.reason+(last.name?' ('+last.name+')':'')):''),6000);
+        }
         isPlaying = false;
         _speakWeb(text, lang, rate, token);
         return;
