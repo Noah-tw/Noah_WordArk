@@ -768,6 +768,27 @@ const TTS = (() => {
   let webUtterance = null;
   let activeEl = null; // fresh per-utterance Audio element currently playing/attempting real TTS content
 
+  // BUG-FIX (Aug 2026): reduce wasted requests against translate_tts during a Google
+  // outage/throttle. Two separate, narrow guards — neither disables or removes any
+  // existing source, both only change trial order/timing for an ALREADY-observed word:
+  //
+  // 1) _lastGoodSource remembers which source actually worked for a given (word,lang)
+  //    THIS session, so a repeat play of a word that's already known to need the
+  //    dictionary/fallback tries that source FIRST instead of re-hitting the two
+  //    Google hosts (which are currently down) every single time it's replayed.
+  //    TTL lets Google reclaim first place again periodically, in case it recovers
+  //    mid-session, without needing a full reload.
+  const _lastGoodSource = new Map(); // key: `${lang}|${text}` -> {id, at}
+  const GOOD_SOURCE_TTL_MS = 3 * 60 * 1000;
+  // 2) An impatient re-tap of the SAME word while the previous attempt is still mid-
+  //    waterfall used to restart the whole thing from google-primary, silently doubling
+  //    that word's Google requests per extra tap. Swallow only a near-instant repeat of
+  //    the identical (text, lang) pair — anything a beat slower is a deliberate replay
+  //    and still goes through as normal.
+  let _lastRequestKey = null;
+  let _lastRequestAt = 0;
+  const DUPLICATE_GUARD_MS = 400;
+
   // en-GB for IELTS — British English pronunciation (schedule, either, clerk differ from en-US)
   const LANG_MAP = { fi: 'fi-FI', fr: 'fr-FR', es: 'es-ES', it: 'it-IT', he: 'he-IL', ja: 'ja-JP', en: 'en-GB', de: 'de-DE' };
 
@@ -882,6 +903,14 @@ const TTS = (() => {
       });
       return;
     }
+
+    // Guard 2: near-instant duplicate tap on the same word — see module-level comment.
+    const wordKey = lang + '|' + text;
+    const _now = Date.now();
+    if (wordKey === _lastRequestKey && (_now - _lastRequestAt) < DUPLICATE_GUARD_MS) return;
+    _lastRequestKey = wordKey;
+    _lastRequestAt = _now;
+
     text = text.replace(/\|/g, ' '); // strip pipe-phrase separators before speaking
     // A manual replay or a new question must interrupt a stalled/older request rather
     // than being swallowed forever by an isPlaying guard.
@@ -939,6 +968,16 @@ const TTS = (() => {
         url:`https://ssl.gstatic.com/dictionary/static/sounds/20200429/${lowerWord}--_us_1.mp3`});
       sources.push({id:'dictionary-api-uk',timeoutMs:7000,
         url:`https://api.dictionaryapi.dev/media/pronunciations/en/${lowerWord}-uk.mp3`});
+    }
+
+    // Guard 1: if this exact (word, lang) already found a working source THIS session,
+    // try it first — see module-level comment above _lastGoodSource. This only reorders
+    // the list already built above; every source, including both Google hosts, is still
+    // present and still gets tried if the remembered one fails this time too.
+    const _remembered = _lastGoodSource.get(wordKey);
+    if (_remembered && (Date.now() - _remembered.at) < GOOD_SOURCE_TTL_MS) {
+      const _idx = sources.findIndex(s => s.id === _remembered.id);
+      if (_idx > 0) sources.unshift(sources.splice(_idx, 1)[0]);
     }
 
     let currentSourceIndex = 0;
@@ -1014,6 +1053,7 @@ const TTS = (() => {
         mediaUnlocked=true;
         needsGestureRecovery=false;
         TTS._lastSource=source.id;
+        _lastGoodSource.set(wordKey, {id: source.id, at: Date.now()});
       };
 
       // When audio finishes successfully, allow clicking again
