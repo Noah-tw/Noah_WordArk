@@ -135,6 +135,26 @@
     </div>
   </div>
 
+  <!-- Slim icon strip (stands in for panel 1+2 while collapsed): shown instead of the
+       full header+subbar while a round is running, so #q-area gets the freed space
+       automatically. Mirrors the language flag + current pool icon; every button
+       calls the exact same G_ functions as the full-size controls, so nothing here
+       needs to duplicate app state. Tap ▾ to unfold if you need to switch
+       language/pool mid-round. Toggle logic lives in the script block near the end
+       of <body> — it watches #game-strip's display and needs no changes anywhere
+       else in the engine files. -->
+  <div id="g-mini">
+    <button class="gm-btn" onclick="G_goHome()" title="Home">←</button>
+    <button class="gm-btn gm-lang" onclick="G_openOv('ov-lang')" title="Language"><span id="gm-lang-flag">🇫🇮</span></button>
+    <button class="gm-btn" onclick="G_openOv('ov-cats')" title="Words to practice"><span id="gm-pool-icon">📂</span></button>
+    <span class="gm-spacer"></span>
+    <button class="gm-btn gm-toggle" onclick="G_toggleHdr()" title="Show language/pool controls">▾</button>
+  </div>
+  <!-- Shown only after the header was manually unfolded mid-round (see G_toggleHdr) -->
+  <div id="g-recollapse">
+    <button class="gm-recollapse-btn" onclick="G_toggleHdr()">▴ Fold</button>
+  </div>
+
   <!-- PLAY PANEL -->
   <div class="g-panel on" id="panel-play">
     <!-- Game strip — shown only while playing, hidden on ready screen -->
@@ -162,18 +182,18 @@
 <!-- ====================================================  OVERLAYS  ==================================================== -->
 
 <!-- Language -->
-<div class="ov" id="ov-lang" onclick="if(event.target===this)G_closeOv('ov-lang')">
+<div class="ov" id="ov-lang" onclick="if(event.target===this){SFX.click();G_closeOv('ov-lang')}">
   <div class="sheet">
     <div class="sh-handle"></div>
     <div class="sh-title">🌐 Choose Language</div>
     <div id="lang-grid"></div>
-    <button class="btn-close" onclick="G_closeOv('ov-lang')">Close</button>
+    <button class="btn-close" onclick="SFX.click();G_closeOv('ov-lang')">Close</button>
     <button class="btn-ghost" onclick="G_closeOv('ov-lang');G_openOv('ov-settings')" style="margin-top:4px;">⚙️ Settings &amp; Export/Import</button>
   </div>
 </div>
 
 <!-- Filter sheet: pool tabs pinned top, topic panel below -->
-<div class="ov" id="ov-cats" onclick="if(event.target===this)G_closeOv('ov-cats')">
+<div class="ov" id="ov-cats" onclick="if(event.target===this){SFX.click();G_closeOv('ov-cats')}">
   <div class="cat-sheet-outer">
     <!-- Pinned top: handle + pool tabs -->
     <div class="cat-sheet-top">
@@ -204,23 +224,23 @@
     </div>
     <!-- Pinned bottom -->
     <div class="cat-sheet-bottom">
-      <button class="btn-close" id="cats-done-btn" onclick="G_closeOv('ov-cats')">Done</button>
+      <button class="btn-close" id="cats-done-btn" onclick="SFX.click();G_closeOv('ov-cats')">Done</button>
     </div>
   </div>
 </div>
 
 <!-- Question modes — dedicated sheet -->
-<div class="ov" id="ov-modes" onclick="if(event.target===this)G_closeOv('ov-modes')">
+<div class="ov" id="ov-modes" onclick="if(event.target===this){SFX.click();G_closeOv('ov-modes')}">
   <div class="sheet">
     <div class="sh-handle"></div>
     <div class="sh-title">🎮 Question Types</div>
     <div id="mode-btns"></div>
-    <button class="btn-close" onclick="G_closeOv('ov-modes')" style="margin-top:8px;">Done</button>
+    <button class="btn-close" onclick="SFX.click();G_closeOv('ov-modes')" style="margin-top:8px;">Done</button>
   </div>
 </div>
 
 <!-- Settings -->
-<div class="ov" id="ov-settings" onclick="if(event.target===this)G_closeOv('ov-settings')">
+<div class="ov" id="ov-settings" onclick="if(event.target===this){SFX.click();G_closeOv('ov-settings')}">
   <div class="sheet">
     <div class="sh-handle"></div>
     <div class="sh-title">⚙️ Settings</div>
@@ -233,7 +253,7 @@
     </div>
     <span class="ss-lbl">Danger Zone</span>
     <button class="btn-danger" onclick="G_closeOv('ov-settings');G_openOv('ov-reset')">Reset All Progress</button>
-    <button class="btn-close" onclick="G_closeOv('ov-settings')">Close</button>
+    <button class="btn-close" onclick="SFX.click();G_closeOv('ov-settings')">Close</button>
   </div>
 </div>
 
@@ -243,7 +263,7 @@
     <h3>Reset Progress?</h3>
     <p>All your mastered words and history will be permanently deleted.</p>
     <div class="m-btns">
-      <button class="m-btn c" onclick="G_closeOv('ov-reset')">Cancel</button>
+      <button class="m-btn c" onclick="SFX.click();G_closeOv('ov-reset')">Cancel</button>
       <button class="m-btn d" onclick="G_doReset()">Reset</button>
     </div>
   </div>
@@ -252,7 +272,7 @@
 <div id="toast"></div>
 
 <!-- Topic picker for Review mode -->
-<div class="ov" id="ov-topic" onclick="if(event.target===this)G_closeOv('ov-topic')">
+<div class="ov" id="ov-topic" onclick="if(event.target===this){SFX.click();G_closeOv('ov-topic')}">
   <div class="cat-sheet-outer">
     <div class="cat-sheet-top">
       <div class="sh-handle"></div>
@@ -262,7 +282,7 @@
       <div class="cat-list" id="rev-cat-list"></div>
     </div>
     <div class="cat-sheet-bottom">
-      <button class="btn-close" onclick="G_closeOv('ov-topic')">Done</button>
+      <button class="btn-close" onclick="SFX.click();G_closeOv('ov-topic')">Done</button>
     </div>
   </div>
 </div>
@@ -317,6 +337,62 @@
     };
   }
   patchTab();
+})();
+</script>
+<!-- Header auto-collapse: shrinks panel 1 (.g-header) + panel 2 (#g-subbar) into the
+     #g-mini icon strip whenever #game-strip is visible (i.e. a round is running),
+     freeing height for #q-area (which is already flex:1, so it grows on its own —
+     no manual height math needed, and this plays nicely with the --vh100 sizing
+     above). A tap on ▾/▴ can override this at any time; the override resets the
+     next time a round starts, so every fresh round begins collapsed again.
+     This is purely additive — it only watches existing state (#game-strip's
+     display, the language flag, the pool label) and never touches engine
+     logic in engine_*.js. -->
+<script>
+(function(){
+  var scrGame = document.getElementById('scr-game');
+  var strip   = document.getElementById('game-strip');
+  if(!scrGame || !strip) return;
+
+  var curLangFlag = document.querySelector('#cur-lang .blsw-flag');
+  var filterLabel = document.getElementById('filter-btn-label');
+  var gmFlag      = document.getElementById('gm-lang-flag');
+  var gmPoolIcon  = document.getElementById('gm-pool-icon');
+
+  var manualExpand = false; // per-round override, reset whenever the strip re-appears
+
+  function stripVisible(){
+    return strip.style.display!=='none' && strip.style.display!=='';
+  }
+  function recompute(){
+    var playing = stripVisible();
+    scrGame.classList.remove('hdr-collapsed','hdr-expanded-midround');
+    if(playing && !manualExpand)      scrGame.classList.add('hdr-collapsed');
+    else if(playing && manualExpand)  scrGame.classList.add('hdr-expanded-midround');
+    else manualExpand = false; // leaving the round — next round starts collapsed again
+  }
+  window.G_toggleHdr = function(){
+    manualExpand = !manualExpand;
+    recompute();
+  };
+
+  // Mirror flag + pool icon into the mini bar. Read-only observers — they never
+  // write back to app state, so language/pool switching logic is untouched.
+  function syncFlag(){ if(gmFlag && curLangFlag) gmFlag.textContent = curLangFlag.textContent; }
+  function syncPool(){
+    if(gmPoolIcon && filterLabel){
+      var t = filterLabel.textContent || '';
+      gmPoolIcon.textContent = t.split(' ')[0] || '📂';
+    }
+  }
+  syncFlag(); syncPool();
+  if(curLangFlag) new MutationObserver(syncFlag).observe(curLangFlag,{characterData:true,childList:true,subtree:true});
+  if(filterLabel) new MutationObserver(syncPool).observe(filterLabel,{characterData:true,childList:true,subtree:true});
+
+  // The only signal we need: every existing call site already flips
+  // strip.style.display between 'flex' and 'none' when a round starts/ends/pauses.
+  new MutationObserver(recompute).observe(strip,{attributes:true,attributeFilter:['style']});
+  recompute();
 })();
 </script>
 </body>

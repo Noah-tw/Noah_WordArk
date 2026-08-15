@@ -251,6 +251,53 @@ body{display:flex;justify-content:center;
   display:flex;align-items:center;gap:3px;
 }
 .gs-end:active{transform:scale(.95);}
+
+/* ═══════════════════════════════════════
+   HEADER AUTO-COLLAPSE
+   panel 1 (.g-header) + panel 2 (.g-subbar) shrink into the #g-mini icon
+   strip while a round is running (driven by the script near the end of
+   index.html, which just watches #game-strip). #q-area is flex:1 already,
+   so it grows into the freed space on its own — no height math needed here.
+═══════════════════════════════════════ */
+.g-header,.g-subbar{
+  max-height:280px; /* generous cap — real height is content-driven when open */
+  transition:max-height .22s ease,opacity .16s ease,padding .22s ease;
+}
+#scr-game.hdr-collapsed .g-header,
+#scr-game.hdr-collapsed .g-subbar{
+  max-height:0;padding-top:0;padding-bottom:0;
+  border-bottom-width:0;overflow:hidden;opacity:0;pointer-events:none;
+}
+/* Slim icon strip — stands in for panel 1+2 while collapsed */
+#g-mini{
+  display:none;flex-shrink:0;align-items:center;gap:8px;
+  padding:6px calc(var(--sar) + 14px) 6px calc(var(--sal) + 14px);
+  background:var(--card);border-bottom:2px solid var(--border);
+}
+#scr-game.hdr-collapsed #g-mini{display:flex;}
+.gm-btn{
+  width:36px;height:36px;flex-shrink:0;border-radius:11px;
+  border:2px solid var(--border);background:var(--bg);
+  font-size:1rem;cursor:pointer;color:var(--ink2);
+  display:flex;align-items:center;justify-content:center;
+}
+.gm-btn:active{transform:scale(.92);}
+.gm-lang{border-radius:50%;border-color:var(--blue);background:var(--blue-lt);}
+.gm-spacer{flex:1;}
+.gm-toggle{width:auto;padding:0 12px;color:var(--ink3);font-weight:900;}
+/* Re-collapse row — only shown after a manual unfold mid-round (G_toggleHdr) */
+#g-recollapse{
+  display:none;flex-shrink:0;justify-content:center;
+  background:var(--card);border-bottom:2px solid var(--border);
+}
+#scr-game.hdr-expanded-midround #g-recollapse{display:flex;}
+.gm-recollapse-btn{
+  border:none;background:none;color:var(--ink3);
+  font-size:.82rem;font-weight:900;letter-spacing:.2px;
+  padding:3px 18px 7px;cursor:pointer;min-height:32px;
+}
+.gm-recollapse-btn:active{opacity:.6;}
+
 /* ── Ready screen ── */
 @keyframes border-spin{
   from{--angle:0deg;}
