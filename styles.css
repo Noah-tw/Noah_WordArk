@@ -268,10 +268,13 @@ body{display:flex;justify-content:center;
   max-height:0;padding-top:0;padding-bottom:0;
   border-bottom-width:0;overflow:hidden;opacity:0;pointer-events:none;
 }
-/* Slim icon strip — stands in for panel 1+2 while collapsed */
+/* Slim icon strip — stands in for panel 1+2 while collapsed. It can become the
+   topmost visible row (when .g-header collapses away), so it needs its own
+   safe-area-top padding — same pattern as .g-header — or its buttons end up
+   tucked under the iPhone notch/Dynamic Island and are hard to tap. */
 #g-mini{
   display:none;flex-shrink:0;align-items:center;gap:8px;
-  padding:6px calc(var(--sar) + 14px) 6px calc(var(--sal) + 14px);
+  padding:calc(var(--sat) + 6px) calc(var(--sar) + 14px) 6px calc(var(--sal) + 14px);
   background:var(--card);border-bottom:2px solid var(--border);
 }
 #scr-game.hdr-collapsed #g-mini{display:flex;}
@@ -285,18 +288,18 @@ body{display:flex;justify-content:center;
 .gm-lang{border-radius:50%;border-color:var(--blue);background:var(--blue-lt);}
 .gm-spacer{flex:1;}
 .gm-toggle{width:auto;padding:0 12px;color:var(--ink3);font-weight:900;}
-/* Re-collapse row — only shown after a manual unfold mid-round (G_toggleHdr) */
-#g-recollapse{
-  display:none;flex-shrink:0;justify-content:center;
-  background:var(--card);border-bottom:2px solid var(--border);
+/* Fold-back button — lives inside .g-subbar itself (next to the filter button),
+   only shown after a manual unfold mid-round (G_toggleHdr). Folding back this
+   way never adds a row/height — it just re-collapses panel 1+2. */
+.gh-fold{
+  display:none;flex-shrink:0;
+  width:36px;height:36px;border-radius:11px;
+  border:2px solid var(--border);background:var(--bg);
+  color:var(--ink3);font-size:.9rem;font-weight:900;
+  align-items:center;justify-content:center;cursor:pointer;
 }
-#scr-game.hdr-expanded-midround #g-recollapse{display:flex;}
-.gm-recollapse-btn{
-  border:none;background:none;color:var(--ink3);
-  font-size:.82rem;font-weight:900;letter-spacing:.2px;
-  padding:3px 18px 7px;cursor:pointer;min-height:32px;
-}
-.gm-recollapse-btn:active{opacity:.6;}
+#scr-game.hdr-expanded-midround .gh-fold{display:flex;}
+.gh-fold:active{transform:scale(.92);}
 
 /* ── Ready screen ── */
 @keyframes border-spin{
@@ -926,6 +929,16 @@ rt {
   border-top:2px solid var(--border);
   display:flex;align-items:center;justify-content:center;
   gap:10px;z-index:50;flex-shrink:0;}
+/* The 14px floor above is a fallback for devices with no home-indicator inset
+   (--sab:0) — it exists so the bar isn't flush against the edge in a browser
+   tab, where extra breathing room reads as intentional. In an installed
+   (standalone) PWA there's no browser chrome to visually "explain" that
+   breathing room, so it just reads as dead space — trim the floor there.
+   var(--sab) itself is untouched in both cases: that's the real home-indicator
+   hitbox, and shrinking it would risk the button overlapping the swipe area. */
+@media (display-mode:standalone){
+  #bot-bar{padding-bottom:max(var(--sab),4px);}
+}
 .btn-next{flex:1;min-height:56px;padding:14px;border-radius:var(--r);
   font-family:'Nunito',sans-serif;font-size:1rem;font-weight:900;cursor:pointer;
   text-transform:uppercase;letter-spacing:.4px;text-align:center;
@@ -2138,6 +2151,15 @@ rt {
    iPhone / narrow-phone readability pass
    Typography only: no dimensions, positioning, overflow, or game logic changes.
    The primary word and question sizes were already large, so they stay untouched.
+
+   Follow-up pass: the multiple-choice answer text (.mc-opt .mc-t — this is what
+   shows the EN options in definition-mode questions) was still reading small on
+   iPhone after the first pass, so it gets a bigger jump here. Everything else
+   that's primary reading content the player actually reads to answer/understand
+   (definitions, translations, romaji/IPA, review text, answer-tile text) gets a
+   further bump too. Chrome — badges, tab labels, pills, counts, settings/category
+   management labels — is left as-is on purpose so it stays visually secondary to
+   the content.
 ═══════════════════════════════════════════════════════════ */
 @media (max-width:430px){
   /* Landing */
@@ -2159,31 +2181,31 @@ rt {
 
   /* Question cards and playable answers */
   .wc-badge{font-size:.76rem;}
-  .wc-romaji,.q-prompt{font-size:.8rem;}
-  .wc-pron{font-size:.94rem;}
-  .wc-hint{font-size:1rem;}
+  .wc-romaji,.q-prompt{font-size:.88rem;}
+  .wc-pron{font-size:1rem;}
+  .wc-hint{font-size:1.05rem;}
   .wc-sent-toggle{font-size:.86rem;}
-  .wc-sent-reading,.wc-sent-en{font-size:.94rem;}
-  .mc-opt{font-size:1rem;}
-  .mc-opt .mc-t{font-size:clamp(.9rem,4vw,1.05rem);}
-  .mc-sub,.blank-trans{font-size:.9rem;}
-  .listen-big-label{font-size:.88rem;}
-  .tile{font-size:1rem;}
-  .tile-trans{font-size:.92rem;}
-  .ct-meaning{font-size:.86rem;}
+  .wc-sent-reading,.wc-sent-en{font-size:1.02rem;}
+  .mc-opt{font-size:1.08rem;}
+  .mc-opt .mc-t{font-size:clamp(1.05rem,4.5vw,1.2rem);}
+  .mc-sub,.blank-trans{font-size:1rem;}
+  .listen-big-label{font-size:.96rem;}
+  .tile{font-size:1.08rem;}
+  .tile-trans{font-size:1rem;}
+  .ct-meaning{font-size:.96rem;}
   .ct-hint-btn{font-size:.9rem;}
-  .mbtn.meaning{font-size:.96rem;}
-  .tip-toggle,.tip-body{font-size:.95rem;}
-  .r-tip-wrap{font-size:.94rem;}
+  .mbtn.meaning{font-size:1.06rem;}
+  .tip-toggle,.tip-body{font-size:1.02rem;}
+  .r-tip-wrap{font-size:1rem;}
 
   /* Results, review, filters, and settings */
   .ccs-l{font-size:.75rem;}
   /* Five review/filter tabs already use nearly all available width; keep their
      compact label size so "Practice" / "Mastered" cannot collide. */
   .r-cat{font-size:.88rem;}
-  .r-meaning{font-size:.96rem;}
-  .r-hint{font-size:.88rem;}
-  .r-zh{font-size:.94rem;}
+  .r-meaning{font-size:1.04rem;}
+  .r-hint{font-size:.96rem;}
+  .r-zh{font-size:1.02rem;}
   .lc-n{font-size:.9rem;}
   .fs-section-label,.cat-topic-label,.ss-lbl{font-size:.78rem;}
   .cat-action-label{font-size:.78rem;}
@@ -2194,19 +2216,19 @@ rt {
 
   /* Intro, IELTS detail, and interstitial cards */
   .ielts-pos{font-size:.75rem;}
-  .ielts-ipa{font-size:.85rem;}
+  .ielts-ipa{font-size:.92rem;}
   .ielts-def-toggle{font-size:.88rem;}
-  .ielts-def-text{font-size:.92rem;}
-  .ielts-meaning-pill,.ielts-zh-def{font-size:.86rem;}
+  .ielts-def-text{font-size:1.02rem;}
+  .ielts-meaning-pill,.ielts-zh-def{font-size:.96rem;}
   .intro-badge{font-size:.82rem;}
   .intro-sent{font-size:1rem;}
-  .intro-dict-zh-inline{font-size:.94rem;}
-  .intro-dict-def{font-size:.9rem;}
-  .intro-dict-zh-def{font-size:.92rem;}
-  .intro-tip{font-size:.95rem;}
-  .intro-sent-next{font-size:.88rem;}
-  .intro-sent-en{font-size:.95rem;}
+  .intro-dict-zh-inline{font-size:1.02rem;}
+  .intro-dict-def{font-size:1rem;}
+  .intro-dict-zh-def{font-size:1.02rem;}
+  .intro-tip{font-size:1.02rem;}
+  .intro-sent-next{font-size:.94rem;}
+  .intro-sent-en{font-size:1.03rem;}
   .ic-eyebrow{font-size:.8rem;}
-  .ic-translit{font-size:.85rem;}
-  .ic-zh{font-size:.92rem;}
+  .ic-translit{font-size:.92rem;}
+  .ic-zh{font-size:1.02rem;}
 }

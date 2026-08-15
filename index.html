@@ -35,7 +35,15 @@
      --vh100 over 100dvh wherever the game must fill the screen exactly, and
      falls back to 100dvh until this first runs. (Safe-area tokens --sat/--sab/
      --sal/--sar live only in styles.css now — the old duplicate copy here, and
-     the body padding it added, were dead weight and have been removed.) -->
+     the body padding it added, were dead weight and have been removed.)
+
+     Follow-up: the same kind of first-paint mismatch can happen when launched
+     as an installed (standalone) PWA, not just in a Safari tab — this early
+     <head> measurement can run before iOS finishes resolving the status-bar-
+     overlay geometry, and standalone launches don't reliably fire a follow-up
+     'resize' the way a Safari tab does. Re-measure once after load settles,
+     and also listen on visualViewport (more reliable than window.resize for
+     iOS viewport changes) when the API is available. -->
 <script>
   function setRealVH(){
     document.documentElement.style.setProperty('--vh100', window.innerHeight + 'px');
@@ -43,6 +51,8 @@
   setRealVH();
   window.addEventListener('resize', setRealVH);
   window.addEventListener('orientationchange', function(){ setTimeout(setRealVH, 50); });
+  window.addEventListener('load', function(){ requestAnimationFrame(setRealVH); });
+  if(window.visualViewport){ window.visualViewport.addEventListener('resize', setRealVH); }
 </script>
 <title>Noah's WordArk</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Outfit:wght@700;800;900&family=Rubik:wght@500;700;900&family=Playfair+Display:wght@700;900&family=DM+Mono:wght@500&family=Noto+Sans+Hebrew:wght@500;700;900&display=swap" rel="stylesheet">
@@ -116,6 +126,10 @@
         <div class="romaji-track"><div class="romaji-thumb" style="left:14px"></div></div>
         <span>Rōmaji</span>
       </button>
+      <!-- Fold back to the mini strip — only shown after a manual unfold mid-round
+           (G_toggleHdr). Lives inside the existing subbar row so unfolding never
+           adds a new row/height, just restores panel 1+2 to their normal size. -->
+      <button class="gh-fold" id="gh-fold-btn" onclick="G_toggleHdr()" title="Fold back">▴</button>
     </div>
     <!-- REVIEW mode: status tabs + topic bar, stacked in same parent -->
     <div id="subbar-review" style="display:none;flex-direction:column;width:100%;gap:0;">
@@ -140,19 +154,17 @@
        automatically. Mirrors the language flag + current pool icon; every button
        calls the exact same G_ functions as the full-size controls, so nothing here
        needs to duplicate app state. Tap ▾ to unfold if you need to switch
-       language/pool mid-round. Toggle logic lives in the script block near the end
-       of <body> — it watches #game-strip's display and needs no changes anywhere
-       else in the engine files. -->
+       language/pool mid-round — unfolding restores panel 1+2 as-is (no extra row);
+       a matching ▴ appears inside the subbar itself to fold back. Toggle logic
+       lives in the script block near the end of <body> — it watches
+       #game-strip's display and needs no changes anywhere else in the engine
+       files. -->
   <div id="g-mini">
     <button class="gm-btn" onclick="G_goHome()" title="Home">←</button>
     <button class="gm-btn gm-lang" onclick="G_openOv('ov-lang')" title="Language"><span id="gm-lang-flag">🇫🇮</span></button>
     <button class="gm-btn" onclick="G_openOv('ov-cats')" title="Words to practice"><span id="gm-pool-icon">📂</span></button>
     <span class="gm-spacer"></span>
     <button class="gm-btn gm-toggle" onclick="G_toggleHdr()" title="Show language/pool controls">▾</button>
-  </div>
-  <!-- Shown only after the header was manually unfolded mid-round (see G_toggleHdr) -->
-  <div id="g-recollapse">
-    <button class="gm-recollapse-btn" onclick="G_toggleHdr()">▴ Fold</button>
   </div>
 
   <!-- PLAY PANEL -->
@@ -372,6 +384,8 @@
     else manualExpand = false; // leaving the round — next round starts collapsed again
   }
   window.G_toggleHdr = function(){
+    // BUG-FIX (silent header fold toggle): this button had no SFX call at all.
+    if(typeof SFX!=='undefined') SFX.click();
     manualExpand = !manualExpand;
     recompute();
   };
