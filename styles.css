@@ -878,7 +878,7 @@ rt {
    can be 20+ chars. clamp() ensures text scales down instead of overflowing the button.
    FIX #25 (Accent clipping on uppercase): overflow:visible lets tall accented capitals
    (Á É Í Ó Ú Ñ Ä Ö) render fully without being clipped by the button's bounding box. */
-.mc-opt .mc-t{font-size:clamp(.75rem,3.5vw,1rem);word-break:break-word;overflow-wrap:anywhere;overflow:visible;}
+.mc-opt .mc-t{font-size:clamp(.75rem,3.5vw,1.2rem);word-break:break-word;overflow-wrap:anywhere;overflow:visible;}
 /* FIX #37 (Italian micro-targets): short Italian words (a, e, i, o, su, da) rendered as
    matching tiles can be too small to tap accurately on mobile. Enforce a minimum width
    so single-character tiles still have a usable touch target (minimum 44×44pt per HIG). */
