@@ -284,7 +284,7 @@ function _statsDeltaHtml(){
 }
 
 function G_endRound(){
-  SFX.click();_cancelQueuedTTS();TTS.stop();
+  TTS.stop();SFX.click();_cancelQueuedTTS();
   // Just show the results — same as finishing naturally.
   // The only extra affordance is a small "go back" link if they tapped by accident.
   const canResume=S.q&&S.qi<S.queue.length;
@@ -294,7 +294,7 @@ function G_endRound(){
   const pct=S.goal?Math.round(S.score.ok/S.goal*100):0;
   const area=eid('q-area');if(!area)return;
   area.innerHTML=`<div class="cc">
-    <div class="cc-emo">${pct>=80?'🏆':pct>=50?'⭐':'💪'}</div>
+    <div id="mascot-host" class="cc-mascot"></div>
     <div class="cc-title">Round ended</div>
     <div class="cc-score">${S.score.ok}/${S.goal} correct · ${pct}%</div>
     ${_statsDeltaHtml()}
@@ -307,6 +307,9 @@ function G_endRound(){
     ${S.lessonGroup!==null?`<button class="btn-cc s" onclick="G_openLessonMap()">📖 Back to Lessons</button>`:''}
     ${canResume?`<button class="btn-cc s" onclick="G_leaveAndReady()">↩ Back</button>`:''}
   </div>`;
+  // mountCelebrationMascot lives in engine_render.js (loaded after this file) — safe to
+  // call here since this only runs later, from a real tap, once every script is loaded.
+  mountCelebrationMascot(area);
   eid('btn-next').style.display='none';
   eid('btn-skip').style.display='none';
   const bh=eid('btn-hint');if(bh)bh.style.display='none';
@@ -400,7 +403,15 @@ function finishQuestion(ok,wordId){
   if(realOk){S.score.ok++;}else{S.score.no++;}
 }
 
-function G_next(){ SFX.click(); S.qi++; loadQ(); }
+// BUG-FIX (silent Next/Skip click): if the previous question was listeningWord/
+// listeningSentence, its TTS audio can still be actively playing through the phone's
+// audio session when the player taps Next. SFX.click() is a WebAudio oscillator on a
+// SEPARATE audio session from TTS's <audio>/speechSynthesis playback — on phones the
+// two compete, and the still-playing TTS audio was winning, silently swallowing the
+// 40ms click tone. loadQ() already calls TTS.stop() internally, but only AFTER this
+// click already tried (and failed) to play. Stopping TTS first clears the audio
+// session so the click tone has a clear moment to actually sound.
+function G_next(){ TTS.stop(); SFX.click(); S.qi++; loadQ(); }
 function G_hint(){
   SFX.hint();
   const q=S.q;if(!q||S.phase==='done')return;
@@ -477,6 +488,8 @@ function G_hint(){
 
 
 function G_skip(){
+  // Same fix as G_next() — see comment there.
+  TTS.stop();
   SFX.click();
   const q=S.q;
   if(!q)return;

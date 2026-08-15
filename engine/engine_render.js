@@ -136,6 +136,13 @@ function showIntroCard(q){
     ${r.tip?`<div class="intro-tip">💬 <bdi dir="ltr">${parseTipRuby(r.tip)}</bdi></div>`:''}
   </div>`;
 
+  // Long keywords ("counterintuitively", "characteristically") were wrapping to two
+  // lines — .intro-word's clamp(1rem,6vw,2.2rem) only responds to viewport width, not
+  // to how long the specific word is. Shrink it to fit on one line where needed.
+  // rAF so it runs after layout/fonts have actually settled, not against stale metrics.
+  if(typeof requestAnimationFrame==='function') requestAnimationFrame(_fitIntroWord);
+  else _fitIntroWord();
+
   // Store tts on q for G_introSpeak
   q._introTts=tts;
 
@@ -150,6 +157,39 @@ function showIntroCard(q){
   if(btnSkip)btnSkip.style.display='none';
   if(btnHint)btnHint.style.display='none';
 }
+
+// Shrinks the New Word card's keyword font-size just enough that long words stay on
+// one line, instead of wrapping to two. Uses REAL measured width rather than a
+// character-count guess, since letter width varies a lot by font/weight and this
+// element shows every language (Latin words, Japanese kanji+furigana, Hebrew RTL) —
+// a length-based heuristic tuned for English would be wrong for the others.
+function _fitIntroWord(){
+  const el=document.querySelector('.intro-word');
+  if(!el) return;
+  const row=el.closest('.intro-word-row');
+  if(!row) return;
+  // Reserve room for the 🔊 button that overlaps this row (absolute-positioned at
+  // right:16px, 44px wide) so the word never measures against the full row width
+  // and then collides with it.
+  const available=row.clientWidth-120;
+  if(available<=0) return;
+
+  el.style.whiteSpace='nowrap'; // measure/shrink as a single line
+  const startPx=parseFloat(getComputedStyle(el).fontSize);
+  let size=startPx;
+  const minPx=startPx*0.55; // floor — below this it's reading as "shrunk to fit", not sized
+  while(el.scrollWidth>available && size>minPx){
+    size-=1;
+    el.style.fontSize=size+'px';
+  }
+  if(el.scrollWidth>available){
+    // Even the floor size doesn't fit (extreme edge case, e.g. a very narrow phone in
+    // split-screen). Let it wrap to two lines again rather than clipping or going
+    // smaller than minPx — a wrapped word is still more readable than a tiny one.
+    el.style.whiteSpace='';
+  }
+}
+
 function G_introSpeak(){
   SFX.click();
   _cancelQueuedTTS(); // manual replay wins; do not let the pending auto-play cut it off
@@ -1236,6 +1276,55 @@ function showNextBtn(){
 }
 
 // ── Session complete ───────────────────────────────────────
+// Mount the mascot into a freshly-created #mascot-host inside `container` and start
+// its celebrate() loop (which already includes SFX.chime() — see the mascot module).
+// Shared by showComplete() (natural finish) and G_endRound() (early "✕ End" exit) —
+// both build the same "cc" result-card layout and both want the live mascot instead
+// of a static emoji. Extracted out of showComplete() so the two screens can't drift.
+function mountCelebrationMascot(container){
+  // iOS keeps the previous question's scrollTop after innerHTML replacement. That can
+  // leave the mascot (the first item on this page) above the visible viewport. Reset it
+  // immediately and once more after layout, then mount into the newly-created host.
+  container.scrollTop=0;
+  let mascotMountAttempts=0;
+  const tryMount=()=>{
+    container.scrollTop=0;
+    const mascotHost=document.getElementById('mascot-host');
+    if(!mascotHost) return;
+    if(!window.Mascot || typeof window.Mascot.refreshHost!=='function'){
+      // A stale iPhone/PWA page can finish rendering before the newly-versioned
+      // mascot controller is ready. Give it a short window instead of silently
+      // leaving no visual feedback at all.
+      if(mascotMountAttempts++<30){
+        setTimeout(tryMount,100);
+        return;
+      }
+      mascotHost.classList.add('load-error');
+      console.error('[WordArk mascot] Mascot controller is unavailable.');
+      return;
+    }
+    Promise.resolve(window.Mascot.refreshHost())
+      .then(()=>{
+        // refreshHost() is asynchronous. Only celebrate after the SVG is really
+        // inside the new host; retry if Safari has not committed the replacement yet.
+        if(!mascotHost.querySelector('svg')){
+          if(mascotMountAttempts++<8){
+            setTimeout(tryMount,100);
+            return;
+          }
+          throw new Error('Mascot SVG was not inserted into the host');
+        }
+        window.Mascot.celebrate();
+      })
+      .catch(error=>{
+        mascotHost.classList.add('load-error');
+        console.error('[WordArk mascot] Mount failed:',error);
+      });
+  };
+  if(typeof requestAnimationFrame==='function') requestAnimationFrame(tryMount);
+  else setTimeout(tryMount,0);
+}
+
 function showComplete(){
   SFX.done();
   const strip=eid('game-strip');if(strip)strip.style.display='none';
@@ -1255,47 +1344,7 @@ function showComplete(){
     <button class="btn-cc p" onclick="G_playAgain()">Play Again</button>
     ${S.lessonGroup!==null?`<button class="btn-cc s" onclick="G_openLessonMap()">📖 Back to Lessons</button>`:''}
   </div>`;
-  // iOS keeps the previous question's scrollTop after innerHTML replacement. That can
-  // leave the mascot (the first item on this page) above the visible viewport. Reset it
-  // immediately and once more after layout, then mount into the newly-created host.
-  completeArea.scrollTop=0;
-  let mascotMountAttempts=0;
-  const mountCompleteMascot=()=>{
-    completeArea.scrollTop=0;
-    const mascotHost=document.getElementById('mascot-host');
-    if(!mascotHost) return;
-    if(!window.Mascot || typeof window.Mascot.refreshHost!=='function'){
-      // A stale iPhone/PWA page can finish rendering before the newly-versioned
-      // mascot controller is ready. Give it a short window instead of silently
-      // leaving the old completion icon as the only visual feedback.
-      if(mascotMountAttempts++<30){
-        setTimeout(mountCompleteMascot,100);
-        return;
-      }
-      mascotHost.classList.add('load-error');
-      console.error('[WordArk mascot] Completion mascot controller is unavailable.');
-      return;
-    }
-    Promise.resolve(window.Mascot.refreshHost())
-      .then(()=>{
-        // refreshHost() is asynchronous. Only celebrate after the SVG is really
-        // inside the new host; retry if Safari has not committed the replacement yet.
-        if(!mascotHost.querySelector('svg')){
-          if(mascotMountAttempts++<8){
-            setTimeout(mountCompleteMascot,100);
-            return;
-          }
-          throw new Error('Mascot SVG was not inserted into the completion host');
-        }
-        window.Mascot.celebrate();
-      })
-      .catch(error=>{
-        mascotHost.classList.add('load-error');
-        console.error('[WordArk mascot] Completion mount failed:',error);
-      });
-  };
-  if(typeof requestAnimationFrame==='function') requestAnimationFrame(mountCompleteMascot);
-  else setTimeout(mountCompleteMascot,0);
+  mountCelebrationMascot(completeArea);
   eid('btn-next').style.display='none';
   eid('btn-skip').style.display='none';
   const _bh2=eid('btn-hint');if(_bh2)_bh2.style.display='none';
@@ -1586,6 +1635,9 @@ function _revCardHtml(r,lc){
 }
 
 function G_toggleRevCard(card){
+  // BUG-FIX (silent review-card toggle): had no SFX at all, unlike the same
+  // expand/collapse pattern elsewhere (G_toggleSent, G_toggleTip).
+  SFX.click();
   card.classList.toggle('r-open');
 }
 
@@ -1721,6 +1773,11 @@ function buildLandingLangs(){
     b.style.cssText='display:flex;flex-direction:column;align-items:center;gap:3px;';
     b.title=lc.name;
     b.onclick=()=>{
+      // BUG-FIX (silent landing-page language pick): this handler never called SFX at
+      // all — unlike G_switchLang() (the in-game language switcher), which does. Fire it
+      // first, even on the already-selected no-op tap below, so every tap on this row
+      // gives feedback, matching G_switchLang()'s own behavior for the same case.
+      SFX.click();
       if(lc.id===S.lang) return; // already selected, no-op
       const switchSeq=++_langSwitchSeq;
       cancelSessionBuild();

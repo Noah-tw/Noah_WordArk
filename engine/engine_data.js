@@ -1293,7 +1293,8 @@ const SFX = (() => {
     pop()  { _t(523,'sine',.1,.3);_t(784,'sine',.1,.25,.06);_t(1047,'sine',.1,.2,.12); },
     // Wrong-answer UI and audio are sufficient; the optional mascot stays neutral.
     wrong(){ _n(.06,.18);_t(160,'sawtooth',.15,.2,.02); },
-    click(){ _t(1100,'sine',.04,.12); },
+    // Was .04s/.12 vol — bumped slightly, it was very easy to miss on a phone speaker.
+    click(){ _t(1100,'sine',.06,.2); },
     done() { _t(523,'sine',.08,.3);_t(659,'sine',.08,.3,.09);_t(784,'sine',.08,.3,.18);_t(1047,'sine',.22,.35,.27); },
     hint() { _t(880,'sine',.15,.18);_t(660,'sine',.15,.14,.1); },
     // Soft ascending sparkle — plays when an interstitial (tip/cheer) card appears.
