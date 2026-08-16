@@ -91,6 +91,21 @@ function _doStartSession(buildSeq){
   // Lesson map manages q-area itself; startSession() is a no-op while it's open.
   if(S._viewingLessonMap) return;
 
+  // BUG-FIX (wrong-language question after a fast switch): startSession() is called from
+  // many places besides G_switchLang — mode toggles, category/pool pickers, lesson nav,
+  // the landing "Go" button. Any of those can fire while G_switchLang's Store.load() is
+  // still fetching the new language's vocab files in the background. Store.getAll() a few
+  // lines below would silently return the PREVIOUS language's cached word list in that
+  // window, even though the language name and mode chips already show the new language —
+  // producing exactly this: correct chrome, wrong-language question content, intermittently,
+  // depending on how the timing lines up. Wait until Store actually finishes loading S.lang;
+  // G_switchLang's own onReady callback already calls startSession(true) once that happens,
+  // so it's safe to just quietly retry here instead of building a session from stale data.
+  if(!Store.isLoadedFor(S.lang)){
+    _sessionTimer=setTimeout(()=>_doStartSession(buildSeq),50);
+    return;
+  }
+
 // 1. 立刻把舊的進度條藏起來
   const strip = eid('game-strip'); 
   if(strip) strip.style.display = 'none';

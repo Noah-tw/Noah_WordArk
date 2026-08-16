@@ -35,6 +35,15 @@ const MODE_LABELS = {
 /* ─── STORE ───────────────────────────────────────────────── */
 const Store = (() => {
   let recs = [], idx = {};
+  // BUG-FIX (stale-language session build): `recs` only tells callers WHAT the current
+  // records are, never WHICH language they belong to. Every non-language-switch caller of
+  // startSession() (mode toggles, category/pool pickers, lesson nav, "Go" button — see
+  // engine_session.js _doStartSession) reads Store.getAll() assuming it already matches
+  // S.lang. During the async window while a language switch is still fetching its vocab
+  // files, that assumption is false: getAll() still returns the PREVIOUS language's cached
+  // array. _recsLang records which language `recs` actually holds right now so callers can
+  // check before building a session against it. See isLoadedFor() below.
+  let _recsLang = null;
   // BUG FIX (CPU freeze): phraseSet was rebuilt inside genSentenceTiles on every question,
   // scanning the entire pool each time (3000 words × 30 questions = 90,000 iterations/round).
   // Built once here at load time and exposed via Store.phraseSet instead.
@@ -342,6 +351,10 @@ const Store = (() => {
       uniqueRecs.push(r);
     });
     recs=uniqueRecs;
+    // Mark `recs` as belonging to langId now that it's fully built — the ONLY place this
+    // is set. Any code that read Store.getAll() before this line for this load was reading
+    // the previous language's data; isLoadedFor(langId) lets callers detect that.
+    _recsLang = langId;
     // Build phraseSet once: all pipe-joined multi-word phrases across the entire vocabulary.
     phraseSet = new Set();
     tileTransBase = {};
@@ -430,6 +443,9 @@ const Store = (() => {
     return recs;
   }
   function getAll()  { return recs; }
+  // True only once `recs` has actually finished loading AND matches langId — false while
+  // a switch to langId is still mid-flight (rules/forms/tips/batch files still fetching).
+  function isLoadedFor(langId) { return _recsLang === langId; }
   function getById(langId,id){ return idx[langId+':'+String(id)]||null; }
   function getCats() { return [...new Set(recs.map(r=>r.category).filter(Boolean))]; }
   function count()   { return recs.length; }
@@ -454,9 +470,13 @@ const Store = (() => {
     _loaded.delete(langId);
     _recentLanguages = _recentLanguages.filter(id => id !== langId);
     if (window.VOCAB_DATA) delete window.VOCAB_DATA[langId];
+    // Defensive: comment above load() says the active language is never evicted here,
+    // but if that guarantee is ever violated, isLoadedFor(langId) must not keep answering
+    // true for data that was just deleted out from under it.
+    if (_recsLang === langId) _recsLang = null;
   }
 
-  return { load, unload, getAll, getById, getCats, count, getGroups, get phraseSet(){ return phraseSet; }, get tileTransBase(){ return tileTransBase; } };
+  return { load, unload, getAll, isLoadedFor, getById, getCats, count, getGroups, get phraseSet(){ return phraseSet; }, get tileTransBase(){ return tileTransBase; } };
 })();
 
 /* ─── PROGRESS ────────────────────────────────────────────── */
