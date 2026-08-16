@@ -160,19 +160,7 @@ body{display:flex;justify-content:center;
    GAME HEADER
    — language as icon-style tab, not text pill
 ═══════════════════════════════════════ */
-/* BUG-FIX (Aug 2026, bottom panel not reaching screen edge): this used to also set
-   height:100%;height:100dvh;height:var(--vh100,100dvh) here. .screen already gives this
-   element position:fixed;top:0;bottom:0 (see above), which sizes it to the REAL viewport
-   natively — no JS measurement, no dvh quirks, always exact, and this is already proven
-   by #scr-landing which relies on the exact same mechanism with no explicit height at all.
-   Setting an explicit height HERE on top of that is a CSS "over-constrained" fixed-position
-   box: per spec, the browser then ignores bottom:0 and sizes the box to top+height instead.
-   So if --vh100 (or its 100dvh fallback) ever resolved even slightly short of the true
-   screen height — the exact failure mode described in the --vh100 script comment in
-   index.html — #scr-game would render short and leave a gap the bottom panel couldn't
-   reach, instead of just... filling the screen, which position:fixed;top:0;bottom:0
-   already does on its own. Do not re-add a height here. */
-#scr-game{overflow:hidden;display:flex;flex-direction:column;}
+#scr-game{overflow:hidden;display:flex;flex-direction:column;height:100%;height:100dvh;height:var(--vh100,100dvh);}
 
 .g-header{
   flex-shrink:0;
@@ -935,8 +923,7 @@ rt {
 ═══════════════════════════════════════ */
 #bot-bar{position:sticky;bottom:0;left:0;
   width:100%;
-  padding: 10px 16px 14px 16px;
-  
+  padding:10px calc(var(--sar) + 16px) max(var(--sab),14px) calc(var(--sal) + 16px);
   background:rgba(255,255,255,.97);
   backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
   border-top:2px solid var(--border);
@@ -950,7 +937,7 @@ rt {
    var(--sab) itself is untouched in both cases: that's the real home-indicator
    hitbox, and shrinking it would risk the button overlapping the swipe area. */
 @media (display-mode:standalone){
-  #bot-bar{padding-bottom: 14px;} 
+  #bot-bar{padding-bottom:max(var(--sab),4px);}
 }
 .btn-next{flex:1;min-height:56px;padding:14px;border-radius:var(--r);
   font-family:'Nunito',sans-serif;font-size:1rem;font-weight:900;cursor:pointer;
@@ -2174,7 +2161,7 @@ rt {
    management labels — is left as-is on purpose so it stays visually secondary to
    the content.
 ═══════════════════════════════════════════════════════════ */
-@media (max-width:10px){
+@media (max-width:430px){
   /* Landing */
   .l-byline,.l-lang-label,.l-lang-code,.l-sl{font-size:.8rem;}
   .l-sub{font-size:.88rem;}
@@ -2200,7 +2187,7 @@ rt {
   .wc-sent-toggle{font-size:.86rem;}
   .wc-sent-reading,.wc-sent-en{font-size:1.02rem;}
   .mc-opt{font-size:1.08rem;}
-  .mc-opt .mc-t{font-size:clamp(1.5rem,7vw,2.2rem);}
+  .mc-opt .mc-t{font-size:clamp(1.05rem,4.5vw,1.2rem);}
   .mc-sub,.blank-trans{font-size:1rem;}
   .listen-big-label{font-size:.96rem;}
   .tile{font-size:1.08rem;}
