@@ -945,11 +945,16 @@ rt {
    (--sab:0) — it exists so the bar isn't flush against the edge in a browser
    tab, where extra breathing room reads as intentional. In an installed
    (standalone) PWA there's no browser chrome to visually "explain" that
-   breathing room, so it just reads as dead space — trim the floor there.
-   var(--sab) itself is untouched in both cases: that's the real home-indicator
-   hitbox, and shrinking it would risk the button overlapping the swipe area. */
+   breathing room, so it just reads as dead space — trim it there.
+   DELIBERATE TRADE-OFF (Aug 2026): standalone padding-bottom below is a fixed
+   16px, NOT var(--sab) (~34px on notched iPhones). This intentionally overlaps
+   the bottom of the home-indicator swipe zone — a stray swipe-up right at the
+   button's bottom edge can register as "go home" instead of a tap. Chosen
+   anyway to kill the leftover visual gap in standalone mode. If mis-taps get
+   reported, raise this number back up (toward var(--sab)) rather than
+   re-diagnosing from scratch — this is why the gap looks the way it does. */
 @media (display-mode:standalone){
-  #bot-bar{padding-bottom:max(var(--sab),4px);}
+  #bot-bar{padding-bottom:16px;}
 }
 .btn-next{flex:1;min-height:56px;padding:14px;border-radius:var(--r);
   font-family:'Nunito',sans-serif;font-size:1rem;font-weight:900;cursor:pointer;
