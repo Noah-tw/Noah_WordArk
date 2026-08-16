@@ -2174,7 +2174,7 @@ rt {
    management labels — is left as-is on purpose so it stays visually secondary to
    the content.
 ═══════════════════════════════════════════════════════════ */
-@media (max-width:430px){
+@media (max-width:10px){
   /* Landing */
   .l-byline,.l-lang-label,.l-lang-code,.l-sl{font-size:.8rem;}
   .l-sub{font-size:.88rem;}
@@ -2200,7 +2200,7 @@ rt {
   .wc-sent-toggle{font-size:.86rem;}
   .wc-sent-reading,.wc-sent-en{font-size:1.02rem;}
   .mc-opt{font-size:1.08rem;}
-  .mc-opt .mc-t{font-size:clamp(4rem,10vw,6rem);}
+  .mc-opt .mc-t{font-size:clamp(1.5rem,7vw,2.2rem);}
   .mc-sub,.blank-trans{font-size:1rem;}
   .listen-big-label{font-size:.96rem;}
   .tile{font-size:1.08rem;}
