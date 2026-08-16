@@ -160,7 +160,19 @@ body{display:flex;justify-content:center;
    GAME HEADER
    — language as icon-style tab, not text pill
 ═══════════════════════════════════════ */
-#scr-game{overflow:hidden;display:flex;flex-direction:column;height:100%;height:100dvh;height:var(--vh100,100dvh);}
+/* BUG-FIX (Aug 2026, bottom panel not reaching screen edge): this used to also set
+   height:100%;height:100dvh;height:var(--vh100,100dvh) here. .screen already gives this
+   element position:fixed;top:0;bottom:0 (see above), which sizes it to the REAL viewport
+   natively — no JS measurement, no dvh quirks, always exact, and this is already proven
+   by #scr-landing which relies on the exact same mechanism with no explicit height at all.
+   Setting an explicit height HERE on top of that is a CSS "over-constrained" fixed-position
+   box: per spec, the browser then ignores bottom:0 and sizes the box to top+height instead.
+   So if --vh100 (or its 100dvh fallback) ever resolved even slightly short of the true
+   screen height — the exact failure mode described in the --vh100 script comment in
+   index.html — #scr-game would render short and leave a gap the bottom panel couldn't
+   reach, instead of just... filling the screen, which position:fixed;top:0;bottom:0
+   already does on its own. Do not re-add a height here. */
+#scr-game{overflow:hidden;display:flex;flex-direction:column;}
 
 .g-header{
   flex-shrink:0;
