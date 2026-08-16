@@ -1072,7 +1072,7 @@ function canReading(r,lc){
 /* ─── SESSION BUILDER ─────────────────────────────────────── */
 function buildQueue(recs, modeIds, pool, lc) {
   const q = [];
-  const SESSION_LIMIT = 30; 
+  const SESSION_LIMIT = 12; 
   
   // A. Smart SRS Allocation — split words into three pools by current status
   const categorized = { new: [], unfamiliar: [], mastered: [] };
@@ -1095,28 +1095,42 @@ function buildQueue(recs, modeIds, pool, lc) {
   categorized.unfamiliar=_shuffleThenRecent(categorized.unfamiliar);
   categorized.mastered  =_shuffleThenRecent(categorized.mastered);
 
-  // C. Quota: 20 unfamiliar → 5 new → 5 mastered, gaps filled by remaining new
+  // C. Quota: unfamiliar → new → mastered, gaps filled by remaining new.
+  // Ratios (not hardcoded counts): preserves the original 20:5:5-out-of-30 split
+  // (~67% unfamiliar review / ~17% new / ~17% mastered review) so SESSION_LIMIT
+  // can be tuned without the quota silently overshooting the total or skewing
+  // the review/new balance. `needed` caps every step as a safety net.
   let selected = [];
   let needed = SESSION_LIMIT;
+  const UNFAM_TARGET = Math.round(SESSION_LIMIT * 20 / 30);
+  const NEW_BASE      = Math.round(SESSION_LIMIT * 5 / 30);
 
-  // 1. unfamiliar first (up to 20)
-  const unfamQuota = Math.min(20, categorized.unfamiliar.length);
+  // 1. unfamiliar first (up to its target share)
+  const unfamQuota = Math.min(UNFAM_TARGET, categorized.unfamiliar.length, needed);
   selected.push(...categorized.unfamiliar.splice(0, unfamQuota));
   needed -= unfamQuota;
 
-  // 2. new words (up to 5, or more if unfamiliar was short)
-  const newQuota = Math.min(5 + (20 - unfamQuota), categorized.new.length);
+  // 2. new words (its base share, plus whatever unfamiliar came up short on)
+  const newQuota = Math.min(NEW_BASE + (UNFAM_TARGET - unfamQuota), categorized.new.length, needed);
   selected.push(...categorized.new.splice(0, newQuota));
   needed -= newQuota;
 
-  // 3. mastered words for review (remaining ~5 slots)
+  // 3. mastered words for review (whatever's left of the quota)
   const mastQuota = Math.min(needed, categorized.mastered.length);
   selected.push(...categorized.mastered.splice(0, mastQuota));
   needed -= mastQuota;
 
-  // 4. fill any remaining slots with more new words (e.g. fresh start, no mastered yet)
-  if (needed > 0 && categorized.new.length > 0) {
-    selected.push(...categorized.new.splice(0, needed));
+  // 4. fill any remaining slots. Try more new words first (e.g. fresh start, no
+  // mastered yet — original behaviour), then fall back through unfamiliar/mastered
+  // too. Pre-existing gap, not introduced by the ratio change above: a pool with
+  // only unfamiliar words (no new, no mastered) used to under-fill the session even
+  // with plenty of unfamiliar words left over, since only `new` was ever tapped here.
+  if (needed > 0) {
+    for (const group of [categorized.new, categorized.unfamiliar, categorized.mastered]) {
+      if (needed <= 0) break;
+      const take = Math.min(needed, group.length);
+      if (take > 0) { selected.push(...group.splice(0, take)); needed -= take; }
+    }
   }
 
   // D. Shuffle selected words, update lastSessionWords and persist (BUG-6 FIX)
