@@ -968,19 +968,22 @@ const TTS = (() => {
     // Source 2 (was Source 1): Standard Google Translate. One attempt per host is
     // intentional: every NEW utterance rebuilds this list, so hammering the same failed
     // URL 250ms later only creates a burst and does not improve future words.
-    // BUG-FIX (Aug 2026, per Noah): timeouts shortened from 15000/2500ms. Google now
-    // sits last AND blocked networks fail fast (usually a quick connection error, not a
-    // hang), so the old long window only added dead wait time with no upside. Still long
-    // enough for a real-but-slow response to land where Google IS reachable.
+    // BUG-FIX (Aug 2026, per Noah): timeouts shortened twice now — originally 15000/2500ms,
+    // then 3500/900ms, now cut again. Google sits last AND blocked networks fail fast
+    // (usually a quick connection error, not a hang), so a long window only added dead
+    // wait time with no upside. This is close to the floor: a real Google response
+    // realistically needs at least several hundred ms to reach the phone and start
+    // playing, so going much shorter risks cutting off a response that would have
+    // succeeded, even on a network where Google isn't blocked.
     sources.push({
-      id:'google-primary', timeoutMs: patient?3500:900,
+      id:'google-primary', timeoutMs: patient?1500:500,
       url:`https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=${lang}&q=${encodeURIComponent(clean)}`
     });
 
     // Source 3 (was Source 2): Backup Google Server (Bypasses IP blocks). Timeout
-    // shortened from 10000/1500ms for the same reason as google-primary above.
+    // shortened for the same reason as google-primary above.
     sources.push({
-      id:'google-backup', timeoutMs: patient?2500:700,
+      id:'google-backup', timeoutMs: patient?1000:400,
       url:`https://translate.googleapis.com/translate_tts?ie=UTF-8&client=gtx&tl=${lang}&q=${encodeURIComponent(clean)}`
     });
 
@@ -1000,25 +1003,16 @@ const TTS = (() => {
     TTS._lastSource=null;
     TTS._lastNativeVoice=null;
     TTS._lastFailure=null;
-    // TEMP DIAGNOSTIC (Aug 2026): Noah reported hearing the native fallback voice
-    // instead of Google's. Surface exactly why Google/dictionary sources failed —
-    // once per session only, same "don't spam toasts" pattern as the storage
-    // warning above — so this can be read straight off the phone with no devtools.
-    // Safe to delete this block (and TTS._diagShown) once the cause is confirmed.
-
     // 3. Try URLs one by one until one works. FIX (v38): each attempt gets its OWN fresh
     // Audio element (matching the proven standalone-game pattern) instead of reassigning
     // .src on one shared element — see the module-level comment for why that was unreliable.
     function tryNextSource() {
       if(token!==playToken)return;
       if (currentSourceIndex >= sources.length) {
-        // All web URLs failed (or user has no internet). Use robotic native voice.
-        if(!TTS._diagShown && typeof toast==='function'){
-          TTS._diagShown=true;
-          const last=TTS._lastFailure;
-          toast('🔧 TTS fallback — tried: '+TTS._sourceAttempts.join(', ')+
-            (last?(' — last reason: '+last.reason+(last.name?' ('+last.name+')':'')):''),6000);
-        }
+        // All web URLs failed (or user has no internet). Use robotic native voice, silently
+        // — no user-facing toast. (Removed Aug 2026: was a temp debug message, its job is
+        // done. TTS._sourceAttempts/_lastFailure/_lastSource are still updated above/below
+        // for anyone checking from devtools, just no longer surfaced to the player.)
         isPlaying = false;
         _speakWeb(text, lang, rate, token);
         return;
