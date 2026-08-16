@@ -940,35 +940,22 @@ const TTS = (() => {
     }
 
     // 2. Build the "Waterfall" of free audio sources. This array is rebuilt for EVERY
-    // utterance, so a Google failure applies only to the current word/sentence — the
-    // next TTS.say() always promotes Google back to the first position.
+    // utterance, so a Google failure applies only to the current word/sentence.
     const sources = [];
 
-    // Source 1: Standard Google Translate. One attempt per host is intentional: every
-    // NEW utterance rebuilds this list and starts at Google again, so hammering the same
-    // failed URL 250ms later only creates a burst and does not improve future words.
-    // iPhone may need several seconds before `playing` even though Google is healthy.
-    // The former 3.5s watchdog aborted that valid request by replacing player.src, which
-    // made an English dictionary rescue sound as if Google had lost priority. Give the
-    // primary the same patient behaviour as the proven standalone games, with only a
-    // generous emergency bound so a genuinely hung Listening question cannot lock forever.
-    sources.push({
-      id:'google-primary', timeoutMs: patient?15000:2500,
-      url:`https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=${lang}&q=${encodeURIComponent(clean)}`
-    });
+    // BUG-FIX (Aug 2026, per Noah): Google is unreachable in the real deployment
+    // environment, so trying it first meant every single utterance paid its full
+    // timeout (up to 15s+10s patient / 2.5s+1.5s not-patient) before ever reaching a
+    // source that actually works. Google is now tried LAST — after the dictionary
+    // sources — instead of first. Everything else is untouched: same ids, same URLs,
+    // same per-source timeouts, same Guard 1 remembered-source reorder below, same
+    // tryNextSource() waterfall, same native _speakWeb() fallback once every source
+    // in this list has failed.
 
-    // Source 2: Backup Google Server (Bypasses IP blocks). It also gets a patient window;
-    // dictionary/native voices remain rescue tools, never a fast substitute for Google.
-    sources.push({
-      id:'google-backup', timeoutMs: patient?10000:1500,
-      url:`https://translate.googleapis.com/translate_tts?ie=UTF-8&client=gtx&tl=${lang}&q=${encodeURIComponent(clean)}`
-    });
-
-    // Source 3: Real Human Dictionary Voice (Only for single English words in IELTS mode)
+    // Source 1 (was Source 3): Real Human Dictionary Voice (Only for single English
+    // words in IELTS mode). Tried first now — fastest, and the one that actually works.
     if (lang === 'en' && !clean.includes(' ')) {
       const lowerWord = clean.toLowerCase();
-      // Keep every original rescue source. They are used only after both Google hosts
-      // fail for this particular utterance.
       const dictTimeout = patient?7000:1000;
       sources.push({id:'dictionary-gstatic-gb',timeoutMs:dictTimeout,
         url:`https://ssl.gstatic.com/dictionary/static/sounds/20200429/${lowerWord}--_gb_1.mp3`});
@@ -977,6 +964,25 @@ const TTS = (() => {
       sources.push({id:'dictionary-api-uk',timeoutMs:dictTimeout,
         url:`https://api.dictionaryapi.dev/media/pronunciations/en/${lowerWord}-uk.mp3`});
     }
+
+    // Source 2 (was Source 1): Standard Google Translate. One attempt per host is
+    // intentional: every NEW utterance rebuilds this list, so hammering the same failed
+    // URL 250ms later only creates a burst and does not improve future words.
+    // BUG-FIX (Aug 2026, per Noah): timeouts shortened from 15000/2500ms. Google now
+    // sits last AND blocked networks fail fast (usually a quick connection error, not a
+    // hang), so the old long window only added dead wait time with no upside. Still long
+    // enough for a real-but-slow response to land where Google IS reachable.
+    sources.push({
+      id:'google-primary', timeoutMs: patient?3500:900,
+      url:`https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=${lang}&q=${encodeURIComponent(clean)}`
+    });
+
+    // Source 3 (was Source 2): Backup Google Server (Bypasses IP blocks). Timeout
+    // shortened from 10000/1500ms for the same reason as google-primary above.
+    sources.push({
+      id:'google-backup', timeoutMs: patient?2500:700,
+      url:`https://translate.googleapis.com/translate_tts?ie=UTF-8&client=gtx&tl=${lang}&q=${encodeURIComponent(clean)}`
+    });
 
     // Guard 1: if this exact (word, lang) already found a working source THIS session,
     // try it first — see module-level comment above _lastGoodSource. This only reorders
