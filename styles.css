@@ -16,7 +16,7 @@
   --yellow:#FF9600; --yellow-dk:#CC7A00; --yellow-lt:#FFF5D3;
   --red:#FF4B4B;   --red-lt:#FFDFE0;
   --blue:#1CB0F6;  --blue-lt:#DDF4FF;
-  --purple:#CE82FF;--purple-lt:#F2DCFF;
+  --purple:#CE82FF;--purple-dk:#9333EA;--purple-lt:#F2DCFF;
   --ink:#1A1A2E; --ink2:#52576F; --ink3:#A0A6BF;
   --r:20px; --r2:14px; --r3:10px;
   --shadow:0 2px 10px rgba(26,26,46,.07);
@@ -160,7 +160,13 @@ body{display:flex;justify-content:center;
    GAME HEADER
    — language as icon-style tab, not text pill
 ═══════════════════════════════════════ */
-#scr-game{overflow:hidden;display:flex;flex-direction:column;height:100%;height:100dvh;height:var(--vh100,100dvh);}
+#scr-game{overflow:hidden;display:flex;flex-direction:column;height:100%;height:100dvh;height:var(--vh100,100dvh);
+  /* FIX (MC option font-size, portrait/landscape mismatch): make #scr-game a query
+     container so descendants can size off ITS width (always ≤430px, per .screen)
+     instead of the raw device viewport width. Viewport `vw` flips between portrait
+     and landscape even though .screen/#scr-game never actually changes width — that
+     mismatch was why .mc-opt .mc-t looked frozen in portrait but jumped in landscape. */
+  container-type:inline-size;}
 
 .g-header{
   flex-shrink:0;
@@ -878,7 +884,13 @@ rt {
    can be 20+ chars. clamp() ensures text scales down instead of overflowing the button.
    FIX #25 (Accent clipping on uppercase): overflow:visible lets tall accented capitals
    (Á É Í Ó Ú Ñ Ä Ö) render fully without being clipped by the button's bounding box. */
-.mc-opt .mc-t{font-size:clamp(.75rem,3.5vw,1.2rem);word-break:break-word;overflow-wrap:anywhere;overflow:visible;}
+/* BUG-FIX (Aug 2026): was `clamp(.75rem,3.5vw,1.2rem)` using viewport `vw`, plus a
+   duplicate override further down in the max-width:430px block using `4.5vw`. Both
+   read off the physical screen width, which flips when the phone rotates even though
+   the game's own container (#scr-game/.screen) stays capped at 430px — so portrait
+   sat pinned near its floor while landscape jumped to the ceiling. Single rule now,
+   using cqw (percentage of #scr-game's own width) so it's orientation-independent. */
+.mc-opt .mc-t{font-size:clamp(1.05rem,5.5cqw,1.3rem);word-break:break-word;overflow-wrap:anywhere;overflow:visible;}
 /* FIX #37 (Italian micro-targets): short Italian words (a, e, i, o, su, da) rendered as
    matching tiles can be too small to tap accurately on mobile. Enforce a minimum width
    so single-character tiles still have a usable touch target (minimum 44×44pt per HIG). */
@@ -1878,29 +1890,26 @@ rt {
   font-weight: 700;
   letter-spacing: 0;
 }
-/* CJK: no Latin-tuned negative tracking, and no decorative Western quote
-   marks — a serif “ ” next to kanji/kana reads as foreign, not cute. */
+/* CJK: no Latin-tuned negative tracking (decorative quote marks removed
+   below entirely, not just for CJK — see the BUG-FIX comment there). */
 .ic-term-cjk {
   letter-spacing: 0;
 }
-.ic-term-cjk::before, .ic-term-cjk::after { content: none; }
 
-.ic-term::before, .ic-term::after {
-  font-family: 'Playfair Display', serif;
-  font-weight: 900;
-  font-size: 1.1em;
-  opacity: .4;
-}
-.ic-term::before { content: '\201C'; margin-right: 2px; }
-.ic-term::after  { content: '\201D'; margin-left: 2px; }
-.interstitial-card.ic-tip   .ic-term::before,
-.interstitial-card.ic-tip   .ic-term::after { color: var(--purple); }
-.interstitial-card.ic-cheer .ic-term::before,
-.interstitial-card.ic-cheer .ic-term::after { color: var(--green-dk); }
-/* Hebrew also skips the decorative quotes — same reasoning as CJK above,
-   a Western serif curly quote doesn't sit naturally against Hebrew script. */
-.ic-term-row[dir="rtl"] .ic-term::before,
-.ic-term-row[dir="rtl"] .ic-term::after { content: none; }
+/* BUG-FIX (Aug 2026): idiom term used to get decorative curly quotes via
+   ::before/::after. Those glue to the very first/last character, so once
+   the term wrapped to 2 lines the opening quote sat top-left and the
+   closing quote sat bottom-right — each line carried a different amount
+   of extra glyph weight on opposite ends, so the two lines never looked
+   evenly centered under each other. Quotes removed; the per-kind accent
+   (was on the quote marks: purple for tip, green for cheer) moved onto
+   the term text itself instead, so the headline still reads as visually
+   "special" without anything that can throw off multi-line centering.
+   Also makes Latin idioms consistent with CJK/Hebrew, which never had
+   decorative quotes to begin with. */
+.interstitial-card.ic-tip   .ic-term { color: var(--purple-dk); }
+.interstitial-card.ic-cheer .ic-term { color: var(--green-dk); }
+
 
 /* Speaker button — same circular-icon-button language as .wc-tts elsewhere,
    just sized down to sit inline next to the headline. */
@@ -2152,9 +2161,10 @@ rt {
    Typography only: no dimensions, positioning, overflow, or game logic changes.
    The primary word and question sizes were already large, so they stay untouched.
 
-   Follow-up pass: the multiple-choice answer text (.mc-opt .mc-t — this is what
-   shows the EN options in definition-mode questions) was still reading small on
-   iPhone after the first pass, so it gets a bigger jump here. Everything else
+   Follow-up pass: multiple-choice answer text was still reading small on iPhone
+   after the first pass (its own font-size rule has since been moved out of this
+   block — see the cqw-based BUG-FIX near .mc-opt .mc-t's base definition, which
+   now handles portrait and landscape consistently on its own). Everything else
    that's primary reading content the player actually reads to answer/understand
    (definitions, translations, romaji/IPA, review text, answer-tile text) gets a
    further bump too. Chrome — badges, tab labels, pills, counts, settings/category
@@ -2187,7 +2197,9 @@ rt {
   .wc-sent-toggle{font-size:.86rem;}
   .wc-sent-reading,.wc-sent-en{font-size:1.02rem;}
   .mc-opt{font-size:1.08rem;}
-  .mc-opt .mc-t{font-size:clamp(1.05rem,4.5vw,1.2rem);}
+  /* .mc-opt .mc-t font-size now lives as a single cqw-based rule near its base
+     definition — see the BUG-FIX comment there. Removed the duplicate that used
+     to be here so portrait/landscape stop disagreeing on the size. */
   .mc-sub,.blank-trans{font-size:1rem;}
   .listen-big-label{font-size:.96rem;}
   .tile{font-size:1.08rem;}
