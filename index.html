@@ -37,22 +37,36 @@
      --sal/--sar live only in styles.css now — the old duplicate copy here, and
      the body padding it added, were dead weight and have been removed.)
 
-     Follow-up: the same kind of first-paint mismatch can happen when launched
-     as an installed (standalone) PWA, not just in a Safari tab — this early
-     <head> measurement can run before iOS finishes resolving the status-bar-
-     overlay geometry, and standalone launches don't reliably fire a follow-up
-     'resize' the way a Safari tab does. Re-measure once after load settles,
-     and also listen on visualViewport (more reliable than window.resize for
-     iOS viewport changes) when the API is available. -->
+     Follow-up (implemented Aug 2026): the same kind of first-paint mismatch
+     can happen when launched as an installed (standalone) PWA, not just in a
+     Safari tab — this early <head> measurement can run before iOS finishes
+     resolving the status-bar-overlay geometry, and standalone launches don't
+     reliably fire a follow-up 'resize' the way a Safari tab does, so the
+     very first reading below can get locked in wrong with nothing afterward
+     to correct it. setRealVH() now reads visualViewport.height when it's
+     available (more reliable than window.innerHeight for iOS viewport
+     quirks), and standalone launches additionally get a burst of delayed
+     re-measurements — nothing else reliably signals when iOS has actually
+     finished settling that geometry, so this re-checks a few times instead
+     of waiting on an event that may never fire. -->
 <script>
   function setRealVH(){
-    document.documentElement.style.setProperty('--vh100', window.innerHeight + 'px');
+    const h = (window.visualViewport && window.visualViewport.height) || window.innerHeight;
+    document.documentElement.style.setProperty('--vh100', h + 'px');
   }
   setRealVH();
   window.addEventListener('resize', setRealVH);
   window.addEventListener('orientationchange', function(){ setTimeout(setRealVH, 50); });
   window.addEventListener('load', function(){ requestAnimationFrame(setRealVH); });
   if(window.visualViewport){ window.visualViewport.addEventListener('resize', setRealVH); }
+
+  // Standalone-launch geometry settles late and silently — force a few
+  // delayed re-measurements rather than trusting a resize event to fire.
+  const isStandalonePWA = window.navigator.standalone === true ||
+    (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches);
+  if(isStandalonePWA){
+    [100, 300, 600, 1000].forEach(function(ms){ setTimeout(setRealVH, ms); });
+  }
 </script>
 <title>Noah's WordArk</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Outfit:wght@700;800;900&family=Rubik:wght@500;700;900&family=Playfair+Display:wght@700;900&family=DM+Mono:wght@500&family=Noto+Sans+Hebrew:wght@500;700;900&display=swap" rel="stylesheet">
