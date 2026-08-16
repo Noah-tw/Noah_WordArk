@@ -16,7 +16,7 @@
       #bot-bar's padding at all, it's something outside this element.
 ═══════════════════════════════════════ */
 body::after{
-  content:"CSS LOADED vTEST";
+  content:"CSS LOADED v3-scrgame-height-removed";
   position:fixed;top:0;left:0;right:0;z-index:999999;
   background:red;color:#fff;font-size:18px;font-weight:900;
   text-align:center;padding:8px;pointer-events:none;
