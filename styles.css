@@ -2200,7 +2200,7 @@ rt {
   .wc-sent-toggle{font-size:.86rem;}
   .wc-sent-reading,.wc-sent-en{font-size:1.02rem;}
   .mc-opt{font-size:1.08rem;}
-  .mc-opt .mc-t{font-size:clamp(1.5rem,7vw,2.2rem);}
+  .mc-opt .mc-t{font-size:clamp(4rem,10vw,6rem);}
   .mc-sub,.blank-trans{font-size:1rem;}
   .listen-big-label{font-size:.96rem;}
   .tile{font-size:1.08rem;}
