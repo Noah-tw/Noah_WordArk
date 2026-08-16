@@ -935,7 +935,8 @@ rt {
 ═══════════════════════════════════════ */
 #bot-bar{position:sticky;bottom:0;left:0;
   width:100%;
-  padding:10px calc(var(--sar) + 16px) max(var(--sab),14px) calc(var(--sal) + 16px);
+  padding: 10px 16px 14px 16px;
+  
   background:rgba(255,255,255,.97);
   backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
   border-top:2px solid var(--border);
