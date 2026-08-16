@@ -1,30 +1,4 @@
 /* ═══════════════════════════════════════
-   TEMP DEBUG — DELETE THIS WHOLE BLOCK AFTER TESTING
-   Purpose: prove (a) whether this exact CSS file is the one actually
-   loading on the phone right now, and (b) whether the leftover bottom
-   space sits INSIDE #bot-bar (padding) or OUTSIDE it (something else,
-   e.g. the --vh100 container). Look at the phone, then report back:
-   1) Do you see a red "CSS LOADED vTEST" banner at the very top of the
-      screen? If NO — this file isn't the one running; it's a cache/
-      deploy problem, not a CSS logic problem, stop editing CSS and go
-      fix delivery first.
-   2) If YES — is #bot-bar (thick red outline, lime background) sitting
-      flush against the very bottom of the screen, or is there still a
-      gap of plain background BELOW the red outline? Flush = the space
-      really was padding and this test itself just removed it (outline
-      doesn't add space). A gap below the outline = the space is NOT
-      #bot-bar's padding at all, it's something outside this element.
-═══════════════════════════════════════ */
-body::after{
-  content:"CSS LOADED v3-scrgame-height-removed";
-  position:fixed;top:0;left:0;right:0;z-index:999999;
-  background:red;color:#fff;font-size:18px;font-weight:900;
-  text-align:center;padding:8px;pointer-events:none;
-}
-#bot-bar{outline:6px solid red !important;background:lime !important;}
-/* ═══════════════════════════════════════ END TEMP DEBUG ═══════════════════════════════════════ */
-
-/* ═══════════════════════════════════════
    TOKENS
 ═══════════════════════════════════════ */
 :root{
@@ -186,21 +160,7 @@ body{display:flex;justify-content:center;
    GAME HEADER
    — language as icon-style tab, not text pill
 ═══════════════════════════════════════ */
-#scr-game{overflow:hidden;display:flex;flex-direction:column;
-  /* ROOT-CAUSE FIX (Aug 2026, standalone-PWA bottom gap): #scr-game also carries
-     class="screen", which already sets position:fixed;top:0;bottom:0 — that alone
-     stretches the box to the true viewport edges with zero JS involved. This rule
-     used to ALSO set an explicit height (100dvh / var(--vh100)) on top of that.
-     Per spec, when a fixed element has top + bottom + height all set, bottom is
-     ignored and the box is sized from top+height instead — so the real bottom
-     edge was silently determined by however accurate that dvh/vh100 reading
-     happened to be, not by bottom:0. Any shortfall in that JS measurement (the
-     exact standalone-launch timing problem --vh100 was built to work around)
-     showed up as a gap here no amount of #bot-bar padding could ever close,
-     because the gap was outside #bot-bar, between #scr-game's short bottom edge
-     and the real screen edge. Removing the explicit height here lets the native
-     fixed top:0/bottom:0 stretch do the sizing instead — no dvh, no --vh100, no
-     JS timing dependency for this element specifically. */
+#scr-game{overflow:hidden;display:flex;flex-direction:column;height:100%;height:100dvh;height:var(--vh100,100dvh);
   /* FIX (MC option font-size, portrait/landscape mismatch): make #scr-game a query
      container so descendants can size off ITS width (always ≤430px, per .screen)
      instead of the raw device viewport width. Viewport `vw` flips between portrait
