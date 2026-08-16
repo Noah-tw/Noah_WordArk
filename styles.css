@@ -950,7 +950,7 @@ rt {
    var(--sab) itself is untouched in both cases: that's the real home-indicator
    hitbox, and shrinking it would risk the button overlapping the swipe area. */
 @media (display-mode:standalone){
-  #bot-bar{padding-bottom:max(var(--sab),4px);}
+  #bot-bar{padding-bottom: 14px;} 
 }
 .btn-next{flex:1;min-height:56px;padding:14px;border-radius:var(--r);
   font-family:'Nunito',sans-serif;font-size:1rem;font-weight:900;cursor:pointer;
