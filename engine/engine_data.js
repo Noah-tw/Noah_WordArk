@@ -809,25 +809,8 @@ const TTS = (() => {
     const base=target.split('-')[0];
     // Some WebKit builds still expose Hebrew under its legacy ISO code "iw".
     const bases=base==='he'?['he','iw']:[base];
-    const exact=voices.filter(v=>norm(v.lang)===target);
-    const partial=voices.filter(v=>norm(v.lang)!==target&&bases.some(b=>norm(v.lang)===b||norm(v.lang).startsWith(b+'-')));
-    // BUG-FIX (native voice quality): getVoices() can expose several candidates for the
-    // same locale — e.g. a flat offline OS voice alongside Chrome's network "Google ..."
-    // voice. .find() previously just took whichever the browser happened to list first,
-    // which was often the worse one. Rank the pool instead of taking the first match:
-    // Chrome/Android's "Google ..." network voices sound closest to real speech, so try
-    // those first; otherwise prefer any non-local ("network") voice over an on-device
-    // one. iOS has no such split — every Safari voice reports localService=true, so this
-    // tier is a no-op there and the browser's own default pick stands (already Apple's
-    // good on-device neural voice).
-    const rank=v=>{
-      const name=norm(v.name);
-      if(name.includes('google'))return 0;
-      if(v.localService===false)return 1;
-      return 2;
-    };
-    const pick=pool=>pool.length?pool.slice().sort((a,b)=>rank(a)-rank(b))[0]:null;
-    return pick(exact)||pick(partial)||null;
+    return voices.find(v=>norm(v.lang)===target)||
+      voices.find(v=>bases.some(b=>norm(v.lang)===b||norm(v.lang).startsWith(b+'-')))||null;
   }
 
   // WebKit on iPhone requires the FIRST speechSynthesis.speak() call to happen while
@@ -970,14 +953,14 @@ const TTS = (() => {
     // primary the same patient behaviour as the proven standalone games, with only a
     // generous emergency bound so a genuinely hung Listening question cannot lock forever.
     sources.push({
-      id:'google-primary', timeoutMs: patient?15000:6000,
+      id:'google-primary', timeoutMs: patient?15000:2500,
       url:`https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=${lang}&q=${encodeURIComponent(clean)}`
     });
 
     // Source 2: Backup Google Server (Bypasses IP blocks). It also gets a patient window;
     // dictionary/native voices remain rescue tools, never a fast substitute for Google.
     sources.push({
-      id:'google-backup', timeoutMs: patient?10000:4000,
+      id:'google-backup', timeoutMs: patient?10000:1500,
       url:`https://translate.googleapis.com/translate_tts?ie=UTF-8&client=gtx&tl=${lang}&q=${encodeURIComponent(clean)}`
     });
 
