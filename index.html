@@ -54,7 +54,11 @@
      below: it forces the actual layout recompute that rotation was doing,
      instead of re-reading numbers that don't change on their own. -->
 <script>
+  window.__dlogQueue = [];
   window.__dlog = function(msg){
+    var line = new Date().toISOString().slice(11,19) + ' ' + msg;
+    window.__dlogQueue.push(line);
+    if(!document.body) return; // too early — stays queued, flushed below once body exists
     var d = document.getElementById('__debuglog');
     if(!d){
       d = document.createElement('div');
@@ -64,8 +68,10 @@
         'max-height:140px;overflow:auto;padding:4px;pointer-events:none;';
       document.body.appendChild(d);
     }
-    d.innerHTML += new Date().toISOString().slice(11,19) + ' ' + msg + '<br>';
+    window.__dlogQueue.forEach(function(l){ d.innerHTML += l + '<br>'; });
+    window.__dlogQueue = [];
   };
+  document.addEventListener('DOMContentLoaded', function(){ window.__dlog('(queue flush check)'); });
 
   function setRealVH(){
     const h = (window.visualViewport && window.visualViewport.height) || window.innerHeight;
