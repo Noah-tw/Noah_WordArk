@@ -149,11 +149,40 @@
   window.__dlog('isStandalonePWA=' + window.isStandalonePWA +
     ' (navigator.standalone=' + window.navigator.standalone +
     ', matchMedia=' + (window.matchMedia ? window.matchMedia('(display-mode: standalone)').matches : 'no matchMedia') + ')');
+
+  // CORRECTION (Aug 2026): everything above (100vh, position:static on
+  // #bot-bar) fixed the LAYOUT numbers — getBoundingClientRect/computedStyle
+  // now correctly report the true screen height. But the user reported a
+  // white band still visibly covering part of the screen after those fixes,
+  // AND — the detail that matters — it's the exact same band that a manual
+  // rotate-and-back has made disappear since the very start of this
+  // investigation. That means this was never purely a LAYOUT problem (wrong
+  // numbers); it's also a PAINT problem: iOS can compute the right layout
+  // internally while still displaying stale pixels until something forces a
+  // real repaint, and rotation forces that as a side effect of genuinely
+  // changing the screen dimensions. None of the JS techniques tried so far
+  // (delayed re-measurement, the display:none/reflow toggle) forced an
+  // actual repaint — they only touched layout, which was already correct by
+  // the time they ran.
+  // window.forceViewportRecalc() reproduces the repaint side-effect directly:
+  // briefly toggling the viewport meta tag's viewport-fit between cover and
+  // auto forces WebKit to redo the safe-area/viewport-fit geometry — and
+  // repaint along with it — without needing an actual device rotation.
+  window.forceViewportRecalc = function(){
+    var vp = document.querySelector('meta[name="viewport"]');
+    if(!vp) return;
+    var original = vp.getAttribute('content');
+    vp.setAttribute('content', original.replace('viewport-fit=cover', 'viewport-fit=auto'));
+    void document.documentElement.offsetHeight; // force sync reflow between the two steps
+    setTimeout(function(){ vp.setAttribute('content', original); }, 60);
+  };
+
   if(window.isStandalonePWA){
     // CORRECTION (Aug 2026): CSS's @media (display-mode:standalone) is confirmed
     // NOT reliable — see styles.css. This class is what CSS actually keys off now.
     document.documentElement.classList.add('is-standalone');
-    setTimeout(function(){ window.logScreenRect('cold-launch rect'); }, 300);
+    window.forceViewportRecalc();
+    setTimeout(function(){ window.logScreenRect('cold-launch rect'); }, 350);
   }
 </script>
 <title>Noah's WordArk</title>
