@@ -110,9 +110,20 @@
     var el = document.querySelector('.screen:not(.hidden)');
     if(!el){ window.__dlog(label + ': NONE FOUND'); return; }
     var r = el.getBoundingClientRect();
+    var cs = window.getComputedStyle(el);
     window.__dlog(label + ': ' + el.id + ' top=' + r.top.toFixed(0) +
       ' bottom=' + r.bottom.toFixed(0) + ' h=' + r.height.toFixed(0) +
+      ' CSSheight=' + cs.height + ' hasClass=' + document.documentElement.classList.contains('is-standalone') +
       ' windowInnerH=' + window.innerHeight);
+    // Control test: a plain NON-fixed element, not part of .screen/position:fixed
+    // at all, sized with the same 100vh. If THIS reads 956 while the .screen
+    // element above reads 894, the bug is specific to position:fixed resolution,
+    // not to the vh unit itself.
+    var t = document.createElement('div');
+    t.style.cssText = 'position:absolute;left:-9999px;top:0;height:100vh;width:1px;';
+    document.body.appendChild(t);
+    window.__dlog(label + ' [control, non-fixed 100vh]: h=' + t.getBoundingClientRect().height.toFixed(0));
+    t.remove();
   };
 
   window.isStandalonePWA = window.navigator.standalone === true ||
