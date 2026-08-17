@@ -473,6 +473,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     // when it runs — #scr-game wasn't on screen yet at that point, and by the
     // time the user gets here it never got its own layout recompute. Same fix,
     // just re-triggered now that #scr-game is the element actually visible.
+    if(window.__dlog) window.__dlog('btn-go: isStandalonePWA=' + window.isStandalonePWA + ', healScreenLayout=' + (typeof window.healScreenLayout));
     if(window.isStandalonePWA && window.healScreenLayout){
       setTimeout(window.healScreenLayout, 50);
     }
