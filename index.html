@@ -124,6 +124,14 @@
     document.body.appendChild(t);
     window.__dlog(label + ' [control, non-fixed 100vh]: h=' + t.getBoundingClientRect().height.toFixed(0));
     t.remove();
+    // Direct check on the actual element the gap is visible on: does #bot-bar's
+    // own bottom edge now reach the same number as .screen's bottom edge above?
+    var bb = document.getElementById('bot-bar');
+    if(bb){
+      var bbr = bb.getBoundingClientRect();
+      window.__dlog(label + ' [#bot-bar]: position=' + window.getComputedStyle(bb).position +
+        ' top=' + bbr.top.toFixed(0) + ' bottom=' + bbr.bottom.toFixed(0));
+    }
   };
 
   window.isStandalonePWA = window.navigator.standalone === true ||

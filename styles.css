@@ -1020,6 +1020,20 @@ rt {
    <html> based on navigator.standalone (which read correctly), so this no
    longer depends on the media query matching at all. */
 html.is-standalone #bot-bar{padding-bottom:16px;}
+html.is-standalone #bot-bar{position:static;}
+/* ROOT-CAUSE FIX (Aug 2026, standalone-PWA bottom gap, take 3): #scr-game's
+   own box was confirmed (via on-device logging) to now be correctly sized at
+   the true full viewport height once html.is-standalone .screen{height:100vh}
+   applied — yet the visible bottom gap persisted anyway. #bot-bar was still
+   using position:sticky;bottom:0, which has its own independent WebKit-
+   internal "where does bottom:0 actually resolve to" calculation, separate
+   from its ancestor's now-correct size — and #scr-game has overflow:hidden
+   (nothing ever scrolls), so sticky was never doing anything useful here in
+   the first place. Forcing it to position:static lets #bot-bar sit at the
+   true bottom purely through ordinary flex layout — it's the last child in
+   #scr-game's flex column, and .g-panel.on's flex:1 already absorbs all
+   remaining vertical space, so no sticky/fixed trick is actually needed. */
+
 .btn-next{flex:1;min-height:56px;padding:14px;border-radius:var(--r);
   font-family:'Nunito',sans-serif;font-size:1rem;font-weight:900;cursor:pointer;
   text-transform:uppercase;letter-spacing:.4px;text-align:center;
