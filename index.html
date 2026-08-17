@@ -50,9 +50,14 @@
      the standalone bottom gap in device testing — confirmed by a manual
      test where rotating to landscape and back to portrait made the gap
      disappear on its own, proving the values being re-measured were
-     themselves stuck, not just read too early. See window.healScreenLayout()
-     below: it forces the actual layout recompute that rotation was doing,
-     instead of re-reading numbers that don't change on their own. -->
+     themselves stuck, not just read too early. A follow-up attempt to force
+     that same recompute from JS (window.healScreenLayout(), a display
+     toggle) was ALSO disproven by on-device before/after logging — it
+     changed nothing. The actual fix ended up living in styles.css instead:
+     html.is-standalone .screen{height:100vh} — see the comment there for
+     why a static unit sidesteps this whole class of bug in standalone mode.
+     setRealVH()/--vh100 below are left as-is for ordinary Safari-tab
+     visits, where this dvh-settling problem was never the one that broke. -->
 <script>
   window.__dlogQueue = [];
   window.__dlog = function(msg){
@@ -84,29 +89,30 @@
   window.addEventListener('load', function(){ requestAnimationFrame(setRealVH); });
   if(window.visualViewport){ window.visualViewport.addEventListener('resize', setRealVH); }
 
-  // CONFIRMED (Aug 2026) via manual device test: rotating to landscape and back
-  // to portrait makes the standalone-PWA bottom gap disappear on its own — proof
-  // this was never a wrong CSS value to tune. WebKit computes the fixed-position
-  // layout of the visible .screen element wrong exactly once on cold standalone
-  // launch, then never recomputes it again on its own. Re-reading
-  // window.innerHeight/visualViewport.height (all setRealVH does) can't fix
-  // this — those readings are themselves what's stuck wrong, there's nothing
-  // wrong with --vh100 to re-measure. window.healScreenLayout() reproduces what
-  // the manual rotation does instead: force WebKit to throw away and redo the
-  // layout of the visible .screen element by flipping its display off then on
-  // with a synchronous reflow in between.
-  window.healScreenLayout = function(){
+  // CORRECTION (Aug 2026): the previous fix here (window.healScreenLayout(),
+  // a display:none/reflow/display:'' toggle meant to reproduce what manual
+  // device rotation does) was disproven by on-device before/after logging —
+  // #scr-landing's getBoundingClientRect() came back byte-identical before
+  // and after the toggle (bottom=894 both times). It didn't do anything.
+  // Root cause, confirmed by external documentation: iOS's "dynamic" viewport
+  // metrics (100dvh, window.innerHeight, visualViewport.height — everything
+  // setRealVH() reads) don't finish computing until the viewport is
+  // "exercised" by an actual geometry change (i.e. physically rotating the
+  // device), and that recalculation cannot be triggered from JS by any
+  // means — there is no programmatic substitute for a real rotation.
+  // The actual fix lives in styles.css: html.is-standalone .screen now uses
+  // the STATIC 100vh unit instead, which reads correctly from the very first
+  // frame in standalone mode (no browser toolbar there to make 100vh
+  // overflow, which is the only reason 100vh is normally avoided).
+  // setRealVH()/--vh100 stay as-is for ordinary Safari-tab visits, where the
+  // dvh path was never the broken one.
+  window.logScreenRect = function(label){
     var el = document.querySelector('.screen:not(.hidden)');
-    var before = el ? el.getBoundingClientRect() : null;
-    window.__dlog('healScreenLayout: target=' + (el ? el.id : 'NONE FOUND') +
-      (before ? ' before[top=' + before.top.toFixed(0) + ' bottom=' + before.bottom.toFixed(0) + ' h=' + before.height.toFixed(0) + ']' : ''));
-    if(!el) return;
-    var prevDisplay = el.style.display;
-    el.style.display = 'none';
-    void el.offsetHeight; // forces the reflow — nothing before this line matters without it
-    el.style.display = prevDisplay;
-    var after = el.getBoundingClientRect();
-    window.__dlog('healScreenLayout: after[top=' + after.top.toFixed(0) + ' bottom=' + after.bottom.toFixed(0) + ' h=' + after.height.toFixed(0) + '] windowInnerH=' + window.innerHeight);
+    if(!el){ window.__dlog(label + ': NONE FOUND'); return; }
+    var r = el.getBoundingClientRect();
+    window.__dlog(label + ': ' + el.id + ' top=' + r.top.toFixed(0) +
+      ' bottom=' + r.bottom.toFixed(0) + ' h=' + r.height.toFixed(0) +
+      ' windowInnerH=' + window.innerHeight);
   };
 
   window.isStandalonePWA = window.navigator.standalone === true ||
@@ -118,13 +124,7 @@
     // CORRECTION (Aug 2026): CSS's @media (display-mode:standalone) is confirmed
     // NOT reliable — see styles.css. This class is what CSS actually keys off now.
     document.documentElement.classList.add('is-standalone');
-    // Heals #scr-landing, since that's the screen visible at cold launch.
-    // #scr-game becomes visible later (on tapping "start"), well after this
-    // burst finishes, so it needs its own heal call — see engine_actions.js,
-    // right after `eid('scr-game').classList.remove('hidden')`.
-    [100, 300, 600, 1000].forEach(function(ms){
-      setTimeout(function(){ setRealVH(); window.healScreenLayout(); }, ms);
-    });
+    setTimeout(function(){ window.logScreenRect('cold-launch rect'); }, 300);
   }
 </script>
 <title>Noah's WordArk</title>

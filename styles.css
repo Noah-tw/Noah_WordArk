@@ -71,6 +71,24 @@ body{display:flex;justify-content:center;
 .screen{position:fixed;top:0;bottom:0;left:50%;right:auto;width:100%;max-width:430px;transform:translateX(-50%);
   display:flex;flex-direction:column;background:var(--bg);}
 .screen.hidden{display:none!important;}
+/* ROOT-CAUSE FIX (Aug 2026, standalone-PWA bottom gap — confirmed via on-device
+   logging): 100dvh / var(--vh100) / window.innerHeight / visualViewport.height
+   are ALL "dynamic" viewport metrics on iOS, and on a standalone-PWA cold
+   launch they can settle on a value that's too small (logged 894px on a
+   device whose real height is 956px) and then never self-correct — not after
+   waiting, not after any JS-triggered reflow (forcing a display:none/reflow/
+   display:'' cycle on the full-screen element changed nothing, logged
+   identically before and after). The only thing that fixed it was physically
+   rotating the device — which "exercises" the dynamic-viewport engine — and
+   that recalculation can't be triggered from JS.
+   100vh is a STATIC unit and doesn't have this cold-start problem: it reads
+   correctly from the very first frame. It's normally avoided on mobile web
+   because in an ordinary Safari TAB, 100vh counts the area hidden behind the
+   address/toolbar, making content overflow — but standalone PWA has no
+   toolbar at all, so that problem doesn't exist here. Scoped to
+   html.is-standalone (see index.html) so ordinary Safari-tab visits are
+   untouched and keep using the dvh/--vh100 path above. */
+html.is-standalone .screen{height:100vh;}
 
 /* ═══════════════════════════════════════
    LANDING — Noah's WordArk
