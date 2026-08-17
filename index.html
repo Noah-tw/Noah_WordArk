@@ -132,6 +132,16 @@
       window.__dlog(label + ' [#bot-bar]: position=' + window.getComputedStyle(bb).position +
         ' top=' + bbr.top.toFixed(0) + ' bottom=' + bbr.bottom.toFixed(0));
     }
+    // What's ACTUALLY painting near the bottom of the screen, top to bottom?
+    // Sampling a few y-values since we don't know exactly where the white
+    // region starts/ends.
+    var cx = Math.round(window.innerWidth / 2);
+    [window.innerHeight - 100, window.innerHeight - 60, window.innerHeight - 20].forEach(function(y){
+      var stack = document.elementsFromPoint(cx, y).slice(0, 4).map(function(el){
+        return el.tagName + (el.id ? '#' + el.id : '') + (el.className && typeof el.className === 'string' ? '.' + el.className.split(' ').join('.') : '');
+      });
+      window.__dlog(label + ' @y=' + y + ': ' + stack.join(' > '));
+    });
   };
 
   window.isStandalonePWA = window.navigator.standalone === true ||
