@@ -473,8 +473,11 @@ document.addEventListener('DOMContentLoaded',()=>{
     // full story. The actual fix is the html.is-standalone .screen{height:100vh}
     // rule in styles.css, which needs no JS trigger at all. This just logs the
     // resulting size for verification.
+    if(window.isStandalonePWA && window.forceViewportRecalc){
+      window.forceViewportRecalc();
+    }
     if(window.isStandalonePWA && window.logScreenRect){
-      setTimeout(function(){ window.logScreenRect('scr-game rect'); }, 50);
+      setTimeout(function(){ window.logScreenRect('scr-game rect'); }, 150);
     }
     // BUG-FIX (stale tab across language switch): if the user left off on the Review
     // tab for a previous language, G_goHome() never resets tab state, so re-entering
