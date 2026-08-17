@@ -232,8 +232,20 @@ function G_setRevTopic(cat){
   buildRevTopics();
   renderReview(S.revFilter);
 }
+// Same stale-language race as renderReview() in engine_render.js — own counter so a
+// newer call (new filter tap, new language) cleanly supersedes a pending retry.
+let _revTopicsBuildSeq = 0;
 function buildRevTopics(){
   const el=eid('rev-cat-list');if(!el)return;
+
+  if(!Store.isLoadedFor(S.lang)){
+    el.innerHTML='<div class="cat-item cat-all"><span class="cat-item-name">Loading…</span></div>';
+    const seq=++_revTopicsBuildSeq;
+    setTimeout(()=>{ if(seq===_revTopicsBuildSeq) buildRevTopics(); },50);
+    return;
+  }
+  _revTopicsBuildSeq++; // invalidate any retry queued before this real build
+
   const cats=Store.getCats();
   const allWords=Store.getAll();
 
@@ -456,6 +468,14 @@ document.addEventListener('DOMContentLoaded',()=>{
     SFX.click();
     eid('scr-landing').classList.add('hidden');
     eid('scr-game').classList.remove('hidden');
+    // FIX (Aug 2026, standalone-PWA bottom gap): the cold-launch heal burst in
+    // index.html only ever touches #scr-landing, since that's what's visible
+    // when it runs — #scr-game wasn't on screen yet at that point, and by the
+    // time the user gets here it never got its own layout recompute. Same fix,
+    // just re-triggered now that #scr-game is the element actually visible.
+    if(window.isStandalonePWA && window.healScreenLayout){
+      setTimeout(window.healScreenLayout, 50);
+    }
     // BUG-FIX (stale tab across language switch): if the user left off on the Review
     // tab for a previous language, G_goHome() never resets tab state, so re-entering
     // via btn-go would show review's leftover DOM/CSS state for the OLD language until

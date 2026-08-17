@@ -1510,10 +1510,26 @@ let _revObserver=null;
 
 
 
+// BUG-FIX (stale-language review cards): renderReview() can run while S.lang already
+// points at a newly-picked language but Store.load() for it is still fetching in the
+// background (e.g. the player is on the Review tab when they switch language, or they
+// switch tabs during that window). Without this guard Store.getAll() below would render
+// review cards from the PREVIOUS language under the new language's header — the same
+// stale-data race as the game-session bug, just for the Review tab. Own sequence counter
+// so a newer renderReview()/tab switch cleanly supersedes an older pending retry.
+let _revBuildSeq = 0;
 function renderReview(f) {
   S.revFilter = f || S.revFilter || 'all';
   const list = eid('rev-list'); if (!list) return;
-  
+
+  if (!Store.isLoadedFor(S.lang)) {
+    list.innerHTML = `<div class="rev-empty">Loading…</div>`;
+    const seq = ++_revBuildSeq;
+    setTimeout(() => { if (seq === _revBuildSeq) renderReview(S.revFilter); }, 50);
+    return;
+  }
+  _revBuildSeq++; // invalidate any retry that was already queued before this real render
+
   // 更新上方按鈕的選取狀態 (New/Practice/Mastered)
   qsa('.rev-tab').forEach(b => b.classList.toggle('on', b.dataset.f === S.revFilter));
 
