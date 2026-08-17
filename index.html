@@ -54,9 +54,23 @@
      below: it forces the actual layout recompute that rotation was doing,
      instead of re-reading numbers that don't change on their own. -->
 <script>
+  window.__dlog = function(msg){
+    var d = document.getElementById('__debuglog');
+    if(!d){
+      d = document.createElement('div');
+      d.id = '__debuglog';
+      d.style.cssText = 'position:fixed;bottom:0;left:0;right:0;z-index:999998;'+
+        'background:rgba(0,0,255,.85);color:#fff;font-size:11px;font-family:monospace;'+
+        'max-height:140px;overflow:auto;padding:4px;pointer-events:none;';
+      document.body.appendChild(d);
+    }
+    d.innerHTML += new Date().toISOString().slice(11,19) + ' ' + msg + '<br>';
+  };
+
   function setRealVH(){
     const h = (window.visualViewport && window.visualViewport.height) || window.innerHeight;
     document.documentElement.style.setProperty('--vh100', h + 'px');
+    window.__dlog('setRealVH: ' + h + 'px');
   }
   setRealVH();
   window.addEventListener('resize', setRealVH);
@@ -77,6 +91,7 @@
   // with a synchronous reflow in between.
   window.healScreenLayout = function(){
     var el = document.querySelector('.screen:not(.hidden)');
+    window.__dlog('healScreenLayout: target=' + (el ? el.id : 'NONE FOUND'));
     if(!el) return;
     var prevDisplay = el.style.display;
     el.style.display = 'none';
@@ -86,6 +101,9 @@
 
   window.isStandalonePWA = window.navigator.standalone === true ||
     (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches);
+  window.__dlog('isStandalonePWA=' + window.isStandalonePWA +
+    ' (navigator.standalone=' + window.navigator.standalone +
+    ', matchMedia=' + (window.matchMedia ? window.matchMedia('(display-mode: standalone)').matches : 'no matchMedia') + ')');
   if(window.isStandalonePWA){
     // Heals #scr-landing, since that's the screen visible at cold launch.
     // #scr-game becomes visible later (on tapping "start"), well after this
