@@ -468,14 +468,13 @@ document.addEventListener('DOMContentLoaded',()=>{
     SFX.click();
     eid('scr-landing').classList.add('hidden');
     eid('scr-game').classList.remove('hidden');
-    // FIX (Aug 2026, standalone-PWA bottom gap): the cold-launch heal burst in
-    // index.html only ever touches #scr-landing, since that's what's visible
-    // when it runs — #scr-game wasn't on screen yet at that point, and by the
-    // time the user gets here it never got its own layout recompute. Same fix,
-    // just re-triggered now that #scr-game is the element actually visible.
-    if(window.__dlog) window.__dlog('btn-go: isStandalonePWA=' + window.isStandalonePWA + ', healScreenLayout=' + (typeof window.healScreenLayout));
-    if(window.isStandalonePWA && window.healScreenLayout){
-      setTimeout(window.healScreenLayout, 50);
+    // CORRECTION (Aug 2026, standalone-PWA bottom gap): the heal call that used
+    // to be here was disproven by on-device logging — see index.html for the
+    // full story. The actual fix is the html.is-standalone .screen{height:100vh}
+    // rule in styles.css, which needs no JS trigger at all. This just logs the
+    // resulting size for verification.
+    if(window.isStandalonePWA && window.logScreenRect){
+      setTimeout(function(){ window.logScreenRect('scr-game rect'); }, 50);
     }
     // BUG-FIX (stale tab across language switch): if the user left off on the Review
     // tab for a previous language, G_goHome() never resets tab state, so re-entering
