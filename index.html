@@ -97,12 +97,16 @@
   // with a synchronous reflow in between.
   window.healScreenLayout = function(){
     var el = document.querySelector('.screen:not(.hidden)');
-    window.__dlog('healScreenLayout: target=' + (el ? el.id : 'NONE FOUND'));
+    var before = el ? el.getBoundingClientRect() : null;
+    window.__dlog('healScreenLayout: target=' + (el ? el.id : 'NONE FOUND') +
+      (before ? ' before[top=' + before.top.toFixed(0) + ' bottom=' + before.bottom.toFixed(0) + ' h=' + before.height.toFixed(0) + ']' : ''));
     if(!el) return;
     var prevDisplay = el.style.display;
     el.style.display = 'none';
     void el.offsetHeight; // forces the reflow — nothing before this line matters without it
     el.style.display = prevDisplay;
+    var after = el.getBoundingClientRect();
+    window.__dlog('healScreenLayout: after[top=' + after.top.toFixed(0) + ' bottom=' + after.bottom.toFixed(0) + ' h=' + after.height.toFixed(0) + '] windowInnerH=' + window.innerHeight);
   };
 
   window.isStandalonePWA = window.navigator.standalone === true ||
@@ -111,6 +115,9 @@
     ' (navigator.standalone=' + window.navigator.standalone +
     ', matchMedia=' + (window.matchMedia ? window.matchMedia('(display-mode: standalone)').matches : 'no matchMedia') + ')');
   if(window.isStandalonePWA){
+    // CORRECTION (Aug 2026): CSS's @media (display-mode:standalone) is confirmed
+    // NOT reliable — see styles.css. This class is what CSS actually keys off now.
+    document.documentElement.classList.add('is-standalone');
     // Heals #scr-landing, since that's the screen visible at cold launch.
     // #scr-game becomes visible later (on tapping "start"), well after this
     // burst finishes, so it needs its own heal call — see engine_actions.js,
