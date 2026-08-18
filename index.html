@@ -29,59 +29,34 @@
      wrong value on first paint — especially here, since html/body deliberately
      never scroll (overflow:hidden, to stop pull-to-refresh), so Safari's toolbar
      never gets the scroll cue it normally uses to finish sizing the viewport.
-     That can leave a sliver of unaccounted space below the game that isn't the
-     home-indicator safe area, just an unmatched height. This measures the real
-     visible viewport with JS and republishes it as --vh100; styles.css prefers
-     --vh100 over 100dvh wherever the game must fill the screen exactly, and
-     falls back to 100dvh until this first runs. (Safe-area tokens --sat/--sab/
-     --sal/--sar live only in styles.css now — the old duplicate copy here, and
-     the body padding it added, were dead weight and have been removed.)
+     This measures the real visible viewport with JS and republishes it as
+     --vh100; styles.css prefers --vh100 over 100dvh wherever the game must
+     fill the screen exactly, and falls back to 100dvh until this first runs.
+     This path is for ordinary Safari-tab visits.
 
-     Follow-up (Aug 2026): the same kind of first-paint mismatch can happen
-     when launched as an installed (standalone) PWA, not just in a Safari tab
-     — this early <head> measurement can run before iOS finishes resolving
-     the status-bar-overlay geometry, and standalone launches don't reliably
-     fire a follow-up 'resize' the way a Safari tab does, so the very first
-     reading below can get locked in wrong with nothing afterward to correct
-     it. setRealVH() reads visualViewport.height when available (more
-     reliable than window.innerHeight for iOS viewport quirks).
-
-     Correction (Aug 2026): re-measuring on a delay, by itself, did NOT fix
-     the standalone bottom gap in device testing — confirmed by a manual
-     test where rotating to landscape and back to portrait made the gap
-     disappear on its own, proving the values being re-measured were
-     themselves stuck, not just read too early. A follow-up attempt to force
-     that same recompute from JS (window.healScreenLayout(), a display
-     toggle) was ALSO disproven by on-device before/after logging — it
-     changed nothing. The actual fix ended up living in styles.css instead:
-     html.is-standalone .screen{height:100vh} — see the comment there for
-     why a static unit sidesteps this whole class of bug in standalone mode.
-     setRealVH()/--vh100 below are left as-is for ordinary Safari-tab
-     visits, where this dvh-settling problem was never the one that broke. -->
+     Standalone PWA has a related but different bug, confirmed through device
+     testing: iOS's "dynamic" viewport metrics (100dvh, window.innerHeight,
+     visualViewport.height) can settle on a too-small value on cold launch and
+     never self-correct on their own — only a manual device rotation fixed it,
+     proving these were genuinely stuck, not just read too early. Two fixes,
+     both scoped to html.is-standalone (added by the script below) so ordinary
+     Safari-tab visits are untouched:
+       1. styles.css uses the STATIC 100vh unit instead of dvh for standalone
+          — it isn't subject to the same cold-launch bug, and standalone has
+          no browser toolbar to make 100vh overflow (the usual reason it's
+          avoided on mobile).
+       2. Even with correct layout numbers, the actual painted pixels can stay
+          stale until something forces a real repaint (rotation does this as
+          a side effect of genuinely changing the screen size).
+          window.forceViewportRecalc() reproduces that by briefly toggling the
+          viewport meta tag's viewport-fit between cover/auto. It runs on cold
+          launch, when entering gameplay (engine_actions.js), and on resume
+          from background — the gap was also observed recurring after being
+          backgrounded a few minutes, not just on a true cold launch. -->
 <script>
-  window.__dlogQueue = [];
-  window.__dlog = function(msg){
-    var line = new Date().toISOString().slice(11,19) + ' ' + msg;
-    window.__dlogQueue.push(line);
-    if(!document.body) return; // too early — stays queued, flushed below once body exists
-    var d = document.getElementById('__debuglog');
-    if(!d){
-      d = document.createElement('div');
-      d.id = '__debuglog';
-      d.style.cssText = 'position:fixed;bottom:0;left:0;right:0;z-index:999998;'+
-        'background:rgba(0,0,255,.85);color:#fff;font-size:11px;font-family:monospace;'+
-        'max-height:140px;overflow:auto;padding:4px;pointer-events:none;';
-      document.body.appendChild(d);
-    }
-    window.__dlogQueue.forEach(function(l){ d.innerHTML += l + '<br>'; });
-    window.__dlogQueue = [];
-  };
-  document.addEventListener('DOMContentLoaded', function(){ window.__dlog('(queue flush check)'); });
-
   function setRealVH(){
     const h = (window.visualViewport && window.visualViewport.height) || window.innerHeight;
     document.documentElement.style.setProperty('--vh100', h + 'px');
-    window.__dlog('setRealVH: ' + h + 'px');
   }
   setRealVH();
   window.addEventListener('resize', setRealVH);
@@ -89,85 +64,9 @@
   window.addEventListener('load', function(){ requestAnimationFrame(setRealVH); });
   if(window.visualViewport){ window.visualViewport.addEventListener('resize', setRealVH); }
 
-  // CORRECTION (Aug 2026): the previous fix here (window.healScreenLayout(),
-  // a display:none/reflow/display:'' toggle meant to reproduce what manual
-  // device rotation does) was disproven by on-device before/after logging —
-  // #scr-landing's getBoundingClientRect() came back byte-identical before
-  // and after the toggle (bottom=894 both times). It didn't do anything.
-  // Root cause, confirmed by external documentation: iOS's "dynamic" viewport
-  // metrics (100dvh, window.innerHeight, visualViewport.height — everything
-  // setRealVH() reads) don't finish computing until the viewport is
-  // "exercised" by an actual geometry change (i.e. physically rotating the
-  // device), and that recalculation cannot be triggered from JS by any
-  // means — there is no programmatic substitute for a real rotation.
-  // The actual fix lives in styles.css: html.is-standalone .screen now uses
-  // the STATIC 100vh unit instead, which reads correctly from the very first
-  // frame in standalone mode (no browser toolbar there to make 100vh
-  // overflow, which is the only reason 100vh is normally avoided).
-  // setRealVH()/--vh100 stay as-is for ordinary Safari-tab visits, where the
-  // dvh path was never the broken one.
-  window.logScreenRect = function(label){
-    var el = document.querySelector('.screen:not(.hidden)');
-    if(!el){ window.__dlog(label + ': NONE FOUND'); return; }
-    var r = el.getBoundingClientRect();
-    var cs = window.getComputedStyle(el);
-    window.__dlog(label + ': ' + el.id + ' top=' + r.top.toFixed(0) +
-      ' bottom=' + r.bottom.toFixed(0) + ' h=' + r.height.toFixed(0) +
-      ' CSSheight=' + cs.height + ' hasClass=' + document.documentElement.classList.contains('is-standalone') +
-      ' windowInnerH=' + window.innerHeight);
-    // Control test: a plain NON-fixed element, not part of .screen/position:fixed
-    // at all, sized with the same 100vh. If THIS reads 956 while the .screen
-    // element above reads 894, the bug is specific to position:fixed resolution,
-    // not to the vh unit itself.
-    var t = document.createElement('div');
-    t.style.cssText = 'position:absolute;left:-9999px;top:0;height:100vh;width:1px;';
-    document.body.appendChild(t);
-    window.__dlog(label + ' [control, non-fixed 100vh]: h=' + t.getBoundingClientRect().height.toFixed(0));
-    t.remove();
-    // Direct check on the actual element the gap is visible on: does #bot-bar's
-    // own bottom edge now reach the same number as .screen's bottom edge above?
-    var bb = document.getElementById('bot-bar');
-    if(bb){
-      var bbr = bb.getBoundingClientRect();
-      window.__dlog(label + ' [#bot-bar]: position=' + window.getComputedStyle(bb).position +
-        ' top=' + bbr.top.toFixed(0) + ' bottom=' + bbr.bottom.toFixed(0));
-    }
-    // What's ACTUALLY painting near the bottom of the screen, top to bottom?
-    // Sampling a few y-values since we don't know exactly where the white
-    // region starts/ends.
-    var cx = Math.round(window.innerWidth / 2);
-    [window.innerHeight - 100, window.innerHeight - 60, window.innerHeight - 20].forEach(function(y){
-      var stack = document.elementsFromPoint(cx, y).slice(0, 4).map(function(el){
-        return el.tagName + (el.id ? '#' + el.id : '') + (el.className && typeof el.className === 'string' ? '.' + el.className.split(' ').join('.') : '');
-      });
-      window.__dlog(label + ' @y=' + y + ': ' + stack.join(' > '));
-    });
-  };
-
   window.isStandalonePWA = window.navigator.standalone === true ||
     (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches);
-  window.__dlog('isStandalonePWA=' + window.isStandalonePWA +
-    ' (navigator.standalone=' + window.navigator.standalone +
-    ', matchMedia=' + (window.matchMedia ? window.matchMedia('(display-mode: standalone)').matches : 'no matchMedia') + ')');
 
-  // CORRECTION (Aug 2026): everything above (100vh, position:static on
-  // #bot-bar) fixed the LAYOUT numbers — getBoundingClientRect/computedStyle
-  // now correctly report the true screen height. But the user reported a
-  // white band still visibly covering part of the screen after those fixes,
-  // AND — the detail that matters — it's the exact same band that a manual
-  // rotate-and-back has made disappear since the very start of this
-  // investigation. That means this was never purely a LAYOUT problem (wrong
-  // numbers); it's also a PAINT problem: iOS can compute the right layout
-  // internally while still displaying stale pixels until something forces a
-  // real repaint, and rotation forces that as a side effect of genuinely
-  // changing the screen dimensions. None of the JS techniques tried so far
-  // (delayed re-measurement, the display:none/reflow toggle) forced an
-  // actual repaint — they only touched layout, which was already correct by
-  // the time they ran.
-  // window.forceViewportRecalc() reproduces the repaint side-effect directly:
-  // briefly toggling the viewport meta tag's viewport-fit between cover and
-  // auto forces WebKit to redo the safe-area/viewport-fit geometry — and
-  // repaint along with it — without needing an actual device rotation.
   window.forceViewportRecalc = function(){
     var vp = document.querySelector('meta[name="viewport"]');
     if(!vp) return;
@@ -178,11 +77,14 @@
   };
 
   if(window.isStandalonePWA){
-    // CORRECTION (Aug 2026): CSS's @media (display-mode:standalone) is confirmed
-    // NOT reliable — see styles.css. This class is what CSS actually keys off now.
+    // CSS's @media (display-mode:standalone) is unreliable on at least one
+    // real device tested — matchMedia read false on a confirmed standalone
+    // launch. This class is what CSS actually keys off instead (see styles.css).
     document.documentElement.classList.add('is-standalone');
     window.forceViewportRecalc();
-    setTimeout(function(){ window.logScreenRect('cold-launch rect'); }, 350);
+    document.addEventListener('visibilitychange', function(){
+      if(document.visibilityState === 'visible'){ window.forceViewportRecalc(); }
+    });
   }
 </script>
 <title>Noah's WordArk</title>

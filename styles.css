@@ -1,30 +1,4 @@
 /* ═══════════════════════════════════════
-   TEMP DEBUG — DELETE THIS WHOLE BLOCK AFTER TESTING
-   Purpose: prove (a) whether this exact CSS file is the one actually
-   loading on the phone right now, and (b) whether the leftover bottom
-   space sits INSIDE #bot-bar (padding) or OUTSIDE it (something else,
-   e.g. the --vh100 container). Look at the phone, then report back:
-   1) Do you see a red "CSS LOADED vTEST" banner at the very top of the
-      screen? If NO — this file isn't the one running; it's a cache/
-      deploy problem, not a CSS logic problem, stop editing CSS and go
-      fix delivery first.
-   2) If YES — is #bot-bar (thick red outline, lime background) sitting
-      flush against the very bottom of the screen, or is there still a
-      gap of plain background BELOW the red outline? Flush = the space
-      really was padding and this test itself just removed it (outline
-      doesn't add space). A gap below the outline = the space is NOT
-      #bot-bar's padding at all, it's something outside this element.
-═══════════════════════════════════════ */
-body::after{
-  content:"CSS LOADED v3-scrgame-height-removed";
-  position:fixed;top:0;left:0;right:0;z-index:999999;
-  background:red;color:#fff;font-size:18px;font-weight:900;
-  text-align:center;padding:8px;pointer-events:none;
-}
-#bot-bar{outline:6px solid red !important;background:lime !important;}
-/* ═══════════════════════════════════════ END TEMP DEBUG ═══════════════════════════════════════ */
-
-/* ═══════════════════════════════════════
    TOKENS
 ═══════════════════════════════════════ */
 :root{
