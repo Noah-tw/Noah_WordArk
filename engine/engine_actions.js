@@ -468,16 +468,12 @@ document.addEventListener('DOMContentLoaded',()=>{
     SFX.click();
     eid('scr-landing').classList.add('hidden');
     eid('scr-game').classList.remove('hidden');
-    // CORRECTION (Aug 2026, standalone-PWA bottom gap): the heal call that used
-    // to be here was disproven by on-device logging — see index.html for the
-    // full story. The actual fix is the html.is-standalone .screen{height:100vh}
-    // rule in styles.css, which needs no JS trigger at all. This just logs the
-    // resulting size for verification.
+    // FIX (Aug 2026, standalone-PWA bottom gap): re-run the same viewport
+    // recalc used at cold launch (see index.html) now that #scr-game is the
+    // element actually visible — it wasn't on screen yet when the cold-launch
+    // one ran.
     if(window.isStandalonePWA && window.forceViewportRecalc){
       window.forceViewportRecalc();
-    }
-    if(window.isStandalonePWA && window.logScreenRect){
-      setTimeout(function(){ window.logScreenRect('scr-game rect'); }, 150);
     }
     // BUG-FIX (stale tab across language switch): if the user left off on the Review
     // tab for a previous language, G_goHome() never resets tab state, so re-entering

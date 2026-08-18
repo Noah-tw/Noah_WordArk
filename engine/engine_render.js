@@ -1,4 +1,13 @@
-function showIntroCard(q){
+function showIntroCard(q,mode){
+  // mode: 'new' (default, first-ever encounter), 'review' (reappears after a wrong
+  // answer / hint use, right as the player leaves the question by finally answering
+  // it correctly — see G_next()), or 'reviewSkip' (same trigger condition, but the
+  // player left by tapping Skip instead — see G_skip()). All three share the same
+  // badge/accent; 'review' vs 'reviewSkip' differ only in what happens on dismiss —
+  // G_reviewDone() advances S.qi itself, G_reviewDoneNoInc() doesn't (Skip already
+  // spliced this question out of its old queue slot, so S.qi already points at the
+  // right next item).
+  const isReview=mode==='review'||mode==='reviewSkip';
   const area=eid('q-area');if(!area)return;
   if(window.Mascot) Mascot.onQuestion(S.lang,q);
   const lc=getLc();
@@ -98,8 +107,8 @@ function showIntroCard(q){
     </div>`:''}
   `;
 
-  area.innerHTML=`<div class="intro-card">
-    <div class="intro-badge">✨ New Word</div>
+  area.innerHTML=`<div class="intro-card${isReview?' intro-review':''}">
+    <div class="intro-badge">${isReview?'👀 Tricky Word':'✨ New Word'}</div>
     ${sentenceHl?`<div class="intro-sent-wrap">
       <div class="intro-sent-block">
         <div class="intro-sent-box"${rtl}>
@@ -153,7 +162,7 @@ function showIntroCard(q){
   const btnNext=eid('btn-next');
   const btnSkip=eid('btn-skip');
   const btnHint=eid('btn-hint');
-  if(btnNext){btnNext.textContent='Got it →';btnNext.onclick=G_introDone;btnNext.style.display='flex';btnNext.classList.add('btn-next-blue');}
+  if(btnNext){btnNext.textContent='Got it →';btnNext.onclick=mode==='reviewSkip'?G_reviewDoneNoInc:(isReview?G_reviewDone:G_introDone);btnNext.style.display='flex';btnNext.classList.add(isReview?'btn-next-yellow':'btn-next-blue');}
   if(btnSkip)btnSkip.style.display='none';
   if(btnHint)btnHint.style.display='none';
 }
@@ -244,6 +253,39 @@ function G_introDone(){
   if(q.tts && (q.mode==='listeningWord'||q.mode==='listeningSentence')){
     TTS.say(q.tts,LC[S.lang].ttsLang,0.85,false);
   }
+}
+
+// Dismiss handler for the review card (showIntroCard(q,'review')). Unlike
+// G_introDone() — which re-renders the SAME question the intro was blocking —
+// the review card is shown for a question that has already been fully answered
+// (see the check in G_next()), so dismissing it must advance to the next question.
+// loadQ() itself handles TTS/interstitial/next-intro logic, so we just hand off to it.
+function G_reviewDone(){
+  SFX.click();
+  _cancelQueuedTTS();
+  const btnNext=eid('btn-next');
+  const btnHint=eid('btn-hint');
+  if(btnNext){btnNext.textContent='Next →';btnNext.onclick=G_next;btnNext.style.display='none';btnNext.classList.remove('btn-next-yellow');}
+  if(btnHint)btnHint.style.display='flex';
+  eid('btn-skip').style.display='flex';
+  S.qi++;
+  loadQ();
+}
+
+// Dismiss handler for the review card when it was triggered from G_skip() (mode
+// 'reviewSkip') instead of G_next(). Skip already spliced the question out of its
+// old queue slot and pushed it to the end BEFORE showing this card, so S.qi is
+// already sitting on the correct next item — unlike G_reviewDone(), this must NOT
+// increment S.qi again, or the real next question would be silently skipped over.
+function G_reviewDoneNoInc(){
+  SFX.click();
+  _cancelQueuedTTS();
+  const btnNext=eid('btn-next');
+  const btnHint=eid('btn-hint');
+  if(btnNext){btnNext.textContent='Next →';btnNext.onclick=G_next;btnNext.style.display='none';btnNext.classList.remove('btn-next-yellow');}
+  if(btnHint)btnHint.style.display='flex';
+  eid('btn-skip').style.display='flex';
+  loadQ();
 }
 
 /* ─── RENDERER ────────────────────────────────────────────── */
@@ -1666,6 +1708,7 @@ function renderCats(){
   ).join('');
 }
 function updateCatBtn(){_updateFilterBtn();}
+let _filterBtnBuildSeq = 0;
 function _updateFilterBtn(){
   const btn=eid('filter-btn');
   const lbl=eid('filter-btn-label');
@@ -1695,22 +1738,46 @@ function _updateFilterBtn(){
   // Word count badge
   const wc=eid('filter-word-count');
   if(wc){
-    let pool=Store.getAll();
-    if(S.catsCleared) pool=[];
-    else if(S.cats.size>0) pool=pool.filter(r=>S.cats.has(r.category));
-    if(S.pool!=='all') pool=pool.filter(r=>S.pool==='favorite'?Prog.isFav(S.lang,r.id):Prog.status(S.lang,r.id)===S.pool);
-    if(pool.length>0){
-      wc.textContent=pool.length.toLocaleString();
-      wc.style.display='inline-block';
-    } else {
+    // BUG-FIX (stale badge count during language switch): same race as the game-session
+    // and landing-stats bugs — Store.getAll() can still be the PREVIOUS language's word
+    // list while a switch is loading in the background. Hide the badge rather than show
+    // a count for the wrong language; retry once the new language is actually ready.
+    if(!Store.isLoadedFor(S.lang)){
       wc.style.display='none';
+      const seq=++_filterBtnBuildSeq;
+      setTimeout(()=>{ if(seq===_filterBtnBuildSeq) _updateFilterBtn(); },50);
+    } else {
+      _filterBtnBuildSeq++;
+      let pool=Store.getAll();
+      if(S.catsCleared) pool=[];
+      else if(S.cats.size>0) pool=pool.filter(r=>S.cats.has(r.category));
+      if(S.pool!=='all') pool=pool.filter(r=>S.pool==='favorite'?Prog.isFav(S.lang,r.id):Prog.status(S.lang,r.id)===S.pool);
+      if(pool.length>0){
+        wc.textContent=pool.length.toLocaleString();
+        wc.style.display='inline-block';
+      } else {
+        wc.style.display='none';
+      }
     }
   }
 }
 function updatePoolBtn(){
   _updateFilterBtn();
 }
+// Same stale-language race as the game-session/review-tab fixes above — a switch can
+// still be loading in the background when this runs (e.g. the player opens the lesson
+// map right after picking a new language). Own counter so a newer call supersedes retries.
+let _lessonMapHeaderBuildSeq = 0;
 function updateLessonMapHeader(){
+  if(!Store.isLoadedFor(S.lang)){
+    const lbl=eid('lm-prog-label'),fill=eid('lm-pfill');
+    if(lbl)lbl.textContent='… / … lessons complete';
+    if(fill)fill.style.width='0%';
+    const seq=++_lessonMapHeaderBuildSeq;
+    setTimeout(()=>{ if(seq===_lessonMapHeaderBuildSeq) updateLessonMapHeader(); },50);
+    return;
+  }
+  _lessonMapHeaderBuildSeq++;
   const groups=Store.getGroups(S.lang);
   const done=groups.filter(g=>g.done).length;
   const total=groups.length;
@@ -1720,7 +1787,25 @@ function updateLessonMapHeader(){
   if(fill)fill.style.width=pct+'%';
 }
 
+let _landingStatsBuildSeq = 0;
 function updateLandingStats(){
+  // BUG-FIX (landing-page stats bug): the comment that used to sit here — "this runs
+  // after Store.load() for the active language" — was only true for updateLandingStats()'s
+  // ORIGINAL caller (G_switchLang's onReady, after the switch fully completes). It is also
+  // called directly from G_landingPool() (the landing-page mastery chips), G_goHome(),
+  // G_doReset(), and the import-code handler — none of which wait for an in-flight
+  // language switch to finish. If any of those fire during that window, Store.count()
+  // below is still the PREVIOUS language's total, and Prog.stats(S.lang) can fall back to
+  // that same stale total for a language that has never finished loading before. Guard
+  // once, centrally, here — rather than needing every current and future caller to
+  // remember to check first.
+  if(!Store.isLoadedFor(S.lang)){
+    _showLanguageLoadingState();
+    const seq=++_landingStatsBuildSeq;
+    setTimeout(()=>{ if(seq===_landingStatsBuildSeq) updateLandingStats(); },50);
+    return;
+  }
+  _landingStatsBuildSeq++;
   const st=Prog.stats(S.lang);
   // This runs after Store.load() for the active language, so the loaded catalogue is the
   // source of truth. Progress records for old/deleted IDs must never inflate this number.
@@ -1831,9 +1916,25 @@ const CAT_ICONS={'Greetings':'👋','Core Phrases':'💬','Food & Drink':'🍽�
 function _catIcon(c){return CAT_ICONS[c]||'📂';}
 
 
+let _catSheetBuildSeq = 0;
 function buildCatSheet(){
   const targets=[eid('cat-list')].filter(Boolean);
   if(!targets.length)return;
+
+  // BUG-FIX (stale topic sheet during language switch): same race as the other Store
+  // readers fixed above — Store.getCats()/getAll() below can still be the PREVIOUS
+  // language's categories/words while a switch is loading in the background (e.g. the
+  // player opens the topic-filter sheet right after picking a new language on the Play
+  // tab). Show a neutral loading state and retry once the new language is actually ready,
+  // rather than list categories that belong to a different language.
+  if(!Store.isLoadedFor(S.lang)){
+    targets.forEach(t=>{t.innerHTML='<div class="cat-empty">Loading…</div>';});
+    const seq=++_catSheetBuildSeq;
+    setTimeout(()=>{ if(seq===_catSheetBuildSeq) buildCatSheet(); },50);
+    return;
+  }
+  _catSheetBuildSeq++;
+
   const allCats=Store.getCats();
   const allWords=Store.getAll();
   const _matches=r=>{

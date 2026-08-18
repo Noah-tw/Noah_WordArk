@@ -426,7 +426,25 @@ function finishQuestion(ok,wordId){
 // 40ms click tone. loadQ() already calls TTS.stop() internally, but only AFTER this
 // click already tried (and failed) to play. Stopping TTS first clears the audio
 // session so the click tone has a clear moment to actually sound.
-function G_next(){ TTS.stop(); SFX.click(); S.qi++; loadQ(); }
+function G_next(){
+  TTS.stop(); SFX.click();
+  const q=S.q;
+  // A question the player answered wrong (or used a hint on) already recorded
+  // that in Prog via finishQuestion() the moment they got it right — but nothing
+  // ever showed the word's card again. Surface it here, once, right as they're
+  // about to move on. 'matching' is excluded for the same reason the New Word
+  // intro excludes it: a matching set has no single q.wordId — each pair's SRS
+  // is already recorded individually as it's solved/missed.
+  // `_reviewShown` guards against a question showing the card twice — see G_skip(),
+  // which can also trigger it (when the player skips away from a question they'd
+  // already gotten wrong, instead of sticking around to eventually answer it here).
+  if(q && q.wordId && q._hadWrong && q.mode!=='matching' && !q._reviewShown){
+    q._reviewShown=true;
+    showIntroCard(q,'review');
+    return; // next question loads once G_reviewDone() fires (the "Got it" tap)
+  }
+  S.qi++; loadQ();
+}
 function G_hint(){
   SFX.hint();
   const q=S.q;if(!q||S.phase==='done')return;
@@ -519,6 +537,13 @@ function G_skip(){
     S.qi++;loadQ();return;
   }
 
+  // BUG-FIX (tricky-card vanishes on Skip): capture this BEFORE the forced-wrong
+  // line just below can set it. `madeAMistake` is true only if the player actually
+  // got this question wrong at some point (a real MC tap, tile miss, etc.) — NOT
+  // just because they're skipping without ever having tried it. Only a genuine
+  // mistake earns the "Tricky Word" card; a cold skip (never attempted) doesn't.
+  const madeAMistake = q._hadWrong===true;
+
   // Still mark as wrong for mastery tracking (affects SRS, not score)
   if(q.wordId&&S.phase==='waiting'){
     Prog.rec(S.lang,q.wordId,false);
@@ -531,6 +556,17 @@ function G_skip(){
   // S.qi stays the same — it now points to what was the next question
   // S.goal stays the same — total count unchanged
   // S.score unchanged — skip doesn't count as wrong in score
+
+  // Same card G_next() shows after an eventual correct answer — now ALSO shown
+  // here, right as the player skips away from a question they'd already gotten
+  // wrong, instead of it silently never appearing. `_reviewShown` stops G_next()
+  // from showing it again later if this same question gets answered correctly
+  // after being requeued.
+  if(madeAMistake && q.wordId && q.mode!=='matching' && !q._reviewShown){
+    q._reviewShown=true;
+    showIntroCard(q,'reviewSkip');
+    return; // loadQ() fires once the card is dismissed — see G_reviewDoneNoInc()
+  }
 
   loadQ();
   toast('💡 沒關係，等一下再試一次這題');
