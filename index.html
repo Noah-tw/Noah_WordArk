@@ -67,34 +67,13 @@
   window.isStandalonePWA = window.navigator.standalone === true ||
     (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches);
 
-  // CORRECTION (Aug 2026): this used to read vp.getAttribute('content') fresh
-  // on every call and treat whatever it found as "original" to revert to.
-  // With multiple triggers now in play (cold-launch burst, first-touch,
-  // visibilitychange, btn-go), two calls landing within 60ms of each other
-  // caused a real bug: the second call could run WHILE the first call's
-  // content was still sitting on the temporary "auto" value, capture THAT as
-  // "original", and its own revert would then set viewport-fit=auto
-  // permanently instead of restoring cover — worse than doing nothing, since
-  // viewport-fit=auto breaks the safe-area/full-screen extension this whole
-  // codebase depends on. Fixed by capturing the true original exactly once
-  // (never re-derived from a possibly-mid-toggle read) and ignoring any call
-  // that arrives while a previous one is still in flight.
-  window.__viewportMetaOriginal = null;
-  window.__viewportRecalcInFlight = false;
   window.forceViewportRecalc = function(){
-    if(window.__viewportRecalcInFlight) return;
     var vp = document.querySelector('meta[name="viewport"]');
     if(!vp) return;
-    if(window.__viewportMetaOriginal === null){
-      window.__viewportMetaOriginal = vp.getAttribute('content');
-    }
-    window.__viewportRecalcInFlight = true;
-    vp.setAttribute('content', window.__viewportMetaOriginal.replace('viewport-fit=cover', 'viewport-fit=auto'));
+    var original = vp.getAttribute('content');
+    vp.setAttribute('content', original.replace('viewport-fit=cover', 'viewport-fit=auto'));
     void document.documentElement.offsetHeight; // force sync reflow between the two steps
-    setTimeout(function(){
-      vp.setAttribute('content', window.__viewportMetaOriginal);
-      window.__viewportRecalcInFlight = false;
-    }, 60);
+    setTimeout(function(){ vp.setAttribute('content', original); }, 60);
   };
 
   if(window.isStandalonePWA){
