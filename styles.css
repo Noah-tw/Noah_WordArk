@@ -48,20 +48,19 @@ body{display:flex;justify-content:center;
 /* ROOT-CAUSE FIX (Aug 2026, standalone-PWA bottom gap — confirmed via on-device
    logging): 100dvh / var(--vh100) / window.innerHeight / visualViewport.height
    are ALL "dynamic" viewport metrics on iOS, and on a standalone-PWA cold
-   launch they can settle on a value that's too small (logged 894px on a
-   device whose real height is 956px) and then never self-correct — not after
-   waiting, not after any JS-triggered reflow (forcing a display:none/reflow/
-   display:'' cycle on the full-screen element changed nothing, logged
-   identically before and after). The only thing that fixed it was physically
-   rotating the device — which "exercises" the dynamic-viewport engine — and
-   that recalculation can't be triggered from JS.
+   launch they can settle on a value that's too small and then never self-
+   correct — not after waiting, not after any JS-triggered reflow. The only
+   thing that fixed it was physically rotating the device — which "exercises"
+   the dynamic-viewport engine — and that recalculation can't be triggered
+   from JS by reflow alone (see index.html's forceViewportRecalc() for what
+   does work: toggling the viewport meta tag's viewport-fit).
    100vh is a STATIC unit and doesn't have this cold-start problem: it reads
-   correctly from the very first frame. It's normally avoided on mobile web
+   correctly from the very first frame. It's normally avoided on mobile
    because in an ordinary Safari TAB, 100vh counts the area hidden behind the
-   address/toolbar, making content overflow — but standalone PWA has no
-   toolbar at all, so that problem doesn't exist here. Scoped to
-   html.is-standalone (see index.html) so ordinary Safari-tab visits are
-   untouched and keep using the dvh/--vh100 path above. */
+   address/toolbar — but standalone PWA has no toolbar at all, so that
+   problem doesn't exist here. Scoped to html.is-standalone (added by
+   index.html's JS) so ordinary Safari-tab visits are untouched and keep
+   using the dvh/--vh100 path below. */
 html.is-standalone .screen{height:100vh;}
 
 /* ═══════════════════════════════════════
@@ -179,20 +178,17 @@ html.is-standalone .screen{height:100vh;}
    — language as icon-style tab, not text pill
 ═══════════════════════════════════════ */
 #scr-game{overflow:hidden;display:flex;flex-direction:column;
-  /* ROOT-CAUSE FIX (Aug 2026, standalone-PWA bottom gap): #scr-game also carries
-     class="screen", which already sets position:fixed;top:0;bottom:0 — that alone
-     stretches the box to the true viewport edges with zero JS involved. This rule
-     used to ALSO set an explicit height (100dvh / var(--vh100)) on top of that.
-     Per spec, when a fixed element has top + bottom + height all set, bottom is
-     ignored and the box is sized from top+height instead — so the real bottom
-     edge was silently determined by however accurate that dvh/vh100 reading
-     happened to be, not by bottom:0. Any shortfall in that JS measurement (the
-     exact standalone-launch timing problem --vh100 was built to work around)
-     showed up as a gap here no amount of #bot-bar padding could ever close,
-     because the gap was outside #bot-bar, between #scr-game's short bottom edge
-     and the real screen edge. Removing the explicit height here lets the native
-     fixed top:0/bottom:0 stretch do the sizing instead — no dvh, no --vh100, no
-     JS timing dependency for this element specifically. */
+  /* ROOT-CAUSE FIX (Aug 2026, standalone-PWA bottom gap): this used to also set
+     an explicit height (100dvh / var(--vh100)) here. #scr-game also carries
+     class="screen", which already sizes it via position:fixed;top:0;bottom:0 —
+     but per spec, a fixed element with top+bottom+height ALL set has bottom
+     ignored, sized from top+height instead. So the real bottom edge was
+     silently determined by however accurate that dvh/vh100 reading happened
+     to be, not by bottom:0 — and standalone-PWA launches are exactly where
+     that reading can be wrong (see the .screen rule above). Removing the
+     explicit height here lets .screen's own sizing (native fixed top:0/
+     bottom:0 stretch normally, or the 100vh override in standalone mode)
+     drive this element instead, with nothing overriding it. */
   /* FIX (MC option font-size, portrait/landscape mismatch): make #scr-game a query
      container so descendants can size off ITS width (always ≤430px, per .screen)
      instead of the raw device viewport width. Viewport `vw` flips between portrait
@@ -991,15 +987,12 @@ rt {
    even on a confirmed standalone launch (navigator.standalone was true) — so
    this rule never actually applied, on any of the padding values tried.
    Switched to a JS-driven class instead: index.html adds .is-standalone to
-   <html> based on navigator.standalone (which read correctly), so this no
-   longer depends on the media query matching at all. */
+   <html> based on navigator.standalone (which read correctly). */
 html.is-standalone #bot-bar{padding-bottom:16px;}
-html.is-standalone #bot-bar{position:static;}
-/* ROOT-CAUSE FIX (Aug 2026, standalone-PWA bottom gap, take 3): #scr-game's
-   own box was confirmed (via on-device logging) to now be correctly sized at
-   the true full viewport height once html.is-standalone .screen{height:100vh}
-   applied — yet the visible bottom gap persisted anyway. #bot-bar was still
-   using position:sticky;bottom:0, which has its own independent WebKit-
+/* ROOT-CAUSE FIX (Aug 2026, standalone-PWA bottom gap, take 3): #scr-game's own
+   box was confirmed correctly sized once html.is-standalone .screen{height:
+   100vh} applied — yet the visible bottom gap persisted anyway. #bot-bar was
+   still using position:sticky;bottom:0, which has its own independent WebKit-
    internal "where does bottom:0 actually resolve to" calculation, separate
    from its ancestor's now-correct size — and #scr-game has overflow:hidden
    (nothing ever scrolls), so sticky was never doing anything useful here in
@@ -1007,7 +1000,7 @@ html.is-standalone #bot-bar{position:static;}
    true bottom purely through ordinary flex layout — it's the last child in
    #scr-game's flex column, and .g-panel.on's flex:1 already absorbs all
    remaining vertical space, so no sticky/fixed trick is actually needed. */
-
+html.is-standalone #bot-bar{position:static;}
 .btn-next{flex:1;min-height:56px;padding:14px;border-radius:var(--r);
   font-family:'Nunito',sans-serif;font-size:1rem;font-weight:900;cursor:pointer;
   text-transform:uppercase;letter-spacing:.4px;text-align:center;
@@ -1027,6 +1020,12 @@ html.is-standalone #bot-bar{position:static;}
   box-shadow:0 5px 0 #0B7DAF;
 }
 .btn-next.btn-next-blue:active{box-shadow:none;}
+/* Yellow variant — used for the "Got it" equivalent on the review card */
+.btn-next.btn-next-yellow{
+  background:var(--yellow);
+  box-shadow:0 5px 0 var(--yellow-dk);
+}
+.btn-next.btn-next-yellow:active{box-shadow:none;}
 
 /* ═══════════════════════════════════════
    SESSION COMPLETE
@@ -1501,20 +1500,43 @@ html.is-standalone #bot-bar{position:static;}
    INTRO CARD — New word first encounter
 ═══════════════════════════════════════ */
 .intro-card{
+  /* --intro-accent* tokens drive every accent color on this card (badge, sentence
+     box, TTS buttons, dict text). Default = New Word (blue); .intro-review below
+     overrides them to yellow, so both card variants share one set of rules instead
+     of duplicating the whole block. */
+  --intro-accent:var(--blue);
+  --intro-accent-lt:var(--blue-lt);
+  --intro-accent-dk:#0B7DAF;
+  --intro-accent-glow:rgba(28,176,246,.15);
+  --intro-accent-ring:rgba(28,176,246,.45);
+  --intro-accent-ring-sh:rgba(28,176,246,.22);
   background:var(--card);border-radius:var(--r);
-  border:2px solid var(--blue);
-  box-shadow:0 4px 20px rgba(28,176,246,.15);
+  border:2px solid var(--intro-accent);
+  box-shadow:0 4px 20px var(--intro-accent-glow);
   overflow:hidden;flex-shrink:0;
   margin-top:14px;
 }
+/* Review variant — same card, same layout, swapped accent color. Uses the app's
+   existing "unfamiliar" yellow (already the color of the Review tab's Practice
+   filter) so it reads as a distinct moment from the blue New Word card without a
+   second set of rules to maintain. */
+.intro-card.intro-review{
+  --intro-accent:var(--yellow);
+  --intro-accent-lt:var(--yellow-lt);
+  --intro-accent-dk:var(--yellow-dk);
+  --intro-accent-glow:rgba(255,150,0,.15);
+  --intro-accent-ring:rgba(255,150,0,.45);
+  --intro-accent-ring-sh:rgba(255,150,0,.22);
+}
+.intro-card.intro-review .intro-sent-wrap{border-bottom-color:#FFE2A0;}
 .intro-badge{
-  background:var(--blue);color:#fff;
+  background:var(--intro-accent);color:#fff;
   font-size:.75rem;font-weight:900;
   text-transform:uppercase;letter-spacing:.8px;
   padding:6px 16px;text-align:center;
 }
 .intro-sent-wrap{
-  background:var(--blue-lt);border-bottom:1.5px solid #a8e4fc;
+  background:var(--intro-accent-lt);border-bottom:1.5px solid #a8e4fc;
   padding:13px 14px;
 }
 .intro-sent{font-family:'Rubik',sans-serif;font-size:.95rem;
@@ -1527,20 +1549,20 @@ html.is-standalone #bot-bar{position:static;}
   color:var(--ink);line-height:1.2;text-align:center;word-break:break-word;overflow-wrap:anywhere;}
 .intro-tts{position:absolute;right:16px;top:50%;transform:translateY(-50%);
   width:44px;height:44px;border-radius:50%;flex-shrink:0;
-  border:2px solid var(--blue-lt);background:var(--blue-lt);
-  color:var(--blue);font-size:1rem;cursor:pointer;
+  border:2px solid var(--intro-accent-lt);background:var(--intro-accent-lt);
+  color:var(--intro-accent);font-size:1rem;cursor:pointer;
   display:flex;align-items:center;justify-content:center;}
 .intro-reading{font-family:'Rubik',sans-serif;font-size:1.1rem;font-weight:700;
-  color:var(--blue);text-align:center;padding:0 16px 2px;}
+  color:var(--intro-accent);text-align:center;padding:0 16px 2px;}
 .intro-romaji{font-family:'DM Mono',monospace;font-size:.9rem;font-weight:500;
   color:var(--ink3);text-align:center;padding:0 16px 4px;}
 .intro-meta{display:flex;align-items:center;justify-content:center;gap:8px;padding:0 16px 4px;flex-wrap:wrap;}
 .intro-ipa{font-family:'DM Mono',monospace;font-size:.9rem;font-weight:500;color:var(--ink3);}
 .intro-meaning{font-family:'Nunito',sans-serif;font-size:1.05rem;font-weight:800;
-  color:var(--blue);padding:2px 16px 8px;text-align:center;}
+  color:var(--intro-accent);padding:2px 16px 8px;text-align:center;}
 .intro-zh{display:flex;align-items:baseline;flex-wrap:wrap;gap:5px;
   padding:4px 16px 14px;}
-.intro-zh-word{font-size:1.05rem;font-weight:900;color:var(--blue);}
+.intro-zh-word{font-size:1.05rem;font-weight:900;color:var(--intro-accent);}
 .intro-zh-sep{color:var(--ink3);font-size:.85rem;}
 .intro-zh-def{font-size:.88rem;font-weight:700;color:var(--ink2);line-height:1.5;}
 
@@ -1550,7 +1572,7 @@ html.is-standalone #bot-bar{position:static;}
   padding: 14px 16px;
   background: #F8FAFC;
   border-radius: var(--r2);
-  border-left: 4px solid var(--blue);
+  border-left: 4px solid var(--intro-accent);
   box-shadow: inset 0 0 0 1px var(--border);
 }
 /* Tightened IELTS layout: meaning leads, zh inline, definition quieter */
@@ -1561,7 +1583,7 @@ html.is-standalone #bot-bar{position:static;}
   font-family: 'Nunito', sans-serif;
   font-size: 1.05rem;
   font-weight: 800;
-  color: var(--blue);
+  color: var(--intro-accent);
   margin-bottom: 4px;
 }
 .intro-dict-zh-inline {
@@ -1652,10 +1674,10 @@ html.is-standalone #bot-bar{position:static;}
 .intro-sent-nav .intro-sent-tts{
   width:44px;height:44px;min-width:44px;
   border-radius:50%;flex-shrink:0;
-  border:2px solid rgba(28,176,246,.45);background:var(--card);
-  color:var(--blue);font-size:1rem;cursor:pointer;
+  border:2px solid var(--intro-accent-ring);background:var(--card);
+  color:var(--intro-accent);font-size:1rem;cursor:pointer;
   display:flex;align-items:center;justify-content:center;
-  box-shadow:0 3px 0 rgba(28,176,246,.22);
+  box-shadow:0 3px 0 var(--intro-accent-ring-sh);
 }
 .intro-sent-dots{display:flex;gap:4px;align-items:center;}
 .intro-sent-dot{
@@ -1663,7 +1685,7 @@ html.is-standalone #bot-bar{position:static;}
   background:var(--border2);transition:background .2s,transform .2s;
   flex-shrink:0;
 }
-.intro-sent-dot.on{background:var(--blue);transform:scale(1.3);}
+.intro-sent-dot.on{background:var(--intro-accent);transform:scale(1.3);}
 .intro-sent-next{
   margin-left:auto;
   min-height:44px;padding:6px 14px;border-radius:20px;
@@ -1678,7 +1700,7 @@ html.is-standalone #bot-bar{position:static;}
 .intro-sent-block{flex:1;}
 .intro-sent-en{
   font-family:'Nunito',sans-serif;font-size:.9rem;font-weight:700;
-  color:#0B7DAF;font-style:italic;margin-top:6px;line-height:1.5;
+  color:var(--intro-accent-dk);font-style:italic;margin-top:6px;line-height:1.5;
 }
 /* Only RTL languages (Hebrew) center the sentence + its translation — matches
    .intro-word's existing center treatment. Everything else stays left-aligned. */
