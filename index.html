@@ -61,7 +61,20 @@
   setRealVH();
   window.addEventListener('resize', setRealVH);
   window.addEventListener('orientationchange', function(){ setTimeout(setRealVH, 50); });
-  window.addEventListener('load', function(){ requestAnimationFrame(setRealVH); });
+  window.addEventListener('load', function(){
+    requestAnimationFrame(setRealVH);
+    // FIX (Aug 2026, landing-screen cold-launch gap): #scr-game (on Start) and
+    // resume-from-background already re-run forceViewportRecalc() once real
+    // content exists — #scr-landing never did, since the very first call above
+    // fires before <body> is even parsed, i.e. before landing exists to repaint.
+    // This is the same function, called the same way, just at the one missing
+    // moment. It only toggles the viewport meta tag's content attribute for
+    // ~60ms and restores it — no new elements, no reload, nothing touch/click
+    // related — so it can't newly cause a stuck overlay or a dropped tap.
+    if(window.isStandalonePWA && window.forceViewportRecalc){
+      requestAnimationFrame(window.forceViewportRecalc);
+    }
+  });
   if(window.visualViewport){ window.visualViewport.addEventListener('resize', setRealVH); }
 
   window.isStandalonePWA = window.navigator.standalone === true ||
