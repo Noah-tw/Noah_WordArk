@@ -81,7 +81,32 @@
     // real device tested — matchMedia read false on a confirmed standalone
     // launch. This class is what CSS actually keys off instead (see styles.css).
     document.documentElement.classList.add('is-standalone');
-    window.forceViewportRecalc();
+
+    // CORRECTION (Aug 2026): calling forceViewportRecalc() synchronously here,
+    // immediately in <head>, worked when reopening the PWA shortly after
+    // closing it, but NOT on a genuine cold start from fully closed — device
+    // testing showed the bug still present on that first open, needing one
+    // more close+reopen to clear. A "warm" reopen apparently lands later
+    // relative to iOS's own internal startup than this immediate call does on
+    // a true cold start, and the trick needs iOS to have gotten far enough
+    // along for a viewport-fit toggle to mean anything. Firing a delayed
+    // burst instead of one immediate call, so a genuine cold start gets more
+    // than one chance to land after iOS is actually ready for it.
+    window.addEventListener('load', function(){
+      [0, 300, 800, 1500, 2500].forEach(function(ms){ setTimeout(window.forceViewportRecalc, ms); });
+    });
+
+    // CORRECTION (Aug 2026): even the extended burst above is still guessing
+    // a delay — device testing showed the gap present on the landing page
+    // itself on cold launch, before any burst timing could be confirmed
+    // long enough. A real tap is a signal that doesn't require guessing: if
+    // the page is responding to touch, it's alive enough for this trick to
+    // mean something. Fires once, on whichever comes first.
+    document.addEventListener('touchstart', function firstTouchRecalc(){
+      window.forceViewportRecalc();
+      document.removeEventListener('touchstart', firstTouchRecalc);
+    }, {passive:true});
+
     document.addEventListener('visibilitychange', function(){
       if(document.visibilityState === 'visible'){ window.forceViewportRecalc(); }
     });
