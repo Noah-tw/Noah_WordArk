@@ -925,8 +925,13 @@ const TTS = (() => {
     // it as soon as unlock succeeds or reaches its bounded 1.5s safety timeout.
     if(unlockPromise){
       const token=playToken;
+      if(!patient) console.debug('[TTS-DEBUG] auto-play deferred, unlock still pending:',text);
       unlockPromise.finally(()=>{
-        if(token===playToken)say(text,lang,rate,patient);
+        if(token===playToken){
+          say(text,lang,rate,patient);
+        } else if(!patient){
+          console.debug('[TTS-DEBUG] deferred auto-play DROPPED (token changed while unlock was pending):',text);
+        }
       });
       return;
     }
@@ -943,7 +948,11 @@ const TTS = (() => {
     // first / eventually no one goes" symptom. patient=false calls now always go through.
     const wordKey = lang + '|' + text;
     const _now = Date.now();
-    if (patient && wordKey === _lastRequestKey && (_now - _lastRequestAt) < DUPLICATE_GUARD_MS) return;
+    if (patient && wordKey === _lastRequestKey && (_now - _lastRequestAt) < DUPLICATE_GUARD_MS){
+      console.debug('[TTS-DEBUG] Guard 2 swallowed duplicate request:',text);
+      return;
+    }
+    if(!patient) console.debug('[TTS-DEBUG] guaranteed auto-play starting:',text);
     _lastRequestKey = wordKey;
     _lastRequestAt = _now;
 
@@ -1362,9 +1371,17 @@ const SFX = (() => {
     // in on whichever one lost the race — observed as the dictionary TTS clip playing
     // quieter with its first 1-2 syllables cut ("confident" -> "fident"). The oscillator
     // still fires instantly for tactile feedback (separate WebAudio pathway, no <audio>
-    // element, doesn't compete); only the bonus/rescue <audio> click is nudged ~80ms later
-    // so the TTS element gets an uncontested head start on the audio pipeline.
-    click(){ _t(1100,'sine',.06,.2); setTimeout(_playClickBeepEl,80); },
+    // element, doesn't compete); the bonus/rescue <audio> click is nudged ~80ms later by
+    // default so the TTS element gets an uncontested head start on the audio pipeline.
+    // UPDATE (Aug 19 2026, per Noah): the listening-question "sometimes doesn't auto-play"
+    // report persisted after the Guard-2 fix below. G_next()/G_skip() also call
+    // SFX.click() immediately before the NEXT question's TTS.say() — a much higher-traffic
+    // collision than the New-Word-intro case Guard 2 covers, since it fires on every
+    // ordinary "Next"/"Skip" tap into a listening question, not just new words. A delay
+    // may not always be enough on a slow/contended device, so those two call sites now
+    // pass skipBonus=true and drop the <audio>-element channel entirely rather than race
+    // it — the oscillator alone still gives tactile click feedback there.
+    click(skipBonus){ _t(1100,'sine',.06,.2); if(!skipBonus) setTimeout(_playClickBeepEl,80); },
     done() { _t(523,'sine',.08,.3);_t(659,'sine',.08,.3,.09);_t(784,'sine',.08,.3,.18);_t(1047,'sine',.22,.35,.27); },
     hint() { _t(880,'sine',.15,.18);_t(660,'sine',.15,.14,.1); },
     // Soft ascending sparkle — plays when an interstitial (tip/cheer) card appears.

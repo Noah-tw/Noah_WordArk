@@ -427,7 +427,7 @@ function finishQuestion(ok,wordId){
 // click already tried (and failed) to play. Stopping TTS first clears the audio
 // session so the click tone has a clear moment to actually sound.
 function G_next(){
-  TTS.stop(); SFX.click();
+  TTS.stop(); SFX.click(true); // skipBonus: next question's TTS.say() fires right after
   const q=S.q;
   // A question the player answered wrong (or used a hint on) already recorded
   // that in Prog via finishQuestion() the moment they got it right — but nothing
@@ -523,7 +523,7 @@ function G_hint(){
 function G_skip(){
   // Same fix as G_next() — see comment there.
   TTS.stop();
-  SFX.click();
+  SFX.click(true); // skipBonus: next question's TTS.say() fires right after
   const q=S.q;
   if(!q)return;
 
