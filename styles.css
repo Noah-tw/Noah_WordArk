@@ -963,40 +963,43 @@ rt {
 ═══════════════════════════════════════ */
 #bot-bar{position:sticky;bottom:0;left:0;
   width:100%;
-  /* UX TWEAK (Aug 2026): floor raised 14px -> 20px for a bit more breathing
-     room under Got it/Skip, per request. Still just a floor — var(--sab)
-     wins on notched devices same as before. */
-  padding:10px calc(var(--sar) + 16px) max(var(--sab),20px) calc(var(--sal) + 16px);
+  /* UX TWEAK (Aug 2026, revised): floor raised again, 20px -> 24px, for
+     visibly more clearance under Skip/💡/Got it — the standalone-specific
+     undercut below is gone too, see that comment for why. */
+  padding:10px calc(var(--sar) + 16px) max(var(--sab),24px) calc(var(--sal) + 16px);
   background:rgba(255,255,255,.97);
   backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
   border-top:2px solid var(--border);
   display:flex;align-items:center;justify-content:center;
   gap:10px;z-index:50;flex-shrink:0;}
-/* The 20px floor above is a fallback for devices with no home-indicator inset
+/* The 24px floor above is a fallback for devices with no home-indicator inset
    (--sab:0) — it exists so the bar isn't flush against the edge in a browser
-   tab, where extra breathing room reads as intentional. In an installed
-   (standalone) PWA there's no browser chrome to visually "explain" that
-   breathing room, so it just reads as dead space — trim it there.
-   DELIBERATE TRADE-OFF (Aug 2026): standalone padding-bottom below is a fixed
-   16px, NOT var(--sab) (~34px on notched iPhones). This intentionally overlaps
-   the bottom of the home-indicator swipe zone — a stray swipe-up right at the
-   button's bottom edge can register as "go home" instead of a tap. Chosen
-   anyway to kill the leftover visual gap in standalone mode. If mis-taps get
-   reported, raise this number back up (toward var(--sab)) rather than
-   re-diagnosing from scratch — this is why the gap looks the way it does.
+   tab, where extra breathing room reads as intentional.
+   HISTORY: standalone (installed) PWA mode used to get a separate, smaller
+   value here (14px→16px, then 20px→20px) instead of this shared floor, fixed
+   rather than tied to var(--sab) (~34px on notched iPhones). Two reasons:
+   (1) with no browser chrome in standalone, extra gap read as dead space
+   rather than intentional breathing room; (2) it traded safety for
+   tightness — deliberately overlapping the bottom of the home-indicator
+   swipe zone, risking a stray swipe-up registering as "go home" instead of
+   a tap.
+   REMOVED (Aug 2026): per explicit request the whole bar needed to sit
+   higher, not tighter to the edge — the opposite direction from that
+   trade-off, so it no longer made sense to keep. Standalone now just
+   inherits max(var(--sab),24px) like everywhere else, so notched devices
+   get the full ~34px again, which also removes the swipe-risk trade-off
+   above (nothing is being deliberately undercut anymore). If this now
+   looks like too much dead space on a standalone install with no notch,
+   that's this 24px floor — lower it back down rather than re-adding a
+   standalone-specific override.
    CORRECTION (Aug 2026): this used to be `@media (display-mode:standalone)`.
    On-device logging proved that media query never matches on at least one
    real device here — matchMedia('(display-mode: standalone)') read false
    even on a confirmed standalone launch (navigator.standalone was true) — so
    this rule never actually applied, on any of the padding values tried.
    Switched to a JS-driven class instead: index.html adds .is-standalone to
-   <html> based on navigator.standalone (which read correctly).
-   UX TWEAK (Aug 2026): nudged 16px -> 20px for a bit more breathing room,
-   per request. Kept small and well short of var(--sab) (~34px) on purpose —
-   this is the same overlap trade-off described above, just slightly less
-   aggressive. If stray home-swipes start showing up near the buttons,
-   that's this value; raise it further rather than re-diagnosing. */
-html.is-standalone #bot-bar{padding-bottom:20px;}
+   <html> based on navigator.standalone (which read correctly) — still used
+   below for the position:static fix, just no longer for padding. */
 /* ROOT-CAUSE FIX (Aug 2026, standalone-PWA bottom gap, take 3): #scr-game's own
    box was confirmed correctly sized once html.is-standalone .screen{height:
    100vh} applied — yet the visible bottom gap persisted anyway. #bot-bar was
@@ -1851,14 +1854,21 @@ html.is-standalone #bot-bar{position:static;}
   align-items: center;
   justify-content: center;
   text-align: center;
-  /* UX TWEAK (Aug 2026): #q-area is only "screen height minus whatever head
-     panel (g-mini, or the full header) sits above it" — so centering via
-     justify-content:center alone puts the content's visual midpoint below
-     the true center of the screen, not at it. Top/bottom padding rebalanced
-     (same 72px total, just redistributed) to nudge the centered content
-     upward and counter that, so it reads as sitting comfortably higher.
+  /* UX TWEAK (Aug 2026, revised — v1 was too subtle): confirmed the actual
+     mechanism — justify-content:center re-centers content within whatever
+     height #q-area has *left over* after the head panel (g-mini) above it.
+     g-mini itself is roughly (var(--sat) + 50px) tall, so the card's true
+     midpoint sits about HALF that (~25-50px depending on device notch)
+     below the real screen center — a small top/bottom rebalance within the
+     same padding total (v1: 40/32 -> 28/44, ~12px shift) barely dents an
+     offset that size. This version pushes much harder in the same
+     direction — top trimmed further, bottom padding grown well past the
+     old total — to actually counter it rather than nibble at it. Not tied
+     to var(--sat) directly (that risks negative-margin/overflow edge cases
+     against #q-area's overflow-y:auto); a flat, bigger number is safer and
+     good enough for "sits comfortably higher," not pixel-exact centering.
      Applies to both .ic-tip and .ic-cheer since they share this base rule. */
-  padding: 28px 26px 44px;
+  padding: 20px 26px 88px;
   height: 100%;
   gap: 4px;
   position: relative;
