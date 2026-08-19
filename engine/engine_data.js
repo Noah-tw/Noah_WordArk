@@ -932,9 +932,18 @@ const TTS = (() => {
     }
 
     // Guard 2: near-instant duplicate tap on the same word — see module-level comment.
+    // BUG-FIX (Aug 2026, per Noah): only suppress for patient=true (manual tap/preview/
+    // replay) calls. patient=false is used exclusively by the two "audio IS the question
+    // stimulus" listening auto-plays (loadQ / G_introDone in engine_session.js /
+    // engine_render.js). A New Word intro card auto-plays the word at 400ms
+    // (showIntroCard's _scheduleQueuedTTS); if the player tapped "Got it" within the next
+    // 400ms, G_introDone's guaranteed replay of that SAME word was silently swallowed by
+    // this guard — no audio played, and nothing else ran to unlock/retry it, so the
+    // listening question looked stuck until a manual 🔊 tap. That's the "which TTS goes
+    // first / eventually no one goes" symptom. patient=false calls now always go through.
     const wordKey = lang + '|' + text;
     const _now = Date.now();
-    if (wordKey === _lastRequestKey && (_now - _lastRequestAt) < DUPLICATE_GUARD_MS) return;
+    if (patient && wordKey === _lastRequestKey && (_now - _lastRequestAt) < DUPLICATE_GUARD_MS) return;
     _lastRequestKey = wordKey;
     _lastRequestAt = _now;
 
@@ -988,22 +997,30 @@ const TTS = (() => {
     // Source 2 (was Source 1): Standard Google Translate. One attempt per host is
     // intentional: every NEW utterance rebuilds this list, so hammering the same failed
     // URL 250ms later only creates a burst and does not improve future words.
-    // BUG-FIX (Aug 2026, per Noah): timeouts shortened twice now — originally 15000/2500ms,
-    // then 3500/900ms, now cut again. Google sits last AND blocked networks fail fast
-    // (usually a quick connection error, not a hang), so a long window only added dead
-    // wait time with no upside. This is close to the floor: a real Google response
-    // realistically needs at least several hundred ms to reach the phone and start
-    // playing, so going much shorter risks cutting off a response that would have
-    // succeeded, even on a network where Google isn't blocked.
+    // BUG-FIX (Aug 2026, per Noah): timeouts shortened repeatedly while Google was
+    // unreachable in the deployment environment — originally 15000/2500ms, then
+    // 3500/900ms, then cut to patient:1500 / auto:500 to stop auto-play from silently
+    // sitting through a near-guaranteed failure.
+    // UPDATE (Aug 19 2026, per Noah): Google TTS access is confirmed working again. The
+    // auto:500 floor was tuned assuming Google would basically always fail — now that it
+    // can succeed, 500ms is too tight for "several hundred ms to reach the phone and start
+    // playing" (see original reasoning below) and was likely discarding real, successful
+    // responses in favor of the lower-quality native voice, especially for the 7
+    // non-English languages where Google is the ONLY remote source before native (no
+    // dictionary fallback exists for them). Nudged up to auto:900/650 — still ~1.5s worst
+    // case total (vs. the old 900ms), nowhere near the original 46s problem, but with real
+    // room for a genuine response to land. patient (manual tap) timeouts are unchanged.
+    // This is a judgment call, not a measured number — tune further if 900/650 still feels
+    // either too slow or still too eager to fall back to native.
     sources.push({
-      id:'google-primary', timeoutMs: patient?1500:500,
+      id:'google-primary', timeoutMs: patient?1500:900,
       url:`https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=${lang}&q=${encodeURIComponent(clean)}`
     });
 
     // Source 3 (was Source 2): Backup Google Server (Bypasses IP blocks). Timeout
-    // shortened for the same reason as google-primary above.
+    // adjusted alongside google-primary above — see Aug 19 2026 update.
     sources.push({
-      id:'google-backup', timeoutMs: patient?1000:400,
+      id:'google-backup', timeoutMs: patient?1000:650,
       url:`https://translate.googleapis.com/translate_tts?ie=UTF-8&client=gtx&tl=${lang}&q=${encodeURIComponent(clean)}`
     });
 
@@ -1338,8 +1355,16 @@ const SFX = (() => {
     // Wrong-answer UI and audio are sufficient; the optional mascot stays neutral.
     wrong(){ _n(.06,.18);_t(160,'sawtooth',.15,.2,.02); },
     // Was .04s/.12 vol — bumped slightly, it was very easy to miss on a phone speaker.
-    // Now also fires _playClickBeepEl() alongside — see comment above CLICK_BEEP_WAV.
-    click(){ _t(1100,'sine',.06,.2); _playClickBeepEl(); },
+    // Also fires _playClickBeepEl() alongside — see comment above CLICK_BEEP_WAV.
+    // BUG-FIX (Aug 2026, per Noah): every SFX.click() call site (G_speakNow, etc.) speaks
+    // a TTS word immediately afterward. Starting the click-beep <audio> element and the
+    // TTS <audio> element in the exact same tick let mobile OS audio-session ducking kick
+    // in on whichever one lost the race — observed as the dictionary TTS clip playing
+    // quieter with its first 1-2 syllables cut ("confident" -> "fident"). The oscillator
+    // still fires instantly for tactile feedback (separate WebAudio pathway, no <audio>
+    // element, doesn't compete); only the bonus/rescue <audio> click is nudged ~80ms later
+    // so the TTS element gets an uncontested head start on the audio pipeline.
+    click(){ _t(1100,'sine',.06,.2); setTimeout(_playClickBeepEl,80); },
     done() { _t(523,'sine',.08,.3);_t(659,'sine',.08,.3,.09);_t(784,'sine',.08,.3,.18);_t(1047,'sine',.22,.35,.27); },
     hint() { _t(880,'sine',.15,.18);_t(660,'sine',.15,.14,.1); },
     // Soft ascending sparkle — plays when an interstitial (tip/cheer) card appears.
