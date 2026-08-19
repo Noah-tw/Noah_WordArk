@@ -963,13 +963,16 @@ rt {
 ═══════════════════════════════════════ */
 #bot-bar{position:sticky;bottom:0;left:0;
   width:100%;
-  padding:10px calc(var(--sar) + 16px) max(var(--sab),14px) calc(var(--sal) + 16px);
+  /* UX TWEAK (Aug 2026): floor raised 14px -> 20px for a bit more breathing
+     room under Got it/Skip, per request. Still just a floor — var(--sab)
+     wins on notched devices same as before. */
+  padding:10px calc(var(--sar) + 16px) max(var(--sab),20px) calc(var(--sal) + 16px);
   background:rgba(255,255,255,.97);
   backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
   border-top:2px solid var(--border);
   display:flex;align-items:center;justify-content:center;
   gap:10px;z-index:50;flex-shrink:0;}
-/* The 14px floor above is a fallback for devices with no home-indicator inset
+/* The 20px floor above is a fallback for devices with no home-indicator inset
    (--sab:0) — it exists so the bar isn't flush against the edge in a browser
    tab, where extra breathing room reads as intentional. In an installed
    (standalone) PWA there's no browser chrome to visually "explain" that
@@ -987,8 +990,13 @@ rt {
    even on a confirmed standalone launch (navigator.standalone was true) — so
    this rule never actually applied, on any of the padding values tried.
    Switched to a JS-driven class instead: index.html adds .is-standalone to
-   <html> based on navigator.standalone (which read correctly). */
-html.is-standalone #bot-bar{padding-bottom:16px;}
+   <html> based on navigator.standalone (which read correctly).
+   UX TWEAK (Aug 2026): nudged 16px -> 20px for a bit more breathing room,
+   per request. Kept small and well short of var(--sab) (~34px) on purpose —
+   this is the same overlap trade-off described above, just slightly less
+   aggressive. If stray home-swipes start showing up near the buttons,
+   that's this value; raise it further rather than re-diagnosing. */
+html.is-standalone #bot-bar{padding-bottom:20px;}
 /* ROOT-CAUSE FIX (Aug 2026, standalone-PWA bottom gap, take 3): #scr-game's own
    box was confirmed correctly sized once html.is-standalone .screen{height:
    100vh} applied — yet the visible bottom gap persisted anyway. #bot-bar was
@@ -1843,7 +1851,14 @@ html.is-standalone #bot-bar{position:static;}
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 40px 26px 32px;
+  /* UX TWEAK (Aug 2026): #q-area is only "screen height minus whatever head
+     panel (g-mini, or the full header) sits above it" — so centering via
+     justify-content:center alone puts the content's visual midpoint below
+     the true center of the screen, not at it. Top/bottom padding rebalanced
+     (same 72px total, just redistributed) to nudge the centered content
+     upward and counter that, so it reads as sitting comfortably higher.
+     Applies to both .ic-tip and .ic-cheer since they share this base rule. */
+  padding: 28px 26px 44px;
   height: 100%;
   gap: 4px;
   position: relative;
