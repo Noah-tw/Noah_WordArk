@@ -1861,15 +1861,26 @@ html.is-standalone #bot-bar{position:static;}
      against #q-area's real height (varies per device), two unknowns
      stacked on each other, so it kept undershooting.
      Switched justify-content to flex-start instead: content now anchors at
-     a small, fixed padding-top no matter how tall the content or the box
-     is — nothing left to guess, and no ceiling to accidentally hit.
+     a fixed padding-top no matter how tall the content or the box is —
+     nothing left to guess, and no ceiling to accidentally hit.
      Trade-off: short content (e.g. a brief cheer message) leaves more
      blank space below rather than being nicely balanced top-to-bottom —
      acceptable since "higher" has been the explicit, repeated ask here,
-     not "centered." Applies to both .ic-tip and .ic-cheer, shared rule. */
+     not "centered." Applies to both .ic-tip and .ic-cheer, shared rule.
+     UX TWEAK (take 4): 20px read as way too tight. Makes sense in
+     hindsight — under the old centered layout, padding-top was ALSO 20px
+     at one point, but centering was still adding leftover slack on top of
+     it, so the real on-screen gap was always bigger than the padding-top
+     number alone suggested. flex-start removed that hidden cushion, so
+     the same 20px landed much tighter than before. Raised to 44px — close
+     to this card's original (pre-any-of-this) 40px, which was never
+     itself the complaint. padding-top is now the ONLY thing controlling
+     this gap, 1:1 with no other variable involved, so from here it's a
+     direct dial: say "a bit more/less" or a rough px amount and it's an
+     exact one-line change, not another guess. */
   justify-content: flex-start;
   text-align: center;
-  padding: 20px 26px 40px;
+  padding: 44px 26px 40px;
   height: 100%;
   gap: 4px;
   position: relative;
