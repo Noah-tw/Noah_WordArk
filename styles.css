@@ -1852,23 +1852,24 @@ html.is-standalone #bot-bar{position:static;}
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* UX TWEAK (Aug 2026, take 3 — switched mechanism, not just the number):
+     v1/v2 kept fighting justify-content:center by growing padding-bottom
+     into an ever-bigger counterweight (32px -> 44px -> 88px). Each round
+     moved content up, but only ever "less low," never reliably "near the
+     top" — and it depends on guessing this card's real content height
+     (varies per tip: translit present or not, 1 vs 2 lines of body text)
+     against #q-area's real height (varies per device), two unknowns
+     stacked on each other, so it kept undershooting.
+     Switched justify-content to flex-start instead: content now anchors at
+     a small, fixed padding-top no matter how tall the content or the box
+     is — nothing left to guess, and no ceiling to accidentally hit.
+     Trade-off: short content (e.g. a brief cheer message) leaves more
+     blank space below rather than being nicely balanced top-to-bottom —
+     acceptable since "higher" has been the explicit, repeated ask here,
+     not "centered." Applies to both .ic-tip and .ic-cheer, shared rule. */
+  justify-content: flex-start;
   text-align: center;
-  /* UX TWEAK (Aug 2026, revised — v1 was too subtle): confirmed the actual
-     mechanism — justify-content:center re-centers content within whatever
-     height #q-area has *left over* after the head panel (g-mini) above it.
-     g-mini itself is roughly (var(--sat) + 50px) tall, so the card's true
-     midpoint sits about HALF that (~25-50px depending on device notch)
-     below the real screen center — a small top/bottom rebalance within the
-     same padding total (v1: 40/32 -> 28/44, ~12px shift) barely dents an
-     offset that size. This version pushes much harder in the same
-     direction — top trimmed further, bottom padding grown well past the
-     old total — to actually counter it rather than nibble at it. Not tied
-     to var(--sat) directly (that risks negative-margin/overflow edge cases
-     against #q-area's overflow-y:auto); a flat, bigger number is safer and
-     good enough for "sits comfortably higher," not pixel-exact centering.
-     Applies to both .ic-tip and .ic-cheer since they share this base rule. */
-  padding: 20px 26px 88px;
+  padding: 20px 26px 40px;
   height: 100%;
   gap: 4px;
   position: relative;
