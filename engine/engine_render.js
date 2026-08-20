@@ -232,7 +232,15 @@ function G_introNextSent(){
 }
 
 function G_introDone(){
-  SFX.click();
+  const q=S.q;
+  // BUG-FIX (Aug 19 2026, per Noah): confirmed by real-device testing as the main
+  // trigger for the listening-question "sometimes silent / sometimes quiet" report —
+  // this fires on EVERY New Word and idiom intro card dismissal, far more often than
+  // G_next()/G_skip(). Same fix: know up front whether a guaranteed TTS.say() is about
+  // to follow, and skip the click-beep <audio> channel entirely when it is, instead of
+  // just delaying it — see the SFX.click() comment in engine_data.js.
+  const _willAutoplay = !!(q && q.tts && (q.mode==='listeningWord'||q.mode==='listeningSentence'));
+  SFX.click(_willAutoplay);
   // BUG FIX (double TTS on fast tap): cancel any pending intro TTS timer first.
   // showIntroCard() schedules a 400ms auto-play; if the player taps "Got it" before
   // 400ms elapses, the old timer fires AFTER renderQ() schedules its own TTS,
@@ -244,13 +252,12 @@ function G_introDone(){
   if(btnNext){btnNext.textContent='Next →';btnNext.onclick=G_next;btnNext.style.display='none';btnNext.classList.remove('btn-next-blue');}
   if(btnHint)btnHint.style.display='flex';
   eid('btn-skip').style.display='flex';
-  const q=S.q;
   renderQ(q);
   // Only auto-play for listening modes, where the audio IS the question stimulus
   // and must play again now that the question card is visible.
   // BUG-FIX (silent auto-play): call synchronously, inside this "Got it" tap, instead
   // of via setTimeout — see matching fix + comment in engine_session.js loadQ().
-  if(q.tts && (q.mode==='listeningWord'||q.mode==='listeningSentence')){
+  if(_willAutoplay){
     TTS.say(q.tts,LC[S.lang].ttsLang,0.85,false);
   }
 }
@@ -261,7 +268,7 @@ function G_introDone(){
 // (see the check in G_next()), so dismissing it must advance to the next question.
 // loadQ() itself handles TTS/interstitial/next-intro logic, so we just hand off to it.
 function G_reviewDone(){
-  SFX.click();
+  SFX.click(true); // skipBonus: loadQ() below may synchronously fire TTS.say() — same fix as G_next()
   _cancelQueuedTTS();
   const btnNext=eid('btn-next');
   const btnHint=eid('btn-hint');
@@ -278,7 +285,7 @@ function G_reviewDone(){
 // already sitting on the correct next item — unlike G_reviewDone(), this must NOT
 // increment S.qi again, or the real next question would be silently skipped over.
 function G_reviewDoneNoInc(){
-  SFX.click();
+  SFX.click(true); // skipBonus: loadQ() below may synchronously fire TTS.say() — same fix as G_next()
   _cancelQueuedTTS();
   const btnNext=eid('btn-next');
   const btnHint=eid('btn-hint');

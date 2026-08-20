@@ -348,7 +348,16 @@ function G_doReset(){SFX.click();Prog.reset();S.introSeen=new Set();S.lessonGrou
 
 /* ─── INTERSTITIAL ACTIONS ───────────────────────────────── */
 function G_continueFromInterstitial(){
-  SFX.click();
+  const q=S.q;
+  // BUG-FIX (Aug 19 2026, per Noah): loadQ() (engine_session.js) returns early, BEFORE
+  // its own renderQ()/TTS.say(), whenever an interstitial card is due — deferring both
+  // to this "Continue" tap. This function was only ever doing the renderQ() half; the
+  // matching listening-mode guaranteed auto-play was never called at all. Every single
+  // listening question immediately following an interstitial (tip/idiom card or
+  // encouragement card, every 5 questions) was 100% silent, not an occasional race —
+  // almost certainly the single biggest contributor to "especially after ... idiom card".
+  const _willAutoplay = !!(q && q.tts && (q.mode==='listeningWord'||q.mode==='listeningSentence'));
+  SFX.click(_willAutoplay); // skipBonus: same <audio>-collision fix as G_next()/G_skip()
   _cancelQueuedTTS();       // BUG-FIX: if tapped inside the 550ms auto-pronounce delay,
   TTS.stop();               // the pending timer would otherwise fire late and speak the
                              // old idiom over the next (already-rendered) question.
@@ -360,7 +369,10 @@ function G_continueFromInterstitial(){
   const strip=eid('game-strip');
   if(strip&&S.goal>0) strip.style.display='flex';
   _updateGameStrip();
-  if(S.q) renderQ(S.q);
+  if(q) renderQ(q);
+  if(_willAutoplay){
+    TTS.say(q.tts,LC[S.lang].ttsLang,0.85,false);
+  }
 }
 
 /* ─── LESSON MAP ACTIONS ─────────────────────────────────── */

@@ -981,6 +981,18 @@ const TTS = (() => {
     // utterance, so a Google failure applies only to the current word/sentence.
     const sources = [];
 
+    // Heuristic used just below: does `clean` look like a plain dictionary citation
+    // form the Real Human Dictionary hosts are likely to actually have, as opposed to
+    // a possessive/contraction or a common inflected ending (dictionary audio files are
+    // indexed by base form only)? See the BUG-FIX comment at the dictionary-source
+    // block below for the full reasoning and trade-offs. Not real morphology — just a
+    // spelling heuristic; tune the regex if a specific word misfires.
+    function _looksLikeDictionaryHeadword(w) {
+      if (/['’]/.test(w)) return false;             // possessive / contraction
+      if (/(ing|ed|es|s)$/i.test(w)) return false;   // common inflectional endings
+      return true;
+    }
+
     // BUG-FIX (Aug 2026, per Noah): Google is unreachable in the real deployment
     // environment, so trying it first meant every single utterance paid its full
     // timeout (up to 15s+10s patient / 2.5s+1.5s not-patient) before ever reaching a
@@ -992,7 +1004,16 @@ const TTS = (() => {
 
     // Source 1 (was Source 3): Real Human Dictionary Voice (Only for single English
     // words in IELTS mode). Tried first now — fastest, and the one that actually works.
-    if (lang === 'en' && !clean.includes(' ')) {
+    // BUG-FIX (Aug 19 2026, per Noah): the dictionary hosts are indexed by base
+    // citation form only. A multi-word phrase ("take over") already skipped this block
+    // (the space check below), but a single inflected/possessive token ("eats",
+    // "eat's") looks like a normal single word and was still sent to all 3 dictionary
+    // hosts, 404ing on every one before Google ever got a turn — up to patient:21s /
+    // auto:3s wasted on a lookup that could never succeed. _dictWorthy below now also
+    // excludes those.
+    const _isEnglishSingleToken = lang === 'en' && !clean.includes(' ');
+    const _dictWorthy = _isEnglishSingleToken && _looksLikeDictionaryHeadword(clean);
+    function _pushDictSources(){
       const lowerWord = clean.toLowerCase();
       const dictTimeout = patient?7000:1000;
       sources.push({id:'dictionary-gstatic-gb',timeoutMs:dictTimeout,
@@ -1002,6 +1023,7 @@ const TTS = (() => {
       sources.push({id:'dictionary-api-uk',timeoutMs:dictTimeout,
         url:`https://api.dictionaryapi.dev/media/pronunciations/en/${lowerWord}-uk.mp3`});
     }
+    if (_dictWorthy) _pushDictSources();
 
     // Source 2 (was Source 1): Standard Google Translate. One attempt per host is
     // intentional: every NEW utterance rebuilds this list, so hammering the same failed
@@ -1032,6 +1054,14 @@ const TTS = (() => {
       id:'google-backup', timeoutMs: patient?1000:650,
       url:`https://translate.googleapis.com/translate_tts?ie=UTF-8&client=gtx&tl=${lang}&q=${encodeURIComponent(clean)}`
     });
+
+    // BUG-FIX (Aug 19 2026, per Noah): a single English token that looked like a
+    // variant above (so _dictWorthy was false, e.g. "eats") still gets one last-resort
+    // try at the dictionary voice AFTER both Google hosts, instead of never trying it at
+    // all — Google is now primary for these, per Noah's request. Costs nothing in the
+    // normal case: Google already succeeded and the waterfall never reaches this line.
+    // Only matters on the rare occasion Google itself also fails.
+    if (_isEnglishSingleToken && !_dictWorthy) _pushDictSources();
 
     // Guard 1: if this exact (word, lang) already found a working source THIS session,
     // try it first — see module-level comment above _lastGoodSource. This only reorders
