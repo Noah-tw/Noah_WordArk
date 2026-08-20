@@ -266,7 +266,18 @@ function G_startRound(){
   // Unlock the SAME persistent Google-TTS player used by all later automatic audio.
   // IMPORTANT: never await this on iPhone. Safari can leave play() pending, but the
   // question UI must load immediately. loadQ(true) preserves this in-flight unlock.
-  try{void TTS.unlock(LC[S.lang].ttsLang);}catch(e){}
+  // BUG-FIX (Aug 20 2026, per Noah): when the first question in the queue is itself a
+  // listening question, loadQ(true) below fires its guaranteed TTS.say() synchronously,
+  // in this same tap — see the isListeningMode branch in loadQ(). Passing skipProbe=true
+  // in that case stops unlock() from also playing its own silent <audio> probe a few ms
+  // earlier, which was colliding with that first question's audio (see the comment on
+  // TTS.unlock() for the full mechanism). This is a heuristic on S.queue[0]: if a New
+  // Word / Tricky Word card ends up interposing instead (loadQ shows that before the
+  // question), the skip is simply unnecessary rather than wrong — those cards' own
+  // dismiss handlers don't call unlock() at all, so nothing to collide with either way.
+  const _firstQ=S.queue[0];
+  const _firstIsListening=!!(_firstQ&&_firstQ.tts&&(_firstQ.mode==='listeningWord'||_firstQ.mode==='listeningSentence'));
+  try{void TTS.unlock(LC[S.lang].ttsLang,_firstIsListening);}catch(e){}
   // BUG-FIX: coin button = Random mode. Clear lesson lock so pool is unrestricted.
   S.lessonGroup=null;
   SFX.pop();

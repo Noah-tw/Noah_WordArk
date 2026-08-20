@@ -860,7 +860,7 @@ const TTS = (() => {
     }catch(e){return false;}
   }
 
-  function unlock(requestedLang) {
+  function unlock(requestedLang, skipProbe) {
     const lang=requestedLang||_activeTtsLang();
     // This function must be ENTERED directly from a Start/Lesson tap. Everything before
     // the first await therefore runs inside the iOS user-activation window.
@@ -872,6 +872,26 @@ const TTS = (() => {
     // Coalesce accidental double taps instead of cancelling the first unlock attempt.
     // Still prime the newly requested language while this fresh gesture is available.
     if(unlockPromise){_primeNativeSpeechFromGesture(lang);return unlockPromise;}
+    // BUG-FIX (Aug 20 2026, per Noah): "listening question quiet / first syllables cut"
+    // on the very first play of a session or right after the idiom/interstitial card —
+    // same root cause as the SFX click-beep collision fixed below, different audio
+    // channel. The SILENT_AUDIO probe just below plays through `player`, a REAL <audio>
+    // element, purely to pre-arm iOS permission for audio that might fire LATER, outside
+    // a live gesture. When the caller already knows a guaranteed TTS.say() is about to
+    // fire immediately after this call, in this SAME tap (G_startRound's first question,
+    // G_continueFromInterstitial's next question), that real playback runs inside this
+    // same live gesture and unlocks iOS on its own — see el.onplaying setting
+    // mediaUnlocked=true in tryNextSource() below. The probe is then pure redundancy:
+    // starting it anyway put a second real <audio> element's play() a few ms before the
+    // question's own, and mobile OS audio-session ducking was quietly lowering / cutting
+    // the onset of THAT one, exactly like it did to the click-beep sound. skipProbe lets
+    // a caller opt out of the probe in exactly that guaranteed-autoplay case — native-
+    // speech priming still runs below either way, since that's a separate pathway
+    // (SpeechSynthesisUtterance, no <audio> element) and never competed in the first place.
+    if(skipProbe){
+      _primeNativeSpeechFromGesture(lang);
+      return Promise.resolve(true);
+    }
     stop();
     const token=playToken;
     _primeNativeSpeechFromGesture(lang);
