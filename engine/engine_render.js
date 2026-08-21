@@ -232,7 +232,15 @@ function G_introNextSent(){
 }
 
 function G_introDone(){
-  SFX.click();
+  const q=S.q;
+  // BUG-FIX (Aug 19 2026, per Noah): confirmed by real-device testing as the main
+  // trigger for the listening-question "sometimes silent / sometimes quiet" report —
+  // this fires on EVERY New Word and idiom intro card dismissal, far more often than
+  // G_next()/G_skip(). Same fix: know up front whether a guaranteed TTS.say() is about
+  // to follow, and skip the click-beep <audio> channel entirely when it is, instead of
+  // just delaying it — see the SFX.click() comment in engine_data.js.
+  const _willAutoplay = !!(q && q.tts && (q.mode==='listeningWord'||q.mode==='listeningSentence'));
+  SFX.click(_willAutoplay);
   // BUG FIX (double TTS on fast tap): cancel any pending intro TTS timer first.
   // showIntroCard() schedules a 400ms auto-play; if the player taps "Got it" before
   // 400ms elapses, the old timer fires AFTER renderQ() schedules its own TTS,
@@ -244,13 +252,12 @@ function G_introDone(){
   if(btnNext){btnNext.textContent='Next →';btnNext.onclick=G_next;btnNext.style.display='none';btnNext.classList.remove('btn-next-blue');}
   if(btnHint)btnHint.style.display='flex';
   eid('btn-skip').style.display='flex';
-  const q=S.q;
   renderQ(q);
   // Only auto-play for listening modes, where the audio IS the question stimulus
   // and must play again now that the question card is visible.
   // BUG-FIX (silent auto-play): call synchronously, inside this "Got it" tap, instead
   // of via setTimeout — see matching fix + comment in engine_session.js loadQ().
-  if(q.tts && (q.mode==='listeningWord'||q.mode==='listeningSentence')){
+  if(_willAutoplay){
     TTS.say(q.tts,LC[S.lang].ttsLang,0.85,false);
   }
 }
@@ -261,7 +268,7 @@ function G_introDone(){
 // (see the check in G_next()), so dismissing it must advance to the next question.
 // loadQ() itself handles TTS/interstitial/next-intro logic, so we just hand off to it.
 function G_reviewDone(){
-  SFX.click();
+  SFX.click(true); // skipBonus: loadQ() below may synchronously fire TTS.say() — same fix as G_next()
   _cancelQueuedTTS();
   const btnNext=eid('btn-next');
   const btnHint=eid('btn-hint');
@@ -278,7 +285,7 @@ function G_reviewDone(){
 // already sitting on the correct next item — unlike G_reviewDone(), this must NOT
 // increment S.qi again, or the real next question would be silently skipped over.
 function G_reviewDoneNoInc(){
-  SFX.click();
+  SFX.click(true); // skipBonus: loadQ() below may synchronously fire TTS.say() — same fix as G_next()
   _cancelQueuedTTS();
   const btnNext=eid('btn-next');
   const btnHint=eid('btn-hint');
@@ -935,21 +942,40 @@ function G_ctTap(idx){
   const tile=ct.bank[idx];
   if(!tile||tile.used)return;
 
-  // BUG-FIX (last letter silent): old code skipped TTS for the last letter so the
-  // full-word audio could follow immediately. But TTS.say() has an isPlaying guard —
-  // the previous letter's audio was still playing, so isPlaying=true caused the last
-  // letter to be silently swallowed. And then TTS.stop() + SFX.done() fired in the
-  // wrong order, cutting off the full-word audio too.
-  // Fix: always speak the tapped letter. For the last letter, give the full-word TTS
-  // a longer delay (1000ms) so the single-char audio has time to finish first.
-  const isLastLetter = ct.slots.filter(s=>!s.filled).length===1 &&
-    _nfkc(tile.char)===_nfkc(ct.slots[ct.slots.findIndex(s=>!s.filled)].char);
-  TTS.say(tile.char, LC[S.lang].ttsLang, 1.0);
-
   const slotIdx=ct.slots.findIndex(s=>!s.filled);
   if(slotIdx===-1)return;
 
-  if(_nfkc(tile.char)===_nfkc(ct.slots[slotIdx].char)){
+  const isCorrect=_nfkc(tile.char)===_nfkc(ct.slots[slotIdx].char);
+  const isLastLetter=isCorrect && ct.slots.filter(s=>!s.filled).length===1;
+
+  // BUG-FIX (last letter silent, take 2): the previous fix ("always speak the tapped
+  // letter" + a fixed 1000ms delay before the full-word replay) assumed a single HE/
+  // kana character's audio always resolves within 1000ms. It doesn't: Hebrew/Japanese
+  // have no dictionary-audio fallback (that tier is English-only, see
+  // _isEnglishSingleToken in engine_data.js), so a single letter always goes through
+  // Google's network waterfall — whose OWN configured per-source timeout (1500ms,
+  // patient mode) already exceeds the 1000ms budget. A legitimately-succeeding-but-
+  // slightly-slow response was routinely still arriving AFTER the 1000ms timer had
+  // already called TTS.stop() to make room for the word-complete audio, so the last
+  // letter's sound was cut off before it ever played — every time, not just sometimes.
+  // Fix: make the wait event-driven instead of a fixed guess. TTS.say() now takes an
+  // optional onEnded callback (engine_data.js), fired once THIS utterance's audio
+  // truly finishes, however long that actually takes. Use it to fire the completed-
+  // word audio right after the last letter is really, audibly done. A generous 3000ms
+  // timer stays as a pure safety net (should never normally be reached) so a total
+  // audio failure still can't leave the round with no completion sound at all.
+  if(isLastLetter){
+    const completedWord=S.q.tts, completedLang=LC[S.lang].ttsLang;
+    const playCompletedWord=()=>{TTS.stop();TTS.say(completedWord,completedLang,0.85);};
+    _scheduleQueuedTTS(playCompletedWord,3000); // safety net
+    TTS.say(tile.char, LC[S.lang].ttsLang, 1.0, true, ()=>{
+      _scheduleQueuedTTS(playCompletedWord,100); // real trigger — supersedes the safety net above
+    });
+  } else {
+    TTS.say(tile.char, LC[S.lang].ttsLang, 1.0);
+  }
+
+  if(isCorrect){
     // CORRECT letter
     SFX.pop();
     tile.used=true;
@@ -962,10 +988,6 @@ function G_ctTap(idx){
       const wasFlawless=ct.wrongCount===0;
       finishQuestion(wasFlawless,S.q.wordId);
       SFX.done();
-      // Give the last-letter audio time to finish before playing the full word.
-      // 1000ms covers single-char Hebrew/kana audio (typically 400-600ms) + buffer.
-      const completedWord=S.q.tts, completedLang=LC[S.lang].ttsLang;
-      _scheduleQueuedTTS(()=>{TTS.stop();TTS.say(completedWord,completedLang,0.85);},1000);
       showFeedback(true,null);
       showNextBtn();
     }
@@ -1138,14 +1160,28 @@ function G_ksTap(idx){
   SFX.click();
   const slotIdx=ct.slots.findIndex(s=>!s.filled);
   if(slotIdx===-1)return;
-  // BUG-FIX (last kana silent): same root cause as G_ctTap — isPlaying guard in
-  // TTS.say() swallowed the last kana because the previous char's audio was still
-  // playing. Fix: always speak the tapped kana; delay full-word TTS by 1000ms.
-  const isLastChar = ct.slots.filter(s=>!s.filled).length===1 &&
-    _kanaMatch(tile.char, ct.slots[slotIdx].char);
-  TTS.say(tile.char, LC[S.lang].ttsLang, 1.0);
 
-  if(_kanaMatch(tile.char,ct.slots[slotIdx].char)){
+  const isCorrect=_kanaMatch(tile.char, ct.slots[slotIdx].char);
+  const isLastChar=isCorrect && ct.slots.filter(s=>!s.filled).length===1;
+
+  // BUG-FIX (last kana silent, take 2): same root cause and same fix as G_ctTap —
+  // see the comment there. Single-character HE/JA audio has no dictionary fallback
+  // and always goes through Google's network waterfall, whose own per-source timeout
+  // (1500ms patient) already exceeds the old fixed 1000ms wait, so the last kana's
+  // sound was reliably cut off before the word-complete audio was scheduled. Now
+  // event-driven via TTS.say()'s onEnded callback, with a 3000ms safety-net timer.
+  if(isLastChar){
+    const completedWord=S.q.tts, completedLang=LC[S.lang].ttsLang;
+    const playCompletedWord=()=>{TTS.stop();TTS.say(completedWord,completedLang,0.85);};
+    _scheduleQueuedTTS(playCompletedWord,3000); // safety net
+    TTS.say(tile.char, LC[S.lang].ttsLang, 1.0, true, ()=>{
+      _scheduleQueuedTTS(playCompletedWord,100); // real trigger — supersedes the safety net above
+    });
+  } else {
+    TTS.say(tile.char, LC[S.lang].ttsLang, 1.0);
+  }
+
+  if(isCorrect){
     SFX.pop();
     tile.used=true;
     ct.slots[slotIdx].filled=true;
@@ -1155,8 +1191,6 @@ function G_ksTap(idx){
       const wasFlawless=ct.wrongCount===0;
       finishQuestion(wasFlawless,S.q.wordId);
       SFX.done();
-      const completedWord=S.q.tts, completedLang=LC[S.lang].ttsLang;
-      _scheduleQueuedTTS(()=>{TTS.stop();TTS.say(completedWord,completedLang,0.85);},1000);
       showFeedback(true,null);
       showNextBtn();
     }

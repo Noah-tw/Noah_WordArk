@@ -938,8 +938,14 @@ const TTS = (() => {
   // Google is down the fallback to native voice happens in ~2s total instead of up to 46s
   // (15s+10s+3×7s for English) — which is why auto-play looked broken: it WAS eventually
   // reaching native, just far too late for anyone to wait for.
-  function say(text, lang, rate = 0.9, patient = true) {
-    if (!text) return;
+  function say(text, lang, rate = 0.9, patient = true, onEnded = null) {
+    // onEnded (optional): fires exactly once when THIS specific utterance's audio
+    // truly finishes — successfully, or via total failure with nothing left to try.
+    // Added for the character-tile "last letter" fix (see G_ctTap/G_ksTap in
+    // engine_render.js) so callers can wait for the real finish instead of guessing
+    // a fixed delay. Every existing call site omits it (defaults to null, a no-op)
+    // and is completely unaffected.
+    if (!text) { onEnded?.(); return; }
     // Automatic New Word / Listening audio may be scheduled while the Start trigger is
     // still resolving. Queue only the voice request — never the question UI — and play
     // it as soon as unlock succeeds or reaches its bounded 1.5s safety timeout.
@@ -948,9 +954,10 @@ const TTS = (() => {
       if(!patient) console.debug('[TTS-DEBUG] auto-play deferred, unlock still pending:',text);
       unlockPromise.finally(()=>{
         if(token===playToken){
-          say(text,lang,rate,patient);
-        } else if(!patient){
-          console.debug('[TTS-DEBUG] deferred auto-play DROPPED (token changed while unlock was pending):',text);
+          say(text,lang,rate,patient,onEnded);
+        } else {
+          if(!patient) console.debug('[TTS-DEBUG] deferred auto-play DROPPED (token changed while unlock was pending):',text);
+          onEnded?.();
         }
       });
       return;
@@ -970,6 +977,7 @@ const TTS = (() => {
     const _now = Date.now();
     if (patient && wordKey === _lastRequestKey && (_now - _lastRequestAt) < DUPLICATE_GUARD_MS){
       console.debug('[TTS-DEBUG] Guard 2 swallowed duplicate request:',text);
+      onEnded?.();
       return;
     }
     if(!patient) console.debug('[TTS-DEBUG] guaranteed auto-play starting:',text);
@@ -1110,7 +1118,7 @@ const TTS = (() => {
         // done. TTS._sourceAttempts/_lastFailure/_lastSource are still updated above/below
         // for anyone checking from devtools, just no longer surfaced to the player.)
         isPlaying = false;
-        _speakWeb(text, lang, rate, token);
+        _speakWeb(text, lang, rate, token, onEnded);
         return;
       }
 
@@ -1142,7 +1150,7 @@ const TTS = (() => {
           mediaUnlocked=false;
           needsGestureRecovery=true;
           isPlaying=false;
-          _speakWeb(text,lang,rate,token);
+          _speakWeb(text,lang,rate,token,onEnded);
           return;
         }
 
@@ -1168,6 +1176,7 @@ const TTS = (() => {
         isPlaying = false;
         // Unlock MC buttons if we are in listeningWord mode
         if(typeof G_unlockListenMC==='function'&&S?.q?.mode==='listeningWord') G_unlockListenMC();
+        onEnded?.();
       };
 
       // If this specific URL fails (404 error, or Google block), try the next one instantly
@@ -1220,10 +1229,11 @@ const TTS = (() => {
     if(typeof G_unlockListenMC==='function'&&S?.q?.mode==='listeningWord')G_unlockListenMC();
   }
 
-  function _speakWeb(text, lang, rate, token) {
+  function _speakWeb(text, lang, rate, token, onEnded) {
     if (!window.speechSynthesis) {
       isPlaying=false;
       _releaseListeningAfterAudioFailure();
+      onEnded?.();
       return;
     }
     window.speechSynthesis.cancel();
@@ -1254,6 +1264,7 @@ const TTS = (() => {
         webUtterance = null;
         isPlaying = false;
         if(typeof G_unlockListenMC==='function'&&S?.q?.mode==='listeningWord') G_unlockListenMC();
+        onEnded?.();
       };
       u.onerror = event => {
         if(token!==playToken)return;
@@ -1263,6 +1274,7 @@ const TTS = (() => {
         isPlaying=false;
         TTS._lastFailure={source:'ios-native',reason:'speech-error',name:event&&event.error||'',at:Date.now()};
         _releaseListeningAfterAudioFailure();
+        onEnded?.();
       };
       try{
         window.speechSynthesis.speak(u);
@@ -1276,12 +1288,14 @@ const TTS = (() => {
           speechStartTimer=null;
           TTS._lastFailure={source:'ios-native',reason:'speech-not-started',name:u.lang,at:Date.now()};
           _releaseListeningAfterAudioFailure();
+          onEnded?.();
         },3000);
       }catch(e){
         webUtterance=null;
         isPlaying=false;
         TTS._lastFailure={source:'ios-native',reason:'speak-error',name:e&&e.name||'',at:Date.now()};
         _releaseListeningAfterAudioFailure();
+        onEnded?.();
       }
     };
 
@@ -1307,6 +1321,7 @@ const TTS = (() => {
       isPlaying=false;
       TTS._lastFailure={source:'ios-native',reason:'voice-unavailable',name:_nativeLocale(lang),at:Date.now()};
       _releaseListeningAfterAudioFailure();
+      onEnded?.();
     };
     chooseVoice();
   }
