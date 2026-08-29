@@ -1,5 +1,5 @@
-// en_batch_0011.js — English IELTS batch 11/11
-// 99 entries: en_1001 to en_1099
+// en_batch_0011.js — English IELTS batch 11/12
+// 100 entries: en_1001 to en_1100
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
 
@@ -163,25 +163,26 @@ window.VOCAB_DATA['english_ielts'].push(
   "zh": "限於；侷限在",
   "zh_def": "只存在、發生或適用於某個特定地點、範圍、主題或群體",
   "definition": "To be limited so that something exists, happens, or applies only within a particular place or range.",
-  "sentence1": "The rare plant is confined to two islands.",
-  "sentence1_en": "這種稀有植物只分布在兩座島嶼上。",
-  "sentence1_hl": "The rare plant <b>is confined to</b> two islands.",
+  "sentence1": "Access to the laboratory is confined to authorised staff.",
+  "sentence1_en": "只有獲授權人員才能進入這間實驗室。",
+  "sentence1_hl": "Access to the laboratory <b>is confined to</b> authorised staff.",
   "sentence2": "Flood damage was confined to the basement.",
   "sentence2_en": "洪災損害僅限於地下室。",
   "sentence3": "The outbreak remained confined to coastal villages.",
   "sentence3_en": "疫情仍侷限於沿海村莊。",
   "tip": "be confined to 是被動形式的固定搭配，be 動詞要隨主詞和時態改變，例如 is confined to、was confined to。",
   "word_map": {
-    "The rare plant": "這種稀有植物",
-    "is confined to": "只分布在",
-    "two islands": "兩座島嶼上"
+    "Access to the laboratory": "進入這間實驗室",
+    "is confined to": "僅限於",
+    "authorised staff": "獲授權人員"
   },
   "forms": [
     "be confined to",
     "is confined to",
     "are confined to",
     "was confined to",
-    "were confined to"
+    "were confined to",
+    "remained confined to"
   ],
   "form_notes": {
     "be confined to": "be 要依主詞與時態改成 is、are、was 或 were。"
@@ -203,8 +204,8 @@ window.VOCAB_DATA['english_ielts'].push(
   "sentence1_hl": "The device <b>transmits</b> data to a central server.",
   "sentence2": "Radio towers transmit signals across the region.",
   "sentence2_en": "無線電塔把訊號傳送到整個地區。",
-  "sentence3": "Whistles can transmit messages over long distances.",
-  "sentence3_en": "口哨聲能把訊息傳到很遠的地方。",
+  "sentence3": "The sensor can transmit readings every five seconds.",
+  "sentence3_en": "這個感測器可每五秒傳送一次讀數。",
   "tip": "這裡的 transmit 指傳送 data、signals、messages 等資訊；常用 transmit something to + 接收端。",
   "word_map": {
     "The device": "這個裝置",
@@ -263,8 +264,8 @@ window.VOCAB_DATA['english_ielts'].push(
   "sentence1": "The frontal lobe supports planning and decision-making.",
   "sentence1_en": "額葉有助於規劃與決策。",
   "sentence1_hl": "The frontal <b>lobe</b> supports planning and decision-making.",
-  "sentence2": "Language processing involves the temporal lobe.",
-  "sentence2_en": "語言處理涉及顳葉。",
+  "sentence2": "The scan revealed swelling in the parietal lobe.",
+  "sentence2_en": "掃描顯示頂葉有腫脹。",
   "sentence3": "Each brain lobe has specialised functions.",
   "sentence3_en": "每個腦葉都有特定功能。",
   "tip": "lobe 在此指腦葉，常見 frontal lobe（額葉）、temporal lobe（顳葉）、brain lobe。",
@@ -322,8 +323,8 @@ window.VOCAB_DATA['english_ielts'].push(
   "sentence1": "The exact cause remains obscure.",
   "sentence1_en": "確切原因仍不清楚。",
   "sentence1_hl": "The exact cause remains <b>obscure</b>.",
-  "sentence2": "The origins of the custom are obscure.",
-  "sentence2_en": "這項習俗的起源不清楚。",
+  "sentence2": "The purpose of the symbol remains obscure to modern readers.",
+  "sentence2_en": "現代讀者仍不清楚這個符號的用途。",
   "sentence3": "Several details remain obscure to researchers.",
   "sentence3_en": "有幾項細節對研究人員來說仍不清楚。",
   "tip": "這裡的 obscure 是「不清楚、難以確定」，常和 remain、cause、origin、detail 搭配；不是「鮮為人知的」那個意思。",
@@ -347,19 +348,19 @@ window.VOCAB_DATA['english_ielts'].push(
   "zh": "受託責任的",
   "zh_def": "與依法為他人最佳利益行事或妥善管理其資產的義務有關的",
   "definition": "Relating to a legal responsibility to act in another person’s best interests or manage their assets properly.",
-  "sentence1": "Directors have fiduciary duties to shareholders.",
-  "sentence1_en": "董事對股東負有受託責任。",
-  "sentence1_hl": "Directors have <b>fiduciary</b> duties to shareholders.",
+  "sentence1": "The executor has a fiduciary duty to the estate's beneficiaries.",
+  "sentence1_en": "遺囑執行人對遺產受益人負有受託責任。",
+  "sentence1_hl": "The executor has a <b>fiduciary</b> duty to the estate's beneficiaries.",
   "sentence2": "Trustees must fulfil their fiduciary responsibilities.",
   "sentence2_en": "受託人必須履行其受託責任。",
   "sentence3": "Financial advisers owe clients a fiduciary duty.",
   "sentence3_en": "財務顧問對客戶負有受託責任。",
   "tip": "fiduciary 是法律與財務用語，最常見搭配是 fiduciary duty、fiduciary duties、fiduciary responsibility。",
   "word_map": {
-    "Directors": "董事",
-    "have": "負有",
-    "fiduciary duties": "受託責任",
-    "to shareholders": "對股東"
+    "The executor": "遺囑執行人",
+    "has": "負有",
+    "a fiduciary duty": "受託責任",
+    "to the estate's beneficiaries": "對遺產受益人"
   },
   "forms": [
     "fiduciary"
@@ -437,18 +438,18 @@ window.VOCAB_DATA['english_ielts'].push(
   "zh": "驟降；暴跌",
   "zh_def": "在短時間內快速而大幅地下降",
   "definition": "To fall or decrease very quickly and by a large amount.",
-  "sentence1": "Sales plummeted after the product recall.",
-  "sentence1_en": "產品召回後，銷售量驟降。",
-  "sentence1_hl": "Sales <b>plummeted</b> after the product recall.",
+  "sentence1": "Attendance plummeted during the final week of the exhibition.",
+  "sentence1_en": "展覽最後一週的參觀人數驟降。",
+  "sentence1_hl": "Attendance <b>plummeted</b> during the final week of the exhibition.",
   "sentence2": "Temperatures plummeted during the night.",
   "sentence2_en": "夜間氣溫驟降。",
   "sentence3": "The company's share price plummeted within hours.",
   "sentence3_en": "該公司的股價在數小時內驟跌。",
   "tip": "plummet 通常作不及物動詞，主詞常是 sales、prices、temperatures 等，表示快速大幅下降。",
   "word_map": {
-    "Sales": "銷售量",
+    "Attendance": "參觀人數",
     "plummeted": "驟降",
-    "after the product recall": "在產品召回後"
+    "during the final week of the exhibition": "在展覽最後一週"
   },
   "forms": [
     "plummet",
@@ -529,7 +530,7 @@ window.VOCAB_DATA['english_ielts'].push(
   "meaning": "a person who creates sculptures",
   "ipa": "ˈskʌlp.tər",
   "zh": "雕塑家",
-  "zh_def": "雕塑家",
+  "zh_def": "以石材、金屬或木材等材料創作雕塑的人",
   "definition": "A person who creates sculptures.",
   "sentence1": "The sculptor answered questions about the tools she uses.",
   "sentence1_en": "這位雕塑家回答了關於她所使用工具的問題。",
@@ -559,7 +560,7 @@ window.VOCAB_DATA['english_ielts'].push(
   "meaning": "lying or leaning back in a relaxed position",
   "ipa": "rɪˈklaɪ.nɪŋ",
   "zh": "斜躺的；向後倚靠的",
-  "zh_def": "斜躺的；向後倚靠的",
+  "zh_def": "指身體斜躺或上半身向後倚靠的姿勢",
   "definition": "Lying or leaning back in a relaxed position.",
   "sentence1": "The reclining passenger asked for another pillow.",
   "sentence1_en": "這位斜躺的乘客要求再拿一個枕頭。",
@@ -1237,7 +1238,7 @@ window.VOCAB_DATA['english_ielts'].push(
   "word": "foliage",
   "meaning": "the leaves of a plant or plants considered together",
   "ipa": "ˈfəʊ.li.ɪdʒ",
-  "zh": "葉叢；植葉",
+  "zh": "葉叢；枝葉",
   "zh_def": "葉叢；植物或樹木的葉子總稱",
   "definition": "The leaves of a plant or plants considered together.",
   "sentence1": "Dense foliage blocked most of the sunlight.",
@@ -1269,7 +1270,7 @@ window.VOCAB_DATA['english_ielts'].push(
   "zh_def": "把……完全包住、包覆在保護層中；常用 be encased in",
   "definition": "To cover or surround something completely in a protective layer.",
   "sentence1": "The wires are encased in protective plastic.",
-  "sentence1_en": "這些電線包覆在保護塑膠中。",
+  "sentence1_en": "這些電線包覆在保護性塑膠層中。",
   "sentence1_hl": "The wires are <b>encased</b> in protective plastic.",
   "sentence2": "The fossil was encased in a block of stone.",
   "sentence2_en": "這塊化石被包在一大塊石頭中。",
@@ -1279,7 +1280,7 @@ window.VOCAB_DATA['english_ielts'].push(
   "word_map": {
     "The wires": "這些電線",
     "are encased in": "包覆在",
-    "protective plastic": "保護塑膠中"
+    "protective plastic": "保護性塑膠層中"
   },
   "forms": [
     "encase",
@@ -1425,7 +1426,7 @@ window.VOCAB_DATA['english_ielts'].push(
   "sentence2": "Birds are attracted to the fruit's fleshy aril.",
   "sentence2_en": "鳥類會被果實肉質的假種皮吸引。",
   "sentence3": "The aril can be separated from the seed by hand.",
-  "sentence3_en": "假種皮可以用手與種子分離。",
+  "sentence3_en": "可以用手將假種皮與種子分開。",
   "tip": "aril 是包覆某些種子的肉質或特殊組織，中文稱『假種皮』；複數為 arils。",
   "word_map": {
     "The edible part of a lychee": "荔枝可食用的部分",
@@ -1632,7 +1633,7 @@ window.VOCAB_DATA['english_ielts'].push(
   "sentence2": "Foreign envoys presented gifts to the sultan.",
   "sentence2_en": "外國使節向蘇丹獻上禮物。",
   "sentence3": "The palace was built during the reign of a powerful sultan.",
-  "sentence3_en": "這座宮殿建於一位強大蘇丹統治期間。",
+  "sentence3_en": "這座宮殿建於一位強大蘇丹的統治時期。",
   "tip": "sultan 是部分伊斯蘭國家或歷史政權的君主稱號；複數為 sultans。",
   "word_map": {
     "The sultan": "蘇丹",
@@ -1719,18 +1720,18 @@ window.VOCAB_DATA['english_ielts'].push(
   "zh_def": "走私；秘密且非法地把人或物帶進或帶出某地",
   "definition": "To move people or goods secretly and illegally into or out of a place.",
   "sentence1": "The gang tried to smuggle rare animals across the border.",
-  "sentence1_en": "這個集團企圖把稀有動物走私越過邊界。",
+  "sentence1_en": "這個集團企圖將稀有動物偷運越境。",
   "sentence1_hl": "The gang tried to <b>smuggle</b> rare animals across the border.",
   "sentence2": "Customs officers found drugs smuggled inside the vehicle.",
-  "sentence2_en": "海關人員發現藏在車內走私的毒品。",
+  "sentence2_en": "海關人員在車內發現偷運的毒品。",
   "sentence3": "He was arrested for attempting to smuggle weapons into the country.",
   "sentence3_en": "他因企圖把武器走私進該國而遭逮捕。",
   "tip": "smuggle 表示秘密且非法地運送人或物；常用 smuggle something into、out of 或 across a place。",
   "word_map": {
     "The gang": "這個集團",
-    "tried to smuggle": "企圖走私",
+    "tried to smuggle": "企圖偷運",
     "rare animals": "稀有動物",
-    "across the border": "越過邊界"
+    "across the border": "越境"
   },
   "forms": [
     "smuggle",
@@ -2053,7 +2054,7 @@ window.VOCAB_DATA['english_ielts'].push(
   "sentence1_en": "她結束漫長的輪班後，癱坐在沙發上。",
   "sentence1_hl": "She <b>slumped down</b> on the sofa after the long shift.",
   "sentence2": "He dropped his bag and slumped down in the nearest chair.",
-  "sentence2_en": "他丟下袋子，重重坐進最近的椅子。",
+  "sentence2_en": "他丟下袋子，癱坐在最近的椅子上。",
   "sentence3": "The exhausted runner slumped down on the grass.",
   "sentence3_en": "筋疲力盡的跑者癱坐在草地上。",
   "tip": "slump down 表示因疲憊或無力而重重坐下；常接 on、in 等介系詞說明坐下的位置。",
@@ -2487,8 +2488,7 @@ window.VOCAB_DATA['english_ielts'].push(
   "tip": "staggered 在本卡表示位置彼此錯開、不在同一直線；常見 staggered rows、heights、access points。",
   "word_map": {
     "The seats": "座位",
-    "are arranged": "被排列",
-    "in staggered rows": "以交錯的排數",
+    "are arranged in staggered rows": "以各排彼此錯開的方式排列",
     "to improve visibility": "以改善視野"
   },
   "forms": [
@@ -2689,7 +2689,7 @@ window.VOCAB_DATA['english_ielts'].push(
   "sentence1_en": "每一股 DNA 都攜帶遺傳資訊。",
   "sentence1_hl": "Each <b>strand</b> of DNA carries genetic information.",
   "sentence2": "A break in one DNA strand can sometimes be repaired by the cell.",
-  "sentence2_en": "一股 DNA 鏈中的斷裂有時可由細胞修復。",
+  "sentence2_en": "單股 DNA 發生斷裂時，細胞有時能加以修復。",
   "sentence3": "The enzyme separates the two strands of the DNA molecule.",
   "sentence3_en": "這種酵素會分開 DNA 分子的兩股鏈。",
   "tip": "strand 在本卡指 DNA 等細長的分子鏈；常見 a strand of DNA，複數 strands。",
@@ -2967,5 +2967,36 @@ window.VOCAB_DATA['english_ielts'].push(
     "fraternities"
   ],
   "lang": "english_ielts"
-}
+},
+  {
+    "id": "en_1100",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "verb",
+    "word": "rectify",
+    "meaning": "to correct an error, fault, or unsatisfactory situation",
+    "ipa": "ˈrek.tɪ.faɪ",
+    "zh": "糾正；改正",
+    "zh_def": "糾正、改正錯誤、故障或不良狀況",
+    "definition": "To correct an error, fault, or unsatisfactory situation.",
+    "sentence1": "The technician returned to rectify the wiring fault.",
+    "sentence1_en": "技術人員回來修正配線故障。",
+    "sentence1_hl": "The technician returned to <b>rectify</b> the wiring fault.",
+    "sentence2": "We need to rectify several errors in the final report.",
+    "sentence2_en": "我們需要改正最終報告中的幾項錯誤。",
+    "sentence3": "The company acted quickly to rectify the billing problem.",
+    "sentence3_en": "公司迅速採取行動，修正帳單問題。",
+    "tip": "rectify 常接 error、fault、problem 或 situation，表示把錯誤或不良狀況糾正過來。",
+    "word_map": {
+      "The technician": "這名技術人員",
+      "returned to rectify": "回來修正",
+      "the wiring fault": "配線故障"
+    },
+    "forms": [
+      "rectify",
+      "rectifies",
+      "rectified",
+      "rectifying"
+    ],
+    "lang": "english_ielts"
+  }
 );
