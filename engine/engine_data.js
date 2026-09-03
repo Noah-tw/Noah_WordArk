@@ -780,7 +780,18 @@ const TTS = (() => {
   let needsGestureRecovery = false;
   let nativeSpeechPrimed = false;
   let nativePrimedLang = null;
+  // iOS preparation is a real state machine, not a boolean set immediately after
+  // speechSynthesis.speak().  A real word must never start while the zero-volume
+  // native prime is still speaking or while its cancellation is still settling.
+  let nativePrimeState = 'idle'; // idle | priming | ready | failed
+  let nativePrimePromise = null;
+  let nativePrimeUtterance = null;
+  let nativePrimeTimer = null;
   let unlockPromise = null;
+  // Only the newest speech request is relevant while unlock/prime is in flight.
+  // This prevents a New Word card request from waking up after Got It has already
+  // replaced it with the listening-question request.
+  let pendingUnlockSay = null;
   let sourceTimer = null;
   let voiceReadyTimer = null;
   let speechStartTimer = null;
@@ -834,100 +845,144 @@ const TTS = (() => {
   }
 
   // WebKit on iPhone requires the FIRST speechSynthesis.speak() call to happen while
-  // a real user gesture is active. Prime it silently here so it remains a usable last
-  // resort if every Google/dictionary audio URL fails later in an automatic question.
-  // Prime the CURRENT language on every real round/lesson gesture; a single hard-coded
-  // en-US prime can otherwise make Safari pronounce French/Hebrew/etc. with English rules.
+  // a real user gesture is active. Prime it silently once so native speech remains a
+  // usable last resort if every web audio URL fails later. The gesture gate is global;
+  // the real fallback still selects a matching voice for every utterance in _speakWeb().
+  // Return a Promise that settles only after the native engine reports that the prime
+  // has ended. This Promise is part of unlockPromise, so real HTMLAudio cannot race it.
   function _primeNativeSpeechFromGesture(lang) {
-    if(!window.speechSynthesis||typeof SpeechSynthesisUtterance==='undefined')return nativeSpeechPrimed;
+    if(nativePrimeState==='ready')return Promise.resolve(true);
+    if(nativePrimeState==='failed')return Promise.resolve(false);
+    if(nativePrimeState==='priming'&&nativePrimePromise)return nativePrimePromise;
+    if(!window.speechSynthesis||typeof SpeechSynthesisUtterance==='undefined'){
+      nativePrimeState='failed';
+      return Promise.resolve(false);
+    }
     // If the browser exposes userActivation, never incorrectly mark an async attempt as
     // primed. Older Safari versions do not expose it, so they are allowed to try.
-    if(navigator.userActivation&&navigator.userActivation.isActive===false)return nativeSpeechPrimed;
+    if(navigator.userActivation&&navigator.userActivation.isActive===false)return Promise.resolve(false);
     const requestedLang=lang||_activeTtsLang();
+    nativePrimeState='priming';
+    let resolvePrime;
+    const attempt=new Promise(resolve=>{resolvePrime=resolve;});
+    nativePrimePromise=attempt;
+    let settled=false;
+    const finish=(ok,retryable=false)=>{
+      if(settled)return;
+      settled=true;
+      clearTimeout(nativePrimeTimer);
+      nativePrimeTimer=null;
+      if(nativePrimeUtterance){
+        nativePrimeUtterance.onend=null;
+        nativePrimeUtterance.onerror=null;
+      }
+      nativePrimeUtterance=null;
+      nativeSpeechPrimed=ok;
+      nativePrimedLang=ok?requestedLang:null;
+      nativePrimeState=ok?'ready':(retryable?'idle':'failed');
+      nativePrimePromise=null;
+      resolvePrime(ok);
+    };
     try{
-      window.speechSynthesis.cancel();
       const prime=new SpeechSynthesisUtterance('\u00a0');
       prime.lang=_nativeLocale(requestedLang);
       const voice=_findNativeVoice(requestedLang);
       if(voice)prime.voice=voice;
       prime.volume=0;
       prime.rate=10;
-      webUtterance=prime; // retain the utterance; iOS may drop unreferenced utterances
+      prime.onend=()=>finish(true);
+      prime.onerror=event=>{
+        const reason=event&&event.error||'';
+        // cancelled/interrupted means WebKit accepted the gesture and has now
+        // delivered its asynchronous completion callback, so the race is over.
+        if(reason==='canceled'||reason==='interrupted')finish(true);
+        else finish(false,reason==='not-allowed');
+      };
+      nativePrimeUtterance=prime; // retain it; iOS may drop unreferenced utterances
       window.speechSynthesis.speak(prime);
-      nativeSpeechPrimed=true;
-      nativePrimedLang=requestedLang;
-      return true;
-    }catch(e){return false;}
+      // Normal completion is event-driven. Some WebKit builds finish a blank utterance
+      // without dispatching onend, so also observe the public idle state. Never use a
+      // fixed delay to open the gate while speech is still live, and never cancel the
+      // prime immediately before the real word.
+      const settleIfIdle=()=>{
+        let busy=false;
+        try{busy=!!(window.speechSynthesis.speaking||window.speechSynthesis.pending);}catch{}
+        if(!busy){finish(true);return;}
+        nativePrimeTimer=setTimeout(settleIfIdle,100);
+      };
+      nativePrimeTimer=setTimeout(settleIfIdle,1500);
+    }catch(e){
+      finish(false,e&&e.name==='NotAllowedError');
+    }
+    return attempt;
   }
 
-  function unlock(requestedLang, skipProbe) {
-    const lang=requestedLang||_activeTtsLang();
-    // This function must be ENTERED directly from a Start/Lesson tap. Everything before
-    // the first await therefore runs inside the iOS user-activation window.
-    if (mediaUnlocked) {
-      needsGestureRecovery=false;
-      _primeNativeSpeechFromGesture(lang);
-      return Promise.resolve(true);
-    }
-    // Coalesce accidental double taps instead of cancelling the first unlock attempt.
-    // Still prime the newly requested language while this fresh gesture is available.
-    if(unlockPromise){_primeNativeSpeechFromGesture(lang);return unlockPromise;}
-    // BUG-FIX (Aug 20 2026, per Noah): "listening question quiet / first syllables cut"
-    // on the very first play of a session or right after the idiom/interstitial card —
-    // same root cause as the SFX click-beep collision fixed below, different audio
-    // channel. The SILENT_AUDIO probe just below plays through `player`, a REAL <audio>
-    // element, purely to pre-arm iOS permission for audio that might fire LATER, outside
-    // a live gesture. When the caller already knows a guaranteed TTS.say() is about to
-    // fire immediately after this call, in this SAME tap (G_startRound's first question,
-    // G_continueFromInterstitial's next question), that real playback runs inside this
-    // same live gesture and unlocks iOS on its own — see el.onplaying setting
-    // mediaUnlocked=true in tryNextSource() below. The probe is then pure redundancy:
-    // starting it anyway put a second real <audio> element's play() a few ms before the
-    // question's own, and mobile OS audio-session ducking was quietly lowering / cutting
-    // the onset of THAT one, exactly like it did to the click-beep sound. skipProbe lets
-    // a caller opt out of the probe in exactly that guaranteed-autoplay case — native-
-    // speech priming still runs below either way, since that's a separate pathway
-    // (SpeechSynthesisUtterance, no <audio> element) and never competed in the first place.
-    if(skipProbe){
-      _primeNativeSpeechFromGesture(lang);
-      return Promise.resolve(true);
-    }
-    stop();
-    const token=playToken;
-    _primeNativeSpeechFromGesture(lang);
+  function _probeHtmlMediaFromGesture(token){
+    if(mediaUnlocked)return Promise.resolve(true);
     player.src=SILENT_AUDIO;
     player.playbackRate=1;
     player.volume=1;
     player.load();
-    let playResult;
-    try{playResult=player.play();}
-    catch(e){mediaUnlocked=false;needsGestureRecovery=true;return Promise.resolve(false);}
-    let attempt;
-    attempt=new Promise(resolve=>{
+    return new Promise(resolve=>{
       let settled=false;
+      let timeout=null;
       const finish=ok=>{
         if(settled)return;
         settled=true;
         clearTimeout(timeout);
-        if(ok){mediaUnlocked=true;needsGestureRecovery=false;}
+        player.onplaying=null;
+        player.onended=null;
+        player.onerror=null;
+        try{player.pause();player.currentTime=0;}catch{}
+        if(ok&&token===playToken){mediaUnlocked=true;needsGestureRecovery=false;}
         else if(token===playToken){mediaUnlocked=false;needsGestureRecovery=true;}
-        if(unlockPromise===attempt)unlockPromise=null;
-        resolve(ok);
+        resolve(ok&&token===playToken);
       };
-      // A media play Promise is allowed to remain pending by browser implementations.
-      // Cap the trigger attempt so it can never hold any later TTS request indefinitely.
-      const timeout=setTimeout(()=>{
-        if(token===playToken){try{player.pause();player.currentTime=0;}catch{}}
-        finish(false);
-      },1500);
-      Promise.resolve(playResult).then(()=>{
-        if(token!==playToken){finish(false);return;}
-        player.pause();
-        try{player.currentTime=0;}catch{}
-        finish(true);
-      }).catch(()=>finish(false));
+      // Wait for an actual media event. play() resolving alone is not treated as proof
+      // that iOS has brought its output session up yet.
+      player.onplaying=()=>finish(true);
+      player.onended=()=>finish(true);
+      player.onerror=()=>finish(false);
+      timeout=setTimeout(()=>finish(false),1500);
+      let playResult;
+      try{playResult=player.play();}
+      catch(e){finish(false);return;}
+      if(playResult&&typeof playResult.catch==='function')playResult.catch(()=>finish(false));
     });
+  }
+
+  function _flushPendingUnlockSay(){
+    const request=pendingUnlockSay;
+    pendingUnlockSay=null;
+    if(!request||request.token!==playToken)return;
+    say(request.text,request.lang,request.rate,request.patient,request.onEnded);
+  }
+
+  function cancelPending(){pendingUnlockSay=null;}
+
+  function unlock(requestedLang, _skipProbe) {
+    const lang=requestedLang||_activeTtsLang();
+    // This function must be ENTERED directly from a Start/Lesson tap. Everything before
+    // the first await therefore runs inside the iOS user-activation window.
+    if(mediaUnlocked&&nativePrimeState==='ready'){
+      needsGestureRecovery=false;
+      return Promise.resolve(true);
+    }
+    // Coalesce repeated Start/Continue taps; never create a second prime or probe.
+    if(unlockPromise)return unlockPromise;
+    // Stop older real playback before starting the preparation barrier. No real TTS
+    // request exists yet on the normal Start/Continue paths, so this cannot drop the
+    // question that will be queued below by say().
+    if(!mediaUnlocked)stop();
+    const token=playToken;
+    const mediaAttempt=mediaUnlocked?Promise.resolve(true):_probeHtmlMediaFromGesture(token);
+    const nativeAttempt=_primeNativeSpeechFromGesture(lang);
+    let attempt=Promise.all([mediaAttempt,nativeAttempt]).then(([mediaOk])=>mediaOk&&token===playToken);
     unlockPromise=attempt;
+    attempt.finally(()=>{
+      if(unlockPromise===attempt)unlockPromise=null;
+      _flushPendingUnlockSay();
+    });
     return attempt;
   }
 
@@ -947,19 +1002,11 @@ const TTS = (() => {
     // and is completely unaffected.
     if (!text) { onEnded?.(); return; }
     // Automatic New Word / Listening audio may be scheduled while the Start trigger is
-    // still resolving. Queue only the voice request — never the question UI — and play
-    // it as soon as unlock succeeds or reaches its bounded 1.5s safety timeout.
+    // still resolving. Keep only the newest voice request: Got It / Continue can replace
+    // a card pronunciation before the readiness barrier opens.
     if(unlockPromise){
-      const token=playToken;
       if(!patient) console.debug('[TTS-DEBUG] auto-play deferred, unlock still pending:',text);
-      unlockPromise.finally(()=>{
-        if(token===playToken){
-          say(text,lang,rate,patient,onEnded);
-        } else {
-          if(!patient) console.debug('[TTS-DEBUG] deferred auto-play DROPPED (token changed while unlock was pending):',text);
-          onEnded?.();
-        }
-      });
+      pendingUnlockSay={text,lang,rate,patient,onEnded,token:playToken};
       return;
     }
 
@@ -1041,13 +1088,24 @@ const TTS = (() => {
     // excludes those.
     const _isEnglishSingleToken = lang === 'en' && !clean.includes(' ');
     const _dictWorthy = _isEnglishSingleToken && _looksLikeDictionaryHeadword(clean);
+
+    // Oxford's legacy 20200429 audio catalogue escapes asset keys whose three-letter
+    // shard would be a reserved DOS/Windows device name. For example, the real file is
+    // `xcongestion--_gb_1.mp3`, not `congestion--_gb_1.mp3`. Without this transform,
+    // every plain `con...` request 404s on both the GB and US dictionary sources.
+    function _legacyOxfordAudioKey(word){
+      const reservedShard = /^(con|aux|nul|prn)/.test(word);
+      return reservedShard ? `x${word}` : word;
+    }
+
     function _pushDictSources(){
       const lowerWord = clean.toLowerCase();
+      const legacyOxfordKey = _legacyOxfordAudioKey(lowerWord);
       const dictTimeout = patient?7000:1000;
       sources.push({id:'dictionary-gstatic-gb',timeoutMs:dictTimeout,
-        url:`https://ssl.gstatic.com/dictionary/static/sounds/20200429/${lowerWord}--_gb_1.mp3`});
+        url:`https://ssl.gstatic.com/dictionary/static/sounds/20200429/${legacyOxfordKey}--_gb_1.mp3`});
       sources.push({id:'dictionary-gstatic-us',timeoutMs:dictTimeout,
-        url:`https://ssl.gstatic.com/dictionary/static/sounds/20200429/${lowerWord}--_us_1.mp3`});
+        url:`https://ssl.gstatic.com/dictionary/static/sounds/20200429/${legacyOxfordKey}--_us_1.mp3`});
       sources.push({id:'dictionary-api-uk',timeoutMs:dictTimeout,
         url:`https://api.dictionaryapi.dev/media/pronunciations/en/${lowerWord}-uk.mp3`});
     }
@@ -1204,6 +1262,7 @@ const TTS = (() => {
 
   function stop() {
     playToken++;
+    cancelPending();
     clearTimeout(sourceTimer);
     clearTimeout(voiceReadyTimer);
     clearTimeout(speechStartTimer);
@@ -1351,6 +1410,9 @@ const TTS = (() => {
       needsGestureRecovery,
       nativeSpeechPrimed,
       nativePrimedLang,
+      nativePrimeState,
+      preparationPending:!!unlockPromise,
+      queuedSpeechPending:!!pendingUnlockSay,
       lastRequestedLang:TTS._lastRequestedLang||null,
       attemptedSources:[...(TTS._sourceAttempts||[])],
       lastSource:TTS._lastSource||null,
@@ -1358,7 +1420,7 @@ const TTS = (() => {
       lastFailure:TTS._lastFailure||null
     };
   }
-  return { say, stop, unlock, recoverFromGesture, diagnostics, resetIfStuck };
+  return { say, stop, unlock, cancelPending, recoverFromGesture, diagnostics, resetIfStuck };
 })();
 
 

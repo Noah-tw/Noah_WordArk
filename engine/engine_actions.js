@@ -361,14 +361,9 @@ function G_continueFromInterstitial(){
   _cancelQueuedTTS();       // BUG-FIX: if tapped inside the 550ms auto-pronounce delay,
   TTS.stop();               // the pending timer would otherwise fire late and speak the
                              // old idiom over the next (already-rendered) question.
-  // Re-prime from this real tap if iOS revoked audio permission, but NEVER wait for it:
-  // the question UI must continue even if Safari leaves play() pending.
-  // BUG-FIX (Aug 20 2026, per Noah): pass _willAutoplay through as skipProbe — when the
-  // next question is a guaranteed listening auto-play, TTS.say() a few lines below already
-  // unlocks iOS on its own inside this same tap, so unlock()'s own silent-<audio> probe is
-  // redundant here and was colliding with that question's audio (quiet/cut onset) exactly
-  // like the click-beep collision above. See the comment on TTS.unlock() for the mechanism.
-  try{void TTS.unlock(LC[S.lang].ttsLang,_willAutoplay);}catch(e){}
+  // Re-establish readiness from this real tap if needed. The question UI continues
+  // immediately while its TTS request waits behind the preparation barrier.
+  try{void TTS.unlock(LC[S.lang].ttsLang);}catch(e){}
   // Restore bot-bar and game-strip, then render the queued question
   const bb=eid('bot-bar'); if(bb) bb.style.display='flex';
   const strip=eid('game-strip');
