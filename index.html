@@ -15,7 +15,7 @@
      time you ship an actual update after that point. -->
 <script>
   const CACHE_DEV_MODE = false;     // release: allow browser/PWA caching
-  const RELEASE_VERSION = '41-con-fix-audio-ab-readiness'; // Preserve con- dictionary fix; settle media + native prime before the first real word
+  const RELEASE_VERSION = '42-con-fix-audio-fast-safe'; // iOS: fast readiness barrier + concurrent first-source preload
   window.APP_VERSION = CACHE_DEV_MODE ? Date.now() : RELEASE_VERSION;
 </script>
 <meta charset="UTF-8">
