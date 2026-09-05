@@ -5,9 +5,9 @@ let _qTtsTimer = null;
 function _cancelQueuedTTS(){
   if(_qTtsTimer!==null)clearTimeout(_qTtsTimer);
   _qTtsTimer=null;
-  // A cold iOS preparation may already hold a speech request after this timer fired.
-  // Cancel that stale request together with the timer so it cannot wake on a later card.
-  try{if(typeof TTS!=='undefined'&&TTS.cancelPending)TTS.cancelPending();}catch{}
+  // A first-session request can also be waiting behind TTS's iOS readiness gate.
+  // Cancel it together with the ordinary timer so Next/Skip cannot revive stale audio.
+  if(typeof TTS!=='undefined'&&typeof TTS.cancelPending==='function')TTS.cancelPending();
 }
 function _scheduleQueuedTTS(fn,delay){
   _cancelQueuedTTS();
@@ -266,8 +266,11 @@ function showReadyScreen(pool, fromRound=false){
 }
 
 function G_startRound(){
-  // Start both iOS preparation paths from this real tap. loadQ(true) still renders
-  // immediately; its TTS request waits until HTMLMedia and native prime have settled.
+  // Enter both iOS readiness operations directly from the Start gesture. Do not await:
+  // question/card rendering stays immediate, while TTS retains and preloads only the
+  // newest voice request until its short readiness barrier has settled.
+  // Real speech is allowed through only after the silent media probe and the fast
+  // native-prime cancellation have actually settled.
   try{void TTS.unlock(LC[S.lang].ttsLang);}catch(e){}
   // BUG-FIX: coin button = Random mode. Clear lesson lock so pool is unrestricted.
   S.lessonGroup=null;

@@ -361,8 +361,9 @@ function G_continueFromInterstitial(){
   _cancelQueuedTTS();       // BUG-FIX: if tapped inside the 550ms auto-pronounce delay,
   TTS.stop();               // the pending timer would otherwise fire late and speak the
                              // old idiom over the next (already-rendered) question.
-  // Re-establish readiness from this real tap if needed. The question UI continues
-  // immediately while its TTS request waits behind the preparation barrier.
+  // Re-establish both iOS audio paths from this real tap. Do not await it: the question
+  // renders immediately, and TTS preloads/retains the newest requested word until the
+  // short readiness barrier is genuinely settled.
   try{void TTS.unlock(LC[S.lang].ttsLang);}catch(e){}
   // Restore bot-bar and game-strip, then render the queued question
   const bb=eid('bot-bar'); if(bb) bb.style.display='flex';
