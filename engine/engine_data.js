@@ -799,19 +799,46 @@ const TTS = (() => {
   let webUtterance = null;
   let activeEl = null; // fresh per-utterance Audio element currently playing/attempting real TTS content
 
-  // BUG-FIX (Aug 2026): reduce wasted requests against translate_tts during a Google
-  // outage/throttle. Two separate, narrow guards — neither disables or removes any
-  // existing source, both only change trial order/timing for an ALREADY-observed word:
-  //
-  // 1) _lastGoodSource remembers which source actually worked for a given (word,lang)
-  //    THIS session, so a repeat play of a word that's already known to need the
-  //    dictionary/fallback tries that source FIRST instead of re-hitting the two
-  //    Google hosts (which are currently down) every single time it's replayed.
-  //    TTL lets Google reclaim first place again periodically, in case it recovers
-  //    mid-session, without needing a full reload.
+  // Successful-source memory keeps an immediate replay on the source that actually
+  // reached `playing`, rather than re-running the complete remote waterfall.
   const _lastGoodSource = new Map(); // key: `${lang}|${text}` -> {id, at}
   const GOOD_SOURCE_TTL_MS = 3 * 60 * 1000;
-  // 2) An impatient re-tap of the SAME word while the previous attempt is still mid-
+
+  // AUDIO-FAST-BOUNDED V3: remember per-word failures too. The previous code remembered
+  // only success, so a missing MP3 or stalled host was retried on every replay; if all
+  // URLs failed and native speech was used, nothing was remembered at all. Short TTLs
+  // preserve recovery while preventing the same known-bad URL from delaying a session.
+  const _failedSourceUntil = new Map(); // `${lang}|${text}|${sourceId}` -> expiry
+  const MAX_FAILED_SOURCE_RECORDS = 500;
+  // Both GB and US legacy catalogue URLs were independently verified as HTTP 404.
+  // Keep this small evidence-based negative manifest so these exact cards never pay
+  // even the bounded first-request dictionary probe. Runtime failures cover the rest.
+  const LEGACY_DICT_MISSING = new Set(['municipality','longevity']);
+  function _failedSourceKey(wordKey,sourceId){return `${wordKey}|${sourceId}`;}
+  function _sourceIsCooling(wordKey,sourceId,now=Date.now()){
+    const key=_failedSourceKey(wordKey,sourceId);
+    const until=_failedSourceUntil.get(key)||0;
+    if(until<=now){if(until)_failedSourceUntil.delete(key);return false;}
+    return true;
+  }
+  function _rememberSourceFailure(wordKey,sourceId,reason){
+    let ttl=30*1000;
+    if(reason==='timeout')ttl=90*1000;
+    else if(reason==='source-error')ttl=sourceId.startsWith('dictionary-gstatic-')?30*60*1000:60*1000;
+    _failedSourceUntil.set(_failedSourceKey(wordKey,sourceId),Date.now()+ttl);
+    if(_failedSourceUntil.size>MAX_FAILED_SOURCE_RECORDS){
+      const now=Date.now();
+      for(const [key,until] of _failedSourceUntil){
+        if(until<=now||_failedSourceUntil.size>MAX_FAILED_SOURCE_RECORDS)_failedSourceUntil.delete(key);
+        if(_failedSourceUntil.size<=MAX_FAILED_SOURCE_RECORDS)break;
+      }
+    }
+  }
+  function _forgetSourceFailure(wordKey,sourceId){
+    _failedSourceUntil.delete(_failedSourceKey(wordKey,sourceId));
+  }
+
+  // An impatient re-tap of the SAME word while the previous attempt is still mid-
   //    waterfall used to restart the whole thing from google-primary, silently doubling
   //    that word's Google requests per extra tap. Swallow only a near-instant repeat of
   //    the identical (text, lang) pair — anything a beat slower is a deliberate replay
@@ -1020,8 +1047,8 @@ const TTS = (() => {
     try{
       const clean=_cleanForPendingPreload(text,lang);
       if(!clean)return null;
-      const englishSingle=lang==='en'&&!clean.includes(' ');
-      const dictWorthy=englishSingle&&!/['’]/.test(clean)&&!/(ing|ed|es|s)$/i.test(clean);
+      const englishSingle=lang==='en'&&/^[a-z]+$/i.test(clean);
+      const dictWorthy=englishSingle&&!/(ing|ed|es|s)$/i.test(clean)&&!LEGACY_DICT_MISSING.has(clean.toLowerCase());
       let url;
       if(dictWorthy){
         const lower=clean.toLowerCase();
@@ -1051,13 +1078,9 @@ const TTS = (() => {
     return true;
   }
 
-  // BUG-FIX (silent auto-play / "must tap to hear"): patient=true (default, used by every
-  // manual 🔊 tap) keeps the original long Google timeouts — worth the wait for the better
-  // voice when the player is actively waiting. patient=false (used only by the automatic
-  // listening-question auto-play) shortens every source's timeout drastically, so when
-  // Google is down the fallback to native voice happens in ~2s total instead of up to 46s
-  // (15s+10s+3×7s for English) — which is why auto-play looked broken: it WAS eventually
-  // reaching native, just far too late for anyone to wait for.
+  // `patient` still distinguishes manual/card pronunciation from automatic listening
+  // audio, but both paths now have a hard total remote-start budget below. No caller can
+  // wait through an open-ended per-source chain before the already-primed native fallback.
   function say(text, lang, rate = 0.9, patient = true, onEnded = null, _preloaded = null, _requestedAt = Date.now()) {
     // onEnded (optional): fires exactly once when THIS specific utterance's audio
     // truly finishes — successfully, or via total failure with nothing left to try.
@@ -1132,38 +1155,18 @@ const TTS = (() => {
     // utterance, so a Google failure applies only to the current word/sentence.
     const sources = [];
 
-    // Heuristic used just below: does `clean` look like a plain dictionary citation
-    // form the Real Human Dictionary hosts are likely to actually have, as opposed to
-    // a possessive/contraction or a common inflected ending (dictionary audio files are
-    // indexed by base form only)? See the BUG-FIX comment at the dictionary-source
-    // block below for the full reasoning and trade-offs. Not real morphology — just a
-    // spelling heuristic; tune the regex if a specific word misfires.
+    // Only a plain alphabetic citation form may try the legacy dictionary catalogue.
+    // A hyphenated compound such as "earth-shattering" is one JavaScript token, but it
+    // is not one catalogue headword; treating it as one produced three known-bad URLs.
     function _looksLikeDictionaryHeadword(w) {
-      if (/['’]/.test(w)) return false;             // possessive / contraction
+      if (!/^[a-z]+$/i.test(w)) return false;        // phrase, hyphen, apostrophe, number
       if (/(ing|ed|es|s)$/i.test(w)) return false;   // common inflectional endings
       return true;
     }
 
-    // BUG-FIX (Aug 2026, per Noah): Google is unreachable in the real deployment
-    // environment, so trying it first meant every single utterance paid its full
-    // timeout (up to 15s+10s patient / 2.5s+1.5s not-patient) before ever reaching a
-    // source that actually works. Google is now tried LAST — after the dictionary
-    // sources — instead of first. Everything else is untouched: same ids, same URLs,
-    // same per-source timeouts, same Guard 1 remembered-source reorder below, same
-    // tryNextSource() waterfall, same native _speakWeb() fallback once every source
-    // in this list has failed.
-
-    // Source 1 (was Source 3): Real Human Dictionary Voice (Only for single English
-    // words in IELTS mode). Tried first now — fastest, and the one that actually works.
-    // BUG-FIX (Aug 19 2026, per Noah): the dictionary hosts are indexed by base
-    // citation form only. A multi-word phrase ("take over") already skipped this block
-    // (the space check below), but a single inflected/possessive token ("eats",
-    // "eat's") looks like a normal single word and was still sent to all 3 dictionary
-    // hosts, 404ing on every one before Google ever got a turn — up to patient:21s /
-    // auto:3s wasted on a lookup that could never succeed. _dictWorthy below now also
-    // excludes those.
-    const _isEnglishSingleToken = lang === 'en' && !clean.includes(' ');
-    const _dictWorthy = _isEnglishSingleToken && _looksLikeDictionaryHeadword(clean);
+    const _isEnglishSingleToken = lang === 'en' && /^[a-z]+$/i.test(clean);
+    const _dictWorthy = _isEnglishSingleToken && _looksLikeDictionaryHeadword(clean) &&
+      !LEGACY_DICT_MISSING.has(clean.toLowerCase());
 
     // Oxford's legacy 20200429 audio catalogue escapes asset keys whose three-letter
     // shard would be a reserved DOS/Windows device name. For example, the real file is
@@ -1177,53 +1180,34 @@ const TTS = (() => {
     function _pushDictSources(){
       const lowerWord = clean.toLowerCase();
       const legacyOxfordKey = _legacyOxfordAudioKey(lowerWord);
-      const dictTimeout = patient?7000:1000;
+      // A pronunciation that cannot BEGIN promptly is not useful in a game. Keep the
+      // preferred GB human recording, retain US as a same-host fallback for a fast 404,
+      // but never allow either candidate to hold the player for seven seconds.
+      const dictTimeout = patient?650:500;
       sources.push({id:'dictionary-gstatic-gb',timeoutMs:dictTimeout,
         url:`https://ssl.gstatic.com/dictionary/static/sounds/20200429/${legacyOxfordKey}--_gb_1.mp3`});
       sources.push({id:'dictionary-gstatic-us',timeoutMs:dictTimeout,
         url:`https://ssl.gstatic.com/dictionary/static/sounds/20200429/${legacyOxfordKey}--_us_1.mp3`});
-      sources.push({id:'dictionary-api-uk',timeoutMs:dictTimeout,
-        url:`https://api.dictionaryapi.dev/media/pronunciations/en/${lowerWord}-uk.mp3`});
     }
     if (_dictWorthy) _pushDictSources();
 
-    // Source 2 (was Source 1): Standard Google Translate. One attempt per host is
-    // intentional: every NEW utterance rebuilds this list, so hammering the same failed
-    // URL 250ms later only creates a burst and does not improve future words.
-    // BUG-FIX (Aug 2026, per Noah): timeouts shortened repeatedly while Google was
-    // unreachable in the deployment environment — originally 15000/2500ms, then
-    // 3500/900ms, then cut to patient:1500 / auto:500 to stop auto-play from silently
-    // sitting through a near-guaranteed failure.
-    // UPDATE (Aug 19 2026, per Noah): Google TTS access is confirmed working again. The
-    // auto:500 floor was tuned assuming Google would basically always fail — now that it
-    // can succeed, 500ms is too tight for "several hundred ms to reach the phone and start
-    // playing" (see original reasoning below) and was likely discarding real, successful
-    // responses in favor of the lower-quality native voice, especially for the 7
-    // non-English languages where Google is the ONLY remote source before native (no
-    // dictionary fallback exists for them). Nudged up to auto:900/650 — still ~1.5s worst
-    // case total (vs. the old 900ms), nowhere near the original 46s problem, but with real
-    // room for a genuine response to land. patient (manual tap) timeouts are unchanged.
-    // This is a judgment call, not a measured number — tune further if 900/650 still feels
-    // either too slow or still too eager to fall back to native.
+    // Google remains the general source for phrases, inflections, compounds and every
+    // non-English language. These are startup deadlines, not audio-duration limits.
     sources.push({
-      id:'google-primary', timeoutMs: patient?1500:900,
+      id:'google-primary', timeoutMs: patient?1200:900,
       url:`https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=${lang}&q=${encodeURIComponent(clean)}`
     });
 
-    // Source 3 (was Source 2): Backup Google Server (Bypasses IP blocks). Timeout
-    // adjusted alongside google-primary above — see Aug 19 2026 update.
     sources.push({
-      id:'google-backup', timeoutMs: patient?1000:650,
+      id:'google-backup', timeoutMs: patient?600:650,
       url:`https://translate.googleapis.com/translate_tts?ie=UTF-8&client=gtx&tl=${lang}&q=${encodeURIComponent(clean)}`
     });
 
-    // BUG-FIX (Aug 19 2026, per Noah): a single English token that looked like a
-    // variant above (so _dictWorthy was false, e.g. "eats") still gets one last-resort
-    // try at the dictionary voice AFTER both Google hosts, instead of never trying it at
-    // all — Google is now primary for these, per Noah's request. Costs nothing in the
-    // normal case: Google already succeeded and the waterfall never reaches this line.
-    // Only matters on the rare occasion Google itself also fails.
-    if (_isEnglishSingleToken && !_dictWorthy) _pushDictSources();
+    // Removed: a blind `${word}-uk.mp3` Dictionary API guess. The API contract returns
+    // an audio URL from a metadata lookup; it does not promise that every guessed UK
+    // filename exists. That host was also the reproducible seven-second stall shared by
+    // municipality/longevity/earth-shattering. Metadata may be prepared outside the
+    // playback-critical path in a future verified-source manifest.
 
     // Guard 1: if this exact (word, lang) already found a working source THIS session,
     // try it first — see module-level comment above _lastGoodSource. This only reorders
@@ -1236,7 +1220,13 @@ const TTS = (() => {
     }
 
     let currentSourceIndex = 0;
+    const remoteBudgetMs=patient?2000:1600;
+    const remoteDeadline=(Number.isFinite(_requestedAt)?_requestedAt:Date.now())+remoteBudgetMs;
+    const skipSourceIds=new Set();
     TTS._sourceAttempts=[];
+    TTS._skippedSources=[];
+    TTS._remoteBudgetMs=remoteBudgetMs;
+    TTS._budgetExhausted=false;
     TTS._lastRequestedLang=lang;
     TTS._lastSource=null;
     TTS._lastNativeVoice=null;
@@ -1244,15 +1234,40 @@ const TTS = (() => {
     // 3. Try URLs one by one until one works. FIX (v38): each attempt gets its OWN fresh
     // Audio element (matching the proven standalone-game pattern) instead of reassigning
     // .src on one shared element — see the module-level comment for why that was unreliable.
+    function fallbackToNative(){
+      if(_preloaded&&!_preloaded.used){
+        _discardPendingPreload(_preloaded);
+        _preloaded.used=true;
+      }
+      isPlaying = false;
+      _speakWeb(text, lang, rate, token, onEnded);
+    }
     function tryNextSource() {
       if(token!==playToken)return;
+      while(currentSourceIndex<sources.length){
+        const candidate=sources[currentSourceIndex];
+        let reason='';
+        if(skipSourceIds.has(candidate.id))reason='same-host-timeout';
+        else if(_sourceIsCooling(wordKey,candidate.id))reason='recent-failure';
+        if(!reason)break;
+        TTS._skippedSources.push({id:candidate.id,reason});
+        currentSourceIndex++;
+      }
       if (currentSourceIndex >= sources.length) {
         // All web URLs failed (or user has no internet). Use robotic native voice, silently
         // — no user-facing toast. (Removed Aug 2026: was a temp debug message, its job is
         // done. TTS._sourceAttempts/_lastFailure/_lastSource are still updated above/below
         // for anyone checking from devtools, just no longer surfaced to the player.)
-        isPlaying = false;
-        _speakWeb(text, lang, rate, token, onEnded);
+        fallbackToNative();
+        return;
+      }
+      const remainingBudget=remoteDeadline-Date.now();
+      if(remainingBudget<=0){
+        TTS._budgetExhausted=true;
+        for(let i=currentSourceIndex;i<sources.length;i++){
+          TTS._skippedSources.push({id:sources[i].id,reason:'budget-exhausted'});
+        }
+        fallbackToNative();
         return;
       }
 
@@ -1301,6 +1316,19 @@ const TTS = (() => {
           return;
         }
 
+        _rememberSourceFailure(wordKey,source.id,reason);
+        const remembered=_lastGoodSource.get(wordKey);
+        if(remembered&&remembered.id===source.id)_lastGoodSource.delete(wordKey);
+        // GB and US live on the same gstatic host. If one request did not return at all,
+        // immediately trying the alternate accent is the same poisoned experiment twice.
+        // A fast onerror/404 still permits the alternate file, because only that asset
+        // may be absent while the host itself is healthy.
+        if(reason==='timeout'&&source.id.startsWith('dictionary-gstatic-')){
+          skipSourceIds.add('dictionary-gstatic-gb');
+          skipSourceIds.add('dictionary-gstatic-us');
+          const alternate=source.id==='dictionary-gstatic-gb'?'dictionary-gstatic-us':'dictionary-gstatic-gb';
+          _rememberSourceFailure(wordKey,alternate,'timeout');
+        }
         currentSourceIndex++;
         tryNextSource();
       };
@@ -1312,6 +1340,7 @@ const TTS = (() => {
         mediaUnlocked=true;
         needsGestureRecovery=false;
         TTS._lastSource=source.id;
+        _forgetSourceFailure(wordKey,source.id);
         _lastGoodSource.set(wordKey, {id: source.id, at: Date.now()});
       };
 
@@ -1330,7 +1359,7 @@ const TTS = (() => {
       el.onerror = ()=>failOnce('source-error');
 
       // Play it!
-      sourceTimer=setTimeout(()=>failOnce('timeout'),source.timeoutMs||7000);
+      sourceTimer=setTimeout(()=>failOnce('timeout'),Math.max(1,Math.min(source.timeoutMs||remainingBudget,remainingBudget)));
       let playPromise;
       try{playPromise=el.play();}
       catch(err){
@@ -1518,6 +1547,9 @@ const TTS = (() => {
       }:null,
       lastRequestedLang:TTS._lastRequestedLang||null,
       attemptedSources:[...(TTS._sourceAttempts||[])],
+      skippedSources:[...(TTS._skippedSources||[])],
+      remoteBudgetMs:TTS._remoteBudgetMs||null,
+      budgetExhausted:!!TTS._budgetExhausted,
       lastSource:TTS._lastSource||null,
       lastNativeVoice:TTS._lastNativeVoice||null,
       lastFailure:TTS._lastFailure||null
