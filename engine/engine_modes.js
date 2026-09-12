@@ -60,11 +60,16 @@ function genMatchingSet(pool,lc,size=5){
     return m.replace(/\s*\(.*?\)/g,'').trim().toLowerCase();
   };
   const seen=new Set();
+  // English sense cards may share a spelling (e.g. fugitive noun/adjective).
+  // Matching buttons do not show POS: keep only one such spelling per set.
+  const seenEnglishWords=new Set();
   const eligible=shuffle(pool.filter(r=>r.word&&r.meaning));
   const c=[];
   for(const r of eligible){
     const key=_meaningKey(r.meaning);
-    if(seen.has(key))continue;
+    const englishWordKey=r.lang==='english_ielts'
+      ? _getCoreWord(r.word).normalize('NFKC').trim().toLowerCase() : null;
+    if(seen.has(key)||(englishWordKey&&seenEnglishWords.has(englishWordKey)))continue;
     // BUG-10 FIX: use true median (average of two middle values for even arrays).
     // Old code used upper-median (lens[floor(n/2)]) which is biased high for even arrays,
     // letting long Finnish compounds inflate the gate and pass other long words through.
@@ -76,6 +81,7 @@ function genMatchingSet(pool,lc,size=5){
       if(median>0&&(wLen>median*3||wLen*3<median))continue;
     }
     seen.add(key);
+    if(englishWordKey)seenEnglishWords.add(englishWordKey);
     c.push(r);
     if(c.length>=size)break;
   }
@@ -233,6 +239,8 @@ function _blankSentences(r,lc){
 
 
 function genBlank(r,pool,lc){
+  // Preserve English phrase articles: 'the stakes are high' needs its 'the'.
+  const _blankDisplayWord=w=>r.lang==='english_ielts'?_getCoreWord(w):_cleanWord(w);
   const isJP=lc.type==='japanese';
   const eligible=_blankSentences(r,lc);
   // RUNTIME GUARD: if no sentence is reachable (forms[] incomplete for this word),
@@ -254,7 +262,7 @@ function genBlank(r,pool,lc){
   const sentReading=chosen.sentReading;
   const sentEn=chosen.sentEn;
 
-  const wordHtml=isJP&&r.reading?jpRuby(r.word,r.reading):_cleanWord(r.word);
+  const wordHtml=isJP&&r.reading?jpRuby(r.word,r.reading):_blankDisplayWord(r.word);
   const blankToken='___';
 
   // Sort longest-first so 'talossa' matches before 'talo' — prevents [talossa]ssa bug
@@ -318,7 +326,7 @@ function genBlank(r,pool,lc){
   let blanked=isJP&&sentReading?jpRuby(blankedRaw,sentReading):blankedRaw;
 
   // ansWord = inflected form shown in options — use the cased version from the sentence
-  const ansWord=isJP?wordHtml:_cleanWord(_casedForm);
+  const ansWord=isJP?wordHtml:_blankDisplayWord(_casedForm);
   const fillWord=matchedForm;
 
   const sentLowerForDistract = sentRaw.toLowerCase();
@@ -335,7 +343,7 @@ function genBlank(r,pool,lc){
     if((x.forms||[]).some(f=>f&&sentLowerForDistract.includes(f.replace(/\|/g,' ').toLowerCase()))) return false;
     return true;
   })).slice(0,3);
-  const dWordsRaw=dRecs.map(x=>isJP&&x.reading?jpRuby(x.word,x.reading):_cleanWord(x.word)).filter(w=>w&&w!==ansWord);
+  const dWordsRaw=dRecs.map(x=>isJP&&x.reading?jpRuby(x.word,x.reading):_blankDisplayWord(x.word)).filter(w=>w&&w!==ansWord);
   // BUG FIX: If ansWord is capitalised (sentence-start), capitalise all distractors too.
   // Otherwise the capital letter on the correct MC button gives the answer away instantly.
   const _ansCapital=!isJP&&ansWord&&ansWord[0]===ansWord[0].toUpperCase()&&ansWord[0]!==ansWord[0].toLowerCase();
@@ -346,8 +354,8 @@ function genBlank(r,pool,lc){
   dRecs.forEach((x,i)=>{optMeanings[dWords[i]]=x.meaning||'';});
 
   const tts=isJP?(sentReading||sentRaw):sentRaw;
-  const displayBadge=isJP&&r.reading&&r.word!==r.reading?jpRuby(r.word,r.reading):_cleanWord(r.word);
-  const acceptedForms=allForms.map(f=>isJP?wordHtml:_cleanWord(f));
+  const displayBadge=isJP&&r.reading&&r.word!==r.reading?jpRuby(r.word,r.reading):_blankDisplayWord(r.word);
+  const acceptedForms=allForms.map(f=>isJP?wordHtml:_blankDisplayWord(f));
 
   return {mode:'blank',wordId:r.id,lang:r.lang,
     displayWord:r.word, displayBadge,
