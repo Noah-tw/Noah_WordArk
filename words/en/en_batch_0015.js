@@ -21,7 +21,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "這套系統使蒸氣冷卻並凝結成液體。",
     "sentence3": "Moisture condensed on the inside of the window.",
     "sentence3_en": "水氣凝結在窗戶內側。",
-    "tip": "condense 在本卡採「（使氣體）凝結成液體」這個義項；三句例句的詞性與意思一致。",
+    "tip": "condense into water 說明氣體凝結「變成什麼」，condense on a cold surface 說明凝結「發生在哪裡」。名詞是 condensation。condense a report 則是濃縮報告內容，與水蒸氣凝結屬不同語境。",
     "word_map": {
       "condense": "（使氣體）凝結成液體",
       "condenses": "（使氣體）凝結成液體",
@@ -54,7 +54,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "油漆揮發氣體充滿通風不良的房間。",
     "sentence3": "The engine released thick exhaust fumes.",
     "sentence3_en": "引擎排放濃厚廢氣。",
-    "tip": "fumes 通常用複數，指難聞或有害的煙氣；paint fumes 是油漆揮發的氣體，不一定是可見的煙。",
+    "tip": "通常以複數出現，如 exhaust fumes、paint fumes；說 the fumes are strong，不用 is。fumes 可指有害或難聞的氣體、蒸氣，不一定是看得見的煙；也不要用 a fume 來表示一口煙。",
     "word_map": {
       "fumes": "有害或難聞的煙霧、氣體",
       "Strong fumes escaped from the open container": "濃烈難聞的氣體從打開的容器中逸出"
@@ -81,7 +81,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "他們在狹窄封閉的隧道內工作了數小時。",
     "sentence3": "The animals became stressed in the confined enclosure.",
     "sentence3_en": "動物待在圍起的狹小空間裡，變得焦躁不安。",
-    "tip": "confined 在本卡採「狹小封閉的、活動受限的」這個義項；三句例句的詞性與意思一致。",
+    "tip": "a confined space 指狹小、封閉而限制活動的空間，常見 work in confined spaces。be confined to a room 則表示活動或範圍受限於房間；confined 的核心是受限制，不等於只要在室內就算 confined。",
     "word_map": {
       "confined": "狹小封閉的、活動受限的",
       "The machine should not be operated in a confined space": "不應在狹小封閉的空間操作這部機器"
@@ -108,7 +108,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "書寫成為保存地方知識的一種手段。",
     "sentence3": "The device offers a reliable means of measuring pressure.",
     "sentence3_en": "這個裝置提供可靠的壓力測量方法。",
-    "tip": "a means of 是本卡的完整學習單位，意思是「一種方法、手段」；請連同整個搭配一起記。",
+    "tip": "of 後接名詞或 V-ing，如 a means of transport、a means of reducing costs。means 單複數同形：a means is…，several means are…；看到字尾 s 不要直接當成複數，也不要把單數改成 a mean。",
     "word_map": {
       "a means of": "一種方法、手段",
       "a cheap means of": "一種便宜的……方式",
@@ -139,7 +139,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "研究人員翻譯了一部中世紀手稿。",
     "sentence3": "A narrow street leads to the medieval cathedral.",
     "sentence3_en": "一條狹窄街道通往中世紀大教堂。",
-    "tip": "medieval 在本卡採「中世紀的」這個義項；三句例句的詞性與意思一致。",
+    "tip": "可說 medieval Europe、a medieval cathedral，形容中世紀的人事物。相對的時期名稱是 the Middle Ages，需用 the，Middle、Ages 大寫；medieval 作一般形容詞通常小寫。",
     "word_map": {
       "medieval": "中世紀的",
       "The town is surrounded by medieval walls": "這座城鎮由中世紀城牆環繞"
@@ -166,7 +166,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "遊客欣賞主教座堂內的彩繪玻璃。",
     "sentence3": "The ceremony was held at the medieval cathedral.",
     "sentence3_en": "典禮在這座中世紀主教座堂舉行。",
-    "tip": "cathedral 指主教座堂，不是所有大型教堂都叫 cathedral；中文常譯大教堂，但大小不是判定標準。",
+    "tip": "cathedral 的身分與主教座有關，不是單憑建築很大就成立；a large church 未必是 a cathedral。可記 cathedral city「有主教座堂的城市」、cathedral choir「主教座堂唱詩班」，避免只靠外觀判斷詞義。",
     "word_map": {
       "cathedral": "主教座堂、大教堂",
       "cathedrals": "主教座堂、大教堂",
@@ -195,7 +195,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "機器閒置多年，表面布滿鏽蝕。",
     "sentence3": "The building was rescued from disuse and converted into a library.",
     "sentence3_en": "這棟閒置建築重新獲得利用，改建成圖書館。",
-    "tip": "fall into disuse 是逐漸不再使用；disuse 是閒置不用，disrepair 才是因缺乏維護而失修。",
+    "tip": "通常不可數，常見 fall into disuse「逐漸不再使用」、a period of disuse「一段停用期」。名詞字尾讀 /s/。disuse 說的是使用狀態；disrepair 說的是失修狀況，停用的設備也可能保存良好。",
     "word_map": {
       "disuse": "廢棄不用、停止使用",
       "The station fell into disuse after the branch line closed": "支線關閉後，這座車站便停止使用"
@@ -222,7 +222,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "多年的疏於維護使這座橋嚴重失修。",
     "sentence3": "The theatre was closed because of its state of disrepair.",
     "sentence3_en": "這座劇院因年久失修而關閉。",
-    "tip": "disrepair 在本卡採「失修、破敗狀態」這個義項；三句例句的詞性與意思一致。",
+    "tip": "常用 fall into disrepair、be in a state of disrepair；state 前有 a，disrepair 本身通常不可數。它表示缺乏維護而破損，不只是年紀大；an old building 仍可能維護得很好，未必處於 disrepair。",
     "word_map": {
       "disrepair": "失修、破敗狀態",
       "The empty house had fallen into disrepair": "這棟空屋已年久失修"
@@ -249,7 +249,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "活動規劃人員檢查座位安排。",
     "sentence3": "Transport planners studied how commuters used the route.",
     "sentence3_en": "交通規劃人員研究通勤族如何使用這條路線。",
-    "tip": "planner 在本卡採「規劃師、規劃人員」這個義項；三句例句的詞性與意思一致。",
+    "tip": "urban planner、transport planner、event planner 分別是都市／交通／活動規劃人員。planner 指人，planning 指規劃工作；拼寫都要保留雙 n。a planner 在文具語境也可能是行事曆，要看上下文。",
     "word_map": {
       "planner": "規劃師、規劃人員",
       "planners": "規劃師、規劃人員",
@@ -278,7 +278,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "她的案例成為制度中更廣泛問題的代表。",
     "sentence3": "The style was emblematic of the period.",
     "sentence3_en": "這種風格是那個時期的象徵。",
-    "tip": "emblematic 在本卡採「具代表性的、象徵性的」這個義項；三句例句的詞性與意思一致。",
+    "tip": "常用 be emblematic of something「是某事物的象徵、充分代表某種特徵」，如 a building emblematic of an era。介系詞記 of；名詞 emblem 指象徵或標誌，emblematic 則描述具有代表性的關係。",
     "word_map": {
       "emblematic": "具代表性的、象徵性的",
       "The building is emblematic of the city's industrial past": "這棟建築代表了該城市的工業過往"
@@ -305,7 +305,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "經濟現代化改變了就業型態。",
     "sentence3": "The government funded the modernisation of rural hospitals.",
     "sentence3_en": "政府資助鄉村醫院的現代化。",
-    "tip": "modernisation 在本卡採「現代化」這個義項；三句例句的詞性與意思一致。",
+    "tip": "常搭配 the modernisation of a system、a modernisation programme，指使系統或設備現代化的過程。相應動詞是 modernise；美式常拼 modernization、modernize。modern 是形容詞，不能直接代替這個過程名詞。",
     "word_map": {
       "modernisation": "現代化",
       "The railway requires extensive modernisation": "這條鐵路需要大規模現代化"
@@ -332,7 +332,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "這座大廳用途多元，可舉辦音樂會和展覽。",
     "sentence3": "The versatile venue can accommodate both sports events and concerts.",
     "sentence3_en": "這個多用途場館既能舉辦體育賽事，也能舉辦音樂會。",
-    "tip": "versatile 在本卡採「多用途的、用途廣泛的」這個義項；三句例句的詞性與意思一致。",
+    "tip": "a versatile material／venue 指材料／場地能應付多種用途，重點是用途廣而靈活。durable 強調耐用，兩者不相同；材料可能很耐用卻只有少數用途。名詞 versatility 可說 the versatility of this material。",
     "word_map": {
       "versatile": "多用途的、用途廣泛的",
       "Bamboo is a remarkably versatile material": "竹子是一種用途極廣的材料"
@@ -359,7 +359,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "數千名觀眾進入競技場。",
     "sentence3": "The ancient arena is now used for concerts.",
     "sentence3_en": "這座古代競技場如今用來舉辦音樂會。",
-    "tip": "arena 在本卡採「競技場、活動場地」這個義項；三句例句的詞性與意思一致。",
+    "tip": "常見 an indoor arena、a sports arena，可指有觀眾席的大型比賽或表演場地。the political arena 則借指政治活動領域，並非真的有一座政治競技場；辨義時留意前面的修飾語。",
     "word_map": {
       "arena": "競技場、活動場地",
       "arenas": "競技場、活動場地",
@@ -388,7 +388,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "籌辦這場展覽需要數月準備。",
     "sentence3": "The city spent heavily on the staging of the tournament.",
     "sentence3_en": "這座城市為舉辦錦標賽投入大筆經費。",
-    "tip": "staging 在本卡採「舉辦、籌辦」這個義項；三句例句的詞性與意思一致。",
+    "tip": "the staging of a festival／event 指活動的籌辦與呈現；動詞用 stage a festival。stage 加 -ing 時先去掉字尾 e，寫 staging。不要把名詞 stage「舞台」的意思硬套成所有 staging 都是在搭舞台。",
     "word_map": {
       "staging": "舉辦、籌辦",
       "The staging of the festival involved hundreds of volunteers": "舉辦這場節慶動員了數百名志工"
@@ -415,7 +415,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "倡議人士呼籲終止傳統鬥牛活動。",
     "sentence3": "A large crowd gathered to watch the bullfight.",
     "sentence3_en": "大批人群聚集觀看鬥牛表演。",
-    "tip": "bullfight 在本卡採「鬥牛表演」這個義項；三句例句的詞性與意思一致。",
+    "tip": "a bullfight 是人與公牛搏鬥的表演，表演者叫 bullfighter。中文口語把籃球單挑叫「鬥牛」，英文應按玩法說 one-on-one basketball 等，不能直接翻成 bullfight。",
     "word_map": {
       "bullfight": "鬥牛表演",
       "bullfights": "鬥牛表演",
@@ -444,7 +444,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "這座古老圓形劇場曾被用作鹽倉。",
     "sentence3": "The company built a regional distribution depot.",
     "sentence3_en": "公司興建了一座區域配送倉庫。",
-    "tip": "depot 在本卡採「儲存倉庫、物資庫」這個義項；三句例句的詞性與意思一致。",
+    "tip": "供應與運輸語境常見 a supply depot、a distribution depot，指儲存物資或供分發的場所。英式發音 /ˈdepəʊ/，字尾 t 不發音；複數仍照拼寫加 s，寫 depots。",
     "word_map": {
       "depot": "儲存倉庫、物資庫",
       "depots": "儲存倉庫、物資庫",
@@ -473,7 +473,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "如果測試失敗，系統將還原到前一版本。",
     "sentence3": "The land reverted to forest after farming ceased.",
     "sentence3_en": "停止耕作後，這片土地恢復成森林。",
-    "tip": "revert to 是本卡的完整學習單位，意思是「恢復到、回到先前狀態或用途」；請連同整個搭配一起記。",
+    "tip": "to 後接先前的狀態、做法或用途，如 revert to the old system、revert to farming。revert 本身已有「回到原先」的意思，通常直接寫 revert to 就足夠。注意 revert to 與表示查閱／提及的 refer to 不同。",
     "word_map": {
       "revert to": "恢復到、回到先前狀態或用途",
       "reverted to": "恢復為、回復到",
@@ -504,7 +504,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "這些遺跡仍嵌在後期建築的牆中。",
     "sentence3": "A piece of glass was embedded in the tyre.",
     "sentence3_en": "一片玻璃嵌在輪胎裡。",
-    "tip": "embedded 在本卡採「嵌入的、牢固置於另一物之中的」這個義項；三句例句的詞性與意思一致。",
+    "tip": "常用 be embedded in something，表示牢牢嵌在其中；in 後面接包覆它的材料或環境。動詞 embed 變成 embedded、embedding 時要雙寫 d。也可抽象使用，如 ideas embedded in a culture「根植於文化中的觀念」。",
     "word_map": {
       "embedded": "嵌入的、牢固置於另一物之中的",
       "Small stones were embedded in the surface": "小石子嵌在表面"
@@ -531,7 +531,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "夏季時，這座露天圓形劇場會舉辦音樂會。",
     "sentence3": "Archaeologists mapped the foundations of the amphitheatre.",
     "sentence3_en": "考古學家繪製了圓形劇場的地基圖。",
-    "tip": "amphitheatre 在本卡採「圓形劇場、競技場」這個義項；三句例句的詞性與意思一致。",
+    "tip": "可記 tiered seating「階梯式座位」和 central arena「中央場地」，幫助辨認古代露天競技場的布局。英式拼 amphitheatre，美式拼 amphitheater；末尾的 -theatre／-theater 與 theatre 的英美拼法差異相同。",
     "word_map": {
       "amphitheatre": "圓形劇場、競技場",
       "amphitheatres": "圓形劇場、競技場",
@@ -560,7 +560,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "這份協議幾乎沒有留下談判空間。",
     "sentence3": "The design provides scope for future expansion.",
     "sentence3_en": "這項設計保留未來擴充的可能性。",
-    "tip": "scope for 是本卡的完整學習單位，意思是「……的空間或可能性」；請連同整個搭配一起記。",
+    "tip": "常見 there is scope for improvement「還有改善空間」，for 後接名詞或 V-ing。這個意思的 scope 通常不可數，不說 a scope for improvement。the scope of a study 則指研究範圍，介系詞和意思一起分辨。",
     "word_map": {
       "scope for": "……的空間",
       "There is considerable scope for improvement": "還有很大的改善空間"
@@ -587,7 +587,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "這座圖書館是社區中心。",
     "sentence3": "The city is developing into a regional technology hub.",
     "sentence3_en": "這座城市正發展成區域科技中心。",
-    "tip": "hub 在本卡採「中心、樞紐」這個義項；三句例句的詞性與意思一致。",
+    "tip": "可說 a transport／technology hub，或 a hub for trade／innovation。它強調活動或交通集中、互相連結的中心，不一定是地理正中央；a regional hub 是區域樞紐。複數直接加 s：hubs。",
     "word_map": {
       "hub": "中心、樞紐",
       "hubs": "中心、樞紐",
@@ -616,7 +616,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "都市緊湊性可縮短移動距離。",
     "sentence3": "The camera combines power with remarkable compactness.",
     "sentence3_en": "這台相機功能強大，外形卻十分小巧。",
-    "tip": "compactness 在本卡採「緊湊性」這個義項；三句例句的詞性與意思一致。",
+    "tip": "從 compact「小巧緊湊的」加 -ness 變成名詞，常用 the compactness of a design／city。它談的是整體占用空間小、各部分配置緊密，不等同於人口很多；人口密度較適合用 population density。",
     "word_map": {
       "compactness": "緊湊性",
       "The design is valued for its compactness": "這項設計因其緊湊性而受到重視"
@@ -643,7 +643,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "這家飯店主要服務商務旅客。",
     "sentence3": "The service was redesigned to cater to older users.",
     "sentence3_en": "這項服務經過重新設計，以滿足年長使用者的需求。",
-    "tip": "cater to 是本卡的完整學習單位，意思是「迎合、滿足……的需要」；請連同整個搭配一起記。",
+    "tip": "cater to customers／their needs 指照顧某群人的需求或喜好；to 後接對象或需求。cater 不只用於餐飲，例如 cater to beginners「滿足初學者需要」。也常見 cater for people's needs，尤其在英式英語中。",
     "word_map": {
       "cater to": "迎合、滿足……的需要",
       "caters to": "滿足……的需求",
@@ -675,7 +675,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "這場爭端源於一場誤會。",
     "sentence3": "Additional costs may arise from delays.",
     "sentence3_en": "延誤可能產生額外成本。",
-    "tip": "arise from 是本卡的完整學習單位，意思是「由……產生、源自」；請連同整個搭配一起記。",
+    "tip": "三態是 arise–arose–arisen：problems arise from poor planning 表示問題源於規劃不善。arise 在此不直接接受詞，要用 from 引出原因；不要和 raise「提高、提出」混用，也不要寫 arised。",
     "word_map": {
       "arise from": "由……造成",
       "Most errors arise from incomplete information": "大多數錯誤源自資訊不完整"
@@ -706,7 +706,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "暴風雨損壞了電網的數個部分。",
     "sentence3": "Battery storage can help stabilise the grid.",
     "sentence3_en": "電池儲能有助於穩定電網。",
-    "tip": "grid 在本卡採「電網」這個義項；三句例句的詞性與意思一致。",
+    "tip": "電力語境常見 the national grid、the power grid。connect a building to the grid 是接上電網；feed electricity into the grid 是把電送入電網。off-grid 則表示未接公共電網或相關供應系統，要依語境理解。",
     "word_map": {
       "grid": "電網",
       "grids": "電網",
@@ -735,7 +735,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "玻璃頂篷保護入口免受雨淋。",
     "sentence3": "The platform is sheltered by a steel canopy.",
     "sentence3_en": "月臺由鋼製遮棚覆蓋。",
-    "tip": "canopy 在本卡採「頂篷、遮棚」這個義項；三句例句的詞性與意思一致。",
+    "tip": "a glass canopy over the entrance 指入口上方的玻璃頂篷；over 說明它遮在什麼上面。複數是 canopies，要把 y 改成 ies。森林文章中的 canopy 指樹冠層，也保留了在上方形成覆蓋的概念。",
     "word_map": {
       "canopy": "頂篷、遮棚",
       "canopies": "頂篷、遮棚",
@@ -764,7 +764,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "這項計畫測試一種新的太陽光電材料。",
     "sentence3": "Photovoltaic cells generate electricity from sunlight.",
     "sentence3_en": "太陽光電池以日光發電。",
-    "tip": "photovoltaic 是技術用語；臺灣通常譯為「太陽光電的」，如 photovoltaic cell（太陽光電池）。",
+    "tip": "常見 photovoltaic cells／panels，分別是光電池／光電板；縮寫是 PV。這裡的 cell 把光轉成電，不能直接理解成用來儲電的電池。可由 photo-「光」和後半部的電力概念幫助記字。",
     "word_map": {
       "photovoltaic": "太陽光電的、以光產生電力的",
       "Photovoltaic": "太陽光電的、以光產生電力的",
@@ -792,7 +792,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "蒸氣帶動渦輪機高速運轉。",
     "sentence3": "Engineers inspected the turbine blades.",
     "sentence3_en": "工程師檢查渦輪葉片。",
-    "tip": "turbine 在本卡採「渦輪機」這個義項；三句例句的詞性與意思一致。",
+    "tip": "wind turbine、steam turbine、water turbine 分別由風、蒸汽、水流帶動；turbine blades 是渦輪葉片。turbine 指機械裝置，不是整座 power station「發電廠」；閱讀能源文章時要分清部分與整體。",
     "word_map": {
       "turbine": "渦輪機",
       "turbines": "渦輪機",
@@ -821,7 +821,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "這座橋於二○一五年正式啟用。",
     "sentence3": "The city will inaugurate its new library next month.",
     "sentence3_en": "市政府將於下個月啟用新圖書館。",
-    "tip": "inaugurate 在本卡採「正式啟用、為……揭幕」這個義項；三句例句的詞性與意思一致。",
+    "tip": "可說 inaugurate a bridge／a new facility，強調正式啟用或揭幕，常帶有儀式意味。名詞 inauguration 可搭配 an inauguration ceremony。invent 是發明，inaugurate 是正式開啟使用，別因字首相似而混淆。",
     "word_map": {
       "inaugurate": "正式啟用、為……揭幕",
       "inaugurates": "正式啟用、為……揭幕",
@@ -854,7 +854,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "一塊受損面板降低了系統的發電量。",
     "sentence3": "Workers angled each panel toward the sun.",
     "sentence3_en": "工人調整每塊面板的角度，使其朝向太陽。",
-    "tip": "panel 本身是面板或板件；solar panel 才是太陽能板。第二、三句承接太陽能系統的語境，不能把所有 panel 都理解成太陽能板。",
+    "tip": "solar panel 是「太陽能板」，photovoltaic panel 更明確指光電板；可說 install panels on a roof。panel 單獨出現也能指門板、控制面板等板件，不能脫離上下文就一律翻成太陽能板。",
     "word_map": {
       "panel": "面板、板件",
       "panels": "面板、板件",
@@ -883,7 +883,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "這支隊伍取得壓倒性勝利。",
     "sentence3": "The performance was a resounding success.",
     "sentence3_en": "這場演出大獲成功。",
-    "tip": "resounding 在本卡採「徹底而明確的」這個義項；三句例句的詞性與意思一致。",
+    "tip": "常搭配 resounding success／victory／defeat，分別是大獲成功、大勝、慘敗。它加強結果的鮮明與程度，既可修飾好結果也可修飾壞結果；不是所有用法都在描述聲音響亮。",
     "word_map": {
       "resounding": "徹底而明確的",
       "The party suffered a resounding defeat in the election": "該政黨在選舉中慘敗"
@@ -910,7 +910,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "一條窄溪流過草地。",
     "sentence3": "Wildflowers covered the meadow in spring.",
     "sentence3_en": "春天時野花覆滿草甸。",
-    "tip": "meadow 在本卡採「草地、草甸」這個義項；三句例句的詞性與意思一致。",
+    "tip": "可說 a wildflower meadow、graze in a meadow，描寫草地與其上的花草或放牧活動。lawn 常指庭院、公園等修剪整齊的草坪；meadow 偏向較大片的草地，但也可能由人管理或割草作乾草。",
     "word_map": {
       "meadow": "草地、草甸",
       "meadows": "草地、草甸",
@@ -939,7 +939,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "搜捕行動持續了一整夜。",
     "sentence3": "Roadblocks were set up during the manhunt.",
     "sentence3_en": "搜捕期間設置了路障。",
-    "tip": "manhunt 在本卡採「大規模搜捕」這個義項；三句例句的詞性與意思一致。",
+    "tip": "常見 launch a manhunt、a nationwide manhunt，指展開搜捕、全國大搜捕。通常可用 a manhunt for a fugitive 指明要找的人；manhunt 寫成一個字，不是一般尋找遺失物品的 search。",
     "word_map": {
       "manhunt": "大規模搜捕",
       "manhunts": "大規模搜捕",
@@ -968,7 +968,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "他們熬過了暴風雨中驚心動魄的下降過程。",
     "sentence3": "The final minutes produced heart-pounding tension.",
     "sentence3_en": "最後幾分鐘營造出令人心跳加速的緊張感。",
-    "tip": "heart-pounding 是較常用的形容詞；來源中出現的是同詞族副詞 heart-poundingly。",
+    "tip": "a heart-pounding chase／thriller 指令人心跳加速的追逐／驚悚作品，放在名詞前保留連字號。來源用的是副詞 heart-poundingly；整理為形容詞 heart-pounding 後，可直接修飾 chase、story 等名詞。",
     "word_map": {
       "heart-pounding": "驚險刺激、令人心跳加速的",
       "The film ends with a heart-pounding chase": "這部電影以一場令人心跳加速的追逐作結"
@@ -995,7 +995,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "歷史學家比較兩位同時代日記作者的記述。",
     "sentence3": "A well-known diarist described the ceremony in detail.",
     "sentence3_en": "一位知名日記作家詳細描述了典禮。",
-    "tip": "diarist 在本卡採「日記作者、日記作家」這個義項；三句例句的詞性與意思一致。",
+    "tip": "diarist 是寫日記的人，diary 才是日記；可說 a famous diarist、keep a diary。特別留意 diary「日記」與 dairy「乳製品、乳業」的字母順序，兩字不是不同拼法，而是完全不同的字。",
     "word_map": {
       "diarist": "日記作者、日記作家",
       "diarists": "日記作者、日記作家",
@@ -1024,7 +1024,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "警方警告民眾不要接近這名逃犯。",
     "sentence3": "He lived as a fugitive for several years.",
     "sentence3_en": "他以逃亡者身分生活了數年。",
-    "tip": "本卡的 fugitive 是名詞「逃亡者、逃犯」；第 1446 項則是形容詞「逃亡中的」。",
+    "tip": "作名詞時可數：a fugitive、several fugitives。a fugitive from justice 是逃避司法追究的人；search for a fugitive 是搜捕逃亡者。一般遷居或出國不叫 fugitive，必須有逃避逮捕、危險等背景。",
     "word_map": {
       "fugitive": "逃亡者、逃犯",
       "fugitives": "逃亡者、逃犯",
@@ -1053,7 +1053,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "農夫磨利剪羊毛用的大剪刀。",
     "sentence3": "Heavy shears were used to cut the thick fabric.",
     "sentence3_en": "人們用大型剪刀裁切厚重布料。",
-    "tip": "shears 在本卡採「大剪刀」這個義項；三句例句的詞性與意思一致。",
+    "tip": "通常用複數：the shears are sharp。要表達一把，用 a pair of shears；若主詞是 this pair，動詞就用 is。可記 pruning shears「修枝剪」、sheep shears「剪羊毛用的大剪刀」，不寫 a shears。",
     "word_map": {
       "shears": "大剪刀",
       "She cut the branches with garden shears": "她用園藝大剪刀剪樹枝"
@@ -1080,7 +1080,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "她找遍網路，尋找替換零件。",
     "sentence3": "Volunteers scoured the beach for signs of the missing boat.",
     "sentence3_en": "志工搜遍海灘，尋找失蹤船隻的跡象。",
-    "tip": "本卡的 scour 指徹底搜尋；第 1187 項同字則指用力刷洗。",
+    "tip": "記 scour a place／source for something，如 scour the area for clues、scour the internet for information。先接搜尋範圍，再用 for 接目標；scour a pan 則是用力刷洗鍋子的另一義，要看後面的名詞。",
     "word_map": {
       "scour": "徹底搜尋",
       "scours": "徹底搜尋",
@@ -1113,7 +1113,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "動物的處境令我們感到震驚。",
     "sentence3": "The decision is likely to appall environmental groups.",
     "sentence3_en": "這項決定可能使環保團體感到震驚又厭惡。",
-    "tip": "appall 是美式拼法；英式拼法通常是 appal。兩者的過去式與 -ing 形式都是 appalled、appalling。",
+    "tip": "常見 be appalled by／at something，表示對某事感到震驚與厭惡。美式原形 appall，英式常用 appal；但兩者的過去式都寫 appalled、現在分詞都寫 appalling，不要因英式原形只有一個 l 就少寫。",
     "word_map": {
       "appall": "使震驚、使厭惡",
       "appalls": "使震驚、使厭惡",
@@ -1146,7 +1146,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "他們從內側閂上每個入口。",
     "sentence3": "The gate had been firmly bolted.",
     "sentence3_en": "大門已牢牢閂住。",
-    "tip": "bolt 在本卡採「閂上、用門閂固定」這個義項；三句例句的詞性與意思一致。",
+    "tip": "可說 bolt the door shut、bolt the door from the inside，強調用門閂固定住門。lock 是較廣的「鎖上」，不一定使用門閂；bolt 本身也能當名詞「門閂」，可用動作與零件一起記。",
     "word_map": {
       "bolt": "閂上、用門閂固定",
       "bolts": "閂上、用門閂固定",
@@ -1179,7 +1179,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "她向孫子女重新講述這個故事。",
     "sentence3": "Each witness retold the events in a slightly different way.",
     "sentence3_en": "每名證人以略有不同的方式重述事件。",
-    "tip": "retell 在本卡採「重述、重新講述」這個義項；三句例句的詞性與意思一致。",
+    "tip": "三態是 retell–retold–retold；retell a story in your own words 是用自己的話重述故事。re- 表示再次，retell 可以重新組織敘述，不要求逐字照抄或背誦；retelling 也可作名詞，指重述的版本。",
     "word_map": {
       "retell": "重述、重新講述",
       "retells": "重述、重新講述",
@@ -1212,7 +1212,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "她受委託撰寫該組織的歷史。",
     "sentence3": "The museum commissioned a survey of the damaged building.",
     "sentence3_en": "博物館委託進行這棟受損建築的勘查。",
-    "tip": "commission someone to do something 是正式委託某人做事；也可直接接工作名稱，如 commission a survey（委託進行勘查）。",
+    "tip": "commission someone to do something 是正式委託某人做事；commission a report／painting 則把要製作的成果直接當受詞。這是動詞用法；名詞 commission 另可指佣金，不能看到同一拼字就套用同一中文。",
     "word_map": {
       "commission": "正式委託",
       "commissions": "正式委託",
@@ -1245,7 +1245,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "節奏明快的開場吸引了觀眾。",
     "sentence3": "The editor turned the material into a pacey documentary.",
     "sentence3_en": "剪輯師把素材編成一部節奏明快的紀錄片。",
-    "tip": "pacey 在本卡採「節奏明快的、推進迅速的」這個義項；三句例句的詞性與意思一致。",
+    "tip": "常用於 a pacey thriller／narrative，稱故事節奏明快、發展迅速；屬較口語的英式用法，也拼 pacy。形容電影時談的是敘事節奏，不必然表示角色一直快速奔跑。",
     "word_map": {
       "pacey": "節奏明快的、推進迅速的",
       "The novel is pacey and easy to read": "這部小說節奏明快且容易閱讀"
@@ -1272,7 +1272,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "這本書結合抒情的散文筆調與嚴謹的研究。",
     "sentence3": "He translated the poem into prose.",
     "sentence3_en": "他把這首詩譯成散文體文字。",
-    "tip": "prose 與 verse（韻文、詩體）相對，指以一般句子組成的文字；不限於中文文類中的散文，也包含小說等文字。",
+    "tip": "通常不可數，可說 clear prose、a piece of prose。它指以一般句子、段落組成的文體，與 verse「韻文」相對；小說、傳記都可用 prose 寫成，不只中文文類中狹義的「散文小品」。",
     "word_map": {
       "prose": "散文體、非韻文",
       "Her prose is clear and economical": "她的文筆清晰精練"
@@ -1299,7 +1299,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "外科醫師熟練地修復受損組織。",
     "sentence3": "The author deftly connects the two storylines.",
     "sentence3_en": "作者巧妙串連兩條故事線。",
-    "tip": "deftly 在本卡採「熟練靈巧地、巧妙地」這個義項；三句例句的詞性與意思一致。",
+    "tip": "deft 是形容詞，deftly 是副詞，可說 a deft response、respond deftly。它強調處理得熟練巧妙，既能形容手部動作，也能形容應對問題；只做得快卻很笨拙，不能因此稱為 deftly。",
     "word_map": {
       "deftly": "熟練靈巧地、巧妙地",
       "She deftly avoided the most sensitive question": "她巧妙避開最敏感的問題"
@@ -1326,7 +1326,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "一戶人家讓逃亡中的士兵留宿一夜。",
     "sentence3": "The story follows a fugitive prisoner across the border.",
     "sentence3_en": "故事描述一名逃亡囚犯越過邊境的過程。",
-    "tip": "本卡的 fugitive 是形容詞「逃亡中的」；第 1436 項則是名詞「逃亡者、逃犯」。",
+    "tip": "作形容詞放在名詞前，如 a fugitive king、fugitive soldiers，表示正在逃亡或躲避追捕。修飾複數 soldiers 時 fugitive 本身不加 s；a fugitive／fugitives 才是直接把它當「逃亡者」的名詞用法。",
     "word_map": {
       "fugitive": "逃亡中的、躲避追捕的",
       "The fugitive king travelled under a false name": "逃亡中的國王使用假名旅行"
@@ -1353,7 +1353,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "這本小冊子表達強烈的共和理念。",
     "sentence3": "He joined a republican movement opposed to monarchy.",
     "sentence3_en": "他加入一個反對君主制的共和運動。",
-    "tip": "本卡的 republican 指支持共和政體、反對君主制的；第一句只是句首大寫，不是在指美國共和黨。",
+    "tip": "歷史語境的 republican forces／ideas 常指共和派勢力／共和思想，與支持君主制相對。美國政治中的 Republican 常指共和黨；應連同國家、年代與上下文判斷，不能把所有 republican 都翻成美國共和黨。",
     "word_map": {
       "republican": "共和派的、支持共和政體的",
       "Republican": "共和派的、支持共和政體的",
@@ -1381,7 +1381,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "新政權在選舉後上臺。",
     "sentence3": "The policy survived several changes of regime.",
     "sentence3_en": "這項政策歷經數次政權更迭仍然存在。",
-    "tip": "regime 在本卡採「政權、政體」這個義項；三句例句的詞性與意思一致。",
+    "tip": "常見 a military regime、a change of regime，談的是掌權政權或統治制度。字本身不等於民主或獨裁，具體性質要看修飾語。英式的 an exercise regime 另指運動安排，遇到健康語境不要仍譯成政權。",
     "word_map": {
       "regime": "政權、政體",
       "regimes": "政權、政體",
@@ -1410,7 +1410,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "預告片讓人瞥見最終集的片段，更想一探究竟。",
     "sentence3": "Researchers found tantalising evidence of an earlier settlement.",
     "sentence3_en": "研究人員發現一些引人遐想的證據，暗示有更早期的聚落。",
-    "tip": "tantalising 在本卡採「引人強烈好奇的」這個義項；三句例句的詞性與意思一致。",
+    "tip": "常搭配 a tantalising clue／glimpse，表示線索或短暫一瞥勾起強烈好奇，卻還沒讓人完全知道答案。英式常寫 tantalising，美式常寫 tantalizing；形容人的感受則可用 tantalised／tantalized。",
     "word_map": {
       "tantalising": "引人強烈好奇的",
       "The excavation produced a tantalising clue": "這次挖掘發現一條引人好奇的線索"
@@ -1437,7 +1437,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "他的急智幫助他想出脫困的方法。",
     "sentence3": "Her wit helped her improvise a convincing answer.",
     "sentence3_en": "她的機智幫助她即興編出令人信服的回答。",
-    "tip": "wit 在本卡採「機智、急智」這個義項；三句例句的詞性與意思一致。",
+    "tip": "have the wit to do something 指有機智想到並做出某事；keep your wits about you 則是保持警覺、機靈，這個固定搭配要用複數 wits。wit 也能指幽默才智，但描述逃脫或應變時不必解讀成說笑話。",
     "word_map": {
       "wit": "機智、急智",
       "She relied on her wit to escape the awkward situation": "她靠機智擺脫尷尬局面"
@@ -1464,7 +1464,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "魔術師運用鏡子和巧妙把戲。",
     "sentence3": "They escaped by a mixture of courage and trickery.",
     "sentence3_en": "他們靠著勇氣與計謀脫逃。",
-    "tip": "trickery 在本卡採「欺騙手段、詭計」這個義項；三句例句的詞性與意思一致。",
+    "tip": "表示騙術或欺騙手段時通常不可數，常見 through trickery、resort to trickery。若要數具體招數，可用 a trick／several tricks；不要只因中文能說「一個騙術」，就直接寫 a trickery。",
     "word_map": {
       "trickery": "欺騙手段、詭計",
       "The contract was obtained through trickery": "這份合約是透過欺騙手段取得的"
@@ -1491,7 +1491,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "這座宮殿是君主的正式住所。",
     "sentence3": "The constitution limits the powers of the monarch.",
     "sentence3_en": "憲法限制君主的權力。",
-    "tip": "monarch 在本卡採「君主」這個義項；三句例句的詞性與意思一致。",
+    "tip": "monarch 是君主這個人，monarchy 是君主制度或實行該制度的國家；不要把兩者互換。複數分別是 monarchs、monarchies。現代的 constitutional monarch 指立憲君主，並不必然掌握實際行政權。",
     "word_map": {
       "monarch": "君主",
       "monarchs": "君主",
@@ -1520,7 +1520,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "新軟體有幾個小問題。",
     "sentence3": "That one niggle aside, the book is excellent.",
     "sentence3_en": "撇開那個小問題不談，這本書很出色。",
-    "tip": "niggle 在本卡採「小問題、小小的不滿」這個義項；三句例句的詞性與意思一致。",
+    "tip": "常見 my only niggle is…「我唯一的小抱怨是……」、a few minor niggles「幾個小問題」。語氣通常比 a serious flaw 輕，可用在整體評價不錯但仍有小缺點的評論；別用它淡化真正嚴重的故障。",
     "word_map": {
       "niggle": "小問題、小小的不滿",
       "niggles": "小問題、小小的不滿",

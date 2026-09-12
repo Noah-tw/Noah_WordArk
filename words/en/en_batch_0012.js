@@ -1450,7 +1450,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "這個地區向數個國家出口棉織品。",
     "sentence3": "Conservators stored the fragile textile in a climate-controlled case.",
     "sentence3_en": "文物修復人員將易損的布料存放在恆溫恆濕的展示箱中。",
-    "tip": "textile 在本卡採「紡織品、布料」這個義項；三句例句的詞性與意思一致。",
+    "tip": "textiles 常指各種紡織品；textile industry 是紡織業，textile production 是紡織品生產。fabric 較著重布料本身，textile 的範圍還能包含各類纖維製品。",
     "word_map": {
       "textile": "紡織品、布料",
       "textiles": "紡織品、布料",
@@ -1479,7 +1479,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "兩個部門，也就是財務部與法務部，必須核准這份合約。",
     "sentence3": "The treatment targets the underlying cause, namely a shortage of iron.",
     "sentence3_en": "這項治療針對根本原因，也就是缺鐵。",
-    "tip": "namely 在本卡採「即、也就是」這個義項；三句例句的詞性與意思一致。",
+    "tip": "namely 用來把前面所指的人事物明確說出來，相當於「也就是」。for example 只舉部分例子；namely 通常是在具體指出前面那一項或那幾項。",
     "word_map": {
       "namely": "即、也就是",
       "The committee identified one main obstacle, namely the lack of funding": "委員會找出一項主要障礙，也就是資金不足"
@@ -1506,7 +1506,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "船上的索具一夜之間結了冰。",
     "sentence3": "A loose cable in the rigging was replaced.",
     "sentence3_en": "索具中一條鬆脫的纜索已被更換。",
-    "tip": "rigging 在本卡採「船上支撐桅杆及控制船帆的繩索、鋼索等整套裝置」這個義項；三句例句的詞性與意思一致。",
+    "tip": "rigging 是帆船索具的集合名稱，通常不可數；一條索具中的纜索要說 a rope／cable in the rigging。ship's rigging 與 election rigging「操縱選舉」要依搭配分辨。",
     "word_map": {
       "rigging": "船上支撐桅杆及控制船帆的繩索、鋼索等整套裝置",
       "The crew inspected the rigging before leaving harbour": "船員在離港前檢查了索具"
@@ -1533,7 +1533,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "裁縫用手縫補破掉的襯裡。",
     "sentence3": "These pieces must be sewn together along the edge.",
     "sentence3_en": "這些布片必須沿邊緣縫在一起。",
-    "tip": "sew 在本卡採「縫」這個義項；三句例句的詞性與意思一致。",
+    "tip": "sew 的過去式是 sewed，過去分詞可用 sewn 或 sewed。sew a button onto a shirt 是把鈕扣縫到襯衫上；sew pieces together 是把布片縫在一起。",
     "word_map": {
       "sew": "縫",
       "sews": "縫",
@@ -1568,7 +1568,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "其中一塊地板已開始腐爛。",
     "sentence3": "He cut the plank to fit the shelf.",
     "sentence3_en": "他把木板裁切成適合層架的尺寸。",
-    "tip": "plank 在本卡採「長而厚的木板」這個義項；三句例句的詞性與意思一致。",
+    "tip": "plank 是較長、較厚的平木板，可說 a wooden plank、floor planks。a plank of wood 指一塊木板；一般的 board 範圍較廣，不一定同樣厚長。",
     "word_map": {
       "plank": "長而厚的木板",
       "planks": "長而厚的木板",
@@ -1597,7 +1597,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "多年的投資不足使鐵路網嚴重受損而無法正常運作。",
     "sentence3": "The cyberattack left the payment system crippled for hours.",
     "sentence3_en": "網路攻擊使支付系統癱瘓了數小時。",
-    "tip": "crippled 在本卡採「嚴重受損而無法正常運作或移動的」這個義項；三句例句的詞性與意思一致。",
+    "tip": "形容系統嚴重受損時，可用 leave something crippled，例如 leave the network crippled。語氣比 merely damaged 強，強調正常功能已受到嚴重妨礙。",
     "word_map": {
       "crippled": "嚴重受損而無法正常運作或移動的",
       "The fire left the factory's power system crippled": "火災使工廠的供電系統嚴重受損而癱瘓"
@@ -1624,7 +1624,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "博物館復原了一具中世紀撞錘。",
     "sentence3": "The wooden doors shook each time the battering ram struck them.",
     "sentence3_en": "撞錘每撞一下，木門就震動一次。",
-    "tip": "battering ram 是本卡的完整學習單位，意思是「撞錘」；請連同整個搭配一起記。",
+    "tip": "battering ram 是以撞擊破門的器具；ram 在這個搭配裡不是公羊。可記 use a battering ram to break through a gate；複數只改後面的名詞：battering rams。",
     "word_map": {
       "battering ram": "撞錘",
       "Soldiers used a battering ram to break through the gate": "士兵用撞錘攻破城門"
@@ -1652,7 +1652,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "一支槳從他手中滑落並漂走了。",
     "sentence3": "The guide showed us how to hold an oar correctly.",
     "sentence3_en": "嚮導示範如何正確握槳。",
-    "tip": "oar 在本卡採「槳」這個義項；三句例句的詞性與意思一致。",
+    "tip": "oar 是船槳，row 是划船這個動作；row a boat with oars 即用槳划船。a pair of oars 是一對船槳，pull on the oars 是用力划槳。",
     "word_map": {
       "oar": "槳",
       "oars": "槳",
@@ -1681,7 +1681,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "守門員向前移動以攔截傳球。",
     "sentence3": "Customs officers intercepted the parcel before it left the country.",
     "sentence3_en": "海關人員在包裹離境前將它截獲。",
-    "tip": "intercept 在本卡採「攔截」這個義項；三句例句的詞性與意思一致。",
+    "tip": "intercept 直接接被攔截的對象：intercept a vehicle／pass／message，不需加介系詞。重點是在對方抵達目的地或傳送完成前將其截住。",
     "word_map": {
       "intercept": "攔截",
       "intercepts": "攔截",
@@ -1714,7 +1714,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "每艘進港船隻都必須申報貨物。",
     "sentence3": "Rescue teams searched for the missing fishing vessel.",
     "sentence3_en": "救援隊搜尋失蹤的漁船。",
-    "tip": "vessel 在本卡採「船、艦」這個義項；三句例句的詞性與意思一致。",
+    "tip": "在航運語境中，vessel 是較正式的船隻用語，可說 a fishing vessel、a cargo vessel。blood vessel 則是血管；看到 vessel 要先判斷是在談船舶還是其他容器、管道。",
     "word_map": {
       "vessel": "船、艦",
       "vessels": "船、艦",
@@ -1743,7 +1743,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "每件文物都在展覽開幕前拍照存檔。",
     "sentence3": "The conservator repaired a small crack in the ceramic artefact.",
     "sentence3_en": "文物修復師修補了陶製文物上的一道小裂縫。",
-    "tip": "artefact 在本卡採「人工製品、文物」這個義項；三句例句的詞性與意思一致。",
+    "tip": "artefact 是英式拼法，artifact 是美式拼法；兩者都可指具有文化或歷史價值的人造物。可記 ancient artefacts、a ceramic artefact；化石本身並非人造文物。",
     "word_map": {
       "artefact": "人工製品、文物",
       "artefacts": "人工製品、文物",
@@ -1772,7 +1772,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "隨著氣溫升高，管線應會解凍。",
     "sentence3": "It took several hours for the ground to thaw out.",
     "sentence3_en": "地面花了數小時才解凍。",
-    "tip": "thaw out 是本卡的完整學習單位，意思是「解凍」；請連同整個搭配一起記。",
+    "tip": "thaw out 可表示自行解凍，也能說 thaw something out。若受詞是代名詞，要放中間：thaw it out；不能說 thaw out it。",
     "word_map": {
       "thaw out": "解凍",
       "Leave the frozen bread on the counter to thaw out": "把冷凍麵包放在流理臺上解凍"
@@ -1802,7 +1802,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "謠言很快在社群媒體上傳開。",
     "sentence3": "She moved swiftly through the crowd.",
     "sentence3_en": "她迅速穿過人群。",
-    "tip": "swiftly 在本卡採「迅速地、很快地」這個義項；三句例句的詞性與意思一致。",
+    "tip": "swiftly 可修飾動作或反應：move swiftly、act swiftly、respond swiftly。它強調迅速，未必像 hastily 一樣帶有倉促、考慮不足的意味。",
     "word_map": {
       "swiftly": "迅速地、很快地",
       "Staff acted swiftly to contain the leak": "工作人員迅速採取行動控制洩漏"
@@ -1829,7 +1829,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "鳥群黃昏時聚集在湖邊。",
     "sentence3": "Staff were asked not to congregate in the doorway.",
     "sentence3_en": "工作人員被要求不要聚集在門口。",
-    "tip": "congregate 在本卡採「聚集、集合」這個義項；三句例句的詞性與意思一致。",
+    "tip": "congregate 表示人或動物聚集，常用 congregate in／at／around + 地點。主詞通常是群體，如 fans、birds；較口語的說法是 gather。",
     "word_map": {
       "congregate": "聚集、集合",
       "congregates": "聚集、集合",
@@ -1862,7 +1862,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "診所一時找不到其中一份病歷。",
     "sentence3": "He had misplaced the receipt and could not return the item.",
     "sentence3_en": "他把收據放錯地方找不到，因此無法退貨。",
-    "tip": "misplace 在本卡採「一時放錯地方而找不到」這個義項；三句例句的詞性與意思一致。",
+    "tip": "misplace 常指東西放錯地方而一時找不到，比 lose 更明確地指向放置問題。I seem to have misplaced my keys 是自然的委婉說法，不必表示鑰匙永久遺失。",
     "word_map": {
       "misplace": "一時放錯地方而找不到",
       "misplaces": "一時放錯地方而找不到",
@@ -1895,7 +1895,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "這座村莊位於海拔一千八百公尺處。",
     "sentence3": "The map uses colour to indicate changes in elevation.",
     "sentence3_en": "地圖以顏色表示海拔變化。",
-    "tip": "elevation 在本卡採「海拔、高度」這個義項；三句例句的詞性與意思一致。",
+    "tip": "海拔常用 at an elevation of + 數字 + metres；不同海拔地帶可用複數 elevations。不要把 elevation 與 slope「坡度」混為一談：前者談高度，後者談傾斜程度。",
     "word_map": {
       "elevation": "海拔、高度",
       "elevations": "海拔、高度",
@@ -1924,7 +1924,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "洪水阻斷了通往海岸的主要陸路。",
     "sentence3": "They continued their overland journey by bus.",
     "sentence3_en": "他們搭乘巴士繼續陸路旅程。",
-    "tip": "overland 在本卡採「陸路的」這個義項；三句例句的詞性與意思一致。",
+    "tip": "overland 放在名詞前可表示陸路的，如 an overland route／journey；也可當副詞說 travel overland。與 by sea、by air 比較時，它指經由陸地運送或旅行。",
     "word_map": {
       "overland": "陸路的",
       "The company operates an overland freight service between the two cities": "該公司在兩座城市之間經營陸路貨運服務"
@@ -1951,7 +1951,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "潮水退去時，一排岩石顯露出來。",
     "sentence3": "The shoreline has retreated by several metres because of erosion.",
     "sentence3_en": "海岸線因侵蝕已後退數公尺。",
-    "tip": "本卡的 retreat 指洪水、潮水或海岸線等自然邊界退去；en_1317 則練習人或動物的退避。",
+    "tip": "描述自然邊界時，floodwater retreats 是洪水退去，the shoreline retreats 是海岸線後退。by + 距離可說明退縮幅度；不要把河岸退縮理解成人主動撤退。",
     "word_map": {
       "retreat": "逐漸後退、退縮",
       "retreats": "逐漸後退、退縮",
@@ -1984,7 +1984,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "藥物分子會與細胞上的受體結合。",
     "sentence3": "The researchers altered the molecule by replacing one atom.",
     "sentence3_en": "研究人員以替換一個原子的方式改變了這個分子。",
-    "tip": "molecule 在本卡採「分子」這個義項；三句例句的詞性與意思一致。",
+    "tip": "molecule 是分子，atom 是原子；a water molecule 是一個水分子。敘述構成可說 a molecule contains ... atoms，形容詞則是 molecular，如 molecular structure。",
     "word_map": {
       "molecule": "分子",
       "molecules": "分子",
@@ -2013,7 +2013,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "閥門旁裝有一個壓力表。",
     "sentence3": "Check the temperature gauge before starting the engine.",
     "sentence3_en": "啟動引擎前先查看溫度表。",
-    "tip": "gauge 在本卡採「測量儀表」這個義項；三句例句的詞性與意思一致。",
+    "tip": "名詞 gauge 可指測量儀表：fuel gauge 燃油表、pressure gauge 壓力表。讀音是 /ɡeɪdʒ/，字母順序為 g-a-u-g-e，容易誤拼成 guage。",
     "word_map": {
       "gauge": "測量儀表",
       "gauges": "測量儀表",
@@ -2042,7 +2042,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "每個團隊的投票權與其成員人數成比例。",
     "sentence3": "The risk is roughly proportional to the length of exposure.",
     "sentence3_en": "風險大致與暴露時間成比例。",
-    "tip": "proportional to 是本卡的完整學習單位，意思是「與……成比例」；請連同整個搭配一起記。",
+    "tip": "proportional to 表示與某量成比例；directly proportional 是成正比，inversely proportional 是成反比。roughly proportional 表示大致成比例，並非精確不變的數學關係。",
     "word_map": {
       "proportional to": "與……成比例",
       "The fee is proportional to the amount of work required": "費用與所需的工作量成比例"
@@ -2069,7 +2069,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "汞在室溫下呈液態。",
     "sentence3": "The factory was fined for releasing mercury into the river.",
     "sentence3_en": "這家工廠因將汞排入河川而遭罰款。",
-    "tip": "mercury 在本卡採「汞、水銀」這個義項；三句例句的詞性與意思一致。",
+    "tip": "表示金屬汞時，mercury 通常不可數且用小寫，如 mercury pollution。大寫的 Mercury 可指水星；中文「水銀」是汞的別名，不是銀溶在水裡。",
     "word_map": {
       "mercury": "汞、水銀",
       "The laboratory stores mercury in sealed containers": "實驗室把汞存放在密封容器中"
@@ -2096,7 +2096,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "這名病人對治療有反應。",
     "sentence3": "The touchscreen remains responsive even when wet.",
     "sentence3_en": "即使沾濕，觸控螢幕仍反應靈敏。",
-    "tip": "responsive 在本卡採「會對刺激、變化或處理作出反應的」這個義項；三句例句的詞性與意思一致。",
+    "tip": "responsive to + 刺激、變化或治療，表示會對它產生反應；responsive steering 是轉向反應靈敏。不要與 responsible for「負責……」混淆。",
     "word_map": {
       "responsive": "會對刺激、變化或處理作出反應的",
       "The steering is highly responsive to small movements": "轉向系統對細微操控的反應非常靈敏"
@@ -2123,7 +2123,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "大雨降低了那一季的稻米產量。",
     "sentence3": "Farmers compared the yield from treated and untreated fields.",
     "sentence3_en": "農民比較經處理與未處理田地的產量。",
-    "tip": "yield 在本卡採「產量」這個義項；三句例句的詞性與意思一致。",
+    "tip": "農業名詞 yield 指產量，可說 crop yield、a high yield、an increase in yield。high-yielding 放在作物前表示高產的；a yield of + 數量可交代實際產出。",
     "word_map": {
       "yield": "產量",
       "yields": "產量",
@@ -2152,7 +2152,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "吸音板有助於抑制大廳裡的回音。",
     "sentence3": "The new material helps suppress vibrations in the engine.",
     "sentence3_en": "這種新材料有助於抑制引擎震動。",
-    "tip": "suppress 是從來源中的複合詞 growth-suppressing 正規抽出的動詞；本卡沒有把它冒充成原文中的獨立詞形。",
+    "tip": "suppress 直接接受詞，如 suppress a response／vibrations，表示抑制而不必是完全消除。growth-suppressing 是「抑制生長的」；suppress 是由這個來源複合詞抽出的動詞。",
     "word_map": {
       "suppress": "抑制",
       "suppresses": "抑制",
@@ -2185,7 +2185,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "一些泥水濺到他的外套上。",
     "sentence3": "She finished the sauce with a splash of lemon juice.",
     "sentence3_en": "她最後在醬汁裡加了一點檸檬汁。",
-    "tip": "splash 在本卡採「少量液體」這個義項；三句例句的詞性與意思一致。",
+    "tip": "a splash of + 液體常指少量添加的液體，如 a splash of milk。若是 a splash of muddy water，則是在說濺來的一點泥水；不要一律譯成一整杯或大量潑灑。",
     "word_map": {
       "splash": "少量液體",
       "splashes": "少量液體",
@@ -2214,7 +2214,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "她冷靜客觀地敘述了這起事件。",
     "sentence3": "Taking a detached view helped him assess the options more fairly.",
     "sentence3_en": "以超然的角度看待事情，幫助他更公平地評估各項選擇。",
-    "tip": "detached 在本卡採「客觀超然的」這個義項；三句例句的詞性與意思一致。",
+    "tip": "a detached view／account 強調不受個人情緒左右的客觀立場；remain detached 是保持超然。它不一定表示冷漠，也不同於 a detached house 的獨棟住宅義。",
     "word_map": {
       "detached": "客觀超然的",
       "A mediator must remain detached from the dispute": "調解人必須對爭議保持客觀超然"
@@ -2241,7 +2241,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "我們在決定前已把可能的成本列入考量。",
     "sentence3": "Any fair assessment should take age and experience into account.",
     "sentence3_en": "任何公平的評估都應把年齡和經驗納入考量。",
-    "tip": "take ... into account 表示「把……納入考量」；受詞通常放在 take 與 into account 之間。",
+    "tip": "可說 take something into account，也可說 take into account + 較長的受詞。用代名詞時，take it into account 很自然；taken into account 是被納入考量。",
     "word_map": {
       "take into account": "將……納入考量、考慮到",
       "take local conditions into account": "把當地條件納入考量",
@@ -2276,7 +2276,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "她坦承自己的結論可能有誤，展現了謙遜。",
     "sentence3": "Wise judgement requires modesty about how much we truly understand.",
     "sentence3_en": "做出明智判斷，需要我們謙遜看待自己的理解程度。",
-    "tip": "modesty 在本卡採「謙遜」這個義項；三句例句的詞性與意思一致。",
+    "tip": "intellectual modesty 是對自己知識限度保持謙遜，不等於認定自己毫無能力。modesty 是名詞，modest 是形容詞；show modesty 是展現謙遜，並非故意貶低自己。",
     "word_map": {
       "modesty": "謙遜",
       "Intellectual modesty helps researchers acknowledge the limits of their knowledge": "知識上的謙遜有助研究人員承認自身知識的限制"
@@ -2303,7 +2303,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "控制蚊蟲可減少登革熱傳播。",
     "sentence3": "She was tested for dengue after developing a high fever.",
     "sentence3_en": "她發高燒後接受了登革熱檢測。",
-    "tip": "dengue 在本卡採「登革熱」這個義項；三句例句的詞性與意思一致。",
+    "tip": "疾病名稱可直接用 dengue，完整說法 dengue fever 也是登革熱。病例數要說 dengue cases／cases of dengue，不能把 cases 省掉而以數字直接計算 dengue。",
     "word_map": {
       "dengue": "登革熱",
       "The health department reported a rise in dengue cases": "衛生部門通報登革熱病例增加"
@@ -2330,7 +2330,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "過多文書作業延誤了這項計畫。",
     "sentence3": "Doctors warned against excessive salt intake.",
     "sentence3_en": "醫師警告不要攝取過多鹽分。",
-    "tip": "excessive 在本卡採「過多的、過度的」這個義項；三句例句的詞性與意思一致。",
+    "tip": "excessive 表示超過合理或適當程度，帶有「過多」的負面判斷；large 只說數量大。可記 excessive noise／spending／salt intake；副詞是 excessively。",
     "word_map": {
       "excessive": "過多的、過度的",
       "Excessive": "過多的、過度的",
@@ -2358,7 +2358,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "建築業繁榮期間工作機會很多。",
     "sentence3": "The market offers a plentiful supply of seasonal fruit.",
     "sentence3_en": "市場供應大量當季水果。",
-    "tip": "plentiful 在本卡採「豐富的、充足的」這個義項；三句例句的詞性與意思一致。",
+    "tip": "plentiful 是形容詞：water is plentiful、a plentiful supply of food。plenty of 則直接放在名詞前：plenty of food；不要把 plentiful of 當成同樣的結構。",
     "word_map": {
       "plentiful": "豐富的、充足的",
       "Fresh water is plentiful in this region": "這個地區淡水充足"
@@ -2385,7 +2385,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "雨水使土壤下的一層白堊露出來。",
     "sentence3": "The archaeologists found marks cut into the chalk.",
     "sentence3_en": "考古學家發現刻在白堊上的痕跡。",
-    "tip": "chalk 在本卡採「白堊」這個義項；三句例句的詞性與意思一致。",
+    "tip": "在岩層、土壤或懸崖語境中，chalk 指白堊這種岩石；white chalk cliffs 是白堊峭壁。寫字用的粉筆也叫 chalk，可說 a piece of chalk，但不能把整片岩層譯成粉筆。",
     "word_map": {
       "chalk": "白堊",
       "The cliffs are formed mainly from chalk": "這些懸崖主要由白堊構成"
@@ -2412,7 +2412,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "他在典禮上佩戴所屬團的徽章。",
     "sentence3": "The archive contains old regimental records.",
     "sentence3_en": "檔案館保存著團級部隊的舊紀錄。",
-    "tip": "regimental 來自 regiment（團）；regimental flag 是團旗，不是軍團旗。",
+    "tip": "regimental 是 regiment「團」的形容詞；regimental flag 是團旗，regimental badge 是團徽。軍事編制中的團與 corps「軍團」不同，翻譯時不要只看中文都有「團」字。",
     "word_map": {
       "regimental": "（軍隊編制）團的",
       "The museum displays several regimental flags": "博物館展示數面團旗"
@@ -2439,7 +2439,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "修士曾住在村莊附近的小修道院裡。",
     "sentence3": "Visitors can explore the ruins of the old priory.",
     "sentence3_en": "遊客可以探索那座古老小修道院的遺跡。",
-    "tip": "priory 在本卡採「小修道院、隱修院」這個義項；三句例句的詞性與意思一致。",
+    "tip": "priory 是由 prior 或 prioress 主持的修道院，中文常譯小修道院。可記 a medieval priory、the ruins of a priory；複數把 -y 改成 -ies：priories。",
     "word_map": {
       "priory": "小修道院、隱修院",
       "priories": "小修道院、隱修院",
@@ -2468,7 +2468,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "她開著一輛閃亮的黑色汽車抵達。",
     "sentence3": "Rows of gleaming tools hung above the workbench.",
     "sentence3_en": "一排排光潔發亮的工具掛在工作臺上方。",
-    "tip": "gleaming 在本卡採「閃亮的、光潔發亮的」這個義項；三句例句的詞性與意思一致。",
+    "tip": "gleaming 常形容乾淨、光亮而反光的表面，如 a gleaming floor／car。它來自 gleam「閃光」；beaming smile 則是燦爛笑容，別因字形相近混用。",
     "word_map": {
       "gleaming": "閃亮的、光潔發亮的",
       "Sunlight fell across the gleaming floor": "陽光灑在光潔發亮的地板上"
@@ -2495,7 +2495,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "掃描顯示覆蓋組織下方有損傷。",
     "sentence3": "The overlying rock protected the softer layer below.",
     "sentence3_en": "上覆岩層保護了下方較柔軟的地層。",
-    "tip": "overlying 在本卡採「覆蓋在上面的」這個義項；三句例句的詞性與意思一致。",
+    "tip": "overlying rock／soil 是覆在另一層上面的岩石或土壤；underlying 則指底下的。overlying 來自 overlie，描述層與層的上下關係，不是「過度說謊」。",
     "word_map": {
       "overlying": "覆蓋在上面的",
       "Workers removed the overlying soil carefully": "工人小心移除覆蓋在上面的土壤"
@@ -2522,7 +2522,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "你得用力刷洗鍋子才能去除燒焦的食物。",
     "sentence3": "Workers scoured the stone floor until it was clean.",
     "sentence3_en": "工人用力刷洗石地板，直到它變乾淨。",
-    "tip": "本卡的 scour 指用力刷洗；第 1438 項同字則指徹底搜尋。",
+    "tip": "清潔時可說 scour a pan／floor，表示用力刷洗，強度比一般 wipe 擦拭大。scour the area for evidence 則是搜遍某地找證據，要由受詞與 for 後面的內容分辨。",
     "word_map": {
       "scour": "用力擦洗、刷淨",
       "scours": "用力擦洗、刷淨",
@@ -2555,7 +2555,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "一隻皮毛光滑的黑海豹滑入水中。",
     "sentence3": "The designer chose a sleek profile for the new device.",
     "sentence3_en": "設計師為新裝置選擇了流線外形。",
-    "tip": "sleek 在本卡採「線條流暢而光滑的」這個義項；三句例句的詞性與意思一致。",
+    "tip": "sleek 可形容車體或裝置外形流暢，也可形容動物皮毛光滑。a sleek design 強調平滑俐落的外觀，不必表示該物品的功能一定更好。",
     "word_map": {
       "sleek": "線條流暢而光滑的",
       "The car has a sleek, modern shape": "這輛車外形流暢而現代"
@@ -2582,7 +2582,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "這幅圖由數條互不相連的線條和形狀組成。",
     "sentence3": "The fragments formed a disjointed pattern across the surface.",
     "sentence3_en": "碎片在表面形成彼此不連續的圖案。",
-    "tip": "disjointed 在本卡採「彼此分離、不相連的」這個義項；三句例句的詞性與意思一致。",
+    "tip": "disjointed lines／limbs 表示各部分分離、不相連；與 joint「接合處」的字形有關。若修飾的名詞換成 speech／account，則常是在說內容缺乏連貫，不是文字真的裂開。",
     "word_map": {
       "disjointed": "彼此分離、不相連的",
       "The stylised animal has long, disjointed limbs": "這隻風格化動物有細長且彼此分離的四肢"
@@ -2609,7 +2609,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "他們的公寓位置便利，靠近市中心。",
     "sentence3": "The village is situated on a narrow coastal plain.",
     "sentence3_en": "這座村莊位於狹窄的海岸平原上。",
-    "tip": "situated 在本卡採「位於……的」這個義項；三句例句的詞性與意思一致。",
+    "tip": "地點常用 be situated in／on／near + 地點，如 situated on a plain。conveniently situated 表示位置便利；它與 be located 接近，不要漏掉 be 而寫成 the village situated ... 作完整句。",
     "word_map": {
       "situated": "位於……的",
       "The clinic is situated beside the railway station": "診所位於火車站旁"
@@ -2636,7 +2636,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "考古學家發現古代埋葬活動的證據。",
     "sentence3": "Local customs determine how the burial is conducted.",
     "sentence3_en": "當地習俗決定安葬儀式如何進行。",
-    "tip": "burial 在本卡採「埋葬、安葬」這個義項；三句例句的詞性與意思一致。",
+    "tip": "burial 是 bury 的名詞，讀音開頭接近 berry。a burial 可指一次安葬或葬禮；burial customs 是埋葬習俗，burial site 是墓地所在位置。",
     "word_map": {
       "burial": "埋葬、安葬",
       "burials": "埋葬、安葬",
@@ -2665,7 +2665,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "螞蟻在小徑旁築起一座小土堆。",
     "sentence3": "Excavators found pottery beneath the burial mound.",
     "sentence3_en": "挖掘人員在墓塚下發現陶器。",
-    "tip": "mound 在本卡採「土堆、丘塚」這個義項；三句例句的詞性與意思一致。",
+    "tip": "a mound of earth／sand 是一堆隆起的土或沙；burial mound 是墓塚。mound 著重隆起的外形，不一定是天然山丘，也不一定具有埋葬用途。",
     "word_map": {
       "mound": "土堆、丘塚",
       "mounds": "土堆、丘塚",
@@ -2694,7 +2694,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "這個家族的好幾代人都葬在這座墓園裡。",
     "sentence3": "Volunteers cleared weeds from the cemetery.",
     "sentence3_en": "志工清除了墓園裡的雜草。",
-    "tip": "cemetery 在本卡採「墓園、公墓」這個義項；三句例句的詞性與意思一致。",
+    "tip": "cemetery 是墓園，可記 be buried in a cemetery。grave 是一座墳墓；graveyard 常指教堂旁的墓地。cemetery 的結尾是 -ery，不是 -ary。",
     "word_map": {
       "cemetery": "墓園、公墓",
       "cemeteries": "墓園、公墓",
@@ -2723,7 +2723,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "她停下腳步，欣賞畫作中細膩的色彩。",
     "sentence3": "The elevated walkway allows visitors to appreciate the beauty of the garden.",
     "sentence3_en": "高架步道讓遊客能欣賞花園之美。",
-    "tip": "appreciate 在本卡採「欣賞、領略」這個義項；三句例句的詞性與意思一致。",
+    "tip": "欣賞某物時直接說 appreciate the beauty／colours／design，不加介系詞。這個用法不只是感謝；能 appreciate a sculpture，表示看得出並享受它的美或價值。",
     "word_map": {
       "appreciate": "欣賞、領略",
       "appreciates": "欣賞、領略",
@@ -2756,7 +2756,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "一枚銀色徽章固定在車輛前方。",
     "sentence3": "The tree became an emblem of the city.",
     "sentence3_en": "這棵樹成為該城市的象徵。",
-    "tip": "emblem 在本卡採「象徵、標誌」這個義項；三句例句的詞性與意思一致。",
+    "tip": "an emblem of + 抽象意義，如 an emblem of peace；也可指實體徽章或標誌。symbol 範圍較廣，emblem 常是某群體、城市或理念的代表圖案或物件。",
     "word_map": {
       "emblem": "象徵、標誌",
       "emblems": "象徵、標誌",
@@ -2785,7 +2785,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "研究人員檢視飲食與生育力之間的關係。",
     "sentence3": "The species has a relatively low fertility rate.",
     "sentence3_en": "這個物種的生育率相對較低。",
-    "tip": "fertility 在本卡採「生育力」這個義項；三句例句的詞性與意思一致。",
+    "tip": "談生殖時，fertility 是生育或繁殖能力，通常不可數；fertility rate 是生育率。形容詞 fertile 也能形容肥沃土壤，因此 soil fertility 應譯成土壤肥力。",
     "word_map": {
       "fertility": "生育力",
       "The treatment may affect fertility": "這項治療可能影響生育力"
@@ -2812,7 +2812,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "新的屏障應能降低交通噪音。",
     "sentence3": "Her growing experience lessened her anxiety.",
     "sentence3_en": "逐漸累積的經驗減輕了她的焦慮。",
-    "tip": "lessen 在本卡採「減輕、減少」這個義項；三句例句的詞性與意思一致。",
+    "tip": "lessen 可直接接負擔或程度：lessen anxiety／noise／the strain on the eyes。它表示減輕，不必是徹底消除；也能不接受詞，如 the pain lessened。",
     "word_map": {
       "lessen": "減輕、減少",
       "lessens": "減輕、減少",
@@ -2845,7 +2845,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "那隻老陸龜活得比第一任主人久。",
     "sentence3": "She outlived all three of her siblings.",
     "sentence3_en": "她比三名手足都活得久。",
-    "tip": "outlive 在本卡採「比……活得久」這個義項；三句例句的詞性與意思一致。",
+    "tip": "outlive + 人或生物，表示活得比對方久，後面不用再加 than。She outlived her brother 只說她比兄弟活得久，並未交代她目前是否仍在世。",
     "word_map": {
       "outlive": "比……活得久",
       "outlives": "比……活得久",
@@ -2878,7 +2878,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "旅程結束時，他們已筋疲力盡。",
     "sentence3": "His explanation was utterly unconvincing.",
     "sentence3_en": "他的解釋完全沒有說服力。",
-    "tip": "utterly 在本卡採「完全地、極度地」這個義項；三句例句的詞性與意思一致。",
+    "tip": "utterly 是強調程度的副詞，常搭配 exhausted、unconvincing、impossible 等強烈描述。utterly unconvincing 是完全無法令人信服；un- 的否定不能在翻譯時漏掉。",
     "word_map": {
       "utterly": "完全地、極度地",
       "The documentary was utterly absorbing": "這部紀錄片極其引人入勝"
@@ -2905,7 +2905,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "sentence2_en": "這個物種因棲地縮減而身陷危境。",
     "sentence3": "You ignore the warning at your own peril.",
     "sentence3_en": "你若無視這項警告，後果自負。",
-    "tip": "in peril 表示處於嚴重危險中；at your own peril 表示須自行承擔忽視危險的後果。",
+    "tip": "in peril 是身處嚴重危險；at your own peril 是自行承擔風險或後果。複數 perils 可指各種危險，如 the perils of mountain climbing；它不只是一般的小麻煩。",
     "word_map": {
       "peril": "嚴重危險、險境",
       "perils": "嚴重危險、險境",
