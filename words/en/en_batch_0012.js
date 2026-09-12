@@ -1,5 +1,5 @@
-// en_batch_0012.js — English IELTS batch 12/12
-// 48 entries: en_1101 to en_1148
+// en_batch_0012.js — English IELTS batch 12/15
+// 99 entries: en_1101 to en_1200 (en_1182 intentionally omitted)
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
 
@@ -1430,6 +1430,1490 @@ window.VOCAB_DATA['english_ielts'].push(
     "forms": [
       "parameter",
       "parameters"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1149",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "noun",
+    "word": "textile",
+    "meaning": "material made by weaving, knitting, or otherwise joining fibres",
+    "ipa": "ˈtekstaɪl",
+    "zh": "紡織品、布料",
+    "zh_def": "紡織品、布料；以纖維經編織、針織等方式製成的材料",
+    "definition": "Material made by weaving, knitting, or otherwise joining fibres.",
+    "sentence1": "The museum displays textiles dyed with natural pigments.",
+    "sentence1_en": "博物館展出以天然顏料染色的紡織品。",
+    "sentence1_hl": "The museum displays <b>textiles</b> dyed with natural pigments.",
+    "sentence2": "This region exports cotton textiles to several countries.",
+    "sentence2_en": "這個地區向數個國家出口棉織品。",
+    "sentence3": "Conservators stored the fragile textile in a climate-controlled case.",
+    "sentence3_en": "文物修復人員將易損的布料存放在恆溫恆濕的展示箱中。",
+    "tip": "textile 在本卡採「紡織品、布料」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "textile": "紡織品、布料",
+      "textiles": "紡織品、布料",
+      "The museum displays textiles dyed with natural pigments": "博物館展出以天然顏料染色的紡織品"
+    },
+    "forms": [
+      "textile",
+      "textiles"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1150",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "adverb",
+    "word": "namely",
+    "meaning": "used to introduce the exact person or thing just mentioned",
+    "ipa": "ˈneɪmli",
+    "zh": "即、也就是",
+    "zh_def": "即、也就是；用來準確指出剛提到的人或事物",
+    "definition": "Used to introduce the exact person or thing just mentioned.",
+    "sentence1": "The committee identified one main obstacle, namely the lack of funding.",
+    "sentence1_en": "委員會找出一項主要障礙，也就是資金不足。",
+    "sentence1_hl": "The committee identified one main obstacle, <b>namely</b> the lack of funding.",
+    "sentence2": "Two departments, namely finance and legal affairs, must approve the contract.",
+    "sentence2_en": "兩個部門，也就是財務部與法務部，必須核准這份合約。",
+    "sentence3": "The treatment targets the underlying cause, namely a shortage of iron.",
+    "sentence3_en": "這項治療針對根本原因，也就是缺鐵。",
+    "tip": "namely 在本卡採「即、也就是」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "namely": "即、也就是",
+      "The committee identified one main obstacle, namely the lack of funding": "委員會找出一項主要障礙，也就是資金不足"
+    },
+    "forms": [
+      "namely"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1151",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "noun",
+    "word": "rigging",
+    "meaning": "the ropes, cables, and other equipment that support a ship's masts and control its sails",
+    "ipa": "ˈrɪɡɪŋ",
+    "zh": "船上支撐桅杆及控制船帆的繩索、鋼索等整套裝置",
+    "zh_def": "船上支撐桅杆及控制船帆的繩索、鋼索等整套裝置",
+    "definition": "The ropes, cables, and other equipment that support a ship's masts and control its sails.",
+    "sentence1": "The crew inspected the rigging before leaving harbour.",
+    "sentence1_en": "船員在離港前檢查了索具。",
+    "sentence1_hl": "The crew inspected the <b>rigging</b> before leaving harbour.",
+    "sentence2": "Ice had formed on the ship's rigging overnight.",
+    "sentence2_en": "船上的索具一夜之間結了冰。",
+    "sentence3": "A loose cable in the rigging was replaced.",
+    "sentence3_en": "索具中一條鬆脫的纜索已被更換。",
+    "tip": "rigging 在本卡採「船上支撐桅杆及控制船帆的繩索、鋼索等整套裝置」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "rigging": "船上支撐桅杆及控制船帆的繩索、鋼索等整套裝置",
+      "The crew inspected the rigging before leaving harbour": "船員在離港前檢查了索具"
+    },
+    "forms": [
+      "rigging"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1152",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "verb",
+    "word": "sew",
+    "meaning": "to join or fasten cloth with a needle and thread",
+    "ipa": "səʊ",
+    "zh": "縫",
+    "zh_def": "縫；用針線把布料等接合或固定",
+    "definition": "To join or fasten cloth with a needle and thread.",
+    "sentence1": "She learned to sew buttons onto shirts.",
+    "sentence1_en": "她學會把鈕扣縫到襯衫上。",
+    "sentence1_hl": "She learned to <b>sew</b> buttons onto shirts.",
+    "sentence2": "The tailor sewed the torn lining by hand.",
+    "sentence2_en": "裁縫用手縫補破掉的襯裡。",
+    "sentence3": "These pieces must be sewn together along the edge.",
+    "sentence3_en": "這些布片必須沿邊緣縫在一起。",
+    "tip": "sew 在本卡採「縫」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "sew": "縫",
+      "sews": "縫",
+      "sewed": "縫",
+      "sewn": "縫",
+      "sewing": "縫",
+      "She learned to sew buttons onto shirts": "她學會把鈕扣縫到襯衫上"
+    },
+    "forms": [
+      "sew",
+      "sews",
+      "sewed",
+      "sewn",
+      "sewing"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1153",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "noun",
+    "word": "plank",
+    "meaning": "a long, thick, flat piece of wood",
+    "ipa": "plæŋk",
+    "zh": "長而厚的木板",
+    "zh_def": "長而厚的木板",
+    "definition": "A long, thick, flat piece of wood.",
+    "sentence1": "The workers laid a wooden plank across the narrow ditch.",
+    "sentence1_en": "工人把一塊木板架在狹窄的溝上。",
+    "sentence1_hl": "The workers laid a wooden <b>plank</b> across the narrow ditch.",
+    "sentence2": "One floor plank had begun to rot.",
+    "sentence2_en": "其中一塊地板已開始腐爛。",
+    "sentence3": "He cut the plank to fit the shelf.",
+    "sentence3_en": "他把木板裁切成適合層架的尺寸。",
+    "tip": "plank 在本卡採「長而厚的木板」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "plank": "長而厚的木板",
+      "planks": "長而厚的木板",
+      "The workers laid a wooden plank across the narrow ditch": "工人把一塊木板架在狹窄的溝上"
+    },
+    "forms": [
+      "plank",
+      "planks"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1154",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "adjective",
+    "word": "crippled",
+    "meaning": "so badly damaged that normal operation or movement is impossible",
+    "ipa": "ˈkrɪpld",
+    "zh": "嚴重受損而無法正常運作或移動的",
+    "zh_def": "嚴重受損而無法正常運作或移動的（本卡限物體、系統等）",
+    "definition": "So badly damaged that normal operation or movement is impossible.",
+    "sentence1": "The fire left the factory's power system crippled.",
+    "sentence1_en": "火災使工廠的供電系統嚴重受損而癱瘓。",
+    "sentence1_hl": "The fire left the factory's power system <b>crippled</b>.",
+    "sentence2": "Years of underinvestment left the rail network crippled.",
+    "sentence2_en": "多年的投資不足使鐵路網嚴重受損而無法正常運作。",
+    "sentence3": "The cyberattack left the payment system crippled for hours.",
+    "sentence3_en": "網路攻擊使支付系統癱瘓了數小時。",
+    "tip": "crippled 在本卡採「嚴重受損而無法正常運作或移動的」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "crippled": "嚴重受損而無法正常運作或移動的",
+      "The fire left the factory's power system crippled": "火災使工廠的供電系統嚴重受損而癱瘓"
+    },
+    "forms": [
+      "crippled"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1155",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "noun",
+    "word": "battering ram",
+    "meaning": "a heavy beam or device used to break through a gate, wall, or ship's hull",
+    "ipa": "ˈbætərɪŋ ræm",
+    "zh": "撞錘",
+    "zh_def": "撞錘；用來撞破門、牆或船體的重型撞擊裝置",
+    "definition": "A heavy beam or device used to break through a gate, wall, or ship's hull.",
+    "sentence1": "Soldiers used a battering ram to break through the gate.",
+    "sentence1_en": "士兵用撞錘攻破城門。",
+    "sentence1_hl": "Soldiers used a <b>battering ram</b> to break through the gate.",
+    "sentence2": "The museum has reconstructed a medieval battering ram.",
+    "sentence2_en": "博物館復原了一具中世紀撞錘。",
+    "sentence3": "The wooden doors shook each time the battering ram struck them.",
+    "sentence3_en": "撞錘每撞一下，木門就震動一次。",
+    "tip": "battering ram 是本卡的完整學習單位，意思是「撞錘」；請連同整個搭配一起記。",
+    "word_map": {
+      "battering ram": "撞錘",
+      "Soldiers used a battering ram to break through the gate": "士兵用撞錘攻破城門"
+    },
+    "forms": [
+      "battering ram",
+      "battering rams"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1156",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "noun",
+    "word": "oar",
+    "meaning": "a long-handled blade used to move or steer a boat through water",
+    "ipa": "ɔːr",
+    "zh": "槳",
+    "zh_def": "槳；划船時用來推動或操控船隻的長柄工具",
+    "definition": "A long-handled blade used to move or steer a boat through water.",
+    "sentence1": "She pulled hard on the oars to turn the boat.",
+    "sentence1_en": "她用力划槳讓船轉向。",
+    "sentence1_hl": "She pulled hard on the <b>oars</b> to turn the boat.",
+    "sentence2": "One oar slipped from his hand and floated away.",
+    "sentence2_en": "一支槳從他手中滑落並漂走了。",
+    "sentence3": "The guide showed us how to hold an oar correctly.",
+    "sentence3_en": "嚮導示範如何正確握槳。",
+    "tip": "oar 在本卡採「槳」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "oar": "槳",
+      "oars": "槳",
+      "She pulled hard on the oars to turn the boat": "她用力划槳讓船轉向"
+    },
+    "forms": [
+      "oar",
+      "oars"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1157",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "verb",
+    "word": "intercept",
+    "meaning": "to stop or catch a moving person or thing before it reaches its destination",
+    "ipa": "ˌɪntəˈsept",
+    "zh": "攔截",
+    "zh_def": "攔截；在移動中的人或物抵達目的地前將其截住",
+    "definition": "To stop or catch a moving person or thing before it reaches its destination.",
+    "sentence1": "Police intercepted the van near the border.",
+    "sentence1_en": "警方在邊境附近攔截了那輛廂型車。",
+    "sentence1_hl": "Police <b>intercepted</b> the van near the border.",
+    "sentence2": "The goalkeeper moved forward to intercept the pass.",
+    "sentence2_en": "守門員向前移動以攔截傳球。",
+    "sentence3": "Customs officers intercepted the parcel before it left the country.",
+    "sentence3_en": "海關人員在包裹離境前將它截獲。",
+    "tip": "intercept 在本卡採「攔截」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "intercept": "攔截",
+      "intercepts": "攔截",
+      "intercepted": "攔截",
+      "intercepting": "攔截",
+      "Police intercepted the van near the border": "警方在邊境附近攔截了那輛廂型車"
+    },
+    "forms": [
+      "intercept",
+      "intercepts",
+      "intercepted",
+      "intercepting"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1158",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "noun",
+    "word": "vessel",
+    "meaning": "a ship or large boat",
+    "ipa": "ˈvesl",
+    "zh": "船、艦",
+    "zh_def": "船、艦；尤指較大型的水上交通工具",
+    "definition": "A ship or large boat.",
+    "sentence1": "The damaged vessel was towed back to port.",
+    "sentence1_en": "受損船隻被拖回港口。",
+    "sentence1_hl": "The damaged <b>vessel</b> was towed back to port.",
+    "sentence2": "Every vessel entering the harbour must report its cargo.",
+    "sentence2_en": "每艘進港船隻都必須申報貨物。",
+    "sentence3": "Rescue teams searched for the missing fishing vessel.",
+    "sentence3_en": "救援隊搜尋失蹤的漁船。",
+    "tip": "vessel 在本卡採「船、艦」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "vessel": "船、艦",
+      "vessels": "船、艦",
+      "The damaged vessel was towed back to port": "受損船隻被拖回港口"
+    },
+    "forms": [
+      "vessel",
+      "vessels"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1159",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "noun",
+    "word": "artefact",
+    "meaning": "an object made by people that has historical or cultural value",
+    "ipa": "ˈɑːtɪfækt",
+    "zh": "人工製品、文物",
+    "zh_def": "人工製品、文物；由人製作且具有歷史或文化價值的物件",
+    "definition": "An object made by people that has historical or cultural value.",
+    "sentence1": "The museum returned the stolen artefact to its country of origin.",
+    "sentence1_en": "博物館將失竊文物歸還其原屬國。",
+    "sentence1_hl": "The museum returned the stolen <b>artefact</b> to its country of origin.",
+    "sentence2": "Each artefact was photographed before the exhibition opened.",
+    "sentence2_en": "每件文物都在展覽開幕前拍照存檔。",
+    "sentence3": "The conservator repaired a small crack in the ceramic artefact.",
+    "sentence3_en": "文物修復師修補了陶製文物上的一道小裂縫。",
+    "tip": "artefact 在本卡採「人工製品、文物」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "artefact": "人工製品、文物",
+      "artefacts": "人工製品、文物",
+      "The museum returned the stolen artefact to its country of origin": "博物館將失竊文物歸還其原屬國"
+    },
+    "forms": [
+      "artefact",
+      "artefacts"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1160",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "phrasal verb",
+    "word": "thaw out",
+    "meaning": "to become unfrozen, or to allow something frozen to become unfrozen",
+    "ipa": "ˌθɔː ˈaʊt",
+    "zh": "解凍",
+    "zh_def": "解凍；從結冰狀態恢復到不再凍結",
+    "definition": "To become unfrozen, or to allow something frozen to become unfrozen.",
+    "sentence1": "Leave the frozen bread on the counter to thaw out.",
+    "sentence1_en": "把冷凍麵包放在流理臺上解凍。",
+    "sentence1_hl": "Leave the frozen bread on the counter to <b>thaw out</b>.",
+    "sentence2": "The pipes should thaw out as the temperature rises.",
+    "sentence2_en": "隨著氣溫升高，管線應會解凍。",
+    "sentence3": "It took several hours for the ground to thaw out.",
+    "sentence3_en": "地面花了數小時才解凍。",
+    "tip": "thaw out 是本卡的完整學習單位，意思是「解凍」；請連同整個搭配一起記。",
+    "word_map": {
+      "thaw out": "解凍",
+      "Leave the frozen bread on the counter to thaw out": "把冷凍麵包放在流理臺上解凍"
+    },
+    "forms": [
+      "thaw out",
+      "thaws out",
+      "thawed out",
+      "thawing out"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1161",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "adverb",
+    "word": "swiftly",
+    "meaning": "quickly and without delay",
+    "ipa": "ˈswɪftli",
+    "zh": "迅速地、很快地",
+    "zh_def": "迅速地、很快地",
+    "definition": "Quickly and without delay.",
+    "sentence1": "Staff acted swiftly to contain the leak.",
+    "sentence1_en": "工作人員迅速採取行動控制洩漏。",
+    "sentence1_hl": "Staff acted <b>swiftly</b> to contain the leak.",
+    "sentence2": "The rumour spread swiftly across social media.",
+    "sentence2_en": "謠言很快在社群媒體上傳開。",
+    "sentence3": "She moved swiftly through the crowd.",
+    "sentence3_en": "她迅速穿過人群。",
+    "tip": "swiftly 在本卡採「迅速地、很快地」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "swiftly": "迅速地、很快地",
+      "Staff acted swiftly to contain the leak": "工作人員迅速採取行動控制洩漏"
+    },
+    "forms": [
+      "swiftly"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1162",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "verb",
+    "word": "congregate",
+    "meaning": "to gather together in one place in a group",
+    "ipa": "ˈkɒŋɡrɪɡeɪt",
+    "zh": "聚集、集合",
+    "zh_def": "聚集、集合；許多人或動物聚到同一處",
+    "definition": "To gather together in one place in a group.",
+    "sentence1": "Fans began to congregate outside the stadium.",
+    "sentence1_en": "球迷開始聚集在體育場外。",
+    "sentence1_hl": "Fans began to <b>congregate</b> outside the stadium.",
+    "sentence2": "Birds congregate near the lake at dusk.",
+    "sentence2_en": "鳥群黃昏時聚集在湖邊。",
+    "sentence3": "Staff were asked not to congregate in the doorway.",
+    "sentence3_en": "工作人員被要求不要聚集在門口。",
+    "tip": "congregate 在本卡採「聚集、集合」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "congregate": "聚集、集合",
+      "congregates": "聚集、集合",
+      "congregated": "聚集、集合",
+      "congregating": "聚集、集合",
+      "Fans began to congregate outside the stadium": "球迷開始聚集在體育場外"
+    },
+    "forms": [
+      "congregate",
+      "congregates",
+      "congregated",
+      "congregating"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1163",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "verb",
+    "word": "misplace",
+    "meaning": "to put something in the wrong place and temporarily be unable to find it",
+    "ipa": "ˌmɪsˈpleɪs",
+    "zh": "一時放錯地方而找不到",
+    "zh_def": "一時放錯地方而找不到",
+    "definition": "To put something in the wrong place and temporarily be unable to find it.",
+    "sentence1": "I seem to have misplaced my keys.",
+    "sentence1_en": "我好像把鑰匙放錯地方了。",
+    "sentence1_hl": "I seem to have <b>misplaced</b> my keys.",
+    "sentence2": "The clinic misplaced one of the patient's records.",
+    "sentence2_en": "診所一時找不到其中一份病歷。",
+    "sentence3": "He had misplaced the receipt and could not return the item.",
+    "sentence3_en": "他把收據放錯地方找不到，因此無法退貨。",
+    "tip": "misplace 在本卡採「一時放錯地方而找不到」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "misplace": "一時放錯地方而找不到",
+      "misplaces": "一時放錯地方而找不到",
+      "misplaced": "一時放錯地方而找不到",
+      "misplacing": "一時放錯地方而找不到",
+      "I seem to have misplaced my keys": "我好像把鑰匙放錯地方了"
+    },
+    "forms": [
+      "misplace",
+      "misplaces",
+      "misplaced",
+      "misplacing"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1164",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "noun",
+    "word": "elevation",
+    "meaning": "the height of a place above sea level or the ground",
+    "ipa": "ˌelɪˈveɪʃn",
+    "zh": "海拔、高度",
+    "zh_def": "海拔、高度；某地高於海平面或地面的高度",
+    "definition": "The height of a place above sea level or the ground.",
+    "sentence1": "Coffee grows well at higher elevations.",
+    "sentence1_en": "咖啡在較高海拔地區生長良好。",
+    "sentence1_hl": "Coffee grows well at higher <b>elevations</b>.",
+    "sentence2": "The village lies at an elevation of 1,800 metres.",
+    "sentence2_en": "這座村莊位於海拔一千八百公尺處。",
+    "sentence3": "The map uses colour to indicate changes in elevation.",
+    "sentence3_en": "地圖以顏色表示海拔變化。",
+    "tip": "elevation 在本卡採「海拔、高度」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "elevation": "海拔、高度",
+      "elevations": "海拔、高度",
+      "Coffee grows well at higher elevations": "咖啡在較高海拔地區生長良好"
+    },
+    "forms": [
+      "elevation",
+      "elevations"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1165",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "adjective",
+    "word": "overland",
+    "meaning": "travelling or carried by land rather than by sea or air",
+    "ipa": "ˈəʊvəlænd",
+    "zh": "陸路的",
+    "zh_def": "陸路的；經由陸地而非海路或空運進行的",
+    "definition": "Travelling or carried by land rather than by sea or air.",
+    "sentence1": "The company operates an overland freight service between the two cities.",
+    "sentence1_en": "該公司在兩座城市之間經營陸路貨運服務。",
+    "sentence1_hl": "The company operates an <b>overland</b> freight service between the two cities.",
+    "sentence2": "Flooding blocked the main overland route to the coast.",
+    "sentence2_en": "洪水阻斷了通往海岸的主要陸路。",
+    "sentence3": "They continued their overland journey by bus.",
+    "sentence3_en": "他們搭乘巴士繼續陸路旅程。",
+    "tip": "overland 在本卡採「陸路的」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "overland": "陸路的",
+      "The company operates an overland freight service between the two cities": "該公司在兩座城市之間經營陸路貨運服務"
+    },
+    "forms": [
+      "overland"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1166",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "verb",
+    "word": "retreat",
+    "meaning": "to move gradually backwards from a previous natural boundary or position",
+    "ipa": "rɪˈtriːt",
+    "zh": "逐漸後退、退縮",
+    "zh_def": "逐漸後退、退縮；水面、冰層等自然邊界從原來的位置向後移",
+    "definition": "To move gradually backwards from a previous natural boundary or position.",
+    "sentence1": "The floodwater retreated after two days.",
+    "sentence1_en": "洪水在兩天後退去。",
+    "sentence1_hl": "The floodwater <b>retreated</b> after two days.",
+    "sentence2": "As the tide retreated, a line of rocks became visible.",
+    "sentence2_en": "潮水退去時，一排岩石顯露出來。",
+    "sentence3": "The shoreline has retreated by several metres because of erosion.",
+    "sentence3_en": "海岸線因侵蝕已後退數公尺。",
+    "tip": "本卡的 retreat 指洪水、潮水或海岸線等自然邊界退去；en_1317 則練習人或動物的退避。",
+    "word_map": {
+      "retreat": "逐漸後退、退縮",
+      "retreats": "逐漸後退、退縮",
+      "retreated": "逐漸後退、退縮",
+      "retreating": "逐漸後退、退縮",
+      "The floodwater retreated after two days": "洪水在兩天後退去"
+    },
+    "forms": [
+      "retreat",
+      "retreats",
+      "retreated",
+      "retreating"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1167",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "noun",
+    "word": "molecule",
+    "meaning": "the smallest unit of a substance that consists of two or more chemically bonded atoms",
+    "ipa": "ˈmɒlɪkjuːl",
+    "zh": "分子",
+    "zh_def": "分子；由兩個或以上原子以化學鍵結合而成的微小粒子",
+    "definition": "The smallest unit of a substance that consists of two or more chemically bonded atoms.",
+    "sentence1": "A water molecule contains two hydrogen atoms and one oxygen atom.",
+    "sentence1_en": "一個水分子含有兩個氫原子和一個氧原子。",
+    "sentence1_hl": "A water <b>molecule</b> contains two hydrogen atoms and one oxygen atom.",
+    "sentence2": "The drug molecule binds to a receptor on the cell.",
+    "sentence2_en": "藥物分子會與細胞上的受體結合。",
+    "sentence3": "The researchers altered the molecule by replacing one atom.",
+    "sentence3_en": "研究人員以替換一個原子的方式改變了這個分子。",
+    "tip": "molecule 在本卡採「分子」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "molecule": "分子",
+      "molecules": "分子",
+      "A water molecule contains two hydrogen atoms and one oxygen atom": "一個水分子含有兩個氫原子和一個氧原子"
+    },
+    "forms": [
+      "molecule",
+      "molecules"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1168",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "noun",
+    "word": "gauge",
+    "meaning": "an instrument that measures or displays an amount, level, or condition",
+    "ipa": "ɡeɪdʒ",
+    "zh": "測量儀表",
+    "zh_def": "測量儀表；用來測量或顯示數量、程度或狀態的裝置",
+    "definition": "An instrument that measures or displays an amount, level, or condition.",
+    "sentence1": "The fuel gauge showed that the tank was nearly empty.",
+    "sentence1_en": "燃油表顯示油箱快空了。",
+    "sentence1_hl": "The fuel <b>gauge</b> showed that the tank was nearly empty.",
+    "sentence2": "A pressure gauge is fitted beside the valve.",
+    "sentence2_en": "閥門旁裝有一個壓力表。",
+    "sentence3": "Check the temperature gauge before starting the engine.",
+    "sentence3_en": "啟動引擎前先查看溫度表。",
+    "tip": "gauge 在本卡採「測量儀表」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "gauge": "測量儀表",
+      "gauges": "測量儀表",
+      "The fuel gauge showed that the tank was nearly empty": "燃油表顯示油箱快空了"
+    },
+    "forms": [
+      "gauge",
+      "gauges"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1169",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "adjective phrase",
+    "word": "proportional to",
+    "meaning": "changing in a fixed relationship to the amount or size of something else",
+    "ipa": "prəˈpɔːʃənl tə",
+    "zh": "與……成比例",
+    "zh_def": "與……成比例；一個量隨另一個量按固定比例變化",
+    "definition": "Changing in a fixed relationship to the amount or size of something else.",
+    "sentence1": "The fee is proportional to the amount of work required.",
+    "sentence1_en": "費用與所需的工作量成比例。",
+    "sentence1_hl": "The fee is <b>proportional to</b> the amount of work required.",
+    "sentence2": "Each team's voting power is proportional to its membership.",
+    "sentence2_en": "每個團隊的投票權與其成員人數成比例。",
+    "sentence3": "The risk is roughly proportional to the length of exposure.",
+    "sentence3_en": "風險大致與暴露時間成比例。",
+    "tip": "proportional to 是本卡的完整學習單位，意思是「與……成比例」；請連同整個搭配一起記。",
+    "word_map": {
+      "proportional to": "與……成比例",
+      "The fee is proportional to the amount of work required": "費用與所需的工作量成比例"
+    },
+    "forms": [
+      "proportional to"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1170",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "noun",
+    "word": "mercury",
+    "meaning": "a silver-coloured chemical element that is liquid at room temperature",
+    "ipa": "ˈmɜːkjəri",
+    "zh": "汞、水銀",
+    "zh_def": "汞、水銀；常溫下呈銀白色液態的化學元素",
+    "definition": "A silver-coloured chemical element that is liquid at room temperature.",
+    "sentence1": "The laboratory stores mercury in sealed containers.",
+    "sentence1_en": "實驗室把汞存放在密封容器中。",
+    "sentence1_hl": "The laboratory stores <b>mercury</b> in sealed containers.",
+    "sentence2": "Mercury is liquid at room temperature.",
+    "sentence2_en": "汞在室溫下呈液態。",
+    "sentence3": "The factory was fined for releasing mercury into the river.",
+    "sentence3_en": "這家工廠因將汞排入河川而遭罰款。",
+    "tip": "mercury 在本卡採「汞、水銀」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "mercury": "汞、水銀",
+      "The laboratory stores mercury in sealed containers": "實驗室把汞存放在密封容器中"
+    },
+    "forms": [
+      "mercury"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1171",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "adjective",
+    "word": "responsive",
+    "meaning": "reacting quickly or positively to a stimulus, change, or treatment",
+    "ipa": "rɪˈspɒnsɪv",
+    "zh": "會對刺激、變化或處理作出反應的",
+    "zh_def": "會對刺激、變化或處理作出反應的；反應靈敏的",
+    "definition": "Reacting quickly or positively to a stimulus, change, or treatment.",
+    "sentence1": "The steering is highly responsive to small movements.",
+    "sentence1_en": "轉向系統對細微操控的反應非常靈敏。",
+    "sentence1_hl": "The steering is highly <b>responsive</b> to small movements.",
+    "sentence2": "The patient was responsive to treatment.",
+    "sentence2_en": "這名病人對治療有反應。",
+    "sentence3": "The touchscreen remains responsive even when wet.",
+    "sentence3_en": "即使沾濕，觸控螢幕仍反應靈敏。",
+    "tip": "responsive 在本卡採「會對刺激、變化或處理作出反應的」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "responsive": "會對刺激、變化或處理作出反應的",
+      "The steering is highly responsive to small movements": "轉向系統對細微操控的反應非常靈敏"
+    },
+    "forms": [
+      "responsive"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1172",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "noun",
+    "word": "yield",
+    "meaning": "the amount of a crop or other agricultural product produced",
+    "ipa": "jiːld",
+    "zh": "產量",
+    "zh_def": "產量；土地或農作物在一定期間內生產出的數量",
+    "definition": "The amount of a crop or other agricultural product produced.",
+    "sentence1": "The new wheat variety produced a higher yield.",
+    "sentence1_en": "這個小麥新品種帶來較高產量。",
+    "sentence1_hl": "The new wheat variety produced a higher <b>yield</b>.",
+    "sentence2": "Heavy rain reduced the rice yield that season.",
+    "sentence2_en": "大雨降低了那一季的稻米產量。",
+    "sentence3": "Farmers compared the yield from treated and untreated fields.",
+    "sentence3_en": "農民比較經處理與未處理田地的產量。",
+    "tip": "yield 在本卡採「產量」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "yield": "產量",
+      "yields": "產量",
+      "The new wheat variety produced a higher yield": "這個小麥新品種帶來較高產量"
+    },
+    "forms": [
+      "yield",
+      "yields"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1173",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "verb",
+    "word": "suppress",
+    "meaning": "to prevent or reduce the development of a process, reaction, or activity",
+    "ipa": "səˈpres",
+    "zh": "抑制",
+    "zh_def": "抑制；阻止或減弱某個過程、反應或活動的發展",
+    "definition": "To prevent or reduce the development of a process, reaction, or activity.",
+    "sentence1": "The medicine suppresses the body's immune response.",
+    "sentence1_en": "這種藥會抑制身體的免疫反應。",
+    "sentence1_hl": "The medicine <b>suppresses</b> the body's immune response.",
+    "sentence2": "Acoustic panels help suppress echoes in the hall.",
+    "sentence2_en": "吸音板有助於抑制大廳裡的回音。",
+    "sentence3": "The new material helps suppress vibrations in the engine.",
+    "sentence3_en": "這種新材料有助於抑制引擎震動。",
+    "tip": "suppress 是從來源中的複合詞 growth-suppressing 正規抽出的動詞；本卡沒有把它冒充成原文中的獨立詞形。",
+    "word_map": {
+      "suppress": "抑制",
+      "suppresses": "抑制",
+      "suppressed": "抑制",
+      "suppressing": "抑制",
+      "The medicine suppresses the body's immune response": "這種藥會抑制身體的免疫反應"
+    },
+    "forms": [
+      "suppress",
+      "suppresses",
+      "suppressed",
+      "suppressing"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1174",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "noun",
+    "word": "splash",
+    "meaning": "a small amount of liquid that falls, is spilled, or is added",
+    "ipa": "splæʃ",
+    "zh": "少量液體",
+    "zh_def": "少量液體；少量落下、濺出或加入的液體",
+    "definition": "A small amount of liquid that falls, is spilled, or is added.",
+    "sentence1": "Add a splash of milk to the coffee.",
+    "sentence1_en": "在咖啡裡加一點牛奶。",
+    "sentence1_hl": "Add a <b>splash</b> of milk to the coffee.",
+    "sentence2": "A splash of muddy water landed on his coat.",
+    "sentence2_en": "一些泥水濺到他的外套上。",
+    "sentence3": "She finished the sauce with a splash of lemon juice.",
+    "sentence3_en": "她最後在醬汁裡加了一點檸檬汁。",
+    "tip": "splash 在本卡採「少量液體」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "splash": "少量液體",
+      "splashes": "少量液體",
+      "Add a splash of milk to the coffee": "在咖啡裡加一點牛奶"
+    },
+    "forms": [
+      "splash",
+      "splashes"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1175",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "adjective",
+    "word": "detached",
+    "meaning": "objective and not influenced by personal feelings or interests",
+    "ipa": "dɪˈtætʃt",
+    "zh": "客觀超然的",
+    "zh_def": "客觀超然的；不受個人情緒或利益牽動的",
+    "definition": "Objective and not influenced by personal feelings or interests.",
+    "sentence1": "A mediator must remain detached from the dispute.",
+    "sentence1_en": "調解人必須對爭議保持客觀超然。",
+    "sentence1_hl": "A mediator must remain <b>detached</b> from the dispute.",
+    "sentence2": "She gave a calm, detached account of the incident.",
+    "sentence2_en": "她冷靜客觀地敘述了這起事件。",
+    "sentence3": "Taking a detached view helped him assess the options more fairly.",
+    "sentence3_en": "以超然的角度看待事情，幫助他更公平地評估各項選擇。",
+    "tip": "detached 在本卡採「客觀超然的」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "detached": "客觀超然的",
+      "A mediator must remain detached from the dispute": "調解人必須對爭議保持客觀超然"
+    },
+    "forms": [
+      "detached"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1176",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "verb phrase",
+    "word": "take into account",
+    "meaning": "to consider a fact or circumstance when making a decision or judgement",
+    "ipa": "ˌteɪk ɪntə əˈkaʊnt",
+    "zh": "將……納入考量、考慮到",
+    "zh_def": "將……納入考量、考慮到",
+    "definition": "To consider a fact or circumstance when making a decision or judgement.",
+    "sentence1": "The plan must take local conditions into account.",
+    "sentence1_en": "這項計畫必須把當地條件納入考量。",
+    "sentence1_hl": "The plan must <b>take local conditions into account</b>.",
+    "sentence2": "We took the likely cost into account before deciding.",
+    "sentence2_en": "我們在決定前已把可能的成本列入考量。",
+    "sentence3": "Any fair assessment should take age and experience into account.",
+    "sentence3_en": "任何公平的評估都應把年齡和經驗納入考量。",
+    "tip": "take ... into account 表示「把……納入考量」；受詞通常放在 take 與 into account 之間。",
+    "word_map": {
+      "take into account": "將……納入考量、考慮到",
+      "take local conditions into account": "把當地條件納入考量",
+      "The plan must take local conditions into account": "這項計畫必須把當地條件納入考量"
+    },
+    "forms": [
+      "take into account",
+      "takes into account",
+      "took into account",
+      "taken into account",
+      "taking into account",
+      "take local conditions into account",
+      "took the likely cost into account",
+      "take age and experience into account"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1177",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "noun",
+    "word": "modesty",
+    "meaning": "the quality of not overestimating one's knowledge, abilities, or achievements",
+    "ipa": "ˈmɒdəsti",
+    "zh": "謙遜",
+    "zh_def": "謙遜；不高估自己的知識、能力或成就的態度",
+    "definition": "The quality of not overestimating one's knowledge, abilities, or achievements.",
+    "sentence1": "Intellectual modesty helps researchers acknowledge the limits of their knowledge.",
+    "sentence1_en": "知識上的謙遜有助研究人員承認自身知識的限制。",
+    "sentence1_hl": "Intellectual <b>modesty</b> helps researchers acknowledge the limits of their knowledge.",
+    "sentence2": "She showed modesty by admitting that her conclusion might be wrong.",
+    "sentence2_en": "她坦承自己的結論可能有誤，展現了謙遜。",
+    "sentence3": "Wise judgement requires modesty about how much we truly understand.",
+    "sentence3_en": "做出明智判斷，需要我們謙遜看待自己的理解程度。",
+    "tip": "modesty 在本卡採「謙遜」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "modesty": "謙遜",
+      "Intellectual modesty helps researchers acknowledge the limits of their knowledge": "知識上的謙遜有助研究人員承認自身知識的限制"
+    },
+    "forms": [
+      "modesty"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1178",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "noun",
+    "word": "dengue",
+    "meaning": "a viral disease transmitted by mosquitoes",
+    "ipa": "ˈdeŋɡi",
+    "zh": "登革熱",
+    "zh_def": "登革熱；由蚊子傳播的病毒性疾病",
+    "definition": "A viral disease transmitted by mosquitoes.",
+    "sentence1": "The health department reported a rise in dengue cases.",
+    "sentence1_en": "衛生部門通報登革熱病例增加。",
+    "sentence1_hl": "The health department reported a rise in <b>dengue</b> cases.",
+    "sentence2": "Mosquito control can reduce the spread of dengue.",
+    "sentence2_en": "控制蚊蟲可減少登革熱傳播。",
+    "sentence3": "She was tested for dengue after developing a high fever.",
+    "sentence3_en": "她發高燒後接受了登革熱檢測。",
+    "tip": "dengue 在本卡採「登革熱」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "dengue": "登革熱",
+      "The health department reported a rise in dengue cases": "衛生部門通報登革熱病例增加"
+    },
+    "forms": [
+      "dengue"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1179",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "adjective",
+    "word": "excessive",
+    "meaning": "more than is reasonable, necessary, or acceptable",
+    "ipa": "ɪkˈsesɪv",
+    "zh": "過多的、過度的",
+    "zh_def": "過多的、過度的；超出合理或必要程度的",
+    "definition": "More than is reasonable, necessary, or acceptable.",
+    "sentence1": "Excessive noise can damage hearing.",
+    "sentence1_en": "過度噪音可能損害聽力。",
+    "sentence1_hl": "<b>Excessive</b> noise can damage hearing.",
+    "sentence2": "The project was delayed by excessive paperwork.",
+    "sentence2_en": "過多文書作業延誤了這項計畫。",
+    "sentence3": "Doctors warned against excessive salt intake.",
+    "sentence3_en": "醫師警告不要攝取過多鹽分。",
+    "tip": "excessive 在本卡採「過多的、過度的」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "excessive": "過多的、過度的",
+      "Excessive": "過多的、過度的",
+      "Excessive noise can damage hearing": "過度噪音可能損害聽力"
+    },
+    "forms": [
+      "excessive"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1180",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "adjective",
+    "word": "plentiful",
+    "meaning": "available in large amounts and easy to obtain",
+    "ipa": "ˈplentɪfl",
+    "zh": "豐富的、充足的",
+    "zh_def": "豐富的、充足的；數量很多且容易取得的",
+    "definition": "Available in large amounts and easy to obtain.",
+    "sentence1": "Fresh water is plentiful in this region.",
+    "sentence1_en": "這個地區淡水充足。",
+    "sentence1_hl": "Fresh water is <b>plentiful</b> in this region.",
+    "sentence2": "Jobs were plentiful during the construction boom.",
+    "sentence2_en": "建築業繁榮期間工作機會很多。",
+    "sentence3": "The market offers a plentiful supply of seasonal fruit.",
+    "sentence3_en": "市場供應大量當季水果。",
+    "tip": "plentiful 在本卡採「豐富的、充足的」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "plentiful": "豐富的、充足的",
+      "Fresh water is plentiful in this region": "這個地區淡水充足"
+    },
+    "forms": [
+      "plentiful"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1181",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "noun",
+    "word": "chalk",
+    "meaning": "a soft white limestone",
+    "ipa": "tʃɔːk",
+    "zh": "白堊",
+    "zh_def": "白堊；一種柔軟的白色石灰岩",
+    "definition": "A soft white limestone.",
+    "sentence1": "The cliffs are formed mainly from chalk.",
+    "sentence1_en": "這些懸崖主要由白堊構成。",
+    "sentence1_hl": "The cliffs are formed mainly from <b>chalk</b>.",
+    "sentence2": "Rain exposed a layer of white chalk beneath the soil.",
+    "sentence2_en": "雨水使土壤下的一層白堊露出來。",
+    "sentence3": "The archaeologists found marks cut into the chalk.",
+    "sentence3_en": "考古學家發現刻在白堊上的痕跡。",
+    "tip": "chalk 在本卡採「白堊」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "chalk": "白堊",
+      "The cliffs are formed mainly from chalk": "這些懸崖主要由白堊構成"
+    },
+    "forms": [
+      "chalk"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1183",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "adjective",
+    "word": "regimental",
+    "meaning": "relating to a military regiment, its members, traditions, or symbols",
+    "ipa": "ˌredʒɪˈmentl",
+    "zh": "（軍隊編制）團的",
+    "zh_def": "（軍隊編制）團的；與團及其成員、傳統或標誌有關的",
+    "definition": "Relating to a military regiment, its members, traditions, or symbols.",
+    "sentence1": "The museum displays several regimental flags.",
+    "sentence1_en": "博物館展示數面團旗。",
+    "sentence1_hl": "The museum displays several <b>regimental</b> flags.",
+    "sentence2": "He wore his regimental badge at the ceremony.",
+    "sentence2_en": "他在典禮上佩戴所屬團的徽章。",
+    "sentence3": "The archive contains old regimental records.",
+    "sentence3_en": "檔案館保存著團級部隊的舊紀錄。",
+    "tip": "regimental 來自 regiment（團）；regimental flag 是團旗，不是軍團旗。",
+    "word_map": {
+      "regimental": "（軍隊編制）團的",
+      "The museum displays several regimental flags": "博物館展示數面團旗"
+    },
+    "forms": [
+      "regimental"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1184",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "noun",
+    "word": "priory",
+    "meaning": "a small monastery or convent governed by a prior or prioress",
+    "ipa": "ˈpraɪəri",
+    "zh": "小修道院、隱修院",
+    "zh_def": "小修道院、隱修院；通常規模小於 abbey、由 prior 或 prioress 主持的修道院",
+    "definition": "A small monastery or convent governed by a prior or prioress.",
+    "sentence1": "The medieval priory was restored after years of neglect.",
+    "sentence1_en": "這座中世紀小修道院荒廢多年後獲得修復。",
+    "sentence1_hl": "The medieval <b>priory</b> was restored after years of neglect.",
+    "sentence2": "Monks once lived in the priory near the village.",
+    "sentence2_en": "修士曾住在村莊附近的小修道院裡。",
+    "sentence3": "Visitors can explore the ruins of the old priory.",
+    "sentence3_en": "遊客可以探索那座古老小修道院的遺跡。",
+    "tip": "priory 在本卡採「小修道院、隱修院」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "priory": "小修道院、隱修院",
+      "priories": "小修道院、隱修院",
+      "The medieval priory was restored after years of neglect": "這座中世紀小修道院荒廢多年後獲得修復"
+    },
+    "forms": [
+      "priory",
+      "priories"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1185",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "adjective",
+    "word": "gleaming",
+    "meaning": "shining brightly with a smooth, clean surface",
+    "ipa": "ˈɡliːmɪŋ",
+    "zh": "閃亮的、光潔發亮的",
+    "zh_def": "閃亮的、光潔發亮的",
+    "definition": "Shining brightly with a smooth, clean surface.",
+    "sentence1": "Sunlight fell across the gleaming floor.",
+    "sentence1_en": "陽光灑在光潔發亮的地板上。",
+    "sentence1_hl": "Sunlight fell across the <b>gleaming</b> floor.",
+    "sentence2": "She arrived in a gleaming black car.",
+    "sentence2_en": "她開著一輛閃亮的黑色汽車抵達。",
+    "sentence3": "Rows of gleaming tools hung above the workbench.",
+    "sentence3_en": "一排排光潔發亮的工具掛在工作臺上方。",
+    "tip": "gleaming 在本卡採「閃亮的、光潔發亮的」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "gleaming": "閃亮的、光潔發亮的",
+      "Sunlight fell across the gleaming floor": "陽光灑在光潔發亮的地板上"
+    },
+    "forms": [
+      "gleaming"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1186",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "adjective",
+    "word": "overlying",
+    "meaning": "lying or forming a layer above something else",
+    "ipa": "ˌəʊvəˈlaɪɪŋ",
+    "zh": "覆蓋在上面的",
+    "zh_def": "覆蓋在上面的；位於另一層之上的",
+    "definition": "Lying or forming a layer above something else.",
+    "sentence1": "Workers removed the overlying soil carefully.",
+    "sentence1_en": "工人小心移除覆蓋在上面的土壤。",
+    "sentence1_hl": "Workers removed the <b>overlying</b> soil carefully.",
+    "sentence2": "The scan showed damage beneath the overlying tissue.",
+    "sentence2_en": "掃描顯示覆蓋組織下方有損傷。",
+    "sentence3": "The overlying rock protected the softer layer below.",
+    "sentence3_en": "上覆岩層保護了下方較柔軟的地層。",
+    "tip": "overlying 在本卡採「覆蓋在上面的」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "overlying": "覆蓋在上面的",
+      "Workers removed the overlying soil carefully": "工人小心移除覆蓋在上面的土壤"
+    },
+    "forms": [
+      "overlying"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1187",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "verb",
+    "word": "scour",
+    "meaning": "to clean a surface by rubbing it hard and repeatedly",
+    "ipa": "ˈskaʊər",
+    "zh": "用力擦洗、刷淨",
+    "zh_def": "用力擦洗、刷淨；以反覆用力摩擦去除表面污垢或覆蓋物",
+    "definition": "To clean a surface by rubbing it hard and repeatedly.",
+    "sentence1": "Volunteers scoured the chalk figure with stiff brushes.",
+    "sentence1_en": "志工用硬毛刷刷洗白堊圖形。",
+    "sentence1_hl": "Volunteers <b>scoured</b> the chalk figure with stiff brushes.",
+    "sentence2": "You will need to scour the pan to remove the burnt food.",
+    "sentence2_en": "你得用力刷洗鍋子才能去除燒焦的食物。",
+    "sentence3": "Workers scoured the stone floor until it was clean.",
+    "sentence3_en": "工人用力刷洗石地板，直到它變乾淨。",
+    "tip": "本卡的 scour 指用力刷洗；第 1438 項同字則指徹底搜尋。",
+    "word_map": {
+      "scour": "用力擦洗、刷淨",
+      "scours": "用力擦洗、刷淨",
+      "scoured": "用力擦洗、刷淨",
+      "scouring": "用力擦洗、刷淨",
+      "Volunteers scoured the chalk figure with stiff brushes": "志工用硬毛刷刷洗白堊圖形"
+    },
+    "forms": [
+      "scour",
+      "scours",
+      "scoured",
+      "scouring"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1188",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "adjective",
+    "word": "sleek",
+    "meaning": "smooth, streamlined, and elegant in appearance",
+    "ipa": "sliːk",
+    "zh": "線條流暢而光滑的",
+    "zh_def": "線條流暢而光滑的；外觀平整、優雅的",
+    "definition": "Smooth, streamlined, and elegant in appearance.",
+    "sentence1": "The car has a sleek, modern shape.",
+    "sentence1_en": "這輛車外形流暢而現代。",
+    "sentence1_hl": "The car has a <b>sleek</b>, modern shape.",
+    "sentence2": "A sleek black seal slipped into the water.",
+    "sentence2_en": "一隻皮毛光滑的黑海豹滑入水中。",
+    "sentence3": "The designer chose a sleek profile for the new device.",
+    "sentence3_en": "設計師為新裝置選擇了流線外形。",
+    "tip": "sleek 在本卡採「線條流暢而光滑的」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "sleek": "線條流暢而光滑的",
+      "The car has a sleek, modern shape": "這輛車外形流暢而現代"
+    },
+    "forms": [
+      "sleek"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1189",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "adjective",
+    "word": "disjointed",
+    "meaning": "separated into parts that are not joined or connected",
+    "ipa": "dɪsˈdʒɔɪntɪd",
+    "zh": "彼此分離、不相連的",
+    "zh_def": "彼此分離、不相連的；各部分沒有接合在一起的",
+    "definition": "Separated into parts that are not joined or connected.",
+    "sentence1": "The stylised animal has long, disjointed limbs.",
+    "sentence1_en": "這隻風格化動物有細長且彼此分離的四肢。",
+    "sentence1_hl": "The stylised animal has long, <b>disjointed</b> limbs.",
+    "sentence2": "The drawing consists of several disjointed lines and shapes.",
+    "sentence2_en": "這幅圖由數條互不相連的線條和形狀組成。",
+    "sentence3": "The fragments formed a disjointed pattern across the surface.",
+    "sentence3_en": "碎片在表面形成彼此不連續的圖案。",
+    "tip": "disjointed 在本卡採「彼此分離、不相連的」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "disjointed": "彼此分離、不相連的",
+      "The stylised animal has long, disjointed limbs": "這隻風格化動物有細長且彼此分離的四肢"
+    },
+    "forms": [
+      "disjointed"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1190",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "adjective",
+    "word": "situated",
+    "meaning": "located in a particular place or position",
+    "ipa": "ˈsɪtʃueɪtɪd",
+    "zh": "位於……的",
+    "zh_def": "位於……的；處在某一地點或位置的",
+    "definition": "Located in a particular place or position.",
+    "sentence1": "The clinic is situated beside the railway station.",
+    "sentence1_en": "診所位於火車站旁。",
+    "sentence1_hl": "The clinic is <b>situated</b> beside the railway station.",
+    "sentence2": "Their apartment is conveniently situated near the centre.",
+    "sentence2_en": "他們的公寓位置便利，靠近市中心。",
+    "sentence3": "The village is situated on a narrow coastal plain.",
+    "sentence3_en": "這座村莊位於狹窄的海岸平原上。",
+    "tip": "situated 在本卡採「位於……的」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "situated": "位於……的",
+      "The clinic is situated beside the railway station": "診所位於火車站旁"
+    },
+    "forms": [
+      "situated"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1191",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "noun",
+    "word": "burial",
+    "meaning": "the act or ceremony of placing a dead person in the ground or a tomb",
+    "ipa": "ˈberiəl",
+    "zh": "埋葬、安葬",
+    "zh_def": "埋葬、安葬；將死者放入地下或墓穴的行為",
+    "definition": "The act or ceremony of placing a dead person in the ground or a tomb.",
+    "sentence1": "The family held a private burial.",
+    "sentence1_en": "這家人舉行了私人安葬儀式。",
+    "sentence1_hl": "The family held a private <b>burial</b>.",
+    "sentence2": "Archaeologists uncovered evidence of an ancient burial.",
+    "sentence2_en": "考古學家發現古代埋葬活動的證據。",
+    "sentence3": "Local customs determine how the burial is conducted.",
+    "sentence3_en": "當地習俗決定安葬儀式如何進行。",
+    "tip": "burial 在本卡採「埋葬、安葬」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "burial": "埋葬、安葬",
+      "burials": "埋葬、安葬",
+      "The family held a private burial": "這家人舉行了私人安葬儀式"
+    },
+    "forms": [
+      "burial",
+      "burials"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1192",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "noun",
+    "word": "mound",
+    "meaning": "a raised pile or mass of earth, stones, or other material",
+    "ipa": "maʊnd",
+    "zh": "土堆、丘塚",
+    "zh_def": "土堆、丘塚；由土、石等堆成的隆起物",
+    "definition": "A raised pile or mass of earth, stones, or other material.",
+    "sentence1": "A grassy mound stood in the centre of the field.",
+    "sentence1_en": "田野中央有一座覆滿青草的土丘。",
+    "sentence1_hl": "A grassy <b>mound</b> stood in the centre of the field.",
+    "sentence2": "The ants built a small mound beside the path.",
+    "sentence2_en": "螞蟻在小徑旁築起一座小土堆。",
+    "sentence3": "Excavators found pottery beneath the burial mound.",
+    "sentence3_en": "挖掘人員在墓塚下發現陶器。",
+    "tip": "mound 在本卡採「土堆、丘塚」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "mound": "土堆、丘塚",
+      "mounds": "土堆、丘塚",
+      "A grassy mound stood in the centre of the field": "田野中央有一座覆滿青草的土丘"
+    },
+    "forms": [
+      "mound",
+      "mounds"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1193",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "noun",
+    "word": "cemetery",
+    "meaning": "an area of land used for burying dead people",
+    "ipa": "ˈsemətri",
+    "zh": "墓園、公墓",
+    "zh_def": "墓園、公墓；供埋葬死者使用的土地",
+    "definition": "An area of land used for burying dead people.",
+    "sentence1": "The old cemetery lies behind the church.",
+    "sentence1_en": "老墓園位於教堂後方。",
+    "sentence1_hl": "The old <b>cemetery</b> lies behind the church.",
+    "sentence2": "Several generations of the family are buried in the cemetery.",
+    "sentence2_en": "這個家族的好幾代人都葬在這座墓園裡。",
+    "sentence3": "Volunteers cleared weeds from the cemetery.",
+    "sentence3_en": "志工清除了墓園裡的雜草。",
+    "tip": "cemetery 在本卡採「墓園、公墓」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "cemetery": "墓園、公墓",
+      "cemeteries": "墓園、公墓",
+      "The old cemetery lies behind the church": "老墓園位於教堂後方"
+    },
+    "forms": [
+      "cemetery",
+      "cemeteries"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1194",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "verb",
+    "word": "appreciate",
+    "meaning": "to recognise and enjoy the beauty, qualities, or value of something",
+    "ipa": "əˈpriːʃieɪt",
+    "zh": "欣賞、領略",
+    "zh_def": "欣賞、領略；看出並賞識事物的美感、特色或價值",
+    "definition": "To recognise and enjoy the beauty, qualities, or value of something.",
+    "sentence1": "Visitors can best appreciate the sculpture from the far end of the gallery.",
+    "sentence1_en": "遊客在展廳另一端最能欣賞這座雕塑。",
+    "sentence1_hl": "Visitors can best <b>appreciate</b> the sculpture from the far end of the gallery.",
+    "sentence2": "She paused to appreciate the delicate colours in the painting.",
+    "sentence2_en": "她停下腳步，欣賞畫作中細膩的色彩。",
+    "sentence3": "The elevated walkway allows visitors to appreciate the beauty of the garden.",
+    "sentence3_en": "高架步道讓遊客能欣賞花園之美。",
+    "tip": "appreciate 在本卡採「欣賞、領略」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "appreciate": "欣賞、領略",
+      "appreciates": "欣賞、領略",
+      "appreciated": "欣賞、領略",
+      "appreciating": "欣賞、領略",
+      "Visitors can best appreciate the sculpture from the far end of the gallery": "遊客在展廳另一端最能欣賞這座雕塑"
+    },
+    "forms": [
+      "appreciate",
+      "appreciates",
+      "appreciated",
+      "appreciating"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1195",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "noun",
+    "word": "emblem",
+    "meaning": "a design or object that represents a group, idea, or quality",
+    "ipa": "ˈembləm",
+    "zh": "象徵、標誌",
+    "zh_def": "象徵、標誌；代表群體、理念或特質的圖案或事物",
+    "definition": "A design or object that represents a group, idea, or quality.",
+    "sentence1": "The dove is widely used as an emblem of peace.",
+    "sentence1_en": "鴿子被廣泛用作和平的象徵。",
+    "sentence1_hl": "The dove is widely used as an <b>emblem</b> of peace.",
+    "sentence2": "A silver emblem was fixed to the front of the vehicle.",
+    "sentence2_en": "一枚銀色徽章固定在車輛前方。",
+    "sentence3": "The tree became an emblem of the city.",
+    "sentence3_en": "這棵樹成為該城市的象徵。",
+    "tip": "emblem 在本卡採「象徵、標誌」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "emblem": "象徵、標誌",
+      "emblems": "象徵、標誌",
+      "The dove is widely used as an emblem of peace": "鴿子被廣泛用作和平的象徵"
+    },
+    "forms": [
+      "emblem",
+      "emblems"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1196",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "noun",
+    "word": "fertility",
+    "meaning": "the ability to produce offspring",
+    "ipa": "fəˈtɪləti",
+    "zh": "生育力",
+    "zh_def": "生育力；產生後代的能力",
+    "definition": "The ability to produce offspring.",
+    "sentence1": "The treatment may affect fertility.",
+    "sentence1_en": "這項治療可能影響生育力。",
+    "sentence1_hl": "The treatment may affect <b>fertility</b>.",
+    "sentence2": "Researchers examined the relationship between diet and fertility.",
+    "sentence2_en": "研究人員檢視飲食與生育力之間的關係。",
+    "sentence3": "The species has a relatively low fertility rate.",
+    "sentence3_en": "這個物種的生育率相對較低。",
+    "tip": "fertility 在本卡採「生育力」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "fertility": "生育力",
+      "The treatment may affect fertility": "這項治療可能影響生育力"
+    },
+    "forms": [
+      "fertility"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1197",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "verb",
+    "word": "lessen",
+    "meaning": "to make something smaller or less severe in amount or degree",
+    "ipa": "ˈlesn",
+    "zh": "減輕、減少",
+    "zh_def": "減輕、減少；使程度或數量變小",
+    "definition": "To make something smaller or less severe in amount or degree.",
+    "sentence1": "A short break may lessen the strain on your eyes.",
+    "sentence1_en": "短暫休息可能減輕眼睛的負擔。",
+    "sentence1_hl": "A short break may <b>lessen</b> the strain on your eyes.",
+    "sentence2": "The new barrier should lessen traffic noise.",
+    "sentence2_en": "新的屏障應能降低交通噪音。",
+    "sentence3": "Her growing experience lessened her anxiety.",
+    "sentence3_en": "逐漸累積的經驗減輕了她的焦慮。",
+    "tip": "lessen 在本卡採「減輕、減少」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "lessen": "減輕、減少",
+      "lessens": "減輕、減少",
+      "lessened": "減輕、減少",
+      "lessening": "減輕、減少",
+      "A short break may lessen the strain on your eyes": "短暫休息可能減輕眼睛的負擔"
+    },
+    "forms": [
+      "lessen",
+      "lessens",
+      "lessened",
+      "lessening"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1198",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "verb",
+    "word": "outlive",
+    "meaning": "to live longer than another person or living thing",
+    "ipa": "ˌaʊtˈlɪv",
+    "zh": "比……活得久",
+    "zh_def": "比……活得久；在另一個人或生物死去後仍活著",
+    "definition": "To live longer than another person or living thing.",
+    "sentence1": "Some trees outlive several generations of people.",
+    "sentence1_en": "有些樹木比好幾個世代的人都長壽。",
+    "sentence1_hl": "Some trees <b>outlive</b> several generations of people.",
+    "sentence2": "The old tortoise outlived its first owner.",
+    "sentence2_en": "那隻老陸龜活得比第一任主人久。",
+    "sentence3": "She outlived all three of her siblings.",
+    "sentence3_en": "她比三名手足都活得久。",
+    "tip": "outlive 在本卡採「比……活得久」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "outlive": "比……活得久",
+      "outlives": "比……活得久",
+      "outlived": "比……活得久",
+      "outliving": "比……活得久",
+      "Some trees outlive several generations of people": "有些樹木比好幾個世代的人都長壽"
+    },
+    "forms": [
+      "outlive",
+      "outlives",
+      "outlived",
+      "outliving"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1199",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "adverb",
+    "word": "utterly",
+    "meaning": "completely or to an extreme degree",
+    "ipa": "ˈʌtəli",
+    "zh": "完全地、極度地",
+    "zh_def": "完全地、極度地；用來加強形容詞所表達的程度",
+    "definition": "Completely or to an extreme degree.",
+    "sentence1": "The documentary was utterly absorbing.",
+    "sentence1_en": "這部紀錄片極其引人入勝。",
+    "sentence1_hl": "The documentary was <b>utterly</b> absorbing.",
+    "sentence2": "They were utterly exhausted by the end of the journey.",
+    "sentence2_en": "旅程結束時，他們已筋疲力盡。",
+    "sentence3": "His explanation was utterly unconvincing.",
+    "sentence3_en": "他的解釋完全沒有說服力。",
+    "tip": "utterly 在本卡採「完全地、極度地」這個義項；三句例句的詞性與意思一致。",
+    "word_map": {
+      "utterly": "完全地、極度地",
+      "The documentary was utterly absorbing": "這部紀錄片極其引人入勝"
+    },
+    "forms": [
+      "utterly"
+    ],
+    "lang": "english_ielts"
+  },
+  {
+    "id": "en_1200",
+    "category": "IELTS Reading Vocabulary",
+    "pos": "noun",
+    "word": "peril",
+    "meaning": "serious danger or a situation involving serious danger",
+    "ipa": "ˈperəl",
+    "zh": "嚴重危險、險境",
+    "zh_def": "嚴重危險、險境",
+    "definition": "Serious danger or a situation involving serious danger.",
+    "sentence1": "The climbers continued despite the obvious peril.",
+    "sentence1_en": "登山者不顧眼前明顯的危險繼續前進。",
+    "sentence1_hl": "The climbers continued despite the obvious <b>peril</b>.",
+    "sentence2": "The species is in peril because its habitat is shrinking.",
+    "sentence2_en": "這個物種因棲地縮減而身陷危境。",
+    "sentence3": "You ignore the warning at your own peril.",
+    "sentence3_en": "你若無視這項警告，後果自負。",
+    "tip": "in peril 表示處於嚴重危險中；at your own peril 表示須自行承擔忽視危險的後果。",
+    "word_map": {
+      "peril": "嚴重危險、險境",
+      "perils": "嚴重危險、險境",
+      "The climbers continued despite the obvious peril": "登山者不顧眼前明顯的危險繼續前進"
+    },
+    "forms": [
+      "peril",
+      "perils"
     ],
     "lang": "english_ielts"
   }
