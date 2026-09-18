@@ -1,3 +1,16 @@
+// English examples must highlight complete words and inflections, with longer
+// phrases first. Preserve the sentence's original spelling and punctuation.
+function _highlightEnglishForms(sentence, word, forms){
+  if(!sentence||!word)return sentence||'';
+  const allForms=[_getCoreWord(word),...(forms||[]).map(f=>_getCoreWord(f))]
+    .filter(Boolean).filter((f,i,a)=>a.indexOf(f)===i)
+    .sort((a,b)=>b.length-a.length);
+  if(!allForms.length)return sentence;
+  const alternatives=allForms.map(f=>f.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')).join('|');
+  const pattern=new RegExp('(^|[^\\p{L}\\p{N}])('+alternatives+')(?![\\p{L}\\p{N}])','giu');
+  return sentence.replace(pattern,(match,boundary,form)=>boundary+'<b>'+form+'</b>');
+}
+
 function showIntroCard(q,mode){
   // mode: 'new' (default, first-ever encounter), 'review' (reappears after a wrong
   // answer / hint use, right as the player leaves the question by finally answering
@@ -38,6 +51,7 @@ function showIntroCard(q,mode){
   // Build all available sentences as carousel slides
   function _hlWord(sent, w){
     if(!sent||!w)return sent||'';
+    if(isIELTS)return _highlightEnglishForms(sent,w,r.forms);
     const allForms=[_getCoreWord(w),...(r.forms||[]).map(f=>_getCoreWord(f))]
       .filter(Boolean).filter((f,i,a)=>f.length>0&&a.indexOf(f)===i);
     // BUG-FIX: guard against empty alts to prevent broken regex
@@ -82,7 +96,7 @@ function showIntroCard(q,mode){
   const zh_def=r.zh_def||'';
   const pos=r.pos||'';
   const definition=r.definition||'';
-  const tts=isJP?(r.reading||r.word):r.word;
+  const tts=isJP?(r.reading||r.word):(isIELTS?(r.tts_override||r.word):r.word);
   const rtl=lc.rtl?' dir="rtl"':'';
 
   const wordHtml=(isJP&&reading)?jpRuby(word,reading):word;
@@ -1675,6 +1689,7 @@ function _revCardHtml(r,lc){
   // 1. 高亮工具：比對原形 + forms 陣列裡所有變形（went、gone、going 等）
   function _hl(sent, w){
     if(!sent||!w) return sent||'';
+    if(lc.type==='ielts')return _highlightEnglishForms(sent,w,r.forms);
     const allForms=[_getCoreWord(w),...(r.forms||[]).map(f=>_getCoreWord(f))]
       .filter(Boolean).filter((f,i,a)=>f.length>0&&a.indexOf(f)===i);
     // BUG-FIX: guard against empty alts — if no valid forms, return sentence as-is
@@ -1691,12 +1706,14 @@ function _revCardHtml(r,lc){
     {s:lc.type==='japanese'&&r.sentence3_reading?_hl(jpRuby(r.sentence3,r.sentence3_reading),r.word):_hl(r.sentence3,r.word), se:r.sentence3_en, ttsText: (lc.type==='japanese'?(r.sentence3_reading||r.sentence3):r.sentence3)},
   ].filter(x=>x.s);
 
-  // 3. 返回最終 HTML 模板 (確保 word 部分使用了 _cleanWord)
+  // 3. English phrases retain their leading articles and any authored TTS text.
   const isFav=Prog.isFav(r.lang,r.id);
+  const reviewWord=lc.type==='ielts'?_getCoreWord(r.word):_cleanWord(r.word);
+  const reviewTts=lc.type==='ielts'?(r.tts_override||r.word):r.word;
   return `<div class="r-card" onclick="G_toggleRevCard(this)">
     <div class="r-card-toggle">
       <div style="flex:1;min-width:0;">
-        <div class="r-word" dir="${lc.rtl?'rtl':'ltr'}">${lc.type==='japanese'?jpRuby(r.word,r.reading):_cleanWord(r.word)}</div>
+        <div class="r-word" dir="${lc.rtl?'rtl':'ltr'}">${lc.type==='japanese'?jpRuby(r.word,r.reading):reviewWord}</div>
         ${r.ipa?`<div class="r-hint">${r.ipa}</div>`:''}
         ${r.reading?`<div class="r-hint">${r.reading}${r.romaji?' · '+r.romaji:''}</div>`:''}
         <div class="r-meaning">${r.meaning||''}</div>
@@ -1704,7 +1721,7 @@ function _revCardHtml(r,lc){
       </div>
       <div style="display:flex;align-items:center;gap:8px;flex-shrink:0;">
         <button class="r-fav${isFav?' on':''}" data-lang="${r.lang}" data-id="${r.id.replace(/"/g,'&quot;')}" onclick="event.stopPropagation();G_toggleFav(this)">${isFav?'❤️':'🤍'}</button>
-        <button class="r-tts" data-word="${r.word.replace(/"/g,'&quot;')}" data-lang="${lc.ttsLang}" onclick="event.stopPropagation();TTS.say(this.dataset.word,this.dataset.lang,0.9)">🔊</button>
+        <button class="r-tts" data-word="${reviewTts.replace(/"/g,'&quot;')}" data-lang="${lc.ttsLang}" onclick="event.stopPropagation();TTS.say(this.dataset.word,this.dataset.lang,0.9)">🔊</button>
       </div>
     </div>
     ${hasExtra?`<div class="r-card-chevron-row"><span class="r-chev">▾</span></div>
