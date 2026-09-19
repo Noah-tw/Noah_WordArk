@@ -299,8 +299,11 @@ function G_importProgress(){
 }
 function G_speakNow(){
   SFX.click();const q=S.q;if(!q||!q.tts)return;
+  // In a blank question the replay is the full sentence, including the answer.
+  // Keep the useful audio button, but treat using it before answering as support.
+  if(S.lang==='english_ielts'&&q.mode==='blank'&&S.phase==='waiting')q._assisted=true;
   _cancelQueuedTTS(); // a manual tap must not be interrupted by an older auto-play timer
-  TTS.say(q.tts,LC[S.lang].ttsLang,['listeningWord','listeningSentence'].includes(q.mode)?0.85:0.9);
+  _sayLearning(Store.getById(S.lang,q.wordId),q.tts,LC[S.lang].ttsLang,['listeningWord','listeningSentence'].includes(q.mode)?0.85:0.9);
 }
 // Called by TTS when audio finishes in listeningWord mode — unlocks MC buttons
 function G_unlockListenMC(){
@@ -372,7 +375,7 @@ function G_continueFromInterstitial(){
   _updateGameStrip();
   if(q) renderQ(q);
   if(_willAutoplay){
-    TTS.say(q.tts,LC[S.lang].ttsLang,0.85,false);
+    _sayLearning(Store.getById(S.lang,q.wordId),q.tts,LC[S.lang].ttsLang,0.85,false);
   }
 }
 

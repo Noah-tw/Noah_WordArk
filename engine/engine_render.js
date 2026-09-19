@@ -11,7 +11,45 @@ function _highlightEnglishForms(sentence, word, forms){
   return sentence.replace(pattern,(match,boundary,form)=>boundary+'<b>'+form+'</b>');
 }
 
+// _cleanWord strips articles for length balancing. English learning text must
+// retain them: the visible option, spoken answer and completed sentence agree.
+function _displayLearningWord(word){
+  return S.lang==='english_ielts'?_getCoreWord(word):_cleanWord(word);
+}
+
+// Matching can introduce/review several records. Reuse the existing word card,
+// while keeping its speech/carousel state separate from the live matching board.
+function _showEnglishCardFlow(ids,mode,onDone){
+  S._cardFlow={ids:[...new Set(ids)].filter(id=>Store.getById(S.lang,id)),mode,onDone};
+  _nextEnglishCard();
+}
+function _nextEnglishCard(){
+  const flow=S._cardFlow;if(!flow)return;
+  const id=flow.ids.shift();
+  if(!id){
+    S._cardFlow=null;S._introCard=null;
+    const btn=eid('btn-next');
+    if(btn){btn.textContent='Next →';btn.onclick=G_next;btn.classList.remove('btn-next-blue','btn-next-yellow');}
+    flow.onDone();return;
+  }
+  if(flow.mode==='new'){
+    S.introSeen.add(S.lang+':'+id);
+    _rememberEnglishQuestion({wordId:id,mode:'matching'});
+  }
+  showIntroCard({wordId:id},flow.mode);
+  eid('btn-next').onclick=()=>{SFX.click(true);_cancelQueuedTTS();TTS.stop();_nextEnglishCard();};
+}
+function _showEnglishMatchReview(q,onDone){
+  if(q._reviewShown)return false;
+  const ids=[...Object.keys(q._matchOutcomes||{}).filter(id=>q._matchOutcomes[id]==='wrong'),...(q._matchHintIds||[])];
+  if(!ids.length)return false;
+  q._reviewShown=true;
+  _showEnglishCardFlow(ids,'review',onDone);
+  return true;
+}
+
 function showIntroCard(q,mode){
+  S._introCard=q;
   // mode: 'new' (default, first-ever encounter), 'review' (reappears after a wrong
   // answer / hint use, right as the player leaves the question by finally answering
   // it correctly — see G_next()), or 'reviewSkip' (same trigger condition, but the
@@ -31,7 +69,7 @@ function showIntroCard(q,mode){
   const r=Store.getById(S.lang, q.wordId);
   if(!r){renderQ(q);return;} // fallback if no record
 
-  const word=r.word;
+  const word=isIELTS?_getCoreWord(r.word):r.word;
   const reading=isJP&&r.reading&&r.word!==r.reading?r.reading:null;
   const romaji=r.romaji||null;
   const meaning=r.meaning||'';
@@ -96,7 +134,7 @@ function showIntroCard(q,mode){
   const zh_def=r.zh_def||'';
   const pos=r.pos||'';
   const definition=r.definition||'';
-  const tts=isJP?(r.reading||r.word):(isIELTS?(r.tts_override||r.word):r.word);
+  const tts=isJP?(r.reading||r.word):(isIELTS?_englishSpeech(r):r.word);
   const rtl=lc.rtl?' dir="rtl"':'';
 
   const wordHtml=(isJP&&reading)?jpRuby(word,reading):word;
@@ -170,7 +208,7 @@ function showIntroCard(q,mode){
   q._introTts=tts;
 
   // Auto-play — use _qTtsTimer so G_introDone can cancel this if tapped within 400ms.
-  _scheduleQueuedTTS(()=>TTS.say(tts,lc.ttsLang,0.85),400);
+  _scheduleQueuedTTS(()=>_sayLearning(r,tts,lc.ttsLang,0.85),400);
 
   // Repurpose btn-next as Got it button
   const btnNext=eid('btn-next');
@@ -216,14 +254,14 @@ function _fitIntroWord(){
 function G_introSpeak(){
   SFX.click();
   _cancelQueuedTTS(); // manual replay wins; do not let the pending auto-play cut it off
-  const q=S.q;if(!q)return;
+  const q=S._introCard||S.q;if(!q)return;
   const tts=q._introTts||q.tts;
-  if(tts) TTS.say(tts,LC[S.lang].ttsLang,0.85);
+  if(tts) _sayLearning(Store.getById(S.lang,q.wordId),tts,LC[S.lang].ttsLang,0.85);
 }
 
 function G_introNextSent(){
   SFX.click();
-  const q=S.q;if(!q||!q._introSlides)return;
+  const q=S._introCard||S.q;if(!q||!q._introSlides)return;
   const slides=q._introSlides;
   q._introSlideIdx=(q._introSlideIdx+1)%slides.length;
   const slide=slides[q._introSlideIdx];
@@ -247,6 +285,7 @@ function G_introNextSent(){
 
 function G_introDone(){
   const q=S.q;
+  S._introCard=null;
   // BUG-FIX (Aug 19 2026, per Noah): confirmed by real-device testing as the main
   // trigger for the listening-question "sometimes silent / sometimes quiet" report —
   // this fires on EVERY New Word and idiom intro card dismissal, far more often than
@@ -272,7 +311,7 @@ function G_introDone(){
   // BUG-FIX (silent auto-play): call synchronously, inside this "Got it" tap, instead
   // of via setTimeout — see matching fix + comment in engine_session.js loadQ().
   if(_willAutoplay){
-    TTS.say(q.tts,LC[S.lang].ttsLang,0.85,false);
+    _sayLearning(Store.getById(S.lang,q.wordId),q.tts,LC[S.lang].ttsLang,0.85,false);
   }
 }
 
@@ -358,6 +397,7 @@ function G_ieltsToggleDef(btn){
   SFX.click();
   const body=btn.nextElementSibling;
   const open=body.classList.toggle('open');
+  if(open&&S.lang==='english_ielts'&&S.phase==='waiting'&&S.q)S.q._assisted=true;
   btn.textContent=open?'💡 Hide definition ▴':'💡 Show definition ▾';
 }
 
@@ -371,7 +411,7 @@ function wordCardHtml(q){
   // Spelling: show the WORD big — you see "Hola" and pick from [hoya][hoka][hola]
 
 
-  const display = _cleanWord(q.displayWord);
+  const display = _displayLearningWord(q.displayWord);
   const primary=(lc.type==='japanese'&&q.displayReading)
     ?jpRuby(display,q.displayReading)
     :display;
@@ -483,7 +523,7 @@ function mcHtml(options, q){
     const rtlAttr=scriptMode?' dir="rtl"':'';
     const langAttr=lc.type==='japanese'?' lang="ja"':'';
     const isMeaningOption=q?.mode==='definition';
-    const displayOption=isMeaningOption?o.trim():_cleanWord(o);
+    const displayOption=isMeaningOption?o.trim():_displayLearningWord(o);
     const lockCls=isListenWord?' mc-locked':'';
     const lockDisabled=isListenWord?' disabled':'';
     return `<button class="mc-opt${lockCls}"${lockDisabled} data-a="${e}" onclick="G_onMC(this)">
@@ -636,13 +676,14 @@ function G_onMC(btn){
   const enc=btn.dataset.a;
   const ans=decodeURIComponent(enc);
   // For blank mode, accept any inflected form (departs / departed / departing)
-  const accepted=S.q.acceptedForms||[S.q.answer];
+  const accepted=S.lang==='english_ielts'&&S.q.mode==='blank'?[S.q.answer]:(S.q.acceptedForms||[S.q.answer]);
   const ok=accepted.some(f=>ans===f)||ans===S.q.answer;
   // Speak the option if it's a foreign word (not an English meaning)
   const speakModes=['spelling','blank','reading','listeningWord'];
   if(speakModes.includes(S.q.mode)){
     const cleanText = ans.replace(/<rt>[^<]*<\/rt>/gi, '').replace(/<[^>]+>/g, '');
-    TTS.say(cleanText,LC[S.lang].ttsLang,0.9);
+    const spoken=S.lang==='english_ielts'?(S.q.optSpeech?.[ans]||_englishSpeech(Store.getById(S.lang,S.q.wordId),cleanText)):cleanText;
+    _sayLearning(Store.getById(S.lang,S.q.optRecords?.[ans]||S.q.wordId),spoken,LC[S.lang].ttsLang,0.9);
   }
 
   if(ok){
@@ -660,8 +701,8 @@ function G_onMC(btn){
     if(S.q.mode==='blank'){
       const box=document.querySelector('.blank-box');
       if(box){
-        const fillText=S.q.fillWord||S.q.answer;
-        const filled=box.innerHTML.replace('___',`<span class="blank-filled">${_cleanWord(fillText)}</span>`);
+        const fillText=S.lang==='english_ielts'?S.q.answer:(S.q.fillWord||S.q.answer);
+        const filled=box.innerHTML.replace('___',`<span class="blank-filled">${_displayLearningWord(fillText)}</span>`);
         box.innerHTML=filled;
         // Grammar note: explain why word changed form
         const r=Store.getById(S.lang,S.q.wordId);
@@ -672,7 +713,7 @@ function G_onMC(btn){
           if(note){
             const noteEl=document.createElement('div');
             noteEl.className='blank-form-note';
-            noteEl.innerHTML=`<span class="bfn-icon">💡</span><span class="bfn-text"><b>${_cleanWord(r.word)}</b> → <b>${_cleanWord(fillText)}</b>: ${note}</span>`;
+            noteEl.innerHTML=`<span class="bfn-icon">💡</span><span class="bfn-text"><b>${_displayLearningWord(r.word)}</b> → <b>${_displayLearningWord(fillText)}</b>: ${note}</span>`;
             box.parentNode.insertBefore(noteEl,box.nextSibling);
           }
         }
@@ -694,7 +735,10 @@ function G_onMC(btn){
     SFX.wrong();
     btn.classList.add('no','done');
     // Record wrong attempt for mastery tracking
-    if(S.q.wordId) S.q._hadWrong=true;
+    if(S.q.wordId){
+      S.q._hadWrong=true;
+      if(S.lang==='english_ielts')_recordEnglishSingle(S.q,false);
+    }
     // Fade the eliminated button so remaining options are visually clearer
     setTimeout(()=>{ btn.style.opacity='0.6'; },600);
     // listeningWord: other buttons are still mc-locked until audio finishes.
@@ -773,7 +817,7 @@ function G_stPut(i){
   SFX.click();
   const st=S.st;
   const word=st.avail[i];
-  if(word) TTS.say(_cleanWord(word),LC[S.lang].ttsLang,0.9);
+  if(word) TTS.say(_displayLearningWord(word),LC[S.lang].ttsLang,0.9);
 
   const q=S.q;
   // Use answerTiles (per-token array) when available; fall back to splitting answerClean
@@ -796,7 +840,7 @@ function G_stPut(i){
   
   // 檢查：1. 磁鐵文字完全一樣 OR 2. 磁鐵文字屬於該單字的其中一個時態變形
   const isAcceptedForm = wordForms.length > 0 && wordForms.includes(tappedClean);
-  const isCorrect = tappedClean === expectedClean || (isAcceptedForm && wordForms.includes(expectedClean));
+  const isCorrect = tappedClean === expectedClean || (S.lang!=='english_ielts'&&isAcceptedForm&&wordForms.includes(expectedClean));
   // --- 精確修正段落結束 ---
 
 
@@ -1270,7 +1314,7 @@ function renderMatching(q){
 
     const dispVal=(it.side==='word'&&lc2.type==='japanese')
       ?jpRuby(it.val, q.pairs.find(p=>p.word===it.val)?.reading||null)
-      :_cleanWord(it.val); // 清理符號
+      :(lc2.type==='ielts'&&it.side==='meaning'?it.val.trim():_displayLearningWord(it.val));
 
 
     const langAttr=(it.side==='word'&&lc2.type==='japanese')?' lang="ja"':'';
@@ -1295,7 +1339,9 @@ function G_onMatchBtn(btn){
     const word=decodeURIComponent(enc);
 
 
-    TTS.say(_cleanWord(word),LC[S.lang].ttsLang,0.9);
+    const r=Store.getById(S.lang,id);
+    const spoken=S.lang==='english_ielts'?_englishSpeech(r,word):_cleanWord(word);
+    _sayLearning(r,spoken,LC[S.lang].ttsLang,0.9);
 
 
   }
@@ -1326,7 +1372,12 @@ function G_onMatch(side,id,encVal){
   const wId=side==='word'?id:m.sel.id;
   const xId=side==='meaning'?id:m.sel.id;
   if(wId===xId){
-    SFX.pop();m.hit.push(id);Prog.rec(S.lang,id,true);m.sel=null;refreshMatch();
+    SFX.pop();m.hit.push(id);
+    if(S.lang==='english_ielts'){
+      S.q._matchHit=[...m.hit];
+      _recordEnglishMatch(S.q,id,true);
+    }else Prog.rec(S.lang,id,true);
+    m.sel=null;refreshMatch();
     if(m.hit.length===S.q.pairs.length){
       // BUG-FIX: finishQuestion(true, null) for matching — wordId is null because
       // individual Prog.rec() calls already handled each word's SRS above.
@@ -1337,13 +1388,18 @@ function G_onMatch(side,id,encVal){
   } else {
     SFX.wrong();
     // Record wrong attempt for both words in the failed pair
-    Prog.rec(S.lang,m.sel.id,false);
-    Prog.rec(S.lang,id,false);
+    if(S.lang==='english_ielts'){
+      _recordEnglishMatch(S.q,m.sel.id,false);
+      _recordEnglishMatch(S.q,id,false);
+    }else{
+      Prog.rec(S.lang,m.sel.id,false);
+      Prog.rec(S.lang,id,false);
+    }
     // BUG FIX (matching score): mark question as having had a wrong attempt so
     // finishQuestion correctly computes realOk=false → score.no++ instead of ok++.
     if(S.q) S.q._hadWrong=true;
     m.wrong=[{id:m.sel.id,side:m.sel.side},{id,side}];m.sel=null;refreshMatch();
-    setTimeout(()=>{m.wrong=[];refreshMatch();},700);
+    setTimeout(()=>{m.wrong=[];if(S.mt===m)refreshMatch();},700);
   }
 }
 
@@ -1709,7 +1765,7 @@ function _revCardHtml(r,lc){
   // 3. English phrases retain their leading articles and any authored TTS text.
   const isFav=Prog.isFav(r.lang,r.id);
   const reviewWord=lc.type==='ielts'?_getCoreWord(r.word):_cleanWord(r.word);
-  const reviewTts=lc.type==='ielts'?(r.tts_override||r.word):r.word;
+  const reviewTts=lc.type==='ielts'?_englishSpeech(r):r.word;
   return `<div class="r-card" onclick="G_toggleRevCard(this)">
     <div class="r-card-toggle">
       <div style="flex:1;min-width:0;">
@@ -1721,7 +1777,7 @@ function _revCardHtml(r,lc){
       </div>
       <div style="display:flex;align-items:center;gap:8px;flex-shrink:0;">
         <button class="r-fav${isFav?' on':''}" data-lang="${r.lang}" data-id="${r.id.replace(/"/g,'&quot;')}" onclick="event.stopPropagation();G_toggleFav(this)">${isFav?'❤️':'🤍'}</button>
-        <button class="r-tts" data-word="${reviewTts.replace(/"/g,'&quot;')}" data-lang="${lc.ttsLang}" onclick="event.stopPropagation();TTS.say(this.dataset.word,this.dataset.lang,0.9)">🔊</button>
+        <button class="r-tts" data-word="${reviewTts.replace(/"/g,'&quot;')}" data-lang="${lc.ttsLang}" data-vlang="${r.lang}" data-id="${r.id}" onclick="event.stopPropagation();G_reviewSpeak(this)">🔊</button>
       </div>
     </div>
     ${hasExtra?`<div class="r-card-chevron-row"><span class="r-chev">▾</span></div>
@@ -1741,6 +1797,11 @@ function _revCardHtml(r,lc){
       </div>
     </div>`:''}
   </div>`;
+}
+
+function G_reviewSpeak(btn){
+  _cancelQueuedTTS();
+  _sayLearning(Store.getById(btn.dataset.vlang,btn.dataset.id),btn.dataset.word,btn.dataset.lang,0.9);
 }
 
 function G_toggleRevCard(card){

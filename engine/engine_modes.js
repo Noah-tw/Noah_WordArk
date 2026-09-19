@@ -18,6 +18,37 @@ function _deRoot(w){
   return w?(w.replace(/^(der|die|das|den|dem|des|ein|eine|einen|einem|eines)\s+/i,'')).toLowerCase():'';
 }
 
+// A citation-form override belongs to that headword, never to a different
+// inflection or a complete sentence. All English word buttons use this resolver.
+function _englishSpeech(record,text){
+  const spoken=_getCoreWord(text==null?record?.word:text);
+  if(record?.tts_override&&spoken.toLowerCase()===_getCoreWord(record.word).toLowerCase())return record.tts_override;
+  return spoken.replace(/\.{3}|…/g,'something');
+}
+function _sayLearning(record,text,lang,rate=0.9,patient=true,onEnded=null){
+  if(record?.lang==='english_ielts')TTS.sayRecord(record,text,lang,rate,patient,onEnded);
+  else TTS.say(text,lang,rate,patient,onEnded);
+}
+function _englishOptionRecords(record,answer,others,labels){
+  const ids=Object.create(null);ids[answer]=record.id;
+  others.forEach((r,i)=>{if(labels[i]&&labels[i]!=='—')ids[labels[i]]=r.id;});
+  return ids;
+}
+function _englishUniqueRecords(records,answer){
+  const seen=new Set([_getCoreWord(answer).normalize('NFKC').toLowerCase()]);
+  return records.filter(r=>{
+    const key=_getCoreWord(r.word).normalize('NFKC').toLowerCase();
+    if(!key||seen.has(key))return false;
+    seen.add(key);return true;
+  });
+}
+function _englishOptionSpeech(record,answer,others,labels){
+  const speech=Object.create(null);
+  speech[answer]=_englishSpeech(record,answer);
+  others.forEach((r,i)=>{if(labels[i]&&labels[i]!=='—')speech[labels[i]]=_englishSpeech(r,labels[i]);});
+  return speech;
+}
+
 function genDefinition(r,pool,lc){
   // German: pre-filter pool to exclude same-root words before meaning selection
   // so "der Zug" (train) doesn't compete with "ziehen" (to pull) as distractor
@@ -221,6 +252,27 @@ function _formInSent(sent,form,isJP){
   return LangRules.formInSentence(sent,form,isJP);
 }
 
+function _englishFormsInSentence(r,sentence){
+  const forms=LangRules.expandForms(r.word,[...(r.forms||[]),...(WordForms[r.id]||[])],r.lang);
+  const escape=s=>s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+  const expanded=[...forms];
+  for(const form of forms){
+    let pattern;
+    if(/\.{3}|…/.test(form)){
+      // Resolve the object actually present in this example: keep ... at bay
+      // becomes keep stress at bay / kept serious financial trouble at bay.
+      pattern=form.split(/\.{3}|…/).map(escape).join("[\\p{L}\\p{N}][\\p{L}\\p{N}\\s’'\\-]{0,100}?");
+    }else if(form===r.word&&form.endsWith('-')){
+      // A prefix card blanks the complete example word, including its plural.
+      pattern=escape(form)+'[\\p{L}\\p{N}]+(?:-[\\p{L}\\p{N}]+)*';
+    }
+    if(!pattern)continue;
+    const match=sentence.match(new RegExp('(^|[^\\p{L}\\p{N}])('+pattern+')(?![\\p{L}\\p{N}])','iu'));
+    if(match)expanded.push(match[2]);
+  }
+  return [...new Set(expanded)];
+}
+
 function _blankSentences(r,lc){
   // Return all sentence slots that contain the target word or any of its forms (case-insensitive)
   const isJP=lc.type==='japanese';
@@ -233,7 +285,7 @@ function _blankSentences(r,lc){
     {sent:r.sentence2, sentReading:r.sentence2_reading||null, sentEn:r.sentence2_en||null},
     {sent:r.sentence3, sentReading:r.sentence3_reading||null, sentEn:r.sentence3_en||null},
   ];
-  return slots.filter(s=>s.sent&&allForms.some(form=>_formInSent(s.sent,form,isJP)));
+  return slots.filter(s=>s.sent&&(r.lang==='english_ielts'?_englishFormsInSentence(r,s.sent):allForms).some(form=>_formInSent(s.sent,form,isJP)));
 }
 
 
@@ -252,7 +304,7 @@ function genBlank(r,pool,lc){
     return genDefinition(r,pool,lc);
   }
   // Prefer a sentence slot not already used by sentenceTiles for this word this session
-  const usedSent=r._usedSentInSession||null;
+  const usedSent=r._usedSentInSession||(r.lang==='english_ielts'?Prog.get(r.lang,r.id).learn?.lastSentence:null)||null;
   const preferred=eligible.filter(s=>s.sent!==usedSent);
   const pool2=preferred.length?preferred:eligible;
   const chosen=pool2[0|Math.random()*pool2.length];
@@ -276,7 +328,7 @@ function genBlank(r,pool,lc){
   // even though the engine correctly expanded sprechen→spricht in canBlank().
   // Solution: call _blankSentences() to get back the expanded allForms via a side-channel.
   // We throw away the slot results and just use the expanded form list.
-  const allForms=LangRules.expandForms(r.word, [...(r.forms||[]), ...(WordForms[r.id]||[])], r.lang);
+  const allForms=r.lang==='english_ielts'?_englishFormsInSentence(r,sentRaw):LangRules.expandForms(r.word, [...(r.forms||[]), ...(WordForms[r.id]||[])], r.lang);
 
   const sentLower=sentRaw.toLowerCase();
   const sortedForms=[...allForms].sort((a,b)=>b.length-a.length);
@@ -296,7 +348,7 @@ function genBlank(r,pool,lc){
   const _sentForBlankMatch=sentRaw.replace(/[\u2018\u2019\u02bc\u0060]/g,"'");
   const _blankMatch=_sentForBlankMatch.match(new RegExp(blankRegexStr.replace(/[\u2018\u2019\u02bc\u0060]/g,"'"),'iu'));
   // For non-JP, match[0] includes the leading boundary char — extract the actual word (group 1 or full)
-  const _casedForm=_blankMatch?(_blankMatch[1]!==undefined&&!isJP?_blankMatch[0].replace(/^[^\p{L}\p{N}]/u,''):_blankMatch[0]):matchedForm;
+  let _casedForm=_blankMatch?(_blankMatch[1]!==undefined&&!isJP?_blankMatch[0].replace(/^[^\p{L}\p{N}]/u,''):_blankMatch[0]):matchedForm;
 
   // BUG-FIX #12 (JP first-match kanji sabotage): regex .replace() hits the FIRST occurrence.
   // For a word like 日, the sentence 日曜日は日本に行きます has 日 inside 日曜日 first.
@@ -319,6 +371,14 @@ function genBlank(r,pool,lc){
     });
     // If every occurrence was flanked (pure embedded kanji), fall back to first occurrence
     if(!replaced) blankedRaw=sentRaw.replace(new RegExp(fullFormEsc,'u'),blankToken);
+  } else if(r.lang==='english_ielts'){
+    // Match against normalized apostrophes, then slice the ORIGINAL sentence.
+    // This preserves its apostrophe style, capitalization and the complete article.
+    if(!_blankMatch)return genDefinition(r,pool,lc);
+    const start=_blankMatch.index+(_blankMatch[1]||'').length;
+    const end=_blankMatch.index+_blankMatch[0].length;
+    _casedForm=sentRaw.slice(start,end);
+    blankedRaw=sentRaw.slice(0,start)+blankToken+sentRaw.slice(end);
   } else {
     blankedRaw=sentRaw.replace(new RegExp(blankRegexStr,'iu'),(m,g1)=>(g1||'')+blankToken);
   }
@@ -335,14 +395,17 @@ function genBlank(r,pool,lc){
   // in "Venez tous ici") could become distractors against the blanked word ("tous"),
   // effectively leaking the answer context and making the question misleading.
   // Fix: exclude any word (or its forms) that appears in the target sentence.
-  const dRecs=shuffle(pool.filter(x=>{
+  let dRecs=shuffle(pool.filter(x=>{
     if(x.id===r.id) return false;
     if(!x.word) return false;
+    if(r.lang==='english_ielts'&&r.forbidden_distractors?.has(x.word))return false;
     const xWord = x.word.replace(/\|/g,' ').toLowerCase();
     if(sentLowerForDistract.includes(xWord)) return false;
     if((x.forms||[]).some(f=>f&&sentLowerForDistract.includes(f.replace(/\|/g,' ').toLowerCase()))) return false;
     return true;
-  })).slice(0,3);
+  }));
+  if(r.lang==='english_ielts')dRecs=_englishUniqueRecords(dRecs,ansWord);
+  dRecs=dRecs.slice(0,3);
   const dWordsRaw=dRecs.map(x=>isJP&&x.reading?jpRuby(x.word,x.reading):_blankDisplayWord(x.word)).filter(w=>w&&w!==ansWord);
   // BUG FIX: If ansWord is capitalised (sentence-start), capitalise all distractors too.
   // Otherwise the capital letter on the correct MC button gives the answer away instantly.
@@ -355,7 +418,7 @@ function genBlank(r,pool,lc){
 
   const tts=isJP?(sentReading||sentRaw):sentRaw;
   const displayBadge=isJP&&r.reading&&r.word!==r.reading?jpRuby(r.word,r.reading):_blankDisplayWord(r.word);
-  const acceptedForms=allForms.map(f=>isJP?wordHtml:_blankDisplayWord(f));
+  const acceptedForms=r.lang==='english_ielts'?[ansWord]:allForms.map(f=>isJP?wordHtml:_blankDisplayWord(f));
 
   return {mode:'blank',wordId:r.id,lang:r.lang,
     displayWord:r.word, displayBadge,
@@ -366,6 +429,8 @@ function genBlank(r,pool,lc){
     answer:ansWord, options:shuffle([ansWord,...dWords]),
     acceptedForms,
     optMeanings,
+    optSpeech:r.lang==='english_ielts'?_englishOptionSpeech(r,ansWord,dRecs,dWords):null,
+    optRecords:r.lang==='english_ielts'?_englishOptionRecords(r,ansWord,dRecs,dWords):null,
     tts,
     sentence1:sentRaw||null, sentence1_reading:sentReading||null,
     fillWord,
@@ -576,7 +641,7 @@ function canSentenceTiles(r,lc){
 
 function genListeningWord(r,pool,lc){
   const isJP=lc.type==='japanese';
-  const ttsWord=isJP?(r.reading||r.word):(r.tts_override||r.word);
+  const ttsWord=isJP?(r.reading||r.word):(r.lang==='english_ielts'?_englishSpeech(r):(r.tts_override||r.word));
   // BUG FIX (furigana cheat): in listening mode the player must identify the kanji by ear.
   // jpRuby() would print the hiragana reading directly on the button, bypassing the test.
   // Use the raw word (kanji only) so they must link the sound to the written form.
@@ -584,7 +649,7 @@ function genListeningWord(r,pool,lc){
   const _fdL=r.forbidden_distractors||null;
   const _ansRoot=_deRoot(r.word);
   const _ansCleanL=r.word.toLowerCase();
-  const dWRecs=shuffle(pool.filter(x=>{
+  let dWRecs=shuffle(pool.filter(x=>{
     if(x.id===r.id)return false;
     if(_fdL&&_fdL.has(x.word))return false;
     // German: exclude same-root different-article distractors
@@ -592,7 +657,9 @@ function genListeningWord(r,pool,lc){
     // All: exclude visually too-similar words (Levenshtein <= 2)
     if(_lev(_ansCleanL,x.word.toLowerCase())<=2)return false;
     return true;
-  })).slice(0,3);
+  }));
+  if(r.lang==='english_ielts')dWRecs=_englishUniqueRecords(dWRecs,ansWord);
+  dWRecs=dWRecs.slice(0,3);
   const dWordsW=padArr(dWRecs.map(x=>x.word),3);
   const optMW={};
   optMW[ansWord]=r.meaning||'';
@@ -607,6 +674,8 @@ function genListeningWord(r,pool,lc){
     answer:ansWord,
     options:shuffle([ansWord,...dWordsW]),
     optMeanings:optMW,
+    optSpeech:r.lang==='english_ielts'?_englishOptionSpeech(r,ansWord,dWRecs,dWordsW):null,
+    optRecords:r.lang==='english_ielts'?_englishOptionRecords(r,ansWord,dWRecs,dWordsW):null,
     tts:ttsWord,
     meta:{revealWord:ansWord, meaning:r.meaning}};
 }
@@ -1095,6 +1164,7 @@ function buildQueue(recs, modeIds, pool, lc) {
   // produces biased orderings in V8/JSCore. Correct approach: randomise first, then partition.
   function _shuffleThenRecent(arr){
     const s=shuffle([...arr]);
+    if(lc.type==='ielts')return s.sort((a,b)=>(Prog.get(lc.id,a.id).learn?.lastSeen||0)-(Prog.get(lc.id,b.id).learn?.lastSeen||0));
     const notRecent=s.filter(r=>!S.lastSessionWords.has(r.id));
     const recent=s.filter(r=>S.lastSessionWords.has(r.id));
     return [...notRecent,...recent];
@@ -1102,6 +1172,19 @@ function buildQueue(recs, modeIds, pool, lc) {
   categorized.new       =_shuffleThenRecent(categorized.new);
   categorized.unfamiliar=_shuffleThenRecent(categorized.unfamiliar);
   categorized.mastered  =_shuffleThenRecent(categorized.mastered);
+
+  if(lc.type==='ielts'){
+    // Four of the eight practice places sustain a small current learning set;
+    // the other places advance through the least-recently seen practice words.
+    // No due dates, daily quotas or growing backlog. Selection is exposure-based.
+    const current=categorized.unfamiliar.filter(r=>Prog.get(lc.id,r.id).learn?.lastSeen)
+      .slice(-24).sort((a,b)=>{
+        const pa=Prog.get(lc.id,a.id).learn,pb=Prog.get(lc.id,b.id).learn;
+        return (pa.lastSeen||0)-(pb.lastSeen||0);
+      }).slice(0,4);
+    const ids=new Set(current.map(r=>r.id));
+    categorized.unfamiliar=[...current,...categorized.unfamiliar.filter(r=>!ids.has(r.id))];
+  }
 
   // C. Quota: unfamiliar → new → mastered, gaps filled by remaining new.
   // Ratios (not hardcoded counts): preserves the original 20:5:5-out-of-30 split
@@ -1144,8 +1227,10 @@ function buildQueue(recs, modeIds, pool, lc) {
   // D. Shuffle selected words, update lastSessionWords and persist (BUG-6 FIX)
   const prevSession = new Set(S.lastSessionWords); // snapshot BEFORE overwriting
   const sh = shuffle(selected);
-  S.lastSessionWords = new Set(sh.map(r => r.id));
-  Prog.saveLastSession(S.lastSessionWords); // BUG-6 FIX: survive page reload
+  if(lc.type!=='ielts'){
+    S.lastSessionWords = new Set(sh.map(r => r.id));
+    Prog.saveLastSession(S.lastSessionWords);
+  }
   // How many of this round's words are fresh (weren't in the previous round)
   S.freshCount = sh.filter(r => !prevSession.has(r.id)).length;
   
@@ -1155,7 +1240,8 @@ function buildQueue(recs, modeIds, pool, lc) {
   // BUG-7 FIX: scale bank size with pool so distractors don't repeat at large vocab sizes.
   // Minimum 60, maximum 200, proportional at 15% of pool for mid-sizes.
   const BANK_SIZE = Math.min(200, Math.max(60, Math.ceil(pool.length * 0.15)));
-  const bank = pool.length <= BANK_SIZE ? shuffle([...pool]) : shuffle([...pool]).slice(0, BANK_SIZE);
+  const distractorPool=lc.type==='ielts'&&pool.length<12?Store.getAll():pool;
+  const bank = distractorPool.length <= BANK_SIZE ? shuffle([...distractorPool]) : shuffle([...distractorPool]).slice(0, BANK_SIZE);
 
   const GEN = {
     definition:    r => canDefinition(r)         ? genDefinition(r, bank, lc) : null,
@@ -1175,6 +1261,28 @@ function buildQueue(recs, modeIds, pool, lc) {
   // 'matching' is still excluded here because IELTS only has 3 modes by design (blank/listening/matching)
   // and matching is handled via the useM flag above.
   const singles = modeIds.filter(m => m !== 'matching');
+  if(lc.type==='ielts'&&useM&&!singles.length){
+    let remaining=[...sh];
+    while(remaining.length>=2){
+      const match=genMatchingSet(remaining,lc,3);
+      if(!match)break;
+      q.push(match);
+      const ids=new Set(match.wordIds);
+      remaining=remaining.filter(r=>!ids.has(r.id));
+    }
+    // Cover a final unpaired word by revisiting one compatible partner.
+    for(const record of remaining){
+      for(const partner of sh.filter(r=>r.id!==record.id)){
+        const match=genMatchingSet([record,partner],lc,2);
+        if(match){q.push(match);break;}
+      }
+    }
+    return q;
+  }
+  const canGenerate={definition:canDefinition,spelling:r=>canSpelling(r,pool),
+    blank:r=>canBlank(r,lc),sentenceTiles:r=>canSentenceTiles(r,lc),listening:canListening,
+    characterTiles:r=>canCharacterTiles(r,lc),reading:r=>canReading(r,lc),kanaSpelling:r=>canKanaSpelling(r,lc)};
+  const modeCounts={},modeHistory=[];
   
   const soloShown = new Set();
   const matchPending = [];
@@ -1183,11 +1291,31 @@ function buildQueue(recs, modeIds, pool, lc) {
   // not a short gloss like the other languages, so 5 pairs makes each matching
   // column very tall/cluttered. Smaller set for IELTS only; unaffected elsewhere.
   const matchSize = lc.type === 'ielts' ? 3 : 5;
+  const varyEnglishMatching = lc.type === 'ielts';
 
   for (let _i = 0; _i < sh.length; _i++) {
     const r = sh[_i];
     const isNewWord = Prog.status(lc.id, r.id) === 'new';
-    let eligible = singles.map(m => GEN[m] ? GEN[m](r) : null).filter(Boolean);
+    let eligible;
+    if(lc.type==='ielts'){
+      // Generate only the chosen mode: unused generators must not consume example
+      // rotation. Balance types with random ties and avoid runs of three when possible.
+      let choices=singles.filter(m=>GEN[m]&&canGenerate[m]?.(r));
+      const previousMode=modeHistory[modeHistory.length-1];
+      if(choices.length>1&&modeHistory.length>=2&&previousMode===modeHistory[modeHistory.length-2]){
+        choices=choices.filter(m=>m!==previousMode);
+      }
+      const last=Prog.get(lc.id,r.id).learn?.lastMode;
+      choices=choices.map(m=>({m,rank:(modeCounts[m]||0)+(m===last?0.8:0)+Math.random()*2}))
+        .sort((a,b)=>a.rank-b.rank).map(x=>x.m);
+      eligible=[];
+      for(const m of choices){
+        const question=GEN[m](r);
+        if(question){
+          eligible=[question];modeCounts[m]=(modeCounts[m]||0)+1;modeHistory.push(m);break;
+        }
+      }
+    }else eligible = singles.map(m => GEN[m] ? GEN[m](r) : null).filter(Boolean);
     // BUG FIX (cross-mode pedagogy): a brand-new word should never be first introduced
     // via listening mode — hearing unknown audio with no visual context is not a valid
     // learning event. Filter out listening questions for truly new words; prefer definition.
@@ -1201,21 +1329,58 @@ function buildQueue(recs, modeIds, pool, lc) {
       since++;
     }
     
-    if (useM && since >= 6) {
+    if (useM && !varyEnglishMatching && since >= 6) {
       const fresh = sh.slice(0, _i + 1).filter(x => !soloShown.has(x.id) || matchPending.includes(x));
       const mq = genMatchingSet(fresh.length >= 2 ? fresh : sh.slice(Math.max(0, _i - 9), _i + 1), lc, matchSize);
       if (mq) { q.push(mq); since = 0; }
     }
   }
   
-  if (useM && since > 0 && sh.length >= MATCH_MIN) {
+  if (useM && !varyEnglishMatching && since > 0 && sh.length >= MATCH_MIN) {
     const unseen = sh.filter(x => !soloShown.has(x.id));
     const matchPool = unseen.length >= 2 ? unseen : sh;
     const mq = genMatchingSet(matchPool, lc, Math.min(matchSize, matchPool.length));
     if (mq) q.push(mq);
   }
+
+  if(useM && varyEnglishMatching && q.length >= MATCH_MIN){
+    // Keep two three-pair sets in a normal 12-word round, but vary their
+    // positions. At least three solo questions precede/between matching sets.
+    // Only words already introduced by a solo question may enter a set.
+    const solos=q.slice();
+    const numberOfSets=Math.ceil(solos.length/6);
+    const byId=new Map(sh.map(r=>[r.id,r]));
+    const introduced=[];
+    const candidateSets=new Map();
+    solos.forEach((single,index)=>{
+      const record=byId.get(single.wordId);
+      if(record)introduced.push(record);
+      if(index>=2){
+        const mq=genMatchingSet(introduced,lc,matchSize);
+        if(mq)candidateSets.set(index+1,mq);
+      }
+    });
+    const schedules=[];
+    function collectSchedules(start,slots,minimumPairs){
+      if(slots.length===numberOfSets){schedules.push(slots);return;}
+      const remaining=numberOfSets-slots.length-1;
+      for(let slot=start;slot<=solos.length-remaining*3;slot++){
+        if((candidateSets.get(slot)?.pairs.length||0)>=minimumPairs){
+          collectSchedules(slot+3,[...slots,slot],minimumPairs);
+        }
+      }
+    }
+    // Avoid making a normal set easier merely because it occurs earlier.
+    // Small/repetitive pools may legitimately support only two distinct pairs.
+    collectSchedules(3,[],matchSize);
+    if(!schedules.length)collectSchedules(3,[],2);
+    const after=new Set(schedules[0|Math.random()*schedules.length]||[]);
+    q.length=0;
+    solos.forEach((single,index)=>{
+      q.push(single);
+      if(after.has(index+1))q.push(candidateSets.get(index+1));
+    });
+  }
   
   return q;
 }
-
-

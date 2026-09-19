@@ -59,6 +59,35 @@ let _sessionTimer=null;
 // so either one can otherwise finish late and overwrite the current language's screen.
 let _langSwitchSeq=0;
 let _sessionBuildSeq=0;
+let _roundSequence=0;
+
+function _rememberEnglishQuestion(q){
+  if(S.lang!=='english_ielts')return;
+  const ids=q.wordId?[q.wordId]:(q.wordIds||[]);
+  if(!S._roundWords)S._roundWords=new Set();
+  ids.forEach(id=>{
+    Prog.touch(S.lang,id,q.mode.startsWith('listening')?'listening':q.mode,q.sentence1);
+    S._roundWords.add(id);
+  });
+  S.lastSessionWords=new Set(S._roundWords);
+  Prog.saveLastSession(S.lastSessionWords);
+}
+function _englishEvidence(q,independent){
+  return {round:S._roundKey,independent:!!independent,assisted:!!(q._assisted||q._introduced)};
+}
+function _recordEnglishSingle(q,ok){
+  if(q._graded)return;
+  q._graded=true;
+  const independent=ok&&!q._assisted&&!q._introduced&&!q._skipped&&
+    ['blank','listeningWord'].includes(q.mode)&&q.options?.filter(o=>o&&o!=='—').length>=3;
+  Prog.rec(S.lang,q.wordId,ok,_englishEvidence(q,independent));
+}
+function _recordEnglishMatch(q,id,ok){
+  if(!q._matchOutcomes)q._matchOutcomes=Object.create(null);
+  if(q._matchOutcomes[id])return;
+  q._matchOutcomes[id]=ok?'correct':'wrong';
+  Prog.rec(S.lang,id,ok,{round:S._roundKey,independent:false,assisted:!!q._matchHintIds?.includes(id)});
+}
 
 function cancelSessionBuild(){
   _sessionBuildSeq++;
@@ -119,6 +148,9 @@ function _doStartSession(buildSeq){
 
 
   S.introSeen=new Set();
+  S._roundKey=Date.now().toString(36)+'-'+(++_roundSequence)+'-'+Math.random().toString(36).slice(2,9);
+  S._roundWords=new Set();
+  S._introCard=null;S._cardFlow=null;
   S.phase='waiting';
   const buildLang=S.lang;
   const fromRound=S.fromRound; // capture before resetting
@@ -146,7 +178,7 @@ function _doStartSession(buildSeq){
     S.qi=0;S.score={ok:0,no:0};
     S.goal=S.queue.length;
     S.statsSnapshot=Prog.stats(buildLang); // snapshot before round for end-of-round delta
-    if(!S.queue.length){S._lessonAutoStart=false;toast('Enable more question modes.');return;}
+    if(!S.queue.length){S._lessonAutoStart=false;showEmpty();toast('Choose more words or enable another question mode.');return;}
     // LESSON AUTO-START: skip ready screen and go straight into the round
     if(S._lessonAutoStart){
       S._lessonAutoStart=false;
@@ -344,6 +376,7 @@ function loadQ(preserveTTSUnlock=false){
   if(S.qi>=S.queue.length){showComplete();return;}
   const q=S.queue[S.qi];
   S.q=q; S.phase='waiting';
+  S._introCard=null;S._cardFlow=null;
   S.ct={slots:[],bank:[],wrongCount:0};
   // Reshuffle tile order on replay so player can't rely on position memory
   if((q.mode==='sentenceTiles'||q.mode==='listeningSentence')&&q._seenBefore){
@@ -351,7 +384,7 @@ function loadQ(preserveTTSUnlock=false){
   }
   if(q.mode==='sentenceTiles'||q.mode==='listeningSentence') q._seenBefore=true;
   S.st={placed:[],avail:q.tiles?[...q.tiles]:[]};
-  S.mt={sel:null,hit:[],wrong:[]};
+  S.mt={sel:null,hit:S.lang==='english_ielts'?[...(q._matchHit||[])]:[],wrong:[]};
 
   // INTERSTITIAL CARD: every 5 questions, show an encouragement or language tip card.
   // BUG FIX: this must increment BEFORE the new-word intro check below. Intro cards
@@ -364,10 +397,21 @@ function loadQ(preserveTTSUnlock=false){
   const wordId=q.wordId||null;
   const isNew=wordId&&Prog.status(S.lang,wordId)==='new';
   const alreadyIntro=wordId&&S.introSeen.has(S.lang+':'+wordId);
+  if(wordId)_rememberEnglishQuestion(q);
   if(isNew&&!alreadyIntro&&q.mode!=='matching'){
     if(wordId) S.introSeen.add(S.lang+':'+wordId);
+    if(S.lang==='english_ielts')q._introduced=true;
     showIntroCard(q);
     return; // question renders after "Got it" tap
+  }
+
+  if(S.lang==='english_ielts'&&q.mode==='matching'){
+    const newIds=q.wordIds.filter(id=>Prog.status(S.lang,id)==='new'&&!S.introSeen.has(S.lang+':'+id));
+    if(newIds.length){
+      _showEnglishCardFlow(newIds,'new',()=>{_rememberEnglishQuestion(q);renderQ(q);refreshMatch();});
+      return;
+    }
+    _rememberEnglishQuestion(q);
   }
 
   if(S._interstitialCount >= 5 && q.mode !== 'matching'){
@@ -377,6 +421,7 @@ function loadQ(preserveTTSUnlock=false){
   }
 
   renderQ(q);
+  if(S.lang==='english_ielts'&&q.mode==='matching')refreshMatch();
   if(q.tts){
     // BUG-FIX (sentenceTiles double TTS): sentenceTiles shows the sentence as text,
     // so auto-play is not needed — the wc-top 🔊 button is there for voluntary replay.
@@ -401,9 +446,9 @@ function loadQ(preserveTTSUnlock=false){
       // that window, so once Google fails and it drops to native voice, the
       // scheduled auto-play went silent and only a manual 🔊 tap (a real gesture)
       // could produce sound. Calling say() here keeps it inside the live gesture.
-      TTS.say(q.tts,LC[S.lang].ttsLang,0.85,false);
+      _sayLearning(Store.getById(S.lang,q.wordId),q.tts,LC[S.lang].ttsLang,0.85,false);
     } else if(!isSentenceTiles && !isBlank){
-      _scheduleQueuedTTS(()=>TTS.say(q.tts,LC[S.lang].ttsLang,0.85),300);
+      _scheduleQueuedTTS(()=>_sayLearning(Store.getById(S.lang,q.wordId),q.tts,LC[S.lang].ttsLang,0.85),300);
     }
   }
 }
@@ -415,8 +460,11 @@ function finishQuestion(ok,wordId){
   // GUARD FIX: use explicit boolean check instead of relying on !undefined === true,
   // so behaviour is predictable even if S.q is null during rapid page transitions.
   const hadWrong = S.q != null && S.q._hadWrong === true;
-  const realOk = ok && !hadWrong;
-  if(wordId)Prog.rec(S.lang,wordId,realOk);
+  const realOk = ok && !hadWrong && !(S.lang==='english_ielts'&&S.q?._assisted);
+  if(wordId){
+    if(S.lang==='english_ielts')_recordEnglishSingle(S.q,ok&&!hadWrong);
+    else Prog.rec(S.lang,wordId,realOk);
+  }
   // BUG FIX (score illusion): mirror realOk so the end-of-round % reflects actual
   // first-try accuracy, not "eventually got it right after many wrong taps".
   // BUG FIX (score gap): plain else ensures every question lands in exactly one bucket.
@@ -434,6 +482,7 @@ function finishQuestion(ok,wordId){
 function G_next(){
   TTS.stop(); SFX.click(true); // skipBonus: next question's TTS.say() fires right after
   const q=S.q;
+  if(S.lang==='english_ielts'&&q?.mode==='matching'&&_showEnglishMatchReview(q,()=>{S.qi++;loadQ();}))return;
   // A question the player answered wrong (or used a hint on) already recorded
   // that in Prog via finishQuestion() the moment they got it right — but nothing
   // ever showed the word's card again. Surface it here, once, right as they're
@@ -443,7 +492,7 @@ function G_next(){
   // `_reviewShown` guards against a question showing the card twice — see G_skip(),
   // which can also trigger it (when the player skips away from a question they'd
   // already gotten wrong, instead of sticking around to eventually answer it here).
-  if(q && q.wordId && q._hadWrong && q.mode!=='matching' && !q._reviewShown){
+  if(q && q.wordId && (q._hadWrong||q._assisted) && q.mode!=='matching' && !q._reviewShown){
     q._reviewShown=true;
     showIntroCard(q,'review');
     return; // next question loads once G_reviewDone() fires (the "Got it" tap)
@@ -453,7 +502,8 @@ function G_next(){
 function G_hint(){
   SFX.hint();
   const q=S.q;if(!q||S.phase==='done')return;
-  if(q.wordId) q._hadWrong=true;
+  if(S.lang==='english_ielts')q._assisted=true;
+  else if(q.wordId)q._hadWrong=true;
 
   // ── Sentence tiles: glow the next correct tile in the bank ──
   if(q.mode==='sentenceTiles'||q.mode==='listeningSentence'){
@@ -477,6 +527,10 @@ function G_hint(){
     const unmatched=q.pairs.filter(p=>!S.mt.hit.includes(p.id));
     if(!unmatched.length)return;
     const pair=unmatched[0|Math.random()*unmatched.length];
+    if(S.lang==='english_ielts'){
+      if(!q._matchHintIds)q._matchHintIds=[];
+      if(!q._matchHintIds.includes(pair.id))q._matchHintIds.push(pair.id);
+    }
     const allBtns=qsa('.mbtn');
     allBtns.forEach(b=>{
       if(b.dataset.id===pair.id&&!b.classList.contains('hit')){
@@ -531,6 +585,30 @@ function G_skip(){
   SFX.click(true); // skipBonus: next question's TTS.say() fires right after
   const q=S.q;
   if(!q)return;
+  if(S.lang==='english_ielts'){
+    // Score an outcome once, retain solved pairs on retry, and never penalize an
+    // unattempted skip. A retry is practice and cannot add mastery credit.
+    if(S.phase==='done'){G_next();return;}
+    q._skipped=true;
+    if(q.wordId){
+      if(q._hadWrong)_recordEnglishSingle(q,false);
+      else q._assisted=true;
+    }
+    q._skipCount=(q._skipCount||0)+1;
+    const exhausted=q._skipCount>=S.queue.length-S.qi;
+    if(exhausted){
+      if(!q._scoreClosed){S.score.no++;q._scoreClosed=true;}
+      S.qi++;
+    }else{
+      S.queue.splice(S.qi,1);S.queue.push(q);
+    }
+    if(q.mode==='matching'&&_showEnglishMatchReview(q,()=>loadQ()))return;
+    if(q.wordId&&q._hadWrong&&!q._reviewShown){
+      q._reviewShown=true;showIntroCard(q,'reviewSkip');return;
+    }
+    loadQ();
+    return;
+  }
 
   // BUG-13 FIX: guard against infinite skip loop. If this question has been skipped
   // as many times as there are remaining questions, everyone remaining is unanswerable —
