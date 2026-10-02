@@ -1,10 +1,9 @@
-// en_batch_0011.js — English IELTS batch 11/12
-// 100 entries: en_1001 to en_1100
+// en_batch_0011.js — English IELTS batch 11; WordArk V68
+// 100 active entries: en_1001 to en_1100
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
-
 window.VOCAB_DATA['english_ielts'].push(
-  {
+{
   "id": "en_1001",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -32,7 +31,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1002",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -63,7 +62,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1003",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -95,7 +94,7 @@ window.VOCAB_DATA['english_ielts'].push(
   },
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1004",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -124,7 +123,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1005",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -153,28 +152,32 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1006",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb phrase",
   "word": "be confined to",
-  "meaning": "to be limited to a particular place, range, subject, or group",
+  "meaning": "to be limited so that something exists, happens, or applies only within a particular place or range",
   "ipa": "bi kənˈfaɪnd tuː",
-  "zh": "限於；侷限在",
-  "zh_def": "只存在、發生或適用於某個特定地點、範圍、主題或群體",
+  "zh": "限於",
+  "zh_def": "限於；侷限在某地、範圍、主題或群體",
   "definition": "To be limited so that something exists, happens, or applies only within a particular place or range.",
-  "sentence1": "Access to the laboratory is confined to authorised staff.",
-  "sentence1_en": "只有獲授權人員才能進入這間實驗室。",
-  "sentence1_hl": "Access to the laboratory <b>is confined to</b> authorised staff.",
+  "sentence1": "The rare plant is confined to two islands.",
+  "sentence1_en": "這種稀有植物只分布於兩座島嶼。",
+  "sentence1_hl": "The rare plant <b>is confined to</b> two islands.",
   "sentence2": "Flood damage was confined to the basement.",
   "sentence2_en": "洪災損害僅限於地下室。",
   "sentence3": "The outbreak remained confined to coastal villages.",
   "sentence3_en": "疫情仍侷限於沿海村莊。",
   "tip": "be confined to 是被動形式的固定搭配，be 動詞要隨主詞和時態改變，例如 is confined to、was confined to。",
   "word_map": {
-    "Access to the laboratory": "進入這間實驗室",
-    "is confined to": "僅限於",
-    "authorised staff": "獲授權人員"
+    "be confined to": "限於",
+    "is confined to": "限於",
+    "are confined to": "限於",
+    "was confined to": "限於",
+    "were confined to": "限於",
+    "remained confined to": "限於",
+    "The rare plant is confined to two islands": "這種稀有植物只分布於兩座島嶼"
   },
   "forms": [
     "be confined to",
@@ -187,31 +190,33 @@ window.VOCAB_DATA['english_ielts'].push(
   "form_notes": {
     "be confined to": "be 要依主詞與時態改成 is、are、was 或 were。"
   },
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 15 Academic，Test 4，Reading Passage 1〈The return of the huarango〉（原文 Life has always been confined to corridors and islands here，指生命僅存在於特定範圍）"
 },
-  {
+{
   "id": "en_1007",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
   "word": "transmit",
-  "meaning": "to send information or signals from one place or device to another",
+  "meaning": "to send information or signals from one place, person, or device to another",
   "ipa": "trænzˈmɪt",
-  "zh": "傳送；傳遞",
-  "zh_def": "把資訊或訊號從一處或一個裝置送到另一處或另一個裝置",
+  "zh": "傳送、傳遞（資訊或訊號）",
+  "zh_def": "傳送、傳遞（資訊或訊號）",
   "definition": "To send information or signals from one place, person, or device to another.",
   "sentence1": "The device transmits data to a central server.",
   "sentence1_en": "這個裝置把資料傳送到中央伺服器。",
   "sentence1_hl": "The device <b>transmits</b> data to a central server.",
   "sentence2": "Radio towers transmit signals across the region.",
   "sentence2_en": "無線電塔把訊號傳送到整個地區。",
-  "sentence3": "The sensor can transmit readings every five seconds.",
-  "sentence3_en": "這個感測器可每五秒傳送一次讀數。",
+  "sentence3": "Whistles can transmit messages over long distances.",
+  "sentence3_en": "口哨聲可以把訊息傳到很遠的地方。",
   "tip": "這裡的 transmit 指傳送 data、signals、messages 等資訊；常用 transmit something to + 接收端。",
   "word_map": {
-    "The device": "這個裝置",
-    "transmits": "傳送",
-    "data": "資料",
-    "to a central server": "到中央伺服器"
+    "transmit": "傳送、傳遞（資訊或訊號）",
+    "transmits": "傳送、傳遞（資訊或訊號）",
+    "transmitted": "傳送、傳遞（資訊或訊號）",
+    "transmitting": "傳送、傳遞（資訊或訊號）",
+    "The device transmits data to a central server": "這個裝置把資料傳送到中央伺服器"
   },
   "forms": [
     "transmit",
@@ -219,9 +224,10 @@ window.VOCAB_DATA['english_ielts'].push(
     "transmitted",
     "transmitting"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 15 Academic，Test 4，Reading Passage 2〈Silbo Gomero – the whistle ‘language’ of the Canary Islands〉（原文動名詞 transmitting information over long distances，指遠距傳遞資訊）；另見 The Official Cambridge Guide to IELTS，Academic Reading Test 4，Passage 3〈Homer’s literary legacy〉（2026-10-01 提供詞形：Transmit；正文中的同字或屈折形式；依該段語境判定詞義）；https://engnovate.com/ielts-reading-answers/homers-literary-legacy/"
 },
-  {
+{
   "id": "en_1008",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -251,37 +257,37 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1009",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
   "word": "lobe",
-  "meaning": "one of the main rounded divisions of the brain",
+  "meaning": "one of the main rounded divisions of the brain, each associated with particular functions",
   "ipa": "ləʊb",
   "zh": "（腦的）葉",
-  "zh_def": "腦部劃分出的主要區域之一",
+  "zh_def": "（腦的）葉；腦部劃分出的主要區域之一",
   "definition": "One of the main rounded divisions of the brain, each associated with particular functions.",
   "sentence1": "The frontal lobe supports planning and decision-making.",
   "sentence1_en": "額葉有助於規劃與決策。",
   "sentence1_hl": "The frontal <b>lobe</b> supports planning and decision-making.",
-  "sentence2": "The scan revealed swelling in the parietal lobe.",
-  "sentence2_en": "掃描顯示頂葉有腫脹。",
+  "sentence2": "Language processing involves the temporal lobe.",
+  "sentence2_en": "語言處理涉及顳葉。",
   "sentence3": "Each brain lobe has specialised functions.",
   "sentence3_en": "每個腦葉都有特定功能。",
   "tip": "lobe 在此指腦葉，常見 frontal lobe（額葉）、temporal lobe（顳葉）、brain lobe。",
   "word_map": {
-    "The frontal lobe": "額葉",
-    "supports": "有助於",
-    "planning": "規劃",
-    "and decision-making": "與決策"
+    "lobe": "（腦的）葉",
+    "lobes": "（腦的）葉",
+    "The frontal lobe supports planning and decision-making": "額葉有助於規劃與決策"
   },
   "forms": [
     "lobe",
     "lobes"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 15 Academic，Test 4，Reading Passage 2〈Silbo Gomero – the whistle ‘language’ of the Canary Islands〉（原文 temporal lobe／frontal lobe，指腦部的顳葉與額葉）"
 },
-  {
+{
   "id": "en_1010",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -310,64 +316,63 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1011",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
   "word": "obscure",
-  "meaning": "not clear or difficult to determine because too little is known",
+  "meaning": "not clear or difficult to understand or determine because too little is known",
   "ipa": "əbˈskjʊər",
-  "zh": "不清楚的；難以確定的",
-  "zh_def": "因資訊不足而不清楚、難以理解或難以確定的",
+  "zh": "不清楚的",
+  "zh_def": "不清楚的；因資訊不足而難以確定的",
   "definition": "Not clear or difficult to understand or determine because too little is known.",
   "sentence1": "The exact cause remains obscure.",
   "sentence1_en": "確切原因仍不清楚。",
   "sentence1_hl": "The exact cause remains <b>obscure</b>.",
-  "sentence2": "The purpose of the symbol remains obscure to modern readers.",
-  "sentence2_en": "現代讀者仍不清楚這個符號的用途。",
+  "sentence2": "The origins of the custom are obscure.",
+  "sentence2_en": "這項習俗的起源並不清楚。",
   "sentence3": "Several details remain obscure to researchers.",
   "sentence3_en": "有幾項細節對研究人員來說仍不清楚。",
   "tip": "這裡的 obscure 是「不清楚、難以確定」，常和 remain、cause、origin、detail 搭配；不是「鮮為人知的」那個意思。",
   "word_map": {
-    "The exact cause": "確切原因",
-    "remains": "仍然",
-    "obscure": "不清楚"
+    "obscure": "不清楚的",
+    "The exact cause remains obscure": "確切原因仍不清楚"
   },
   "forms": [
     "obscure"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 15 Academic，Test 4，Reading Passage 2〈Silbo Gomero – the whistle ‘language’ of the Canary Islands〉（原文 the origins of Silbo Gomero remain obscure，指起源仍不清楚；與第 84 項「鮮為人知、不著名」義不同，故另立一項）"
 },
-  {
+{
   "id": "en_1012",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
   "word": "fiduciary",
-  "meaning": "relating to a legal duty to act in another person’s best interests",
+  "meaning": "relating to a legal responsibility to act in another person’s best interests or manage their assets properly",
   "ipa": "fɪˈdʒuː.ʃi.ə.ri",
   "zh": "受託責任的",
-  "zh_def": "與依法為他人最佳利益行事或妥善管理其資產的義務有關的",
+  "zh_def": "受託責任的；與依法為他人利益行事或妥善管理其資產的義務有關的",
   "definition": "Relating to a legal responsibility to act in another person’s best interests or manage their assets properly.",
-  "sentence1": "The executor has a fiduciary duty to the estate's beneficiaries.",
-  "sentence1_en": "遺囑執行人對遺產受益人負有受託責任。",
-  "sentence1_hl": "The executor has a <b>fiduciary</b> duty to the estate's beneficiaries.",
+  "sentence1": "Directors have fiduciary duties to shareholders.",
+  "sentence1_en": "董事對股東負有受託義務。",
+  "sentence1_hl": "Directors have <b>fiduciary</b> duties to shareholders.",
   "sentence2": "Trustees must fulfil their fiduciary responsibilities.",
   "sentence2_en": "受託人必須履行其受託責任。",
   "sentence3": "Financial advisers owe clients a fiduciary duty.",
   "sentence3_en": "財務顧問對客戶負有受託責任。",
   "tip": "fiduciary 是法律與財務用語，最常見搭配是 fiduciary duty、fiduciary duties、fiduciary responsibility。",
   "word_map": {
-    "The executor": "遺囑執行人",
-    "has": "負有",
-    "a fiduciary duty": "受託責任",
-    "to the estate's beneficiaries": "對遺產受益人"
+    "fiduciary": "受託責任的",
+    "Directors have fiduciary duties to shareholders": "董事對股東負有受託義務"
   },
   "forms": [
     "fiduciary"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 15 Academic，Test 4，Reading Passage 3〈Environmental practices of big businesses〉（原文 breach of fiduciary responsibility，指公司董事對股東負有的法律受託責任）"
 },
-  {
+{
   "id": "en_1013",
   "category": "IELTS Reading Vocabulary",
   "pos": "adverbial phrase",
@@ -396,7 +401,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1014",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -428,28 +433,30 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1015",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
   "word": "plummet",
-  "meaning": "to fall or decrease very quickly and steeply",
+  "meaning": "to fall or decrease very quickly and by a large amount",
   "ipa": "ˈplʌm.ɪt",
-  "zh": "驟降；暴跌",
-  "zh_def": "在短時間內快速而大幅地下降",
+  "zh": "驟降",
+  "zh_def": "驟降；在短時間內大幅下降",
   "definition": "To fall or decrease very quickly and by a large amount.",
-  "sentence1": "Attendance plummeted during the final week of the exhibition.",
-  "sentence1_en": "展覽最後一週的參觀人數驟降。",
-  "sentence1_hl": "Attendance <b>plummeted</b> during the final week of the exhibition.",
+  "sentence1": "Sales plummeted after the product recall.",
+  "sentence1_en": "產品召回後，銷售額暴跌。",
+  "sentence1_hl": "Sales <b>plummeted</b> after the product recall.",
   "sentence2": "Temperatures plummeted during the night.",
   "sentence2_en": "夜間氣溫驟降。",
   "sentence3": "The company's share price plummeted within hours.",
   "sentence3_en": "該公司的股價在數小時內驟跌。",
   "tip": "plummet 通常作不及物動詞，主詞常是 sales、prices、temperatures 等，表示快速大幅下降。",
   "word_map": {
-    "Attendance": "參觀人數",
+    "plummet": "驟降",
+    "plummets": "驟降",
     "plummeted": "驟降",
-    "during the final week of the exhibition": "在展覽最後一週"
+    "plummeting": "驟降",
+    "Sales plummeted after the product recall": "產品召回後，銷售額暴跌"
   },
   "forms": [
     "plummet",
@@ -457,9 +464,10 @@ window.VOCAB_DATA['english_ielts'].push(
     "plummeted",
     "plummeting"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 15 Academic，Test 4，Reading Passage 3〈Environmental practices of big businesses〉（原文過去式 customer purchases of its hamburgers plummeted，指購買量驟降）；另見 The Official Cambridge Guide to IELTS，Academic Reading Test 2，Passage 1〈The flavour of pleasure〉（2026-09-21 提供詞形：Plummet；正文中已定位詞形或屈折變化；與既有基本詞義合併）；https://practicepteonline.com/ielts-reading-test-82/"
 },
-  {
+{
   "id": "en_1016",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -493,7 +501,7 @@ window.VOCAB_DATA['english_ielts'].push(
   },
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1017",
   "category": "IELTS Reading Vocabulary",
   "pos": "prepositional phrase",
@@ -522,7 +530,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1018",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -552,7 +560,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1019",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -580,7 +588,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1020",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -610,7 +618,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1021",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -640,7 +648,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1022",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -674,7 +682,7 @@ window.VOCAB_DATA['english_ielts'].push(
   },
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1023",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -702,7 +710,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1024",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -731,7 +739,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1025",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -760,7 +768,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1026",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -790,7 +798,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1027",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -820,7 +828,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1028",
   "category": "IELTS Reading Vocabulary",
   "pos": "adverb",
@@ -848,7 +856,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1029",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -876,7 +884,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1030",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -905,7 +913,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1031",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -937,7 +945,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1032",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -966,7 +974,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1033",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -995,7 +1003,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1034",
   "category": "IELTS Reading Vocabulary",
   "pos": "phrasal verb",
@@ -1030,7 +1038,7 @@ window.VOCAB_DATA['english_ielts'].push(
   },
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1035",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1060,7 +1068,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1036",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1088,7 +1096,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1037",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -1117,7 +1125,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1038",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -1146,7 +1154,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1039",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -1175,7 +1183,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1040",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -1203,7 +1211,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1041",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -1231,7 +1239,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1042",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1259,7 +1267,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1043",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -1293,7 +1301,7 @@ window.VOCAB_DATA['english_ielts'].push(
   },
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1044",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1322,7 +1330,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1045",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -1351,7 +1359,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1046",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -1380,7 +1388,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1047",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1410,7 +1418,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1048",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1439,7 +1447,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1049",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -1467,7 +1475,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1050",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1497,7 +1505,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1051",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1526,7 +1534,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1052",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -1558,7 +1566,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1053",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1588,7 +1596,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1054",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1617,7 +1625,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1055",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1647,7 +1655,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1056",
   "category": "IELTS Reading Vocabulary",
   "pos": "plural noun",
@@ -1677,7 +1685,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1057",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -1709,7 +1717,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1058",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -1741,7 +1749,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1059",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1771,7 +1779,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1060",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -1800,7 +1808,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1061",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1829,7 +1837,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1062",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -1861,7 +1869,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1063",
   "category": "IELTS Reading Vocabulary",
   "pos": "prepositional phrase",
@@ -1890,7 +1898,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1064",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1920,7 +1928,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1065",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1949,7 +1957,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1066",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1979,7 +1987,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1067",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2009,7 +2017,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1068",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -2040,7 +2048,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1069",
   "category": "IELTS Reading Vocabulary",
   "pos": "phrasal verb",
@@ -2072,7 +2080,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1070",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -2103,7 +2111,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1071",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2131,7 +2139,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1072",
   "category": "IELTS Reading Vocabulary",
   "pos": "phrasal verb",
@@ -2162,7 +2170,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1073",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2194,7 +2202,7 @@ window.VOCAB_DATA['english_ielts'].push(
   },
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1074",
   "category": "IELTS Reading Vocabulary",
   "pos": "phrasal verb",
@@ -2229,7 +2237,7 @@ window.VOCAB_DATA['english_ielts'].push(
   },
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1075",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2259,7 +2267,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1076",
   "category": "IELTS Reading Vocabulary",
   "pos": "adverb",
@@ -2287,7 +2295,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1077",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2316,7 +2324,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1078",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -2348,7 +2356,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1079",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2378,7 +2386,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1080",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2409,7 +2417,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1081",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2438,7 +2446,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1082",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2468,7 +2476,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1083",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2496,7 +2504,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1084",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2525,7 +2533,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1085",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2554,7 +2562,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1086",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2585,7 +2593,7 @@ window.VOCAB_DATA['english_ielts'].push(
   },
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1087",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2614,7 +2622,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1088",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2642,7 +2650,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1089",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2675,7 +2683,7 @@ window.VOCAB_DATA['english_ielts'].push(
   },
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1090",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2704,7 +2712,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1091",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2732,7 +2740,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1092",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2761,7 +2769,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1093",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2790,7 +2798,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1094",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2819,7 +2827,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1095",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2848,7 +2856,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1096",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -2879,7 +2887,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1097",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2907,7 +2915,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1098",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -2938,7 +2946,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1099",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2968,35 +2976,35 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
-    "id": "en_1100",
-    "category": "IELTS Reading Vocabulary",
-    "pos": "verb",
-    "word": "rectify",
-    "meaning": "to correct an error, fault, or unsatisfactory situation",
-    "ipa": "ˈrek.tɪ.faɪ",
-    "zh": "糾正；改正",
-    "zh_def": "糾正、改正錯誤、故障或不良狀況",
-    "definition": "To correct an error, fault, or unsatisfactory situation.",
-    "sentence1": "The technician returned to rectify the wiring fault.",
-    "sentence1_en": "技術人員回來修正配線故障。",
-    "sentence1_hl": "The technician returned to <b>rectify</b> the wiring fault.",
-    "sentence2": "We need to rectify several errors in the final report.",
-    "sentence2_en": "我們需要改正最終報告中的幾項錯誤。",
-    "sentence3": "The company acted quickly to rectify the billing problem.",
-    "sentence3_en": "公司迅速採取行動，修正帳單問題。",
-    "tip": "rectify 常接 error、fault、problem 或 situation，表示把錯誤或不良狀況糾正過來。",
-    "word_map": {
-      "The technician": "這名技術人員",
-      "returned to rectify": "回來修正",
-      "the wiring fault": "配線故障"
-    },
-    "forms": [
-      "rectify",
-      "rectifies",
-      "rectified",
-      "rectifying"
-    ],
-    "lang": "english_ielts"
-  }
+{
+  "id": "en_1100",
+  "category": "IELTS Reading Vocabulary",
+  "pos": "verb",
+  "word": "rectify",
+  "meaning": "to correct an error, fault, or unsatisfactory situation",
+  "ipa": "ˈrek.tɪ.faɪ",
+  "zh": "糾正；改正",
+  "zh_def": "糾正、改正錯誤、故障或不良狀況",
+  "definition": "To correct an error, fault, or unsatisfactory situation.",
+  "sentence1": "The technician returned to rectify the wiring fault.",
+  "sentence1_en": "技術人員回來修正配線故障。",
+  "sentence1_hl": "The technician returned to <b>rectify</b> the wiring fault.",
+  "sentence2": "We need to rectify several errors in the final report.",
+  "sentence2_en": "我們需要改正最終報告中的幾項錯誤。",
+  "sentence3": "The company acted quickly to rectify the billing problem.",
+  "sentence3_en": "公司迅速採取行動，修正帳單問題。",
+  "tip": "rectify 常接 error、fault、problem 或 situation，表示把錯誤或不良狀況糾正過來。",
+  "word_map": {
+    "The technician": "這名技術人員",
+    "returned to rectify": "回來修正",
+    "the wiring fault": "配線故障"
+  },
+  "forms": [
+    "rectify",
+    "rectifies",
+    "rectified",
+    "rectifying"
+  ],
+  "lang": "english_ielts"
+}
 );

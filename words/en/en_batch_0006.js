@@ -1,10 +1,9 @@
-// en_batch_0006.js — English IELTS batch 6/11
-// 100 entries: en_0501 to en_0600
+// en_batch_0006.js — English IELTS batch 6; WordArk V68
+// 100 active entries: en_0501 to en_0600
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
-
 window.VOCAB_DATA['english_ielts'].push(
-  {
+{
   "id": "en_0501",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -33,7 +32,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0502",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -62,7 +61,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0503",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -91,7 +90,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0504",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -122,7 +121,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0505",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -150,7 +149,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0506",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -178,7 +177,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0507",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -206,7 +205,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0508",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -235,7 +234,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0509",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -263,7 +262,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0510",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -292,7 +291,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0511",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -324,7 +323,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0512",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -357,7 +356,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0513",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -388,7 +387,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0514",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -418,7 +417,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0515",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -449,7 +448,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0516",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -480,7 +479,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0517",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -511,7 +510,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0518",
   "category": "IELTS Reading Vocabulary",
   "pos": "adverb",
@@ -539,35 +538,35 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0519",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
   "word": "elaborate",
   "meaning": "detailed and complicated in design",
   "ipa": "ɪˈlæb.ər.ət",
-  "zh": "詳盡而複雜的；精心設計的",
-  "zh_def": "計畫或系統包含許多細節與安排，設計上比簡單版本更複雜",
+  "zh": "包含大量細節或由許多部分精心構成的",
+  "zh_def": "包含大量細節或由許多部分精心構成的；詳盡複雜的",
   "definition": "Detailed and complicated in design.",
-  "sentence1": "The council considered a more elaborate transport plan.",
-  "sentence1_en": "市議會考慮了一套設計更複雜詳盡的交通方案。",
-  "sentence1_hl": "The council considered a more <b>elaborate</b> transport plan.",
-  "sentence2": "Engineers developed an elaborate system for tracking every bicycle.",
-  "sentence2_en": "工程師開發一套精密詳盡的系統，用來追蹤每輛自行車。",
-  "sentence3": "The revised proposal was more elaborate than the original scheme.",
-  "sentence3_en": "修訂後的提案比原始方案更詳盡複雜。",
-  "tip": "本卡的 elaborate 是形容詞，重音後的結尾讀 /ət/；常修飾 plan／system／proposal。動詞 elaborate 的讀音與用法不同。",
+  "sentence1": "The ceiling is covered with an elaborate pattern of vines and birds.",
+  "sentence1_en": "天花板上布滿由藤蔓與鳥兒組成的精細複雜圖案。",
+  "sentence1_hl": "The ceiling is covered with an <b>elaborate</b> pattern of vines and birds.",
+  "sentence2": "She wore an elaborate costume decorated with beads and feathers.",
+  "sentence2_en": "她穿著一套以珠子和羽毛裝飾的精緻繁複服裝。",
+  "sentence3": "The jeweller created an elaborate necklace of silver and pearls.",
+  "sentence3_en": "珠寶匠製作了一條由銀和珍珠構成的精緻繁複項鍊。",
+  "tip": "elaborate 作形容詞時讀 /ɪˈlæbərət/，可形容圖案、服裝或計畫細節繁多、精心構成；不是單純「漂亮」。作動詞「詳述」時字尾讀 /reɪt/。",
   "word_map": {
-    "The council": "市議會",
-    "considered": "考慮了",
-    "a more elaborate transport plan": "一套設計更複雜詳盡的交通方案"
+    "elaborate": "包含大量細節或由許多部分精心構成的",
+    "The ceiling is covered with an elaborate pattern of vines and birds": "天花板上布滿由藤蔓與鳥兒組成的精細複雜圖案"
   },
   "forms": [
     "elaborate"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 14 Academic，Test 1，Reading Passage 2〈The growth of bike-sharing schemes around the world〉（a more elaborate Witte Fietsenplan，指內容與設計更詳盡、複雜的計畫）"
 },
-  {
+{
   "id": "en_0520",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -596,7 +595,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0521",
   "category": "IELTS Reading Vocabulary",
   "pos": "adverb",
@@ -624,7 +623,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0522",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -654,7 +653,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0523",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -683,7 +682,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0524",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -712,7 +711,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0525",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -741,7 +740,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0526",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -770,7 +769,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0527",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -798,35 +797,35 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0528",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
   "word": "competent",
   "meaning": "having enough ability, knowledge, or skill to do something successfully",
   "ipa": "ˈkɒm.pɪ.tənt",
-  "zh": "有能力勝任的",
-  "zh_def": "具備完成工作或使用系統所需的足夠知識、技能與能力",
+  "zh": "有足夠能力、知識或技能而能勝任的",
+  "zh_def": "有足夠能力、知識或技能而能勝任的",
   "definition": "Having enough ability, knowledge, or skill to do something successfully.",
   "sentence1": "The repair must be carried out by a competent technician.",
   "sentence1_en": "維修工作必須由能勝任的技師執行。",
   "sentence1_hl": "The repair must be carried out by a <b>competent</b> technician.",
-  "sentence2": "The hotel aims to retain competent employees.",
-  "sentence2_en": "這家飯店力求留住有能力的員工。",
+  "sentence2": "The pilot remained calm and competent throughout the emergency.",
+  "sentence2_en": "整個緊急事件中，飛行員始終保持冷靜，並展現勝任工作的能力。",
   "sentence3": "After training, participants became competent users of the system.",
   "sentence3_en": "培訓後，參與者已能熟練使用該系統。",
   "tip": "competent 強調能力已達到足以勝任的程度，常見 competent technician／employee／user。",
   "word_map": {
-    "The repair": "維修工作",
-    "must be carried out by": "必須由……執行",
-    "a competent technician": "能勝任的技師"
+    "competent": "有足夠能力、知識或技能而能勝任的",
+    "The repair must be carried out by a competent technician": "維修工作必須由能勝任的技師執行"
   },
   "forms": [
     "competent"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 14 Academic，Test 1，Reading Passage 3〈Motivational factors and the hospitality industry〉（retain competent employees，指能勝任工作的員工）；另見 Cambridge IELTS 16 Academic，Test 4，Reading Passage 3〈Attitudes towards Artificial Intelligence〉（原文 doctors would conclude that Watson wasn’t competent）；同一「有足夠能力而能勝任」義項合併於此"
 },
-  {
+{
   "id": "en_0529",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -855,7 +854,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0530",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -884,7 +883,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0531",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -912,7 +911,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0532",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -941,7 +940,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0533",
   "category": "IELTS Reading Vocabulary",
   "pos": "adverb",
@@ -969,7 +968,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0534",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -996,7 +995,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0535",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -1027,7 +1026,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0536",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -1061,7 +1060,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0537",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1090,35 +1089,35 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0538",
   "category": "IELTS Reading Vocabulary",
   "pos": "preposition",
   "word": "alongside",
-  "meaning": "together with someone while working or serving",
+  "meaning": "together with someone or something, or at the same time as something else",
   "ipa": "əˌlɒŋˈsaɪd",
-  "zh": "與……一起工作；和……並肩合作",
-  "zh_def": "在工作、研究或服務中與另一個人或群體一同參與",
-  "definition": "Together with someone while working or serving.",
+  "zh": "與……一起",
+  "zh_def": "與……一起；和……同時進行或存在",
+  "definition": "Together with someone or something, or at the same time as something else.",
   "sentence1": "The engineer worked alongside the scheme's original designer.",
   "sentence1_en": "這位工程師與該方案的原始設計者一同工作。",
   "sentence1_hl": "The engineer worked <b>alongside</b> the scheme's original designer.",
-  "sentence2": "Local researchers worked alongside international experts.",
-  "sentence2_en": "本地研究人員與國際專家並肩合作。",
-  "sentence3": "Volunteers served alongside trained medical staff.",
-  "sentence3_en": "志工與受過訓練的醫療人員一同服務。",
-  "tip": "本卡的 alongside 是「與某人一起工作」，常見 work／serve alongside someone；不是空間上的「在旁邊」。",
+  "sentence2": "Practical training runs alongside the academic course.",
+  "sentence2_en": "實務訓練與學術課程同時進行。",
+  "sentence3": "Alongside her teaching duties, she conducts research.",
+  "sentence3_en": "她除了教學工作之外，也從事研究。",
+  "tip": "work alongside someone 是與某人共事；run alongside a course 表示與課程同步進行。alongside + 名詞也可表示「除了……也……」，不一定是實際位置相鄰。",
   "word_map": {
-    "The engineer": "這位工程師",
-    "worked alongside": "與……一同工作",
-    "the scheme's original designer": "該方案的原始設計者"
+    "alongside": "與……一起",
+    "The engineer worked alongside the scheme's original designer": "這位工程師與該方案的原始設計者一同工作"
   },
   "forms": [
     "alongside"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 14 Academic，Test 1，Reading Passage 2〈The growth of bike-sharing schemes around the world〉（Theo Molenaar worked alongside Schimmelpennink，指與某人一同工作）；另見 Cambridge IELTS 15 Academic，Test 3，Reading Passage 1〈Henry Moore (1898–1986)〉（原文 Alongside the instruction he received...，指在接受教學的同時也參觀博物館）；兩處均為非空間的「與……一起／同時」用法，與第 369 項空間上的「在……旁邊」分開保留"
 },
-  {
+{
   "id": "en_0539",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -1150,7 +1149,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0540",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -1179,7 +1178,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0541",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -1207,7 +1206,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0542",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1235,7 +1234,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0543",
   "category": "IELTS Reading Vocabulary",
   "pos": "phrasal verb",
@@ -1266,7 +1265,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0544",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1295,7 +1294,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0545",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1325,7 +1324,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0546",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -1356,7 +1355,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0547",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -1387,7 +1386,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0548",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1416,15 +1415,15 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0549",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
   "word": "communal",
   "meaning": "shared by or available for use by a group of people",
   "ipa": "ˈkɒm.jə.nəl",
-  "zh": "共用的；由多人共享的",
-  "zh_def": "空間或設施不是由單一個人專用，而是提供一群人共同使用",
+  "zh": "群體共同的",
+  "zh_def": "群體共同的；由一群人共同使用、共享或一起進行的",
   "definition": "Shared by or available for use by a group of people.",
   "sentence1": "Several patients stayed in a communal ward.",
   "sentence1_en": "數名病人住在共用病房。",
@@ -1433,18 +1432,18 @@ window.VOCAB_DATA['english_ielts'].push(
   "sentence2_en": "住戶共用廚房與花園。",
   "sentence3": "The building has a communal dining area on the ground floor.",
   "sentence3_en": "這棟建築的一樓設有共用餐區。",
-  "tip": "本卡的 communal 表示「由一群人共同使用」，常見 communal ward／kitchen／dining area；不是社區衝突的另一義。",
+  "tip": "communal kitchen／ward 指共用廚房／病房；a communal way of life 強調群體共同生活。它不自動表示沒有私人財產，也不是 commercial「商業的」。",
   "word_map": {
-    "Several patients": "數名病人",
-    "stayed in": "住在",
-    "a communal ward": "共用病房"
+    "communal": "群體共同的",
+    "Several patients stayed in a communal ward": "數名病人住在共用病房"
   },
   "forms": [
     "communal"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 14 Academic，Test 2，Reading Passage 2〈Back to the future of skyscraper design〉（communal wards，指多名病人共同使用的病房）；另見 Cambridge IELTS 18 Academic，Test 2，Reading Passage 1〈Stonehenge〉（本次提供詞形：Communal；文章正文中的相同詞形或屈折變化；依所在語境判義；2026-09-15 依公開文章／題目轉錄頁核對）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-18-academic-reading-test-2/"
 },
-  {
+{
   "id": "en_0550",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -1476,7 +1475,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0551",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -1511,7 +1510,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0552",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -1539,7 +1538,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0553",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1570,7 +1569,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0554",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1599,7 +1598,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0555",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1627,7 +1626,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0556",
   "category": "IELTS Reading Vocabulary",
   "pos": "phrasal verb",
@@ -1659,7 +1658,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0557",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1689,7 +1688,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0558",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1718,7 +1717,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0559",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -1750,7 +1749,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0560",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -1781,7 +1780,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0561",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -1810,7 +1809,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0562",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1839,7 +1838,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0563",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -1870,7 +1869,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0564",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1902,7 +1901,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0565",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1933,7 +1932,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0566",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -1964,7 +1963,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0567",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1995,16 +1994,16 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0568",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
   "word": "repository",
-  "meaning": "a place or system where data or documents are stored and can be found",
+  "meaning": "a place, system, person or work in which information, documents or knowledge are kept",
   "ipa": "rɪˈpɒz.ɪ.tər.i",
-  "zh": "資料或文件儲存庫",
-  "zh_def": "集中保存研究資料、歷史紀錄或數位檔案，並讓人能夠查找與取用的地方或系統",
-  "definition": "A place or system where data or documents are stored and can be found.",
+  "zh": "資料或知識儲存庫",
+  "zh_def": "儲存庫；保存資料、文件或知識的地方、系統，也可比喻知識的承載者",
+  "definition": "A place, system, person or work in which information, documents or knowledge are kept.",
   "sentence1": "The university maintains a central repository for research data.",
   "sentence1_en": "這所大學維護一個集中保存研究資料的儲存庫。",
   "sentence1_hl": "The university maintains a central <b>repository</b> for research data.",
@@ -2012,20 +2011,20 @@ window.VOCAB_DATA['english_ielts'].push(
   "sentence2_en": "歷史紀錄保存在一個公開的數位儲存庫中。",
   "sentence3": "Teachers can download the materials from the school's online repository.",
   "sentence3_en": "教師可以從學校的線上儲存庫下載教材。",
-  "tip": "repository 常搭配 data／digital／online repository，重點是資料集中存放，而且之後可以查找與取用。",
+  "tip": "a repository for data／a repository of knowledge。除了實體或數位資料庫，也可把人、詩歌或傳統視為保存知識的載體；原文以詩作保存文化知識的比喻，不要求真的有一座倉庫。",
   "word_map": {
-    "The university": "這所大學",
-    "maintains": "維護",
-    "a central repository": "一個集中儲存庫",
-    "for research data": "用來保存研究資料"
+    "repository": "資料或知識儲存庫",
+    "repositories": "資料或知識儲存庫",
+    "The university maintains a central repository for research data": "這所大學維護一個集中保存研究資料的儲存庫"
   },
   "forms": [
     "repository",
     "repositories"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "使用者收集的 YouTube 影片（原始檔拼作 repositry，未記錄影片名稱與原句；已更正拼字。因無原句，本卡依 Cambridge Dictionary／Merriam-Webster 選定「存放並可查找資料或文件的地方或系統」這一常用義，不宣稱還原影片語境）；另見 The Official Cambridge Guide to IELTS，Academic Reading Test 4，Passage 3〈Homer’s literary legacy〉（2026-10-01 提供詞形：Repository；A段；詩作被比作知識儲存庫，屬既有repository的抽象延伸）；https://engnovate.com/ielts-reading-answers/homers-literary-legacy/"
 },
-  {
+{
   "id": "en_0569",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -2061,7 +2060,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0570",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -2094,7 +2093,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0571",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2123,7 +2122,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0572",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2151,7 +2150,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0573",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2180,7 +2179,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0574",
   "category": "IELTS Reading Vocabulary",
   "pos": "adverb phrase",
@@ -2207,7 +2206,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0575",
   "category": "IELTS Reading Vocabulary",
   "pos": "idiom",
@@ -2240,7 +2239,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0576",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -2271,7 +2270,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0577",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2300,7 +2299,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0578",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -2331,7 +2330,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0579",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2359,7 +2358,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0580",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2388,7 +2387,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0581",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2416,7 +2415,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0582",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -2448,7 +2447,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0583",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2477,7 +2476,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0584",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2508,7 +2507,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0585",
   "category": "IELTS Reading Vocabulary",
   "pos": "adverb",
@@ -2536,7 +2535,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0586",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2564,7 +2563,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0587",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -2596,7 +2595,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0588",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -2628,7 +2627,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0589",
   "category": "IELTS Reading Vocabulary",
   "pos": "adverb",
@@ -2657,7 +2656,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0590",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -2689,7 +2688,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0591",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2718,7 +2717,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0592",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -2750,7 +2749,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0593",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2779,7 +2778,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0594",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2808,7 +2807,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0595",
   "category": "IELTS Reading Vocabulary",
   "pos": "phrasal verb",
@@ -2840,7 +2839,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0596",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -2873,7 +2872,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0597",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2901,7 +2900,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0598",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2931,7 +2930,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0599",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2960,7 +2959,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0600",
   "category": "IELTS Reading Vocabulary",
   "pos": "adverb",

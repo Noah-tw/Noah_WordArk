@@ -1,10 +1,9 @@
-// en_batch_0010.js — English IELTS batch 10/11
-// 100 entries: en_0901 to en_1000
+// en_batch_0010.js — English IELTS batch 10; WordArk V68
+// 100 active entries: en_0901 to en_1000
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
-
 window.VOCAB_DATA['english_ielts'].push(
-  {
+{
   "id": "en_0901",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -34,7 +33,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0902",
   "category": "IELTS Reading Vocabulary",
   "pos": "idiom",
@@ -64,7 +63,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0903",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -93,7 +92,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0904",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -120,7 +119,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0905",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -148,7 +147,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0906",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -179,7 +178,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0907",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -207,7 +206,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0908",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -235,7 +234,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0909",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -262,7 +261,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0910",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -290,7 +289,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0911",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -318,7 +317,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0912",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -348,7 +347,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0913",
   "category": "IELTS Reading Vocabulary",
   "pos": "adverb",
@@ -376,7 +375,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0914",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -405,7 +404,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0915",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -434,7 +433,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0916",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -463,7 +462,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0917",
   "category": "IELTS Reading Vocabulary",
   "pos": "adverb",
@@ -491,7 +490,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0918",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -519,7 +518,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0919",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -550,7 +549,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0920",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -580,7 +579,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0921",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -610,7 +609,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0922",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -639,7 +638,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0923",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -670,7 +669,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0924",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -699,7 +698,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0925",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -727,7 +726,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0926",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -755,7 +754,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0927",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -786,7 +785,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0928",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -813,7 +812,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0929",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -841,7 +840,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0930",
   "category": "IELTS Reading Vocabulary",
   "pos": "adverb",
@@ -868,27 +867,30 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0931",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
-  "word": "flattening",
-  "meaning": "pressing or making something become flat",
-  "ipa": "ˈflæt.ən.ɪŋ",
-  "zh": "正在把……壓平、壓扁",
-  "zh_def": "以壓力使鼻子、花瓣或柔軟物體失去原有凸起形狀而變平",
-  "definition": "Pressing or making something become flat.",
+  "word": "flatten",
+  "meaning": "to press something flat or flatter, sometimes against a surface",
+  "ipa": "ˈflætn",
+  "zh": "把某物壓平、壓扁，或壓貼在表面上",
+  "zh_def": "把某物壓平、壓扁，或壓貼在表面上",
+  "definition": "To press something flat or flatter, sometimes against a surface.",
   "sentence1": "He stood outside, flattening his nose against the shop window.",
-  "sentence1_en": "他站在外面，把鼻子緊貼在商店櫥窗上，壓得扁扁的。",
+  "sentence1_en": "他站在外面，把鼻子壓貼在商店櫥窗的玻璃上。",
   "sentence1_hl": "He stood outside, <b>flattening</b> his nose against the shop window.",
   "sentence2": "She pressed the flower between two books, flattening its petals.",
   "sentence2_en": "她把花夾在兩本書之間，將花瓣壓平。",
   "sentence3": "The heavy box was flattening the soft cushion beneath it.",
-  "sentence3_en": "那個重箱子正把下面的軟墊壓扁。",
-  "tip": "flattening 是 flatten 的 -ing 形式；本卡三句都表示把實體壓平或壓扁。",
+  "sentence3_en": "那個沉重的箱子正把下方柔軟的坐墊壓扁。",
+  "tip": "flatten something 是把東西壓平；flatten something against a surface 是將它壓貼在某個表面上。flat 是形容詞，flatten 才是這個動詞的原形；flattening 的 -ing 不屬於基本詞條。",
   "word_map": {
-    "He stood outside,": "他站在外面",
-    "flattening his nose against the shop window": "把鼻子緊貼在商店櫥窗上，壓得扁扁的"
+    "flatten": "把某物壓平、壓扁，或壓貼在表面上",
+    "flattens": "把某物壓平、壓扁，或壓貼在表面上",
+    "flattened": "把某物壓平、壓扁，或壓貼在表面上",
+    "flattening": "把某物壓平、壓扁，或壓貼在表面上",
+    "He stood outside, flattening his nose against the shop window": "他站在外面，把鼻子壓貼在商店櫥窗的玻璃上"
   },
   "forms": [
     "flatten",
@@ -896,9 +898,10 @@ window.VOCAB_DATA['english_ielts'].push(
     "flattened",
     "flattening"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "The Little Prince（Katherine Woods 英譯本），Chapter 22（原文指火車裡的孩子把鼻子壓貼在窗玻璃上）；原文詞形 flattening；V67（2026-09-22）改收動詞原形 flatten"
 },
-  {
+{
   "id": "en_0932",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -928,7 +931,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0933",
   "category": "IELTS Reading Vocabulary",
   "pos": "adverb",
@@ -956,7 +959,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0934",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -984,7 +987,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0935",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -1014,7 +1017,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0936",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -1042,27 +1045,30 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0937",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
-  "word": "panted",
-  "meaning": "breathed quickly and heavily because of heat or physical effort",
-  "ipa": "ˈpæn.tɪd",
-  "zh": "氣喘吁吁；急促呼吸（過去式）",
-  "zh_def": "因炎熱、跑步或體力消耗而快速、沉重地呼吸；panted 是 pant 的過去式",
-  "definition": "Breathed quickly and heavily because of heat or physical effort.",
-  "sentence1": "The dog panted in the heat.",
-  "sentence1_en": "那隻狗在高溫中喘著氣。",
-  "sentence1_hl": "The dog <b>panted</b> in the heat.",
+  "word": "pant",
+  "meaning": "to breathe quickly and heavily, often after exercise or in hot weather",
+  "ipa": "pænt",
+  "zh": "急促地呼吸、氣喘吁吁",
+  "zh_def": "急促地呼吸、氣喘吁吁；常見於運動後或炎熱時",
+  "definition": "To breathe quickly and heavily, often after exercise or in hot weather.",
+  "sentence1": "The dog pants in the heat.",
+  "sentence1_en": "那隻狗在炎熱的天氣裡喘氣。",
+  "sentence1_hl": "The dog <b>pants</b> in the heat.",
   "sentence2": "The runner panted as she crossed the finish line.",
-  "sentence2_en": "那名跑者越過終點線時氣喘吁吁。",
-  "sentence3": "He panted heavily after running upstairs.",
-  "sentence3_en": "他跑上樓後喘得很厲害。",
-  "tip": "panted 是 pant 的過去式。常見 pant in the heat、pant heavily、pant after running，描述快速而沉重的呼吸。",
+  "sentence2_en": "那位跑者衝過終點線時氣喘吁吁。",
+  "sentence3": "He was panting heavily after running upstairs.",
+  "sentence3_en": "他跑上樓後正大口喘著氣。",
+  "tip": "pant 是急促地連續呼吸，常搭配 pant heavily／pant for breath。panted 是過去式或過去分詞，panting 是 -ing 形式；panted 的 -ed 在這裡讀 /ɪd/。",
   "word_map": {
-    "The dog": "那隻狗",
-    "panted in the heat": "在高溫中喘著氣"
+    "pant": "急促地呼吸、氣喘吁吁",
+    "pants": "急促地呼吸、氣喘吁吁",
+    "panted": "急促地呼吸、氣喘吁吁",
+    "panting": "急促地呼吸、氣喘吁吁",
+    "The dog pants in the heat": "那隻狗在炎熱的天氣裡喘氣"
   },
   "forms": [
     "pant",
@@ -1070,39 +1076,44 @@ window.VOCAB_DATA['english_ielts'].push(
     "panted",
     "panting"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "The Little Prince（Katherine Woods 英譯本），Chapter 15（原文指小王子長途旅行後坐下喘氣）；原文詞形 panted；V67（2026-09-22）改收動詞原形 pant"
 },
-  {
+{
   "id": "en_0938",
   "category": "IELTS Reading Vocabulary",
-  "pos": "verb phrase",
-  "word": "go loafing",
-  "meaning": "to go about idly or spend time avoiding useful work",
-  "ipa": "ɡəʊ ˈləʊ.fɪŋ",
-  "zh": "閒晃、遊蕩；不做正事",
-  "zh_def": "到處閒晃或消磨時間，沒有處理本來應做的工作",
-  "definition": "To go about idly or spend time avoiding useful work.",
-  "sentence1": "They used to go loafing around town after school.",
-  "sentence1_en": "他們以前放學後常在鎮上四處閒晃。",
-  "sentence1_hl": "They used to <b>go loafing</b> around town after school.",
-  "sentence2": "He went loafing instead of finishing his work.",
-  "sentence2_en": "他沒有完成工作，反而跑去遊蕩。",
-  "sentence3": "We cannot go loafing when there is so much to do.",
-  "sentence3_en": "還有這麼多事要做，我們不能四處閒晃。",
-  "tip": "go loafing about 是較舊式的「到處閒晃、不做正事」；現代口語較常說 loaf around。",
+  "pos": "verb",
+  "word": "loaf",
+  "meaning": "to spend time idly, especially instead of doing work that needs attention",
+  "ipa": "ləʊf",
+  "zh": "閒混、消磨時間而不做正事（非正式，常帶不贊同意味）",
+  "zh_def": "閒混、消磨時間而不做正事（非正式，常帶不贊同意味）",
+  "definition": "To spend time idly, especially instead of doing work that needs attention.",
+  "sentence1": "They used to loaf around town after school.",
+  "sentence1_en": "他們以前放學後常在鎮上閒晃。",
+  "sentence1_hl": "They used to <b>loaf</b> around town after school.",
+  "sentence2": "He spent the afternoon loafing instead of finishing his work.",
+  "sentence2_en": "他整個下午都在閒混，沒有把工作完成。",
+  "sentence3": "We cannot loaf when there is so much to do.",
+  "sentence3_en": "還有這麼多事情要做，我們不能閒混。",
+  "tip": "常用 loaf around／loaf about。原文 go loafing 是 go + -ing 活動形式，不必把 go 當成學習這個動詞所必需的部分。動詞第三人稱單數是 loafs；loaves 是名詞 loaf「一條麵包」的複數，不是這個動詞的變化。",
   "word_map": {
-    "They": "他們",
-    "used to go loafing around town after school": "以前放學後常在鎮上四處閒晃"
+    "loaf": "閒混、消磨時間而不做正事（非正式，常帶不贊同意味）",
+    "loafs": "閒混、消磨時間而不做正事（非正式，常帶不贊同意味）",
+    "loafed": "閒混、消磨時間而不做正事（非正式，常帶不贊同意味）",
+    "loafing": "閒混、消磨時間而不做正事（非正式，常帶不贊同意味）",
+    "They used to loaf around town after school": "他們以前放學後常在鎮上閒晃"
   },
   "forms": [
-    "go loafing",
-    "goes loafing",
-    "went loafing",
-    "gone loafing"
+    "loaf",
+    "loafs",
+    "loafed",
+    "loafing"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "The Little Prince（Katherine Woods 英譯本），Chapter 15（原文指地理學家不會離開書桌到處閒晃）；原文構式 go loafing 保留供追溯；V67（2026-09-22）以核心動詞 loaf 為主詞條，不再將整組標為獨立片語動詞"
 },
-  {
+{
   "id": "en_0939",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1130,7 +1141,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0940",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -1157,7 +1168,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0941",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -1184,7 +1195,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0942",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1213,7 +1224,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0943",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -1241,7 +1252,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0944",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -1269,7 +1280,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0945",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -1295,7 +1306,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0946",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1324,27 +1335,30 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0947",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
-  "word": "regulated",
-  "meaning": "controlled so that something operates or happens in a particular way",
-  "ipa": "ˈreɡ.jə.leɪ.tɪd",
-  "zh": "受到控制、調節而按特定方式運作",
-  "zh_def": "動作、時間或流程受到某個節奏、訊號或裝置控制，因而按特定方式進行",
-  "definition": "Controlled so that something operates or happens in a particular way.",
+  "word": "regulate",
+  "meaning": "to control how something moves or operates so that it follows the required pattern",
+  "ipa": "ˈreɡjuleɪt",
+  "zh": "控制、調節動作或運作方式，使其按所需的節奏、次序等進行",
+  "zh_def": "控制、調節動作或運作方式，使其按所需的節奏、次序等進行",
+  "definition": "To control how something moves or operates so that it follows the required pattern.",
   "sentence1": "The dancers' movements were regulated by the rhythm of the music.",
-  "sentence1_en": "舞者的動作由音樂節奏控制。",
+  "sentence1_en": "舞者的動作受到音樂節奏的調節。",
   "sentence1_hl": "The dancers' movements were <b>regulated</b> by the rhythm of the music.",
-  "sentence2": "The timing of each entrance was regulated by a central signal.",
-  "sentence2_en": "每次進場的時間都由一個中央訊號控制。",
-  "sentence3": "The flow of the procession was regulated by traffic lights.",
-  "sentence3_en": "遊行隊伍的行進由交通號誌調節。",
-  "tip": "be regulated by ... 表示受到某個規則、訊號或裝置控制，因而按特定方式運作；regulated 是 regulate 的過去式或過去分詞。",
+  "sentence2": "A central signal regulated the timing of each entrance.",
+  "sentence2_en": "中央訊號控制了每次進場的時機。",
+  "sentence3": "Traffic lights regulate the flow of the procession.",
+  "sentence3_en": "交通號誌控制遊行隊伍的行進。",
+  "tip": "regulate something 是主動「控制、調節」；something is regulated by ... 是被動「受到……控制」。regulated 是同一動詞的過去式／過去分詞。regulate speed 強調調節速度；regulate emotions 是控制情緒；regulate an industry 常指以規章管制產業。不要與形容詞 regular「規律的」混淆。",
   "word_map": {
-    "The dancers' movements": "舞者的動作",
-    "were regulated by the rhythm of the music": "由音樂節奏控制"
+    "regulate": "控制、調節動作或運作方式，使其按所需的節奏、次序等進行",
+    "regulates": "控制、調節動作或運作方式，使其按所需的節奏、次序等進行",
+    "regulated": "控制、調節動作或運作方式，使其按所需的節奏、次序等進行",
+    "regulating": "控制、調節動作或運作方式，使其按所需的節奏、次序等進行",
+    "The dancers' movements were regulated by the rhythm of the music": "舞者的動作受到音樂節奏的調節"
   },
   "forms": [
     "regulate",
@@ -1352,9 +1366,10 @@ window.VOCAB_DATA['english_ielts'].push(
     "regulated",
     "regulating"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "The Little Prince（Katherine Woods 英譯本），第 16 章（點燈人的動作被安排得像芭蕾一樣有規律）；原文詞形 regulated；V67（2026-09-22）改收動詞原形 regulate，並把詞義由被動描述改成主動動詞解釋"
 },
-  {
+{
   "id": "en_0948",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1381,7 +1396,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0949",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun phrase",
@@ -1409,7 +1424,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0950",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1438,7 +1453,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0951",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -1464,7 +1479,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0952",
   "category": "IELTS Reading Vocabulary",
   "pos": "adverb",
@@ -1491,7 +1506,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0953",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -1526,7 +1541,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0954",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1554,36 +1569,37 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0955",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
   "word": "ridge",
-  "meaning": "a long, narrow raised line of sand, rock, or land",
+  "meaning": "a long, narrow raised part of land or of the surface of an object",
   "ipa": "rɪdʒ",
-  "zh": "沙丘或山地的狹長稜脊",
-  "zh_def": "沙丘、山脈或其他地形中狹長隆起、兩側向下傾斜的最高部分",
-  "definition": "A long, narrow raised line of sand, rock, or land.",
+  "zh": "地形或物體表面上狹長隆起的稜脊",
+  "zh_def": "地形或物體表面上狹長隆起的稜脊",
+  "definition": "A long, narrow raised part of land or of the surface of an object.",
   "sentence1": "Moonlight revealed long ridges of sand across the desert.",
   "sentence1_en": "月光照出了沙漠中一道道狹長的沙脊。",
   "sentence1_hl": "Moonlight revealed long <b>ridges</b> of sand across the desert.",
   "sentence2": "Their footprints followed the narrow ridge of a dune.",
   "sentence2_en": "他們的腳印沿著沙丘狹窄的稜脊延伸。",
-  "sentence3": "The wind gradually reshaped each sandy ridge.",
-  "sentence3_en": "風逐漸改變每一道沙脊的形狀。",
-  "tip": "ridge 指狹長隆起的地形，常見 a mountain ridge／a ridge of sand。",
+  "sentence3": "A raised ridge runs along the length of the fruit.",
+  "sentence3_en": "一道隆起的稜脊沿著果實的長向延伸。",
+  "tip": "ridge 可指山稜，也可指物體表面狹長隆起的部分；a ridge along the surface 是表面上的稜脊，不一定是地形。",
   "word_map": {
-    "Moonlight": "月光",
-    "revealed": "照出了",
-    "long ridges of sand across the desert": "沙漠中一道道狹長的沙脊"
+    "ridge": "地形或物體表面上狹長隆起的稜脊",
+    "ridges": "地形或物體表面上狹長隆起的稜脊",
+    "Moonlight revealed long ridges of sand across the desert": "月光照出了沙漠中一道道狹長的沙脊"
   },
   "forms": [
     "ridge",
     "ridges"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "The Little Prince（Katherine Woods 英譯本），第 24 章（月光下沙漠的狹長沙脊）；另見 Cambridge IELTS 15 Academic，Test 1，Reading Passage 1〈Nutmeg – a valuable spice〉（原文 a ridge running the length of the fruit，指果實表面的狹長隆起）；同一「狹長隆起的稜脊」義項合併"
 },
-  {
+{
   "id": "en_0956",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1612,7 +1628,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0957",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -1643,7 +1659,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0958",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -1674,7 +1690,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0959",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1702,7 +1718,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0960",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -1730,28 +1746,30 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0961",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
-  "word": "dangling",
-  "meaning": "hanging loosely downwards and able to move freely",
-  "ipa": "ˈdæŋ.ɡəl.ɪŋ",
-  "zh": "正垂掛、懸在下方晃動",
-  "zh_def": "纜線、雙腳或電線的一端沒有固定，正從高處鬆垂下來並可能晃動",
-  "definition": "Hanging loosely downwards and able to move freely.",
-  "sentence1": "A cable was dangling from the ceiling.",
-  "sentence1_en": "一條纜線從天花板垂了下來。",
-  "sentence1_hl": "A cable was <b>dangling</b> from the ceiling.",
+  "word": "dangle",
+  "meaning": "to hang loosely, often so that movement is possible",
+  "ipa": "ˈdæŋɡl",
+  "zh": "鬆鬆地懸掛、垂在下方",
+  "zh_def": "鬆鬆地懸掛、垂在下方；可自由晃動地垂著",
+  "definition": "To hang loosely, often so that movement is possible.",
+  "sentence1": "A cable dangled from the ceiling.",
+  "sentence1_en": "一條電纜從天花板懸垂著。",
+  "sentence1_hl": "A cable <b>dangled</b> from the ceiling.",
   "sentence2": "She sat with her feet dangling over the edge.",
-  "sentence2_en": "她坐著，雙腳懸在邊緣外晃動。",
-  "sentence3": "Several loose wires were dangling behind the broken panel.",
-  "sentence3_en": "好幾條鬆脫的電線垂掛在破損面板後方。",
-  "tip": "dangling 是 dangle 的 -ing 形式，常見 feet／wire／cable dangling，表示鬆垂並可自由晃動。",
+  "sentence2_en": "她坐著，雙腳懸垂在邊緣外。",
+  "sentence3": "Several loose wires dangle behind the broken panel.",
+  "sentence3_en": "幾條鬆脫的電線垂在破損面板後方。",
+  "tip": "dangle from 說明從哪裡懸垂；feet dangling over the edge 表示雙腳垂在邊緣外，並不一定正在大幅擺動。dangle 加 -ing 時去掉字尾 e，成為 dangling；不必另背成兩個基本動詞。",
   "word_map": {
-    "A cable": "一條纜線",
-    "was dangling": "垂了下來",
-    "from the ceiling": "從天花板"
+    "dangle": "鬆鬆地懸掛、垂在下方",
+    "dangles": "鬆鬆地懸掛、垂在下方",
+    "dangled": "鬆鬆地懸掛、垂在下方",
+    "dangling": "鬆鬆地懸掛、垂在下方",
+    "A cable dangled from the ceiling": "一條電纜從天花板懸垂著"
   },
   "forms": [
     "dangle",
@@ -1759,9 +1777,10 @@ window.VOCAB_DATA['english_ielts'].push(
     "dangled",
     "dangling"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "The Little Prince（Katherine Woods 英譯本），第 26 章（小王子坐在牆上，雙腳垂在下方）；原文詞形 dangling；V67（2026-09-22）改收動詞原形 dangle"
 },
-  {
+{
   "id": "en_0962",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -1793,7 +1812,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0963",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1823,28 +1842,30 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0964",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
-  "word": "reviving",
-  "meaning": "recovering consciousness, health, or strength",
-  "ipa": "rɪˈvaɪ.vɪŋ",
-  "zh": "正在恢復意識、健康或體力",
-  "zh_def": "原本虛弱、生病或失去意識的人正在恢復精神與身體狀態；是否為逐漸恢復，要由 slowly、gradually 等上下文表達",
-  "definition": "Recovering consciousness, health, or strength.",
+  "word": "revive",
+  "meaning": "to regain consciousness, energy or physical strength",
+  "ipa": "rɪˈvaɪv",
+  "zh": "恢復意識、精神或體力",
+  "zh_def": "恢復意識、精神或體力",
+  "definition": "To regain consciousness, energy or physical strength.",
   "sentence1": "The exhausted traveller was slowly reviving after drinking some water.",
-  "sentence1_en": "那名筋疲力盡的旅人喝水後，正慢慢恢復精神。",
+  "sentence1_en": "那位疲憊不堪的旅人在喝水後正慢慢恢復精神。",
   "sentence1_hl": "The exhausted traveller was slowly <b>reviving</b> after drinking some water.",
-  "sentence2": "She was reviving gradually as colour returned to her face.",
-  "sentence2_en": "隨著臉色恢復，她的精神也逐漸好轉。",
-  "sentence3": "By morning, the patient was visibly reviving.",
-  "sentence3_en": "到了早上，病人的精神已明顯恢復。",
-  "tip": "reviving 是 revive 的 -ing 形式，指正在恢復意識、健康或體力；slowly／gradually 才明確表示「逐漸」。本卡不教 revive a tradition「復興傳統」。",
+  "sentence2": "She began to revive as colour returned to her face.",
+  "sentence2_en": "隨著臉上恢復血色，她開始恢復精神。",
+  "sentence3": "By morning, the patient had revived.",
+  "sentence3_en": "到了早上，那位病人已經恢復意識。",
+  "tip": "revive 的重音在第二音節 /vaɪv/。was reviving 是「當時正在恢復」，不是另一個基本詞；slowly／gradually 才補出慢慢、逐漸的意思。此處學的是人恢復意識或體力的不及物用法，沒有受詞；revive someone 則是「使某人甦醒」，句型不同。",
   "word_map": {
-    "The exhausted traveller": "那名筋疲力盡的旅人",
-    "was slowly reviving": "正慢慢恢復精神",
-    "after drinking some water": "喝水後"
+    "revive": "恢復意識、精神或體力",
+    "revives": "恢復意識、精神或體力",
+    "revived": "恢復意識、精神或體力",
+    "reviving": "恢復意識、精神或體力",
+    "The exhausted traveller was slowly reviving after drinking some water": "那位疲憊不堪的旅人在喝水後正慢慢恢復精神"
   },
   "forms": [
     "revive",
@@ -1852,9 +1873,10 @@ window.VOCAB_DATA['english_ielts'].push(
     "revived",
     "reviving"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "The Little Prince（Katherine Woods 英譯本），第 26 章（小王子一點一點恢復精神）；原文詞形 reviving；V67（2026-09-22）改收動詞原形 revive，-ing 形式保留於 Forms 與例句"
 },
-  {
+{
   "id": "en_0965",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -1882,7 +1904,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0966",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1910,7 +1932,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0967",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -1938,36 +1960,37 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0968",
   "category": "IELTS Reading Vocabulary",
-  "pos": "plural noun",
-  "word": "petals",
-  "meaning": "the coloured leaf-like parts surrounding the centre of a flower",
-  "ipa": "ˈpet.əlz",
-  "zh": "花瓣（複數）",
-  "zh_def": "圍繞花朵中心、通常具有顏色並共同構成花冠的片狀部分；petals 是複數",
-  "definition": "The coloured leaf-like parts surrounding the centre of a flower.",
+  "pos": "noun",
+  "word": "petal",
+  "meaning": "one of the usually coloured parts surrounding the centre of a flower",
+  "ipa": "ˈpetl",
+  "zh": "花瓣",
+  "zh_def": "花瓣",
+  "definition": "One of the usually coloured parts surrounding the centre of a flower.",
   "sentence1": "Pink petals covered the ground.",
-  "sentence1_en": "粉紅色花瓣覆蓋了地面。",
+  "sentence1_en": "粉紅色的花瓣鋪滿地面。",
   "sentence1_hl": "Pink <b>petals</b> covered the ground.",
   "sentence2": "The flower has five broad petals.",
   "sentence2_en": "這朵花有五片寬大的花瓣。",
-  "sentence3": "Bees landed on the outer petals.",
-  "sentence3_en": "蜜蜂停在外圈的花瓣上。",
-  "tip": "petals 是 petal 的複數：one petal，five petals。不要和 leaves「葉子」混淆。",
+  "sentence3": "A single petal lay beside the vase.",
+  "sentence3_en": "花瓶旁躺著一片花瓣。",
+  "tip": "一片花瓣是 a petal，多片才用 petals，例如 five petals。petal 是花瓣，leaf 是植物的葉片；原文用複數不代表主詞條也必須固定成複數。",
   "word_map": {
-    "Pink petals": "粉紅色花瓣",
-    "covered": "覆蓋了",
-    "the ground": "地面"
+    "petal": "花瓣",
+    "petals": "花瓣",
+    "Pink petals covered the ground": "粉紅色的花瓣鋪滿地面"
   },
   "forms": [
     "petal",
     "petals"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "The Little Prince（Katherine Woods 英譯本），第 8 章（描述花朵的一圈花瓣）；原文詞形 petals；V67（2026-09-22）將普通複數還原為單數主詞條 petal"
 },
-  {
+{
   "id": "en_0969",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -1998,7 +2021,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0970",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2027,7 +2050,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0971",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -2058,7 +2081,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0972",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2086,7 +2109,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0973",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2114,7 +2137,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0974",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2143,7 +2166,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0975",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -2175,7 +2198,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0976",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2204,7 +2227,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0977",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2233,7 +2256,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0978",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2261,7 +2284,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0979",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2290,7 +2313,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0980",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2319,7 +2342,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0981",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2348,7 +2371,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0982",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2377,7 +2400,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0983",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2405,7 +2428,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0984",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2436,7 +2459,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0985",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2465,7 +2488,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0986",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -2496,7 +2519,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0987",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -2527,7 +2550,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0988",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -2561,7 +2584,7 @@ window.VOCAB_DATA['english_ielts'].push(
   },
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0989",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2591,7 +2614,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0990",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2620,7 +2643,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0991",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -2651,7 +2674,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0992",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2682,7 +2705,7 @@ window.VOCAB_DATA['english_ielts'].push(
   },
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0993",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -2713,7 +2736,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0994",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2741,7 +2764,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0995",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2770,7 +2793,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0996",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -2802,7 +2825,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0997",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2830,7 +2853,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0998",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2858,7 +2881,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0999",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2888,7 +2911,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_1000",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",

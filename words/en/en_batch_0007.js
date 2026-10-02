@@ -1,10 +1,9 @@
-// en_batch_0007.js — English IELTS batch 7/11
-// 100 entries: en_0601 to en_0700
+// en_batch_0007.js — English IELTS batch 7; WordArk V68
+// 100 active entries: en_0601 to en_0700
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
-
 window.VOCAB_DATA['english_ielts'].push(
-  {
+{
   "id": "en_0601",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -33,7 +32,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0602",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -64,7 +63,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0603",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -96,7 +95,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0604",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -124,7 +123,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0605",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -153,7 +152,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0606",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -183,7 +182,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0607",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -211,7 +210,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0608",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -242,7 +241,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0609",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -271,7 +270,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0610",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -301,7 +300,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0611",
   "category": "IELTS Reading Vocabulary",
   "pos": "idiom",
@@ -334,7 +333,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0612",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -367,7 +366,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0613",
   "category": "IELTS Reading Vocabulary",
   "pos": "idiom",
@@ -397,7 +396,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0614",
   "category": "IELTS Reading Vocabulary",
   "pos": "idiom",
@@ -424,7 +423,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0615",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -453,7 +452,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0616",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -481,7 +480,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0617",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -510,7 +509,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0618",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -540,7 +539,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0619",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -569,7 +568,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0620",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -600,7 +599,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0621",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -629,7 +628,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0622",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -661,7 +660,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0623",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -697,7 +696,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0624",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -732,7 +731,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0625",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -761,7 +760,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0626",
   "category": "IELTS Reading Vocabulary",
   "pos": "adverb",
@@ -789,7 +788,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0627",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -822,7 +821,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0628",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -853,7 +852,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0629",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -888,7 +887,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0630",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -916,7 +915,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0631",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -944,7 +943,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0632",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -977,7 +976,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0633",
   "category": "IELTS Reading Vocabulary",
   "pos": "idiom",
@@ -1008,7 +1007,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0634",
   "category": "IELTS Reading Vocabulary",
   "pos": "idiom",
@@ -1036,7 +1035,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0635",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -1064,7 +1063,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0636",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -1092,7 +1091,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0637",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -1120,7 +1119,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0638",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1152,7 +1151,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0639",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -1183,7 +1182,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0640",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -1214,7 +1213,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0641",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -1248,7 +1247,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0642",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1277,7 +1276,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0643",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -1309,7 +1308,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0644",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -1337,7 +1336,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0645",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -1368,7 +1367,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0646",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1398,7 +1397,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0647",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -1426,7 +1425,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0648",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -1454,15 +1453,15 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0649",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
   "word": "coax",
   "meaning": "to persuade a person or animal gently and patiently to do or move somewhere",
   "ipa": "kəʊks",
-  "zh": "耐心溫和地勸誘某人或動物行動",
-  "zh_def": "不以命令或強迫，而是用溫和、耐心的方式讓人或動物願意做某事或移動到某處",
+  "zh": "耐心溫和地勸誘某人做某事",
+  "zh_def": "耐心溫和地勸誘某人做某事",
   "definition": "To persuade a person or animal gently and patiently to do or move somewhere.",
   "sentence1": "She coaxed the frightened cat out from under the bed.",
   "sentence1_en": "她耐心哄那隻受驚的貓從床底下出來。",
@@ -1471,12 +1470,15 @@ window.VOCAB_DATA['english_ielts'].push(
   "sentence2_en": "護理師溫和地勸那個孩子把藥吃下去。",
   "sentence3": "The interviewer coaxed the reluctant witness into answering one more question.",
   "sentence3_en": "訪談者耐心勸那名不情願的證人再回答一個問題。",
-  "tip": "常用 coax someone into doing something，或 coax someone／an animal out of a place；重點是溫和耐心，不是強迫。",
+  "tip": "coax someone into doing something 是耐心勸誘某人做某事；coax someone away from + 名詞／V-ing 是引導某人遠離某觀念或做法。coax 和 away 之間通常要交代被勸誘的人，不能把 coax away 當成固定不變的連續兩字片語。",
   "word_map": {
-    "She": "她",
-    "coaxed": "耐心哄",
-    "the frightened cat": "那隻受驚的貓",
-    "out from under the bed": "從床底下出來"
+    "coax": "耐心溫和地勸誘某人做某事",
+    "coaxes": "耐心溫和地勸誘某人做某事",
+    "coaxed": "耐心溫和地勸誘某人做某事",
+    "coaxing": "耐心溫和地勸誘某人做某事",
+    "coax someone into": "耐心溫和地勸誘某人做某事",
+    "coax someone out of": "耐心溫和地勸誘某人做某事",
+    "She coaxed the frightened cat out from under the bed": "她耐心哄那隻受驚的貓從床底下出來"
   },
   "forms": [
     "coax",
@@ -1486,9 +1488,10 @@ window.VOCAB_DATA['english_ielts'].push(
     "coax someone into",
     "coax someone out of"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "使用者收集的 YouTube 影片（原始檔未記錄影片名稱與原句；此義依 Cambridge Dictionary 常用用法複核）；另見 Cambridge IELTS 18 Academic，Test 4，Reading Passage 2〈The growth mindset〉（本次提供詞形：Coax away；Passage 2；coax + 人 + away from + 觀念／V-ing，合併第649項 coax 並補充構式；2026-09-15 依公開文章／題目轉錄頁核對）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-18-academic-reading-test-4/"
 },
-  {
+{
   "id": "en_0650",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -1517,7 +1520,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0651",
   "category": "IELTS Reading Vocabulary",
   "pos": "adverb",
@@ -1545,7 +1548,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0652",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -1574,7 +1577,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0653",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -1603,7 +1606,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0654",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -1631,37 +1634,37 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0655",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
   "word": "deviation",
   "meaning": "a difference from what is expected, usual, or specified",
   "ipa": "ˌdiː.viˈeɪ.ʃən",
-  "zh": "偏離標準、平均值或預定做法的差異",
-  "zh_def": "實際結果、數值或做法和原先規格、平均狀態或規定程序之間的差距",
+  "zh": "偏離預定路線、標準或做法的情況或差異",
+  "zh_def": "偏離預定路線、標準或做法的情況或差異",
   "definition": "A difference from what is expected, usual, or specified.",
   "sentence1": "Engineers detected a small deviation from the original specification.",
   "sentence1_en": "工程師發現實際結果與原始規格有一點偏差。",
   "sentence1_hl": "Engineers detected a small <b>deviation</b> from the original specification.",
-  "sentence2": "The result showed a large deviation from the average.",
-  "sentence2_en": "結果顯示和平均值有很大的偏差。",
+  "sentence2": "Controllers detected a slight deviation from the aircraft's planned route.",
+  "sentence2_en": "管制人員偵測到飛機略微偏離預定航線。",
   "sentence3": "Any deviation from the safety procedure must be reported.",
   "sentence3_en": "任何偏離安全程序的做法都必須通報。",
   "tip": "常用 a deviation from + 規格／平均值／程序；deviation 是差異本身，動詞則是 deviate。",
   "word_map": {
-    "Engineers": "工程師",
-    "detected": "發現",
-    "a small deviation from": "有一點偏差",
-    "the original specification": "和原始規格"
+    "deviation": "偏離預定路線、標準或做法的情況或差異",
+    "deviations": "偏離預定路線、標準或做法的情況或差異",
+    "Engineers detected a small deviation from the original specification": "工程師發現實際結果與原始規格有一點偏差"
   },
   "forms": [
     "deviation",
     "deviations"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "使用者收集的 YouTube 影片（原始檔未記錄影片名稱與原句；此義依 Cambridge Dictionary 常用用法複核）；另見 Cambridge IELTS 16 Academic，Test 4，Reading Passage 1〈Roman tunnels〉（原文複數 deviations，指隧道施工方向偏離既定路線）；同一「偏離原定標準或路線」義項合併於此"
 },
-  {
+{
   "id": "en_0656",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1689,7 +1692,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0657",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun phrase",
@@ -1719,7 +1722,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0658",
   "category": "IELTS Reading Vocabulary",
   "pos": "conjunction phrase",
@@ -1746,7 +1749,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0659",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1775,7 +1778,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0660",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1804,7 +1807,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0661",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1834,7 +1837,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0662",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1865,7 +1868,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0663",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun phrase",
@@ -1895,7 +1898,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0664",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -1924,7 +1927,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0665",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun phrase",
@@ -1953,7 +1956,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0666",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -1983,7 +1986,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0667",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2011,7 +2014,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0668",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2039,7 +2042,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0669",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2071,7 +2074,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0670",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -2104,7 +2107,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0671",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2133,7 +2136,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0672",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2162,7 +2165,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0673",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb phrase",
@@ -2192,7 +2195,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0674",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun phrase",
@@ -2225,7 +2228,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0675",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb phrase",
@@ -2256,7 +2259,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0676",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb phrase",
@@ -2289,7 +2292,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0677",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2317,7 +2320,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0678",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2346,7 +2349,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0679",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2375,7 +2378,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0680",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2404,7 +2407,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0681",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2433,7 +2436,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0682",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2464,7 +2467,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0683",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2492,7 +2495,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0684",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2522,7 +2525,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0685",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2551,7 +2554,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0686",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2579,7 +2582,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0687",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2608,7 +2611,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0688",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2637,7 +2640,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0689",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -2668,7 +2671,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0690",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2696,7 +2699,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0691",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2727,7 +2730,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0692",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2756,7 +2759,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0693",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2787,7 +2790,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0694",
   "category": "IELTS Reading Vocabulary",
   "pos": "adverb",
@@ -2816,7 +2819,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0695",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2848,7 +2851,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0696",
   "category": "IELTS Reading Vocabulary",
   "pos": "adjective",
@@ -2876,7 +2879,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0697",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2906,7 +2909,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0698",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
@@ -2939,7 +2942,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0699",
   "category": "IELTS Reading Vocabulary",
   "pos": "noun",
@@ -2969,7 +2972,7 @@ window.VOCAB_DATA['english_ielts'].push(
   ],
   "lang": "english_ielts"
 },
-  {
+{
   "id": "en_0700",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
