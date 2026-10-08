@@ -15,7 +15,7 @@
      time you ship an actual update after that point. -->
 <script>
   const CACHE_DEV_MODE = false;     // release: allow browser/PWA caching
-  const RELEASE_VERSION = '51-v68-vocabulary'; // V68: 2008 active English cards; preserves the V65 learning fixes
+  const RELEASE_VERSION = '51-v68.1-catalog'; // V68 vocabulary; Review navigation and word browsing update
   window.APP_VERSION = CACHE_DEV_MODE ? Date.now() : RELEASE_VERSION;
 </script>
 <meta charset="UTF-8">
@@ -193,6 +193,11 @@
           <span class="btn-filter-arrow">▾</span>
         </button>
       </div>
+      <div class="rev-search-wrap" id="rev-search-wrap" hidden>
+        <input id="rev-search" type="search" aria-label="Search English or Chinese" placeholder="Search English / 中文"
+          autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="120">
+      </div>
+      <div class="rev-result-count" id="rev-result-count" role="status" aria-live="polite"></div>
     </div>
   </div>
 
@@ -272,12 +277,15 @@
       <div class="cat-panel-bridge" id="cat-panel-bridge"></div>
       <div class="cat-panel panel-all" id="cat-panel">
         <div class="cat-panel-inner">
+          <div id="game-word-filters" class="word-filters" hidden></div>
+          <div id="game-topics">
           <div class="cat-action-row">
             <span class="cat-action-label">Topics</span>
             <button class="btn-cat-select-all" id="btn-cat-select-all" onclick="G_selectAllCats()">☐ Select All</button>
             <button class="btn-cat-clear-all" id="btn-cat-clear-all" onclick="G_clearAllCats()">✕ Clear</button>
           </div>
           <div class="cat-list" id="cat-list"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -335,9 +343,10 @@
   <div class="cat-sheet-outer">
     <div class="cat-sheet-top">
       <div class="sh-handle"></div>
-      <span class="fs-section-label" style="margin:0 0 8px;">Topic — tap to focus</span>
+      <span class="fs-section-label" id="rev-filter-title" style="margin:0 0 8px;">Filter &amp; sort words</span>
     </div>
     <div class="cat-scroll">
+      <div id="rev-word-filters" class="word-filters" hidden></div>
       <div class="cat-list" id="rev-cat-list"></div>
     </div>
     <div class="cat-sheet-bottom">
@@ -358,6 +367,7 @@
 <script>document.write('<script src="engine/engine_data.js?v='+window.APP_VERSION+'"></'+'script>');</script>
 <script>document.write('<script src="engine/engine_modes.js?v='+window.APP_VERSION+'"></'+'script>');</script>
 <script>document.write('<script src="engine/engine_session.js?v='+window.APP_VERSION+'"></'+'script>');</script>
+<script>document.write('<script src="engine/engine_catalog.js?v='+window.APP_VERSION+'"></'+'script>');</script>
 <!-- Interstitial tip cards (tips/tips_<lang>.js) now load lazily alongside that
      language's vocab data — same reasoning as lang_rules/word_forms above.
      They used to all load upfront here (8 files, ~150KB each = ~1.2MB every visit,
@@ -379,24 +389,6 @@
   };
   Object.keys(_validators).forEach(f => document.write('<script src="'+f+'?v='+window.APP_VERSION+'"></'+'script>'));
 }
-</script>
-<script>
-(function(){
-  function patchTab(){
-    var orig=window.G_tab;
-    if(!orig){setTimeout(patchTab,50);return;}
-    window.G_tab=function(t){
-      orig(t);
-      var sr=document.getElementById("subbar-review");
-      var gsub=document.getElementById("g-subbar");
-      if(sr&&gsub){
-        if(t==="review"){sr.style.display="flex";gsub.classList.add("review-mode");}
-        else{sr.style.display="none";gsub.classList.remove("review-mode");}
-      }
-    };
-  }
-  patchTab();
-})();
 </script>
 <!-- Header auto-collapse: shrinks panel 1 (.g-header) + panel 2 (#g-subbar) into the
      #g-mini icon strip whenever #game-strip is visible (i.e. a round is running),

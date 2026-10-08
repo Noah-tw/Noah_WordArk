@@ -297,8 +297,8 @@ html.is-standalone .screen{height:100vh;}
   max-height:280px; /* generous cap — real height is content-driven when open */
   transition:max-height .22s ease,opacity .16s ease,padding .22s ease;
 }
-#scr-game.hdr-collapsed .g-header,
-#scr-game.hdr-collapsed .g-subbar{
+#scr-game.hdr-collapsed:not(.review-active) .g-header,
+#scr-game.hdr-collapsed:not(.review-active) .g-subbar{
   max-height:0;padding-top:0;padding-bottom:0;
   border-bottom-width:0;overflow:hidden;opacity:0;pointer-events:none;
 }
@@ -311,7 +311,7 @@ html.is-standalone .screen{height:100vh;}
   padding:calc(var(--sat) + 6px) calc(var(--sar) + 14px) 6px calc(var(--sal) + 14px);
   background:var(--card);border-bottom:2px solid var(--border);
 }
-#scr-game.hdr-collapsed #g-mini{display:flex;}
+#scr-game.hdr-collapsed:not(.review-active) #g-mini{display:flex;}
 .gm-btn{
   width:36px;height:36px;flex-shrink:0;border-radius:11px;
   border:2px solid var(--border);background:var(--bg);
@@ -1145,6 +1145,29 @@ html.is-standalone #bot-bar{position:static;}
 
 
 .rev-empty{text-align:center;padding:64px 20px;color:var(--ink3);font-size:.95rem;font-weight:800;line-height:1.9;}
+
+/* Browse a large English catalogue without changing its lesson order. */
+.rev-search-wrap{padding:0 14px 5px;}
+.rev-search-wrap input{width:100%;box-sizing:border-box;min-height:40px;
+  border:2px solid var(--border);border-radius:11px;padding:8px 11px;
+  background:var(--bg);color:var(--ink);font:inherit;font-size:16px;}
+.rev-result-count{padding:0 14px 6px;font-size:.76rem;font-weight:800;color:var(--ink3);}
+.word-filters{padding:8px 14px 14px;}
+.cat-panel-inner>.word-filters{padding:4px 0 10px;}
+.word-filter-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;}
+.word-filter-grid label{display:flex;flex-direction:column;gap:5px;min-width:0;
+  color:var(--ink2);font-size:.82rem;font-weight:800;}
+.word-filter-grid select{width:100%;min-width:0;min-height:44px;border:2px solid var(--border);
+  border-radius:10px;padding:7px;background:var(--card);color:var(--ink);font:inherit;font-size:16px;}
+.word-filter-wide{grid-column:1/-1;}
+.word-filter-note{font-size:.77rem;line-height:1.5;color:var(--ink3);margin:10px 0;}
+.word-filter-footer{display:flex;align-items:center;justify-content:space-between;gap:8px;
+  flex-wrap:wrap;font-size:.8rem;font-weight:800;color:var(--ink2);}
+.word-filter-reset{min-height:40px;border:2px solid var(--border);border-radius:10px;
+  padding:7px 10px;background:var(--card);color:var(--ink2);font:inherit;font-weight:800;cursor:pointer;}
+.r-pos{display:inline-block;font-size:.72rem;font-weight:800;color:var(--ink3);margin-top:4px;}
+.word-filters[hidden],#game-topics[hidden],#rev-cat-list[hidden],.rev-search-wrap[hidden]{display:none;}
+@media(max-width:360px){.word-filter-grid{grid-template-columns:minmax(0,1fr);}}
 
 /* ═══════════════════════════════════════
    OVERLAYS — bottom sheets
