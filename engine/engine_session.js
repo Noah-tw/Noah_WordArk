@@ -24,6 +24,8 @@ const S = {
   modes:['definition','matching','blank','sentenceTiles','listening'],
   romaji:true, // JP: show romaji by default, user can toggle off
   lessonGroup:null, // null=free play; Number=locked to this group
+  activeTab:'play',
+  gameBrowse:{pos:'all',letter:'all'},
   _interstitialCount:0, // tracks questions since last interstitial card
   queue:[],qi:0,q:null,
   goal: 0,
@@ -49,7 +51,8 @@ const S = {
   mt:{ sel:null, hit:[], wrong:[] },
   // Review filter state (independent from game pool/cats)
   revFilter:'all',
-  revTopic:'all'
+  revTopic:'all',
+  revBrowse:{pos:'all',letter:'all',sort:'az',query:''}
 };
 
 /* ─── ENGINE ──────────────────────────────────────────────── */
@@ -165,15 +168,13 @@ function _doStartSession(buildSeq){
   // all records anyway, so cross-language contamination is impossible. This is correct —
   // do not persist _usedSentInSession; per-session rotation is the intended behaviour.
   pool.forEach(r=>{r._usedSentInSession=null;});
-  if(S.catsCleared) pool=[];                                    // Clear All = no words
-  else if(S.cats.size>0) pool=pool.filter(r=>S.cats.has(r.category)); // specific topics
-  if(S.pool!=='all')pool=pool.filter(r=>S.pool==='favorite'?Prog.isFav(S.lang,r.id):Prog.status(S.lang,r.id)===S.pool);
+  pool=_freePlayWords();
   // LESSON MODE: restrict pool to this group's words only
   if(S.lessonGroup!==null) pool=Store.getAll().filter(r=>r._group===S.lessonGroup);
   if(!pool.length){toast('No words here. Try "All Words".');showEmpty();return;}
   // Build queue in background, then show ready screen
   setTimeout(()=>{
-    if(buildSeq!==_sessionBuildSeq||S.lang!==buildLang)return;
+    if(buildSeq!==_sessionBuildSeq||S.lang!==buildLang||S._viewingLessonMap)return;
     S.queue=buildQueue(pool,valid,pool,lc);
     S.qi=0;S.score={ok:0,no:0};
     S.goal=S.queue.length;
@@ -259,9 +260,9 @@ function showReadyScreen(pool, fromRound=false){
   const roundReview=Math.max(0,roundWords-roundNew);
 
   // Category label
-  const catLabel=S.cats.size===1?_catIcon([...S.cats][0])+' '+[...S.cats][0]
+  const catLabel=(S.lessonGroup!==null?'Lesson '+S.lessonGroup:'')||(S.lang==='english_ielts'&&WordCatalog.summary(S.gameBrowse))||(S.cats.size===1?_catIcon([...S.cats][0])+' '+[...S.cats][0]
     :S.cats.size>1?S.cats.size+' topics'
-    :'All words';
+    :'All words');
 
   const showBadge = fromRound;
 
@@ -270,7 +271,7 @@ function showReadyScreen(pool, fromRound=false){
   <div class="ready-card-wrap random-wrap">
     <div class="ready-card-inner">
       <div class="ready-topic-label">${catLabel} · ${totalPool.toLocaleString()} words</div>
-      <div class="ready-title">Free<br>Practice</div>
+      <div class="ready-title">${S.lessonGroup!==null?'Lesson<br>'+S.lessonGroup:'Free<br>Practice'}</div>
       <div class="ready-round-count"><span class="ready-round-num">${roundWords}</span><span class="ready-round-lbl"> words</span></div>
       <div class="ready-question-count">${roundQuestions} questions this round</div>
       <div class="coin-outer" onclick="G_startRound()">
@@ -304,8 +305,8 @@ function G_startRound(){
   // Real speech is allowed through only after the silent media probe and the fast
   // native-prime cancellation have actually settled.
   try{void TTS.unlock(LC[S.lang].ttsLang);}catch(e){}
-  // BUG-FIX: coin button = Random mode. Clear lesson lock so pool is unrestricted.
-  S.lessonGroup=null;
+  // The queue already belongs to either Free play or a chosen lesson. Keep that
+  // scope when the lesson auto-start path calls this same entry point.
   SFX.pop();
   // Show game strip
   const strip=eid('game-strip');

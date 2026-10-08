@@ -66,21 +66,33 @@ function G_leaveAndNew(){
 }
 function G_goHome(){
   SFX.click();_cancelQueuedTTS();TTS.stop();
-  S.lessonGroup=null;
+  cancelSessionBuild();
+  S.lessonGroup=null;S._viewingLessonMap=false;S._lessonAutoStart=false;
+  updateCatBtn();
   updateLandingStats();
   buildLandingLangs();
   eid('scr-game').classList.add('hidden');
   eid('scr-landing').classList.remove('hidden');
 }
 function G_tab(t){
+  if(t!=='play'&&t!=='review')return;
   SFX.click();_cancelQueuedTTS();TTS.stop();
+  S.activeTab=t;
   qsa('.g-tab').forEach(b=>b.classList.toggle('on',b.dataset.t===t));
   qsa('.g-panel').forEach(p=>p.classList.toggle('on',p.id==='panel-'+t));
-  const sg=eid('subbar-game'),sr=eid('subbar-review'),bb=eid('bot-bar');
-  if(sg)sg.style.display=t==='play'?'contents':'none';
-  if(sr)sr.style.display=t==='review'?'contents':'none';
-  if(bb)bb.style.display=t==='review'?'none':'flex';
-  if(t==='review'){_updateRevTopicBtn();buildRevTopics();renderReview(S.revFilter);}
+  _syncTabChrome();
+  if(t==='review'){buildRevTopics();renderReview(S.revFilter);}
+}
+function _syncTabChrome(){
+  const review=S.activeTab==='review',map=!review&&S._viewingLessonMap;
+  const sg=eid('subbar-game'),sr=eid('subbar-review'),sb=eid('g-subbar'),bb=eid('bot-bar');
+  if(sg)sg.style.display=review?'none':'contents';
+  if(sr)sr.style.display=review?'flex':'none';
+  // The map hides the PARENT, so restoring only the Review child cannot work.
+  if(sb){sb.style.display=map?'none':'';sb.classList.toggle('review-mode',review);}
+  if(bb)bb.style.display=review||map?'none':'flex';
+  // Review always has its full header, including when visited mid-round.
+  eid('scr-game')?.classList.toggle('review-active',review);
 }
 function _resetSessionDisplay(){
   S.goal=0;S.score={ok:0,no:0};
@@ -159,6 +171,7 @@ function G_switchLang(id){
   TTS.stop();
 
   S.lang=id;S.cats=new Set();S.catsCleared=false;S.pool='all';
+  _resetWordBrowse();
   // Always use the new language's full default modes — prevents blank screen
   S.modes=[...LC[id].defaultModes];
   // Reset romaji to ON whenever switching to Japanese
@@ -205,6 +218,7 @@ function G_revFilter(f){
   S.revFilter=f;
   qsa('.rev-tab').forEach(b=>b.classList.toggle('on',b.dataset.f===f));
   _updateRevTopicBtn();
+  buildRevTopics();
   renderReview(f);
 }
 function G_toggleFav(btn){
@@ -214,7 +228,7 @@ function G_toggleFav(btn){
   btn.classList.toggle('on',on);
   btn.textContent=on?'❤️':'🤍';
   // If viewing the Favorites tab, drop the card immediately on un-favorite
-  if(S.revFilter==='favorite'&&!on) renderReview('favorite');
+  if(S.revFilter==='favorite'&&!on){buildRevTopics();renderReview('favorite');}
   // Keep word-count badges / topic sheet counts in sync if they're on screen
   if(typeof updatePoolBtn==='function') updatePoolBtn();
 }
@@ -246,6 +260,12 @@ function buildRevTopics(){
   }
   _revTopicsBuildSeq++; // invalidate any retry queued before this real build
 
+  buildWordBrowseControls('review');
+  const title=eid('rev-filter-title');
+  if(title)title.textContent=S.lang==='english_ielts'?'Filter & sort words':'Topic — tap to focus';
+  // The only English source category is not a useful navigation choice.
+  el.hidden=S.lang==='english_ielts'&&Store.getCats().length<=1;
+
   const cats=Store.getCats();
   const allWords=Store.getAll();
 
@@ -266,9 +286,10 @@ function G_openOv(id){
   SFX.click();
   if(id==='ov-settings'){const box=eid('xp-box');if(box)box.value='';}
   if(id==='ov-modes'){buildModeBtns();}
+  if(id==='ov-topic'){buildRevTopics();}
   if(id==='ov-cats'){
     // Snapshot state so Done button can detect changes
-    S._catsSnapshot={cats:new Set(S.cats),cleared:S.catsCleared};
+    S._catsSnapshot={cats:new Set(S.cats),cleared:S.catsCleared,browse:JSON.stringify(S.gameBrowse)};
     buildCatSheet();
   }
   eid(id)?.classList.add('on');
@@ -382,10 +403,10 @@ function G_continueFromInterstitial(){
 /* ─── LESSON MAP ACTIONS ─────────────────────────────────── */
 function G_openLessonMap(){
   SFX.click();
+  cancelSessionBuild(); // A queued ready screen must not overwrite the map.
   S._viewingLessonMap=true;
   const strip=eid('game-strip'); if(strip) strip.style.display='none';
-  const bb=eid('bot-bar'); if(bb) bb.style.display='none';
-  const sb=eid('g-subbar'); if(sb) sb.style.display='none';
+  _syncTabChrome();
   if(typeof updateLessonMapHeader==='function') updateLessonMapHeader();
   buildLessonMap();
 }
@@ -393,8 +414,8 @@ function G_closeLessonMap(){
   SFX.click();
   S.lessonGroup=null;
   S._viewingLessonMap=false; // BUG-FIX: must clear BEFORE startSession or guard blocks it
-  const bb=eid('bot-bar'); if(bb) bb.style.display='flex';
-  const sb=eid('g-subbar'); if(sb) sb.style.display='';
+  _syncTabChrome();
+  updateCatBtn();
   startSession();
 }
 function G_startLesson(groupNum){
@@ -405,11 +426,10 @@ function G_startLesson(groupNum){
   S.modes=[...LC[S.lang].defaultModes];
   S.goal=0; S.score={ok:0,no:0};
   S._lessonAutoStart=true;
-  const bb=eid('bot-bar'); if(bb) bb.style.display='flex';
-  const sb=eid('g-subbar'); if(sb) sb.style.display='';
   // G_tab() intentionally stops old audio, so it MUST run before unlock(). The previous
   // order started the iOS unlock and immediately cancelled it with G_tab()->TTS.stop().
   G_tab('play');
+  updateCatBtn();
   try{void TTS.unlock(LC[S.lang].ttsLang);}catch(e){}
   startSession(true);
 }
@@ -466,6 +486,7 @@ function buildLessonMap(){
 })();
 
 document.addEventListener('DOMContentLoaded',()=>{
+  initWordBrowse();
   console.log('game.js loaded: VocabGame Engine v5 - intro+hint');
   Prog.load();
   S.lastSessionWords = Prog.loadLastSession(); // BUG-6 FIX: restore SRS spacing after reload

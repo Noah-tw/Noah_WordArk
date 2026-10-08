@@ -1642,7 +1642,7 @@ function showEmpty(){
         <div class="cc-emo" style="font-size:2rem;margin-top:auto">📭</div>
         <div class="ready-title" style="font-size:.95rem">No words<br>here</div>
         <div class="ready-topic-label" style="text-transform:none;font-size:.75rem;color:var(--ink3)">Try switching to All Words</div>
-        <button class="btn-cc p" style="width:100%;margin-top:auto;font-size:.8rem" onclick="G_setPool('all')">Show All</button>
+        <button class="btn-cc p" style="width:100%;margin-top:auto;font-size:.8rem" onclick="G_resetGameBrowse(true)">Show All</button>
       </div>
     </div>
     ${lessonCard}
@@ -1667,11 +1667,14 @@ let _revBuildSeq = 0;
 function renderReview(f) {
   S.revFilter = f || S.revFilter || 'all';
   const list = eid('rev-list'); if (!list) return;
+  updateReviewBrowse();
+  const count=eid('rev-result-count');
 
   if (!Store.isLoadedFor(S.lang)) {
     list.innerHTML = `<div class="rev-empty">Loading…</div>`;
+    if(count)count.textContent='Loading…';
     const seq = ++_revBuildSeq;
-    setTimeout(() => { if (seq === _revBuildSeq) renderReview(S.revFilter); }, 50);
+    setTimeout(() => { if (seq === _revBuildSeq&&S.activeTab==='review') renderReview(S.revFilter); }, 50);
     return;
   }
   _revBuildSeq++; // invalidate any retry that was already queued before this real render
@@ -1681,34 +1684,28 @@ function renderReview(f) {
 
   const lc = getLc();
 
-  // 1. 篩選資料：考慮狀態與目前選定的主題 (Topic)
-  let items = Store.getAll().filter(r => {
-    const status = Prog.status(S.lang, r.id);
-    const matchesFilter = S.revFilter === 'all' ? true
-      : S.revFilter === 'favorite' ? Prog.isFav(S.lang, r.id)
-      : status === S.revFilter;
-    const matchesTopic = (S.revTopic === 'all' || r.category === S.revTopic);
-    return matchesFilter && matchesTopic;
-  });
+  const items=_reviewWords();
+  if(count)count.textContent=`${items.length.toLocaleString()} / ${Store.count().toLocaleString()} cards`;
+  list.scrollTop=0;
 
   if (!items.length) {
-    list.innerHTML = `<div class="rev-empty">No words here.</div>`;
+    list.innerHTML = `<div class="rev-empty">No words match these filters.<br><button class="word-filter-reset" onclick="G_resetReviewBrowse(true)">Show all words</button></div>`;
     return;
   }
 
   // 2. 效能優化：清空列表並設定「分批載入」
   list.innerHTML = '';
   let pos = 0; 
+  const renderSeq=_revBuildSeq;
   const CHUNK = 20; // 每次只畫 20 個字，保證 3000 字也不當機
 
   function _drawBatch() {
+    if(renderSeq!==_revBuildSeq||S.activeTab!=='review')return;
     const batch = items.slice(pos, pos + CHUNK);
     const temp = document.createElement('div');
     
     // 渲染卡片，並確保呼叫 _cleanWord(r.word) 處理 le|vin
-    batch.forEach(r => { 
-      temp.innerHTML += _revCardHtml(r, lc); 
-    });
+    temp.innerHTML=batch.map(r=>_revCardHtml(r,lc)).join('');
 
     // 將新卡片加入列表
     while (temp.firstElementChild) { list.appendChild(temp.firstElementChild); }
@@ -1766,10 +1763,11 @@ function _revCardHtml(r,lc){
   const isFav=Prog.isFav(r.lang,r.id);
   const reviewWord=lc.type==='ielts'?_getCoreWord(r.word):_cleanWord(r.word);
   const reviewTts=lc.type==='ielts'?_englishSpeech(r):r.word;
-  return `<div class="r-card" onclick="G_toggleRevCard(this)">
+  return `<div class="r-card" data-card-id="${WordCatalog.html(r.id)}" onclick="G_toggleRevCard(this)">
     <div class="r-card-toggle">
       <div style="flex:1;min-width:0;">
         <div class="r-word" dir="${lc.rtl?'rtl':'ltr'}">${lc.type==='japanese'?jpRuby(r.word,r.reading):reviewWord}</div>
+        ${lc.type==='ielts'&&r.pos?`<div class="r-pos">${WordCatalog.html(r.pos)}</div>`:''}
         ${r.ipa?`<div class="r-hint">${r.ipa}</div>`:''}
         ${r.reading?`<div class="r-hint">${r.reading}${r.romaji?' · '+r.romaji:''}</div>`:''}
         <div class="r-meaning">${r.meaning||''}</div>
@@ -1838,10 +1836,13 @@ function _updateFilterBtn(){
   else if(hasPool&&!hasCat) label=poolLabels[S.pool];
   else if(!hasPool&&hasCat) label=catLabel;
   else                      label=poolLabels[S.pool]+' · '+catLabel;
+  const browseLabel=S.lang==='english_ielts'?WordCatalog.summary(S.gameBrowse):'';
+  if(browseLabel&&!S.catsCleared)label=(hasPool?poolLabels[S.pool]+' · ':'📂 ')+browseLabel;
+  if(S.lessonGroup!==null)label='📖 Lesson '+S.lessonGroup;
   lbl.textContent=label;
   btn.className='btn-filter';
   if(S.catsCleared)         btn.classList.add('active','pool-cleared');
-  else if(hasPool||hasCat)  btn.classList.add('active');
+  else if(hasPool||hasCat||browseLabel)  btn.classList.add('active');
   if(S.pool==='new')        btn.classList.add('pool-new');
   if(S.pool==='unfamiliar') btn.classList.add('pool-unfamiliar');
   if(S.pool==='mastered')   btn.classList.add('pool-mastered');
@@ -1860,16 +1861,9 @@ function _updateFilterBtn(){
       setTimeout(()=>{ if(seq===_filterBtnBuildSeq) _updateFilterBtn(); },50);
     } else {
       _filterBtnBuildSeq++;
-      let pool=Store.getAll();
-      if(S.catsCleared) pool=[];
-      else if(S.cats.size>0) pool=pool.filter(r=>S.cats.has(r.category));
-      if(S.pool!=='all') pool=pool.filter(r=>S.pool==='favorite'?Prog.isFav(S.lang,r.id):Prog.status(S.lang,r.id)===S.pool);
-      if(pool.length>0){
-        wc.textContent=pool.length.toLocaleString();
-        wc.style.display='inline-block';
-      } else {
-        wc.style.display='none';
-      }
+      const pool=S.lessonGroup!==null?Store.getAll().filter(r=>r._group===S.lessonGroup):_freePlayWords();
+      wc.textContent=pool.length.toLocaleString();
+      wc.style.display='inline-block';
     }
   }
 }
@@ -1997,6 +1991,7 @@ function buildLandingLangs(){
       _cancelQueuedTTS();
       TTS.stop();
       S.lang=lc.id;S.cats=new Set();S.pool='all';
+      _resetWordBrowse();
       S.catsCleared=false;
       S.modes=[...lc.defaultModes];
       if(lc.id==='japanese') S.romaji=true;
@@ -2046,6 +2041,9 @@ function buildCatSheet(){
     return;
   }
   _catSheetBuildSeq++;
+  buildWordBrowseControls('game');
+  const topics=eid('game-topics');
+  if(topics)topics.hidden=S.lang==='english_ielts'&&Store.getCats().length<=1;
 
   const allCats=Store.getCats();
   const allWords=Store.getAll();
@@ -2101,7 +2099,7 @@ function buildCatSheet(){
   if(doneBtn&&S._catsSnapshot){
     const snap=S._catsSnapshot;
     const setsEqual=(a,b)=>a.size===b.size&&[...a].every(x=>b.has(x));
-    const changed=S.catsCleared!==snap.cleared||!setsEqual(S.cats,snap.cats);
+    const changed=S.catsCleared!==snap.cleared||!setsEqual(S.cats,snap.cats)||JSON.stringify(S.gameBrowse)!==snap.browse;
     doneBtn.classList.toggle('changed',changed);
     doneBtn.textContent=changed?'✓ Done':'Done';
   }
