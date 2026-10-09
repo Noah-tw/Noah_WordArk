@@ -15,7 +15,7 @@
      time you ship an actual update after that point. -->
 <script>
   const CACHE_DEV_MODE = false;     // release: allow browser/PWA caching
-  const RELEASE_VERSION = '51-v68.1-catalog'; // V68 vocabulary; Review navigation and word browsing update
+  const RELEASE_VERSION = '51-v68.1-catalog-ui2'; // V68 vocabulary; compact word browser
   window.APP_VERSION = CACHE_DEV_MODE ? Date.now() : RELEASE_VERSION;
 </script>
 <meta charset="UTF-8">
@@ -187,17 +187,27 @@
         <button class="rev-tab"    data-f="mastered"   onclick="G_revFilter('mastered')">  <span>🏆</span>Mastered</button>
         <button class="rev-tab"    data-f="favorite"   onclick="G_revFilter('favorite')">  <span>❤️</span>Fav</button>
       </div>
-      <div style="padding:0 14px 7px;background:var(--card);">
-        <button class="btn-filter" id="rev-topic-btn" onclick="G_openOv('ov-topic')" style="width:100%;box-sizing:border-box;">
-          <span class="btn-filter-label" id="rev-topic-label">📂 All topics</span>
-          <span class="btn-filter-arrow">▾</span>
+      <div class="rev-tools">
+        <div class="rev-search-wrap" id="rev-search-wrap" hidden>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 4.5 4.5"/></svg>
+          <input id="rev-search" type="search" aria-label="Search English or Chinese" placeholder="Search English / 中文"
+            autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="120">
+        </div>
+        <button class="btn-filter" id="rev-topic-btn" onclick="G_openOv('ov-topic')" aria-label="Choose words to review">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="2.5"/><circle cx="15" cy="17" r="2.5"/></svg>
+          <span class="btn-filter-label" id="rev-topic-label">Topics</span>
+          <span id="rev-filter-badge" hidden></span>
         </button>
       </div>
-      <div class="rev-search-wrap" id="rev-search-wrap" hidden>
-        <input id="rev-search" type="search" aria-label="Search English or Chinese" placeholder="Search English / 中文"
-          autocomplete="off" autocapitalize="off" spellcheck="false" maxlength="120">
+      <div id="rev-active-filters" class="rev-active-filters" hidden></div>
+      <div class="rev-browse-meta">
+        <div class="rev-result-count" id="rev-result-count" role="status" aria-live="polite"></div>
+        <div class="rev-sort" id="rev-sort" role="group" aria-label="Sort words" hidden>
+          <button data-sort="az" onclick="G_setReviewBrowse('sort','az')" aria-label="Sort A to Z">A–Z</button>
+          <button data-sort="za" onclick="G_setReviewBrowse('sort','za')" aria-label="Sort Z to A">Z–A</button>
+          <button data-sort="original" onclick="G_setReviewBrowse('sort','original')">Original</button>
+        </div>
       </div>
-      <div class="rev-result-count" id="rev-result-count" role="status" aria-live="polite"></div>
     </div>
   </div>
 
@@ -262,13 +272,16 @@
     <!-- Pinned top: handle + pool tabs -->
     <div class="cat-sheet-top">
       <div class="sh-handle"></div>
-      <span class="fs-section-label" style="margin:0 0 8px;">Words to practice</span>
+      <div class="browse-sheet-heading">
+        <span class="fs-section-label" id="game-filter-title">Words to practice</span>
+        <button class="browse-dismiss" aria-label="Cancel word selection" onclick="SFX.click();G_closeOv('ov-cats')">×</button>
+      </div>
       <div class="fs-pool-row pool-tabs-all" id="fs-pool-row">
-        <button class="fs-pool-chip sel" data-p="all"         onclick="G_setPool('all')">        <span class="fs-pool-chip-icon">📚</span>All</button>
-        <button class="fs-pool-chip"    data-p="new"         onclick="G_setPool('new')">        <span class="fs-pool-chip-icon">✨</span>New</button>
-        <button class="fs-pool-chip"    data-p="unfamiliar"  onclick="G_setPool('unfamiliar')"> <span class="fs-pool-chip-icon">🔁</span>Practice</button>
-        <button class="fs-pool-chip"    data-p="mastered"    onclick="G_setPool('mastered')">   <span class="fs-pool-chip-icon">🏆</span>Mastered</button>
-        <button class="fs-pool-chip"    data-p="favorite"    onclick="G_setPool('favorite')">   <span class="fs-pool-chip-icon">❤️</span>Fav</button>
+        <button class="fs-pool-chip sel" data-p="all"         onclick="G_setBrowsePool('all')">        <span class="fs-pool-chip-icon">📚</span>All</button>
+        <button class="fs-pool-chip"    data-p="new"         onclick="G_setBrowsePool('new')">        <span class="fs-pool-chip-icon">✨</span>New</button>
+        <button class="fs-pool-chip"    data-p="unfamiliar"  onclick="G_setBrowsePool('unfamiliar')"> <span class="fs-pool-chip-icon">🔁</span>Practice</button>
+        <button class="fs-pool-chip"    data-p="mastered"    onclick="G_setBrowsePool('mastered')">   <span class="fs-pool-chip-icon">🏆</span>Mastered</button>
+        <button class="fs-pool-chip"    data-p="favorite"    onclick="G_setBrowsePool('favorite')">   <span class="fs-pool-chip-icon">❤️</span>Fav</button>
       </div>
     </div>
     <!-- Scrollable category grid inside coloured panel -->
@@ -291,7 +304,7 @@
     </div>
     <!-- Pinned bottom -->
     <div class="cat-sheet-bottom">
-      <button class="btn-close" id="cats-done-btn" onclick="SFX.click();G_closeOv('ov-cats')">Done</button>
+      <button class="btn-close" id="cats-done-btn" onclick="G_applyWordBrowse('game')">Done</button>
     </div>
   </div>
 </div>
@@ -343,14 +356,17 @@
   <div class="cat-sheet-outer">
     <div class="cat-sheet-top">
       <div class="sh-handle"></div>
-      <span class="fs-section-label" id="rev-filter-title" style="margin:0 0 8px;">Filter &amp; sort words</span>
+      <div class="browse-sheet-heading">
+        <span class="fs-section-label" id="rev-filter-title">Choose words</span>
+        <button class="browse-dismiss" aria-label="Cancel word selection" onclick="SFX.click();G_closeOv('ov-topic')">×</button>
+      </div>
     </div>
     <div class="cat-scroll">
       <div id="rev-word-filters" class="word-filters" hidden></div>
       <div class="cat-list" id="rev-cat-list"></div>
     </div>
     <div class="cat-sheet-bottom">
-      <button class="btn-close" onclick="SFX.click();G_closeOv('ov-topic')">Done</button>
+      <button class="btn-close" id="rev-apply-btn" onclick="G_applyWordBrowse('review')">Done</button>
     </div>
   </div>
 </div>
