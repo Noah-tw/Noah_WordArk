@@ -59,40 +59,123 @@ function _reviewWords(){
   return S.lang==='english_ielts'?WordCatalog.sort(items,S.revBrowse.sort):items;
 }
 
-// Native selects remain keyboard- and touch-accessible, even with all 26 letters.
-// Counts respect status, search, topic and the OTHER facet, not the facet itself.
+// A selection is a draft until Apply. Closing the sheet never changes the queue.
+let _wordBrowseDraft=null;
+function beginWordBrowse(kind){
+  const review=kind==='review',ov=eid(review?'ov-topic':'ov-cats');
+  ov?.classList.toggle('word-browser',S.lang==='english_ielts');
+  if(S.lang!=='english_ielts'){
+    _wordBrowseDraft=null;
+    if(!review&&eid('game-filter-title'))eid('game-filter-title').textContent='Words to practice';
+    const apply=eid(review?'rev-apply-btn':'cats-done-btn');
+    if(apply){apply.disabled=false;apply.textContent='Done';}
+    return;
+  }
+  const filters={...(review?S.revBrowse:S.gameBrowse)};
+  _wordBrowseDraft={kind,lang:S.lang,filters,pool:review?S.revFilter:S.pool,
+    lettersOpen:filters.letter!=='all',opener:document.activeElement};
+}
+function endWordBrowse(kind){
+  if(_wordBrowseDraft?.kind!==kind)return;
+  const opener=_wordBrowseDraft.opener;
+  _wordBrowseDraft=null;
+  if(opener?.isConnected)opener.focus({preventScroll:true});
+}
+function _browseBase(kind,draft){
+  return Store.getAll().filter(r=>_matchesWordStatus(r,draft.pool) &&
+    (kind==='review'?(S.revTopic==='all'||r.category===S.revTopic):(!S.cats.size||S.cats.has(r.category))));
+}
 function buildWordBrowseControls(kind){
-  const el=eid(kind==='review'?'rev-word-filters':'game-word-filters');
+  const review=kind==='review',el=eid(review?'rev-word-filters':'game-word-filters');
   if(!el)return;
   const english=S.lang==='english_ielts';
   el.hidden=!english;
+  eid(review?'ov-topic':'ov-cats')?.classList.toggle('word-browser',english);
   if(!english){el.innerHTML='';return;}
   if(!Store.isLoadedFor(S.lang)){el.textContent='Loading…';return;}
-  const review=kind==='review', f=review?S.revBrowse:S.gameBrowse;
-  const status=review?S.revFilter:S.pool;
-  const base=Store.getAll().filter(r=>_matchesWordStatus(r,status) &&
-    (review?(S.revTopic==='all'||r.category===S.revTopic):(!S.catsCleared&&(!S.cats.size||S.cats.has(r.category)))));
+  const draft=_wordBrowseDraft?.kind===kind?_wordBrowseDraft:
+    {filters:review?S.revBrowse:S.gameBrowse,pool:review?S.revFilter:S.pool,lettersOpen:false};
+  const f=draft.filters,base=_browseBase(kind,draft);
   const count=(key,value)=>base.filter(r=>WordCatalog.matches(r,{...f,[key]:value})).length;
-  const option=(key,value,label)=>`<option value="${value}"${f[key]===value?' selected':''}>${label} (${count(key,value)})</option>`;
-  const letters=[...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
+  const focus=document.activeElement?.closest('[data-browse-key]');
+  const focusKey=focus?.dataset.browseKey,focusValue=focus?.dataset.browseValue;
+  const type=(value,label)=>{
+    const n=count('pos',value);
+    return `<button class="browse-type${value==='all'?' browse-all':''}${f.pos===value?' selected':''}${n===0?' no-matches':''}"
+      data-browse-key="pos" data-browse-value="${value}" aria-pressed="${f.pos===value}"
+      onclick="G_pickBrowse('${kind}','pos','${value}')"><span>${label}</span><span class="browse-count">${n.toLocaleString()}</span></button>`;
+  };
+  const letters=['all',...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
   if(base.some(r=>WordCatalog.initial(r)==='#'))letters.push('#');
-  const action=review?'G_setReviewBrowse':'G_setGameBrowse';
-  el.innerHTML=`<div class="word-filter-grid">
-    <label>Part of speech<select id="${kind}-pos" onchange="${action}('pos',this.value)">
-      ${option('pos','all','All types')}${WordCatalog.positions.map(([value,label])=>option('pos',value,label)).join('')}
-    </select></label>
-    <label>First letter<select id="${kind}-letter" onchange="${action}('letter',this.value)">
-      ${option('letter','all','All letters')}${letters.map(value=>option('letter',value,value)).join('')}
-    </select></label>
-    ${review?`<label class="word-filter-wide">Sort by<select id="review-sort" onchange="G_setReviewBrowse('sort',this.value)">
-      ${[['az','A–Z'],['za','Z–A'],['original','Original order']].map(([value,label])=>`<option value="${value}"${f.sort===value?' selected':''}>${label}</option>`).join('')}
-    </select></label>`:''}
-  </div>
-  <p class="word-filter-note">Phrasal verbs are under Verbs; noun phrases are under Nouns. Other phrases include idioms.</p>
-  ${review?'':'<p class="word-filter-note">Changing these filters selects Free play words. Lessons keep their original groups.</p>'}
-  <div class="word-filter-footer"><span>${base.filter(r=>WordCatalog.matches(r,f)).length.toLocaleString()} matching cards</span>
-    <button type="button" class="word-filter-reset" onclick="${review?'G_resetReviewBrowse()':'G_resetGameBrowse()'}">Reset word filters</button>
-  </div>`;
+  const context=[];
+  if(review&&draft.pool!=='all')context.push({new:'New',unfamiliar:'Practice',mastered:'Mastered',favorite:'Favorites'}[draft.pool]);
+  if(review&&f.query.trim())context.push('“'+f.query.trim()+'”');
+  el.innerHTML=`${context.length?`<div class="browse-context">Within ${WordCatalog.html(context.join(' · '))}</div>`:''}
+    <div class="browse-section-heading"><span>Part of speech</span><button class="browse-reset" onclick="G_resetBrowseDraft('${kind}')">Reset</button></div>
+    <div class="browse-types" role="group" aria-label="Part of speech">
+      ${type('all','All types')}${WordCatalog.positions.map(([value,label])=>type(value,label)).join('')}
+    </div>
+    <div class="browse-alphabet">
+      <button class="browse-alphabet-toggle" data-browse-key="expand" data-browse-value="letters"
+        aria-expanded="${!!draft.lettersOpen}" aria-controls="${kind}-letters" onclick="G_toggleBrowseLetters('${kind}')">
+        <span>First letter</span><span class="browse-letter-choice">${f.letter==='all'?'Any letter':f.letter}
+        <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m4 6 4 4 4-4"/></svg></span>
+      </button>
+      <div id="${kind}-letters" class="browse-letters" role="group" aria-label="First letter"${draft.lettersOpen?'':' hidden'}>
+        ${letters.map(value=>`<button class="browse-letter${f.letter===value?' selected':''}${count('letter',value)===0?' no-matches':''}"
+          data-browse-key="letter" data-browse-value="${value}" aria-pressed="${f.letter===value}"
+          aria-label="${value==='all'?'All letters':'Starts with '+value}"
+          onclick="G_pickBrowse('${kind}','letter','${value}')">${value==='all'?'All':value}</button>`).join('')}
+      </div>
+    </div>`;
+  const n=base.filter(r=>WordCatalog.matches(r,f)).length;
+  const apply=eid(review?'rev-apply-btn':'cats-done-btn');
+  if(apply){apply.disabled=n===0;apply.textContent=n===0?'No matching words':(review?'Show ':'Use ')+n.toLocaleString()+(review?' cards':' words');}
+  if(!review){
+    eid('game-filter-title').textContent='Free practice';
+    qsa('#fs-pool-row .fs-pool-chip').forEach(b=>b.classList.toggle('sel',b.dataset.p===draft.pool));
+  }
+  if(focusKey)el.querySelector(`[data-browse-key="${focusKey}"][data-browse-value="${focusValue}"]`)?.focus({preventScroll:true});
+}
+function G_pickBrowse(kind,key,value){
+  if(_wordBrowseDraft?.kind!==kind||key==='sort'||!_validBrowseValue(key,value))return;
+  SFX.click();_wordBrowseDraft.filters[key]=value;
+  buildWordBrowseControls(kind);
+}
+function G_toggleBrowseLetters(kind){
+  if(_wordBrowseDraft?.kind!==kind)return;
+  SFX.click();_wordBrowseDraft.lettersOpen=!_wordBrowseDraft.lettersOpen;
+  buildWordBrowseControls(kind);
+}
+function G_resetBrowseDraft(kind){
+  if(_wordBrowseDraft?.kind!==kind)return;
+  SFX.click();
+  _wordBrowseDraft.filters.pos='all';_wordBrowseDraft.filters.letter='all';
+  if(kind==='game')_wordBrowseDraft.pool='all';
+  buildWordBrowseControls(kind);
+}
+function G_setBrowsePool(pool){
+  if(S.lang!=='english_ielts'){G_setPool(pool);return;}
+  if(_wordBrowseDraft?.kind!=='game'||!['all','new','unfamiliar','mastered','favorite'].includes(pool))return;
+  SFX.click();_wordBrowseDraft.pool=pool;
+  buildWordBrowseControls('game');
+}
+function G_applyWordBrowse(kind){
+  const ov=kind==='review'?'ov-topic':'ov-cats',draft=_wordBrowseDraft;
+  SFX.click();
+  if(S.lang!=='english_ielts'){G_closeOv(ov);return;}
+  if(!draft||draft.kind!==kind||draft.lang!==S.lang||!Store.isLoadedFor(S.lang))return;
+  if(!_browseBase(kind,draft).some(r=>WordCatalog.matches(r,draft.filters)))return;
+  const f={pos:draft.filters.pos,letter:draft.filters.letter};
+  if(kind==='review'){
+    Object.assign(S.revBrowse,f);
+    G_closeOv(ov);renderReview(S.revFilter);
+  }else{
+    const changed=S.gameBrowse.pos!==f.pos||S.gameBrowse.letter!==f.letter||S.pool!==draft.pool||S.catsCleared||S.lessonGroup!==null;
+    S.gameBrowse=f;S.pool=draft.pool;
+    G_closeOv(ov);
+    if(changed)_applyFreePlayBrowse();
+  }
 }
 
 function _validBrowseValue(key,value){
@@ -134,6 +217,17 @@ function initWordBrowse(){
   input.addEventListener('compositionstart',()=>{composing=true;clearTimeout(_reviewSearchTimer);});
   input.addEventListener('compositionend',()=>{composing=false;G_reviewSearch(input.value);});
   input.addEventListener('input',event=>{if(!composing&&!event.isComposing)G_reviewSearch(input.value);});
+  document.addEventListener('keydown',event=>{
+    if(!_wordBrowseDraft)return;
+    const id=_wordBrowseDraft.kind==='review'?'ov-topic':'ov-cats',ov=eid(id);
+    if(!ov?.classList.contains('on'))return;
+    if(event.key==='Escape'){event.preventDefault();SFX.click();G_closeOv(id);return;}
+    if(event.key!=='Tab')return;
+    const buttons=[...ov.querySelectorAll('button:not(:disabled)')].filter(el=>el.getClientRects().length);
+    const first=buttons[0],last=buttons[buttons.length-1];
+    if(event.shiftKey&&document.activeElement===first){event.preventDefault();last?.focus();}
+    else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first?.focus();}
+  });
 }
 function G_reviewSearch(value){
   S.revBrowse.query=value;
@@ -146,19 +240,30 @@ function G_reviewSearch(value){
 }
 function _resetWordBrowse(){
   clearTimeout(_reviewSearchTimer);
+  _wordBrowseDraft=null;
   S.gameBrowse={pos:'all',letter:'all'};
   S.revBrowse={pos:'all',letter:'all',sort:'az',query:''};
   S.revTopic='all';S.revFilter='all';
 }
 function updateReviewBrowse(){
   const english=S.lang==='english_ielts';
-  const searchWrap=eid('rev-search-wrap'),search=eid('rev-search');
+  const searchWrap=eid('rev-search-wrap'),search=eid('rev-search'),sort=eid('rev-sort');
   if(searchWrap)searchWrap.hidden=!english;
+  if(sort)sort.hidden=!english;
   if(search&&search.value!==S.revBrowse.query)search.value=S.revBrowse.query;
-  const label=eid('rev-topic-label'),btn=eid('rev-topic-btn');
-  const detail=english?WordCatalog.summary(S.revBrowse):'';
-  if(label)label.textContent=english?'📂 '+(detail||'All words')+' · '+({az:'A–Z',za:'Z–A',original:'Original order'}[S.revBrowse.sort])
-    :(S.revTopic==='all'?'📂 All topics':_catIcon(S.revTopic)+' '+S.revTopic);
+  const label=eid('rev-topic-label'),btn=eid('rev-topic-btn'),badge=eid('rev-filter-badge');
+  const selected=[S.revBrowse.pos!=='all',S.revBrowse.letter!=='all'].filter(Boolean).length;
+  if(label)label.textContent=english?'Filters':(S.revTopic==='all'?'All topics':S.revTopic);
   _updateRevTopicBtn();
-  if(btn)btn.classList.toggle('active',!!detail||S.revTopic!=='all');
+  if(btn){btn.classList.toggle('browse-trigger',english);btn.classList.toggle('active',english?selected>0:S.revTopic!=='all');}
+  if(badge){badge.hidden=!english||selected===0;badge.textContent=selected;}
+  qsa('.rev-sort button').forEach(b=>{const on=b.dataset.sort===S.revBrowse.sort;b.classList.toggle('selected',on);b.setAttribute('aria-pressed',on);});
+  const chips=eid('rev-active-filters');
+  if(chips){
+    chips.hidden=!english||selected===0;
+    chips.innerHTML=english?['pos','letter'].filter(key=>S.revBrowse[key]!=='all').map(key=>{
+      const label=key==='pos'?WordCatalog.positions.find(([id])=>id===S.revBrowse.pos)?.[1]:'Starts with '+S.revBrowse.letter;
+      return `<button class="browse-chip" aria-label="Remove ${WordCatalog.html(label)} filter" onclick="G_setReviewBrowse('${key}','all')">${WordCatalog.html(label)}<span aria-hidden="true">×</span></button>`;
+    }).join(''):'';
+  }
 }

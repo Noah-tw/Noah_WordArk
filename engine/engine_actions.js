@@ -262,7 +262,7 @@ function buildRevTopics(){
 
   buildWordBrowseControls('review');
   const title=eid('rev-filter-title');
-  if(title)title.textContent=S.lang==='english_ielts'?'Filter & sort words':'Topic — tap to focus';
+  if(title)title.textContent=S.lang==='english_ielts'?'Choose words':'Topics';
   // The only English source category is not a useful navigation choice.
   el.hidden=S.lang==='english_ielts'&&Store.getCats().length<=1;
 
@@ -286,13 +286,15 @@ function G_openOv(id){
   SFX.click();
   if(id==='ov-settings'){const box=eid('xp-box');if(box)box.value='';}
   if(id==='ov-modes'){buildModeBtns();}
-  if(id==='ov-topic'){buildRevTopics();}
+  if(id==='ov-topic'){beginWordBrowse('review');buildRevTopics();}
   if(id==='ov-cats'){
+    beginWordBrowse('game');
     // Snapshot state so Done button can detect changes
     S._catsSnapshot={cats:new Set(S.cats),cleared:S.catsCleared,browse:JSON.stringify(S.gameBrowse)};
     buildCatSheet();
   }
   eid(id)?.classList.add('on');
+  if((id==='ov-topic'||id==='ov-cats')&&S.lang==='english_ielts')eid(id)?.querySelector('.browse-dismiss')?.focus({preventScroll:true});
 }
 function G_closeOv(id){
   // NOTE: deliberately no SFX.click() here — several callers (G_switchLang,
@@ -303,6 +305,7 @@ function G_closeOv(id){
   // get SFX.click() added at the call site in index.html instead — see there.
   if(id==='ov-cats') S._catsSnapshot=null; // clear snapshot on close
   eid(id)?.classList.remove('on');
+  if(id==='ov-topic'||id==='ov-cats')endWordBrowse(id==='ov-topic'?'review':'game');
 }
 function G_exportProgress(){
   SFX.click();const code=Prog.exportCode();

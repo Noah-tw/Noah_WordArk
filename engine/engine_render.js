@@ -1685,7 +1685,7 @@ function renderReview(f) {
   const lc = getLc();
 
   const items=_reviewWords();
-  if(count)count.textContent=`${items.length.toLocaleString()} / ${Store.count().toLocaleString()} cards`;
+  if(count)count.textContent=`${items.length.toLocaleString()} cards`;
   list.scrollTop=0;
 
   if (!items.length) {
@@ -2096,7 +2096,7 @@ function buildCatSheet(){
 
   // Light up Done button green when selection has changed since sheet opened
   const doneBtn=eid('cats-done-btn');
-  if(doneBtn&&S._catsSnapshot){
+  if(doneBtn&&S._catsSnapshot&&S.lang!=='english_ielts'){
     const snap=S._catsSnapshot;
     const setsEqual=(a,b)=>a.size===b.size&&[...a].every(x=>b.has(x));
     const changed=S.catsCleared!==snap.cleared||!setsEqual(S.cats,snap.cats)||JSON.stringify(S.gameBrowse)!==snap.browse;
@@ -2104,6 +2104,7 @@ function buildCatSheet(){
     doneBtn.textContent=changed?'✓ Done':'Done';
   }
   updatePoolBtn();
+  if(S.lang==='english_ielts')buildWordBrowseControls('game');
 }
 
 
