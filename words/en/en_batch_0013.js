@@ -1,4 +1,4 @@
-// en_batch_0013.js — English IELTS batch 13; WordArk V68
+// en_batch_0013.js — English IELTS batch 13; WordArk V69
 // 100 active entries: en_1201 to en_1300
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -901,7 +901,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "envisaged",
     "envisaging"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 16 Academic，Test 1，Reading Passage 3〈The future of work〉（原文詞形／屈折變化與本卡詞性、義項已定位）；另見 Cambridge IELTS 18 Academic，Test 2，Reading Passage 3〈An ideal city〉（本次提供詞形：Envisaged；Passage 3，Question 39 摘要；envisaged 為 envisage 的過去分詞；2026-09-15 依公開文章／題目轉錄頁核對）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-18-academic-reading-test-2/；另見 Cambridge IELTS 20 Academic，Test 3，Reading Passage 3〈Robots and us〉（2026-10-11 提供詞形：Envisage；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-3/"
 },
 {
   "id": "en_1232",
@@ -1338,7 +1339,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "depleted",
     "depleting"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 16 Academic，Test 1，Reading Passage 1〈Why we need to protect polar bears〉（原文詞形／屈折變化與本卡詞性、義項已定位）；另見 Cambridge IELTS 19 Academic，Reading Test 4，Passage 2〈Deep-sea Mining〉（2026-09-21 提供詞形：Depleting；Passage 2 F段；depleting 作資源正在減少的修飾語，對應耗減資源的基本動詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-19-academic-reading-test-4/；另見 Cambridge IELTS 20 Academic，Test 1，Reading Passage 1〈The kākāpō〉（2026-10-11 提供詞形：Depleted；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/"
 },
 {
   "id": "en_1247",
@@ -1866,7 +1868,8 @@ window.VOCAB_DATA['english_ielts'].push(
   "forms": [
     "predominantly"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 17 Academic，Test 4，Reading Passage 2〈Does education fuel economic growth?〉，Questions 25–26 選項 E（predominantly 出現在題目選項）；另見 Cambridge IELTS 17 Academic，Test 3，Reading Passage 2〈Palm oil〉（原文詞形 predominantly 已定位）；另見 Cambridge IELTS 19 Academic，Test 1，Reading Passage 2〈The pirates of the ancient Mediterranean〉（本次提供詞形：Predominantly；B段 predominantly fertile；2026-09-16 依公開正文／題目轉錄頁核對）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-19-academic-reading-test-1/；另見 Cambridge IELTS 20 Academic，Test 1，Reading Passage 1〈The kākāpō〉（2026-10-11 提供詞形：Predominantly；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/"
 },
 {
   "id": "en_1265",

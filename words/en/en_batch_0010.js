@@ -1,4 +1,4 @@
-// en_batch_0010.js — English IELTS batch 10; WordArk V68
+// en_batch_0010.js — English IELTS batch 10; WordArk V69
 // 100 active entries: en_0901 to en_1000
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -431,7 +431,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "stilt",
     "stilts"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "使用者收集的 YouTube 影片（原始檔未記錄影片名稱與原句；此義依 Cambridge Dictionary／Merriam-Webster 的一般常用用法複核）；另見 Cambridge IELTS 20 Academic，Test 4，Reading Passage 2〈Adapting to the effects of climate change〉（2026-10-11 提供詞形：Stilt；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-4/"
 },
 {
   "id": "en_0916",

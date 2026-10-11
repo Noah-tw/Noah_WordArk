@@ -1,4 +1,4 @@
-// en_batch_0014.js — English IELTS batch 14; WordArk V68
+// en_batch_0014.js — English IELTS batch 14; WordArk V69
 // 100 active entries: en_1301 to en_1400
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -548,7 +548,8 @@ window.VOCAB_DATA['english_ielts'].push(
   "forms": [
     "nocturnal"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 17 Academic，Test 3，Reading Passage 1〈The thylacine〉（原文詞形／屈折變化與本卡詞性、義項已定位）；另見 Cambridge IELTS 20 Academic，Test 1，Reading Passage 1〈The kākāpō〉（2026-10-11 提供詞形：Nocturnal；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/"
 },
 {
   "id": "en_1320",
@@ -721,31 +722,32 @@ window.VOCAB_DATA['english_ielts'].push(
     "specimen",
     "specimens"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 17 Academic，Test 3，Reading Passage 1〈The thylacine〉（原文詞形／屈折變化與本卡詞性、義項已定位）；另見 Cambridge IELTS 20 Academic，Test 1，Reading Passage 2〈To Britain（榆樹重引入英國）〉（2026-10-11 提供詞形：Specimen；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/"
 },
 {
   "id": "en_1326",
   "category": "IELTS Reading Vocabulary",
   "pos": "verb",
   "word": "derive",
-  "meaning": "to obtain something from a particular source",
+  "meaning": "to obtain something from a particular source, or to originate from that source",
   "ipa": "dɪˈraɪv",
-  "zh": "取得",
-  "zh_def": "取得；從某個來源獲得某物（derive A from B；be derived from 表示取自）",
-  "definition": "To obtain something from a particular source.",
+  "zh": "從某個來源取得",
+  "zh_def": "從某個來源取得；源自、由某個來源發展而來",
+  "definition": "To obtain something from a particular source, or to originate from that source.",
   "sentence1": "Many medicines are derived from plants.",
   "sentence1_en": "許多藥物取自植物。",
   "sentence1_hl": "Many medicines are <b>derived</b> from plants.",
   "sentence2": "The company derives most of its income from exports.",
   "sentence2_en": "這家公司大部分收入來自出口。",
-  "sentence3": "Manufacturers derive this dye from the roots of a plant.",
-  "sentence3_en": "製造商從一種植物的根部取得這種染料。",
-  "tip": "derive A from B 是從 B 取得 A；被動 A is derived from B 表示 A 取自 B。留意來源接 from，不是 to；derive income from exports 是從出口獲得收入。",
+  "sentence3": "The new varieties are derived from wild plants.",
+  "sentence3_en": "這些新品種源自野生植物。",
+  "tip": "derive A from B 是從 B 取得 A；A derives from B／A is derived from B 表示 A 源自 B。來源接 from；談樹種培育時指品種來源，不是從樹木榨出某種液體。",
   "word_map": {
-    "derive": "取得",
-    "derives": "取得",
-    "derived": "取得",
-    "deriving": "取得",
+    "derive": "從某個來源取得",
+    "derives": "從某個來源取得",
+    "derived": "從某個來源取得",
+    "deriving": "從某個來源取得",
     "Many medicines are derived from plants": "許多藥物取自植物"
   },
   "forms": [
@@ -754,7 +756,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "derived",
     "deriving"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 17 Academic，Test 3，Reading Passage 2〈Palm oil〉（原文詞形／屈折變化與本卡詞性、義項已定位）；另見 Cambridge IELTS 20 Academic，Test 1，Reading Passage 2〈To Britain（榆樹重引入英國）〉（2026-10-11 提供詞形：Derive from；原文 derived from；被動表示品種源自某種榆樹，併入 derive 並補清來源用法）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/"
 },
 {
   "id": "en_1327",

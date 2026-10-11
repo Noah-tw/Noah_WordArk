@@ -1,4 +1,4 @@
-// en_batch_0002.js — English IELTS batch 2; WordArk V68
+// en_batch_0002.js — English IELTS batch 2; WordArk V69
 // 100 active entries: en_0101 to en_0200
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -1348,7 +1348,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "pinpointed",
     "pinpointing"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 11 Academic，Test 4，Reading Passage 1〈Research using twins〉（原文詞形與語境已定位）；另見 Cambridge IELTS 13 Academic，Test 2，Reading Passage 2〈Oxytocin〉（原文 pinpointing its core function）；後置同詞性同義項已合併於此；另見 Cambridge IELTS 20 Academic，Test 3，Reading Passage 2〈Can the planet’s coral reefs be saved?〉（2026-10-11 提供詞形：Pinpoint；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-3/"
 },
 {
   "id": "en_0147",

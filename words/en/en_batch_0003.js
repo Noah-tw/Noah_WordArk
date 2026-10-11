@@ -1,4 +1,4 @@
-// en_batch_0003.js — English IELTS batch 3; WordArk V68
+// en_batch_0003.js — English IELTS batch 3; WordArk V69
 // 100 active entries: en_0201 to en_0300
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -2251,7 +2251,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "eradicated",
     "eradicating"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 12 Academic，Test 3，Reading Passage 2〈The Intersection of Health Sciences and Geography〉（原文 eradicated／eradication）；另見 Cambridge IELTS 19 Academic，Test 1，Reading Passage 2〈The pirates of the ancient Mediterranean〉（本次提供詞形：Eradicate；A段 eradicated 及Question 15 eradicate；與第277項同為徹底消除義；2026-09-16 依公開正文／題目轉錄頁核對）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-19-academic-reading-test-1/；另見 Cambridge IELTS 20 Academic，Test 1，Reading Passage 1〈The kākāpō〉（2026-10-11 提供詞形：Eradicated；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/"
 },
 {
   "id": "en_0278",

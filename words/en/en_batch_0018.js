@@ -1,4 +1,4 @@
-// en_batch_0018.js — English IELTS batch 18; WordArk V68
+// en_batch_0018.js — English IELTS batch 18; WordArk V69
 // 100 active entries: en_1701 to en_1800
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -280,7 +280,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "Staff must remain vigilant for signs of equipment failure": "員工必須持續留意設備故障的跡象"
   },
   "lang": "english_ielts",
-  "source": "使用者收集的雜誌（未提供刊名、篇名與原句）（2026-09-21 提供詞形：Vigilant；採一般常用義；未宣稱已還原原始語境）",
+  "source": "使用者收集的雜誌（未提供刊名、篇名與原句）（2026-09-21 提供詞形：Vigilant；採一般常用義；未宣稱已還原原始語境）；另見 Cambridge IELTS 20 Academic，Test 1，Reading Passage 3〈How stress affects our judgement〉（2026-10-11 提供詞形：Vigilant；原文 hyper-vigilant；抽取形容詞 vigilant，hyper- 加強警覺程度）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
   "sentence1_hl": "Staff must remain <b>vigilant</b> for signs of equipment failure."
 },
 {
@@ -622,7 +622,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "The study compared the lifespans of two butterfly species": "這項研究比較了兩種蝴蝶的壽命"
   },
   "lang": "english_ielts",
-  "source": "Cambridge IELTS 19 Academic，Reading Test 4，Passage 1〈The impact of climate change on butterflies in Britain〉（2026-09-21 提供詞形：Lifespan；Passage 1，Question 4；題目用語，不把題幹敘述當成已證實的事實）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-19-academic-reading-test-4/",
+  "source": "Cambridge IELTS 19 Academic，Reading Test 4，Passage 1〈The impact of climate change on butterflies in Britain〉（2026-09-21 提供詞形：Lifespan；Passage 1，Question 4；題目用語，不把題幹敘述當成已證實的事實）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-19-academic-reading-test-4/；另見 Cambridge IELTS 20 Academic，Test 1，Reading Passage 1〈The kākāpō〉（2026-10-11 提供詞形：Lifespan；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
   "sentence1_hl": "The study compared the <b>lifespans</b> of two butterfly species."
 },
 {
@@ -2102,7 +2102,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "The project began with an assessment of the available evidence": "計畫先從評估現有證據開始"
   },
   "lang": "english_ielts",
-  "source": "The Official Cambridge Guide to IELTS，Academic Reading Test 1，Passage 1〈The Dover Bronze-Age Boat〉（2026-09-21 提供詞形：Assessment；正文中已定位詞形或屈折變化，依上下文固定本項詞性與義項）；https://www.ielts-mentor.com/reading-sample/academic-reading/3240-the-dover-bronze-age-boat",
+  "source": "The Official Cambridge Guide to IELTS，Academic Reading Test 1，Passage 1〈The Dover Bronze-Age Boat〉（2026-09-21 提供詞形：Assessment；正文中已定位詞形或屈折變化，依上下文固定本項詞性與義項）；https://www.ielts-mentor.com/reading-sample/academic-reading/3240-the-dover-bronze-age-boat；另見 Cambridge IELTS 20 Academic，Test 2，Reading Passage 3〈Invasion of the robot umpires〉（2026-10-11 提供詞形：Assessment；第33–37題摘要選項D中的 subjective assessment）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-2/",
   "sentence1_hl": "The project began with an <b>assessment</b> of the available evidence."
 },
 {
@@ -2899,7 +2899,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "The film tells an uplifting story of friendship": "這部電影講述了一個振奮人心的友誼故事"
   },
   "lang": "english_ielts",
-  "source": "The Official Cambridge Guide to IELTS，Academic Reading Test 1，Passage 3〈Is photography art?〉（2026-09-21 提供詞形：Uplifting；正文中已定位詞形或屈折變化，依上下文固定本項詞性與義項）；https://engnovate.com/ielts-reading-answers/is-photography-art/",
+  "source": "The Official Cambridge Guide to IELTS，Academic Reading Test 1，Passage 3〈Is photography art?〉（2026-09-21 提供詞形：Uplifting；正文中已定位詞形或屈折變化，依上下文固定本項詞性與義項）；https://engnovate.com/ielts-reading-answers/is-photography-art/；另見 Cambridge IELTS 20 Academic，Test 1，Reading Passage 3〈How stress affects our judgement〉（2026-10-11 提供詞形：Uplifting；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
   "sentence1_hl": "The film tells an <b>uplifting</b> story of friendship."
 },
 {

@@ -1,4 +1,4 @@
-// en_batch_0015.js — English IELTS batch 15; WordArk V68
+// en_batch_0015.js — English IELTS batch 15; WordArk V69
 // 100 active entries: en_1401 to en_1500
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -1226,7 +1226,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "commissioned",
     "commissioning"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 17 Academic，Test 1，Reading Passage 3〈To catch a king〉（國王委託畫家作畫的 commissioned 為動詞；不以 Passage 1 的委員會名稱作依據）；另見 The Official Cambridge Guide to IELTS，Academic Reading Test 1，Passage 3〈Is photography art?〉（2026-09-21 提供詞形：Commission；正文藝術家攝影收藏段；commissioned 是委託製作的動詞，非第1020項名詞）；https://engnovate.com/ielts-reading-answers/is-photography-art/；另見 The Official Cambridge Guide to IELTS，Academic Reading Test 5，Passage 3〈Science in space〉（2026-10-01 提供詞形：Commission；題目28選項B；commissioned表示委託製造；不宣稱NASA真的委託）；https://engnovate.com/ielts-reading-answers/science-in-space/；另見 Cambridge IELTS 20 Academic，Test 2，Reading Passage 3〈Invasion of the robot umpires〉（2026-10-11 提供詞形：Commission；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-2/"
 },
 {
   "id": "en_1443",
@@ -2160,7 +2161,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "crescent",
     "crescents"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 18 Academic，Test 2，Reading Passage 1〈Stonehenge〉（本次提供詞形：Crescent；文章正文中的相同詞形或屈折變化；依所在語境判義；2026-09-15 依公開文章／題目轉錄頁核對）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-18-academic-reading-test-2/；另見 Cambridge IELTS 20 Academic，Test 4，Reading Passage 2〈Adapting to the effects of climate change〉（2026-10-11 提供詞形：Crescent；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-4/"
 },
 {
   "id": "en_1475",
@@ -2373,7 +2375,8 @@ window.VOCAB_DATA['english_ielts'].push(
   "forms": [
     "consensus"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 18 Academic，Test 2，Reading Passage 1〈Stonehenge〉（本次提供詞形：Consensus；文章正文中的相同詞形或屈折變化；依所在語境判義；2026-09-15 依公開文章／題目轉錄頁核對）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-18-academic-reading-test-2/；另見 Cambridge IELTS 19 Academic，Test 1，Reading Passage 3〈The persistence and peril of misinformation〉（本次提供詞形：Consensus；結尾 scientific consensus；2026-09-16 依公開正文／題目轉錄頁核對）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-19-academic-reading-test-1/；另見 The Official Cambridge Guide to IELTS，Academic Reading Test 3，Passage 1〈Secrets of the swarm〉（2026-09-21 提供詞形：Consensus；正文中已定位詞形或屈折變化；與既有基本詞義合併）；https://engnovate.com/ielts-reading-answers/secrets-of-the-swarm/；另見 Cambridge IELTS 20 Academic，Test 2，Reading Passage 3〈Invasion of the robot umpires〉（2026-10-11 提供詞形：Consensus；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-2/"
 },
 {
   "id": "en_1482",

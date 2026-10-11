@@ -1,5 +1,5 @@
-// en_batch_0021.js — English IELTS batch 21; WordArk V68
-// 9 active entries: en_2001 to en_2009
+// en_batch_0021.js — English IELTS batch 21; WordArk V69
+// 100 active entries: en_2001 to en_2100
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
 window.VOCAB_DATA['english_ielts'].push(
@@ -220,7 +220,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "The birds take turns incubating the eggs": "這些鳥輪流孵卵"
   },
   "lang": "english_ielts",
-  "source": "The Official Cambridge Guide to IELTS，Academic Reading Test 8，Passage 3〈Left or right?〉（2026-10-01 提供詞形：Incubated；D段；incubated指卵在受光條件下孵育；不解為小鳥身體被照光後才長大）；https://engnovate.com/ielts-reading-answers/left-or-right/",
+  "source": "The Official Cambridge Guide to IELTS，Academic Reading Test 8，Passage 3〈Left or right?〉（2026-10-01 提供詞形：Incubated；D段；incubated指卵在受光條件下孵育；不解為小鳥身體被照光後才長大）；https://engnovate.com/ielts-reading-answers/left-or-right/；另見 Cambridge IELTS 20 Academic，Test 1，Reading Passage 1〈The kākāpō〉（2026-10-11 提供詞形：Incubate；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
   "sentence1_hl": "The birds take turns <b>incubating</b> the eggs."
 },
 {
@@ -282,5 +282,2769 @@ window.VOCAB_DATA['english_ielts'].push(
   "lang": "english_ielts",
   "source": "The Official Cambridge Guide to IELTS，Academic Reading Test 8，Passage 2〈The Hollywood film industry〉（2026-10-01 提供詞形：Divestiture；F段；divestiture指出售／處分旗下事業或資產，文中為影院）；https://engnovate.com/ielts-reading-answers/the-hollywood-film-industry/",
   "sentence1_hl": "The company announced the <b>divestiture</b> of its retail business."
+},
+{
+  "id": "en_2010",
+  "category": "IELTS Reading Vocabulary",
+  "word": "parrot",
+  "pos": "noun",
+  "zh_def": "鸚鵡",
+  "zh": "鸚鵡",
+  "definition": "A bird with a strong curved beak, some species of which can imitate human speech.",
+  "meaning": "a bird with a strong curved beak, some species of which can imitate human speech",
+  "ipa": "ˈpærət",
+  "forms": [
+    "parrot",
+    "parrots"
+  ],
+  "tip": "a parrot／two parrots，是可數名詞。鸚鵡不一定會模仿人聲，也不是所有種類都能飛；不要把常見特徵當成每種鸚鵡必備的能力。",
+  "sentence1": "A green parrot perched on a branch above us.",
+  "sentence1_en": "一隻綠色鸚鵡停在我們上方的樹枝上。",
+  "sentence2": "The parrot used its curved beak to open the seed.",
+  "sentence2_en": "那隻鸚鵡用彎曲的喙啄開種子。",
+  "sentence3": "Some parrots can imitate sounds made by people.",
+  "sentence3_en": "有些鸚鵡能模仿人發出的聲音。",
+  "word_map": {
+    "parrot": "鸚鵡",
+    "parrots": "鸚鵡",
+    "A green parrot perched on a branch above us": "一隻綠色鸚鵡停在我們上方的樹枝上"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 1，Reading Passage 1〈The kākāpō〉（2026-10-11 提供詞形：Parrot；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
+  "lang": "english_ielts",
+  "sentence1_hl": "A green <b>parrot</b> perched on a branch above us."
+},
+{
+  "id": "en_2011",
+  "category": "IELTS Reading Vocabulary",
+  "word": "solitary",
+  "pos": "adjective",
+  "zh_def": "獨居的；獨自活動的",
+  "zh": "獨居的",
+  "definition": "Living or spending time alone rather than with others.",
+  "meaning": "living or spending time alone rather than with others",
+  "ipa": "ˈsɒlətri",
+  "forms": [
+    "solitary"
+  ],
+  "tip": "solitary animals／a solitary life 強調獨處；lonely 強調感到寂寞，兩者不等同。a solitary walk 是一個人散步，不表示散步的人一定難過。",
+  "sentence1": "This solitary animal usually searches for food alone.",
+  "sentence1_en": "這種獨居動物通常獨自覓食。",
+  "sentence2": "She prefers solitary walks along the coast.",
+  "sentence2_en": "她比較喜歡獨自在海岸邊散步。",
+  "sentence3": "The researcher led a solitary life on the island.",
+  "sentence3_en": "那位研究人員在島上過著獨居生活。",
+  "word_map": {
+    "solitary": "獨居的",
+    "This solitary animal usually searches for food alone": "這種獨居動物通常獨自覓食"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 1，Reading Passage 1〈The kākāpō〉（2026-10-11 提供詞形：Solitary；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
+  "lang": "english_ielts",
+  "sentence1_hl": "This <b>solitary</b> animal usually searches for food alone."
+},
+{
+  "id": "en_2012",
+  "category": "IELTS Reading Vocabulary",
+  "word": "flap",
+  "pos": "verb",
+  "zh_def": "拍動翅膀；上下或來回擺動",
+  "zh": "拍動翅膀",
+  "definition": "To move wings or another flexible part repeatedly up and down or back and forth.",
+  "meaning": "to move wings or another flexible part repeatedly up and down or back and forth",
+  "ipa": "flæp",
+  "forms": [
+    "flap",
+    "flaps",
+    "flapped",
+    "flapping"
+  ],
+  "tip": "flap its wings 是及物用法；a flag flaps 是不及物用法。flapped／flapping 要雙寫 p；第1971項 flap 是「活瓣、可掀動的片狀部分」名詞，詞性不同。",
+  "sentence1": "The young bird flapped its wings but could not take off.",
+  "sentence1_en": "那隻幼鳥拍動翅膀，卻無法起飛。",
+  "sentence2": "The loose fabric flapped in the wind.",
+  "sentence2_en": "鬆垂的布料在風中拍動。",
+  "sentence3": "A goose flapped its wings as we approached.",
+  "sentence3_en": "我們靠近時，一隻鵝拍起翅膀。",
+  "word_map": {
+    "flap": "拍動翅膀",
+    "flaps": "拍動翅膀",
+    "flapped": "拍動翅膀",
+    "flapping": "拍動翅膀",
+    "The young bird flapped its wings but could not take off": "那隻幼鳥拍動翅膀，卻無法起飛"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 1，Reading Passage 1〈The kākāpō〉（2026-10-11 提供詞形：Flap；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The young bird <b>flapped</b> its wings but could not take off."
+},
+{
+  "id": "en_2013",
+  "category": "IELTS Reading Vocabulary",
+  "word": "bulb",
+  "pos": "noun",
+  "zh_def": "鱗莖；某些植物在地下儲存養分、可長出新芽的構造",
+  "zh": "鱗莖",
+  "definition": "A rounded underground plant structure that stores food and can produce new growth.",
+  "meaning": "a rounded underground plant structure that stores food and can produce new growth",
+  "ipa": "bʌlb",
+  "forms": [
+    "bulb",
+    "bulbs"
+  ],
+  "tip": "flower bulbs 是花卉的鱗莖，常見於洋蔥、鬱金香等植物。文章談鳥類食物，這裡不是 light bulb「燈泡」；bulb 也不能一律翻成「種子」。",
+  "sentence1": "Plant each bulb with its pointed end facing upwards.",
+  "sentence1_en": "種植每個鱗莖時，要讓尖端朝上。",
+  "sentence2": "The animals dug up bulbs to eat.",
+  "sentence2_en": "那些動物挖出鱗莖來吃。",
+  "sentence3": "The gardener stored the bulbs in a dry place.",
+  "sentence3_en": "園丁將那些鱗莖存放在乾燥處。",
+  "word_map": {
+    "bulb": "鱗莖",
+    "bulbs": "鱗莖",
+    "Plant each bulb with its pointed end facing upwards": "種植每個鱗莖時，要讓尖端朝上"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 1，Reading Passage 1〈The kākāpō〉（2026-10-11 提供詞形：Bulb；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
+  "lang": "english_ielts",
+  "sentence1_hl": "Plant each <b>bulb</b> with its pointed end facing upwards."
+},
+{
+  "id": "en_2014",
+  "category": "IELTS Reading Vocabulary",
+  "word": "frond",
+  "pos": "noun",
+  "zh_def": "蕨葉；蕨類或棕櫚等植物的大型葉片",
+  "zh": "蕨葉",
+  "definition": "A large leaf of a fern, palm or similar plant, often divided into smaller sections.",
+  "meaning": "a large leaf of a fern, palm or similar plant, often divided into smaller sections",
+  "ipa": "frɒnd",
+  "forms": [
+    "frond",
+    "fronds"
+  ],
+  "tip": "fern fronds 是蕨葉，palm fronds 是棕櫚葉；frond 不是整株植物。輸入的 Fronds 是複數，學習主詞條採單數 frond。",
+  "sentence1": "New fern fronds unfolded beside the stream.",
+  "sentence1_en": "溪流旁的新蕨葉逐漸展開。",
+  "sentence2": "A fallen palm frond lay across the path.",
+  "sentence2_en": "一片掉落的棕櫚葉橫在小徑上。",
+  "sentence3": "The bird hid beneath a broad frond.",
+  "sentence3_en": "那隻鳥躲在一片寬大的蕨葉下面。",
+  "word_map": {
+    "frond": "蕨葉",
+    "fronds": "蕨葉",
+    "New fern fronds unfolded beside the stream": "溪流旁的新蕨葉逐漸展開"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 1，Reading Passage 1〈The kākāpō〉（2026-10-11 提供詞形：Fronds；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
+  "lang": "english_ielts",
+  "sentence1_hl": "New fern <b>fronds</b> unfolded beside the stream."
+},
+{
+  "id": "en_2015",
+  "category": "IELTS Reading Vocabulary",
+  "word": "incubation",
+  "pos": "noun",
+  "zh_def": "孵卵；使卵維持適合胚胎發育條件的過程",
+  "zh": "孵卵",
+  "definition": "The process of keeping eggs under suitable conditions until the young hatch.",
+  "meaning": "the process of keeping eggs under suitable conditions until the young hatch",
+  "ipa": "ˌɪŋkjuˈbeɪʃn",
+  "forms": [
+    "incubation"
+  ],
+  "tip": "incubate 是動詞，incubation 是過程名詞，不是同一個字的時態變化，所以分別收錄。incubation period 在鳥類語境指孵卵期；談疾病時才可能指潛伏期。",
+  "sentence1": "Both parents take turns during incubation.",
+  "sentence1_en": "孵卵期間，親鳥雙方會輪流照料。",
+  "sentence2": "Successful incubation requires suitable temperature and humidity.",
+  "sentence2_en": "成功孵育需要適當的溫度與濕度。",
+  "sentence3": "The length of incubation varies between bird species.",
+  "sentence3_en": "不同鳥類的孵卵期長短不同。",
+  "word_map": {
+    "incubation": "孵卵",
+    "Both parents take turns during incubation": "孵卵期間，親鳥雙方會輪流照料"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 1，Reading Passage 1〈The kākāpō〉（2026-10-11 提供詞形：Incubation；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
+  "lang": "english_ielts",
+  "sentence1_hl": "Both parents take turns during <b>incubation</b>."
+},
+{
+  "id": "en_2016",
+  "category": "IELTS Reading Vocabulary",
+  "word": "unattended",
+  "pos": "adjective",
+  "zh_def": "無人照顧的；無人看管的",
+  "zh": "無人照顧的",
+  "definition": "Left without anyone present to watch or care for it.",
+  "meaning": "left without anyone present to watch or care for it",
+  "ipa": "ˌʌnəˈtendɪd",
+  "forms": [
+    "unattended"
+  ],
+  "tip": "leave something unattended 是實用搭配。這是獨立形容詞，不應把字尾 -ed 刪掉而造出 unattend；unattended 並不一定表示遭到永久遺棄。",
+  "sentence1": "The eggs were left unattended while the bird searched for food.",
+  "sentence1_en": "那隻鳥外出覓食時，鳥卵無親鳥看顧。",
+  "sentence2": "Do not leave your luggage unattended at the station.",
+  "sentence2_en": "不要把行李留在車站而無人看管。",
+  "sentence3": "The unattended equipment was covered before the workers left.",
+  "sentence3_en": "工人離開前，先蓋好將無人看管的設備。",
+  "word_map": {
+    "unattended": "無人照顧的",
+    "The eggs were left unattended while the bird searched for food": "那隻鳥外出覓食時，鳥卵無親鳥看顧"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 1，Reading Passage 1〈The kākāpō〉（2026-10-11 提供詞形：Unattended；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The eggs were left <b>unattended</b> while the bird searched for food."
+},
+{
+  "id": "en_2017",
+  "category": "IELTS Reading Vocabulary",
+  "word": "settler",
+  "pos": "noun",
+  "zh_def": "移居者；到某地定居、建立新生活的人",
+  "zh": "移居者",
+  "definition": "A person who moves to a place to establish a home there.",
+  "meaning": "a person who moves to a place to establish a home there",
+  "ipa": "ˈsetlə(r)",
+  "forms": [
+    "settler",
+    "settlers"
+  ],
+  "tip": "settle 是定居，settler 是定居的人。歷史文章中的 early settlers 常譯「早期移民／移居者」；不能單憑這個字斷定該地原本無人居住。",
+  "sentence1": "The settlers built their homes near the river.",
+  "sentence1_en": "那些移居者在河邊建造家園。",
+  "sentence2": "Each settler received tools for working the land.",
+  "sentence2_en": "每名移居者都獲得耕作工具。",
+  "sentence3": "The museum records the lives of early settlers.",
+  "sentence3_en": "這座博物館記錄了早期移居者的生活。",
+  "word_map": {
+    "settler": "移居者",
+    "settlers": "移居者",
+    "The settlers built their homes near the river": "那些移居者在河邊建造家園"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 1，Reading Passage 1〈The kākāpō〉（2026-10-11 提供詞形：Settler；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The <b>settlers</b> built their homes near the river."
+},
+{
+  "id": "en_2018",
+  "category": "IELTS Reading Vocabulary",
+  "word": "stoat",
+  "pos": "noun",
+  "zh_def": "白鼬；一種身體細長、尾端通常為黑色的小型食肉哺乳動物",
+  "zh": "白鼬",
+  "definition": "A small, slender meat-eating mammal of the weasel family, usually with a black-tipped tail.",
+  "meaning": "a small, slender meat-eating mammal of the weasel family, usually with a black-tipped tail",
+  "ipa": "stəʊt",
+  "forms": [
+    "stoat",
+    "stoats"
+  ],
+  "tip": "stoat「白鼬」、ferret「雪貂」、weasel「鼬」是相關但不同的動物名稱。白鼬這個中文名不表示牠全年全身白色；認詞時不要只依毛色猜測。",
+  "sentence1": "A stoat slipped through a gap in the fence.",
+  "sentence1_en": "一隻白鼬從柵欄縫隙鑽了過去。",
+  "sentence2": "The camera recorded a stoat near the bird's nest.",
+  "sentence2_en": "攝影機在鳥巢附近拍到一隻白鼬。",
+  "sentence3": "Conservation workers searched the island for stoats.",
+  "sentence3_en": "保育人員在島上搜尋白鼬。",
+  "word_map": {
+    "stoat": "白鼬",
+    "stoats": "白鼬",
+    "A stoat slipped through a gap in the fence": "一隻白鼬從柵欄縫隙鑽了過去"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 1，Reading Passage 1〈The kākāpō〉（2026-10-11 提供詞形：Stoat；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
+  "lang": "english_ielts",
+  "sentence1_hl": "A <b>stoat</b> slipped through a gap in the fence."
+},
+{
+  "id": "en_2019",
+  "category": "IELTS Reading Vocabulary",
+  "word": "cling",
+  "pos": "verb",
+  "zh_def": "緊抓不放；緊緊依附；引申為緊守希望或勉強維持生命",
+  "zh": "緊抓不放",
+  "definition": "To hold tightly to something, physically or by refusing to give it up.",
+  "meaning": "to hold tightly to something, physically or by refusing to give it up",
+  "ipa": "klɪŋ",
+  "forms": [
+    "cling",
+    "clings",
+    "clung",
+    "clinging"
+  ],
+  "tip": "cling to + 人／物／希望；過去式和過去分詞都是 clung，不是 clinged。cling to life 是在艱難條件下勉強活著，不能逐字譯成「黏在生命上」。",
+  "sentence1": "The child clung to her father's hand in the crowd.",
+  "sentence1_en": "孩子在人群中緊抓著父親的手。",
+  "sentence2": "They clung to the hope that help would arrive.",
+  "sentence2_en": "他們緊抱著救援終會到來的希望。",
+  "sentence3": "A few plants clung to life in the dry soil.",
+  "sentence3_en": "少數植物在乾燥的土壤中勉強存活。",
+  "word_map": {
+    "cling": "緊抓不放",
+    "clings": "緊抓不放",
+    "clung": "緊抓不放",
+    "clinging": "緊抓不放",
+    "The child clung to her father's hand in the crowd": "孩子在人群中緊抓著父親的手"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 1，Reading Passage 1〈The kākāpō〉（2026-10-11 提供詞形：Clung；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The child <b>clung</b> to her father's hand in the crowd."
+},
+{
+  "id": "en_2020",
+  "category": "IELTS Reading Vocabulary",
+  "word": "ferret",
+  "pos": "noun",
+  "zh_def": "雪貂；身體細長、屬鼬科的哺乳動物",
+  "zh": "雪貂",
+  "definition": "A long-bodied mammal of the weasel family, often kept as a pet or used in hunting rabbits.",
+  "meaning": "a long-bodied mammal of the weasel family, often kept as a pet or used in hunting rabbits",
+  "ipa": "ˈferɪt",
+  "forms": [
+    "ferret",
+    "ferrets"
+  ],
+  "tip": "這裡是動物名詞，和 stoat、weasel 並列。ferret out 是另一個動詞片語，意為仔細搜尋並找出；不要套入鳥類掠食者的列舉中。",
+  "sentence1": "The ferret crawled through the narrow tunnel.",
+  "sentence1_en": "那隻雪貂爬過狹窄的隧道。",
+  "sentence2": "She placed the ferret gently in its carrier.",
+  "sentence2_en": "她輕輕地把雪貂放進外出籠。",
+  "sentence3": "Escaped ferrets can threaten ground-nesting birds.",
+  "sentence3_en": "逃逸的雪貂可能威脅在地面築巢的鳥類。",
+  "word_map": {
+    "ferret": "雪貂",
+    "ferrets": "雪貂",
+    "The ferret crawled through the narrow tunnel": "那隻雪貂爬過狹窄的隧道"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 1，Reading Passage 1〈The kākāpō〉（2026-10-11 提供詞形：Ferret；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The <b>ferret</b> crawled through the narrow tunnel."
+},
+{
+  "id": "en_2021",
+  "category": "IELTS Reading Vocabulary",
+  "word": "weasel",
+  "pos": "noun",
+  "zh_def": "鼬；鼬鼠，身體細長、腿短的小型食肉哺乳動物",
+  "zh": "鼬",
+  "definition": "A small meat-eating mammal with a long, thin body and short legs.",
+  "meaning": "a small meat-eating mammal with a long, thin body and short legs",
+  "ipa": "ˈwiːzl",
+  "forms": [
+    "weasel",
+    "weasels"
+  ],
+  "tip": "雖然中文常稱「鼬鼠」，weasel 是鼬科食肉動物，不是鼠類。weasel out of something 另指逃避責任；這裡收的是動物名詞。",
+  "sentence1": "A weasel disappeared into the long grass.",
+  "sentence1_en": "一隻鼬消失在高草叢中。",
+  "sentence2": "The weasel followed the scent of a small rodent.",
+  "sentence2_en": "那隻鼬循著一隻小型齧齒動物的氣味追蹤。",
+  "sentence3": "Researchers found evidence of weasels near the nests.",
+  "sentence3_en": "研究人員在巢穴附近發現鼬活動的跡象。",
+  "word_map": {
+    "weasel": "鼬",
+    "weasels": "鼬",
+    "A weasel disappeared into the long grass": "一隻鼬消失在高草叢中"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 1，Reading Passage 1〈The kākāpō〉（2026-10-11 提供詞形：Weasel；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
+  "lang": "english_ielts",
+  "sentence1_hl": "A <b>weasel</b> disappeared into the long grass."
+},
+{
+  "id": "en_2022",
+  "category": "IELTS Reading Vocabulary",
+  "word": "supplementary",
+  "pos": "adjective",
+  "zh_def": "補充的；在原有內容之外額外提供的",
+  "zh": "補充的",
+  "definition": "Added to what is already available to provide extra support or information.",
+  "meaning": "added to what is already available to provide extra support or information",
+  "ipa": "ˌsʌplɪˈmentri",
+  "forms": [
+    "supplementary"
+  ],
+  "tip": "supplementary feeding 是補充餵食，supplementary information 是補充資訊。它表示在原有供給之外增加，不是完全取代原本的東西；注意中間拼成 -ment-。",
+  "sentence1": "The birds received supplementary food during the breeding season.",
+  "sentence1_en": "繁殖季期間，那些鳥獲得額外補充的食物。",
+  "sentence2": "Supplementary materials are available at the end of the book.",
+  "sentence2_en": "書末提供補充資料。",
+  "sentence3": "The teacher prepared supplementary exercises for the class.",
+  "sentence3_en": "老師為班上準備了補充練習。",
+  "word_map": {
+    "supplementary": "補充的",
+    "The birds received supplementary food during the breeding season": "繁殖季期間，那些鳥獲得額外補充的食物"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 1，Reading Passage 1〈The kākāpō〉（2026-10-11 提供詞形：Supplementary；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The birds received <b>supplementary</b> food during the breeding season."
+},
+{
+  "id": "en_2023",
+  "category": "IELTS Reading Vocabulary",
+  "word": "elm",
+  "pos": "noun",
+  "zh_def": "榆樹",
+  "zh": "榆樹",
+  "definition": "A broad-leaved tree of the genus Ulmus, grown in woods and along streets.",
+  "meaning": "a broad-leaved tree of the genus Ulmus, grown in woods and along streets",
+  "ipa": "elm",
+  "forms": [
+    "elm",
+    "elms"
+  ],
+  "tip": "an elm／elm trees；Dutch elm disease 是榆樹荷蘭病。Elms 是複數，主詞條採 elm；elm wood 則指榆木，木材用法通常不可數。",
+  "sentence1": "An old elm stood beside the village church.",
+  "sentence1_en": "村莊教堂旁矗立著一棵老榆樹。",
+  "sentence2": "The nursery grows several disease-resistant elms.",
+  "sentence2_en": "那座苗圃栽培了幾棵抗病榆樹。",
+  "sentence3": "The elm lost its leaves earlier than the surrounding trees.",
+  "sentence3_en": "那棵榆樹比周圍的樹更早落葉。",
+  "word_map": {
+    "elm": "榆樹",
+    "elms": "榆樹",
+    "An old elm stood beside the village church": "村莊教堂旁矗立著一棵老榆樹"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 1，Reading Passage 2〈To Britain（榆樹重引入英國）〉（2026-10-11 提供詞形：Elms；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
+  "lang": "english_ielts",
+  "sentence1_hl": "An old <b>elm</b> stood beside the village church."
+},
+{
+  "id": "en_2024",
+  "category": "IELTS Reading Vocabulary",
+  "word": "aftermath",
+  "pos": "noun",
+  "zh_def": "災難或重大事件之後的局面、後果",
+  "zh": "災難或重大事件之後的局面、後果",
+  "definition": "The period and conditions following a damaging or important event.",
+  "meaning": "the period and conditions following a damaging or important event",
+  "ipa": "ˈɑːftəmæθ",
+  "forms": [
+    "aftermath"
+  ],
+  "tip": "in the aftermath of + 事件，常用於災害、戰爭或危機後。它包含「事後的情況與影響」，不只是時間副詞 afterwards「後來」。",
+  "sentence1": "Many families needed shelter in the aftermath of the flood.",
+  "sentence1_en": "洪水過後，許多家庭需要棲身之所。",
+  "sentence2": "The town was still dealing with the aftermath of the fire.",
+  "sentence2_en": "那座城鎮仍在處理火災造成的後果。",
+  "sentence3": "The report examines the economic aftermath of the crisis.",
+  "sentence3_en": "報告探討了危機過後的經濟局面。",
+  "word_map": {
+    "aftermath": "災難或重大事件之後的局面、後果",
+    "Many families needed shelter in the aftermath of the flood": "洪水過後，許多家庭需要棲身之所"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 1，Reading Passage 2〈To Britain（榆樹重引入英國）〉（2026-10-11 提供詞形：Aftermath；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
+  "lang": "english_ielts",
+  "sentence1_hl": "Many families needed shelter in the <b>aftermath</b> of the flood."
+},
+{
+  "id": "en_2025",
+  "category": "IELTS Reading Vocabulary",
+  "word": "vascular",
+  "pos": "adjective",
+  "zh_def": "維管組織的；在植物中與輸送水分、養分的組織有關的",
+  "zh": "維管組織的",
+  "definition": "Relating to the tissues that transport water and nutrients through a plant.",
+  "meaning": "relating to the tissues that transport water and nutrients through a plant",
+  "ipa": "ˈvæskjələ(r)",
+  "forms": [
+    "vascular"
+  ],
+  "tip": "植物的 vascular system 是維管系統，不是「血管系統」。vascular 在醫學文章也可指血管的；需要依談論的是植物還是動物來選中文。",
+  "sentence1": "The disease damaged the tree's vascular system.",
+  "sentence1_en": "這種疾病損害了樹木的維管系統。",
+  "sentence2": "Vascular tissue carries water from the roots towards the leaves.",
+  "sentence2_en": "維管組織將水分從根部輸送往葉片。",
+  "sentence3": "The researchers examined vascular tissue in the affected stems.",
+  "sentence3_en": "研究人員檢查了受影響莖部中的維管組織。",
+  "word_map": {
+    "vascular": "維管組織的",
+    "The disease damaged the tree's vascular system": "這種疾病損害了樹木的維管系統"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 1，Reading Passage 2〈To Britain（榆樹重引入英國）〉（2026-10-11 提供詞形：Vascular；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The disease damaged the tree's <b>vascular</b> system."
+},
+{
+  "id": "en_2026",
+  "category": "IELTS Reading Vocabulary",
+  "word": "intact",
+  "pos": "adjective",
+  "zh_def": "完整無缺的；未受損或未被破壞的",
+  "zh": "完整無缺的",
+  "definition": "Still complete and not damaged or broken apart.",
+  "meaning": "still complete and not damaged or broken apart",
+  "ipa": "ɪnˈtækt",
+  "forms": [
+    "intact"
+  ],
+  "tip": "remain intact／leave something intact 是常見搭配。intact 強調完整性受到保留，不保證物品是全新、乾淨或從未使用過。",
+  "sentence1": "The bark remained intact during transport.",
+  "sentence1_en": "運送過程中，樹皮保持完整。",
+  "sentence2": "Most of the ancient wall is still intact.",
+  "sentence2_en": "那面古牆的大部分仍完好無損。",
+  "sentence3": "They recovered the box with its contents intact.",
+  "sentence3_en": "他們找回了盒子，裡面的東西完整無損。",
+  "word_map": {
+    "intact": "完整無缺的",
+    "The bark remained intact during transport": "運送過程中，樹皮保持完整"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 1，Reading Passage 2〈To Britain（榆樹重引入英國）〉（2026-10-11 提供詞形：Intact；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The bark remained <b>intact</b> during transport."
+},
+{
+  "id": "en_2027",
+  "category": "IELTS Reading Vocabulary",
+  "word": "virulent",
+  "pos": "adjective",
+  "zh_def": "毒性強的；致病性很強、危害嚴重的",
+  "zh": "毒性強的",
+  "definition": "Causing particularly severe disease or damage to a living organism.",
+  "meaning": "causing particularly severe disease or damage to a living organism",
+  "ipa": "ˈvɪrələnt",
+  "forms": [
+    "virulent"
+  ],
+  "tip": "a virulent strain／infection 強調危害或致病能力強，不能直接等同「傳染力強」。virulent 也可形容言詞惡毒；文章談樹木病害，用的是生物學意思。",
+  "sentence1": "A virulent strain of the fungus spread through the orchard.",
+  "sentence1_en": "一種致病性很強的真菌菌株在果園中蔓延。",
+  "sentence2": "The seedlings were exposed to a more virulent pathogen.",
+  "sentence2_en": "那些幼苗接觸到致病性更強的病原體。",
+  "sentence3": "Researchers compared the two strains to identify the more virulent one.",
+  "sentence3_en": "研究人員比較兩種菌株，以找出致病性較強的一種。",
+  "word_map": {
+    "virulent": "毒性強的",
+    "A virulent strain of the fungus spread through the orchard": "一種致病性很強的真菌菌株在果園中蔓延"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 1，Reading Passage 2〈To Britain（榆樹重引入英國）〉（2026-10-11 提供詞形：Virulent；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
+  "lang": "english_ielts",
+  "sentence1_hl": "A <b>virulent</b> strain of the fungus spread through the orchard."
+},
+{
+  "id": "en_2028",
+  "category": "IELTS Reading Vocabulary",
+  "word": "hedgerow",
+  "pos": "noun",
+  "zh_def": "樹籬；沿田地或道路邊緣生長的一長排灌木、樹木",
+  "zh": "樹籬",
+  "definition": "A long line of shrubs or small trees forming a boundary beside a field or road.",
+  "meaning": "a long line of shrubs or small trees forming a boundary beside a field or road",
+  "ipa": "ˈhedʒrəʊ",
+  "forms": [
+    "hedgerow",
+    "hedgerows"
+  ],
+  "tip": "hedge 可泛指樹籬，hedgerow 常用於鄉間田界或路旁連續的一長排。它是活的植物邊界，不能和木製 fence「柵欄」直接畫上等號。",
+  "sentence1": "A hedgerow separates the two fields.",
+  "sentence1_en": "一道樹籬將兩塊田地分隔開來。",
+  "sentence2": "Small birds nested in the dense hedgerow.",
+  "sentence2_en": "小鳥在茂密的樹籬中築巢。",
+  "sentence3": "Farmers restored hedgerows along the lane.",
+  "sentence3_en": "農民沿著小路恢復栽植樹籬。",
+  "word_map": {
+    "hedgerow": "樹籬",
+    "hedgerows": "樹籬",
+    "A hedgerow separates the two fields": "一道樹籬將兩塊田地分隔開來"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 1，Reading Passage 2〈To Britain（榆樹重引入英國）〉（2026-10-11 提供詞形：Hedgerow；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
+  "lang": "english_ielts",
+  "sentence1_hl": "A <b>hedgerow</b> separates the two fields."
+},
+{
+  "id": "en_2029",
+  "category": "IELTS Reading Vocabulary",
+  "word": "succumb",
+  "pos": "verb",
+  "zh_def": "抵抗不住而受害；因疾病等而倒下、死亡",
+  "zh": "抵抗不住而受害",
+  "definition": "To fail to resist a harmful force, especially to become seriously affected by or die from disease.",
+  "meaning": "to fail to resist a harmful force, especially to become seriously affected by or die from disease",
+  "ipa": "səˈkʌm",
+  "forms": [
+    "succumb",
+    "succumbs",
+    "succumbed",
+    "succumbing"
+  ],
+  "tip": "succumb to a disease／injuries；to 後接造成傷害的事物。字尾 b 不發音。另有 succumb to temptation「禁不起誘惑」，這時並不涉及死亡。",
+  "sentence1": "Several young trees succumbed to the disease.",
+  "sentence1_en": "幾棵幼樹抵抗不住這種疾病而死亡。",
+  "sentence2": "Without enough water, the weaker plants soon succumbed.",
+  "sentence2_en": "水分不足，使較脆弱的植物很快枯死。",
+  "sentence3": "The animal eventually succumbed to its injuries.",
+  "sentence3_en": "那隻動物最終因傷勢過重而死亡。",
+  "word_map": {
+    "succumb": "抵抗不住而受害",
+    "succumbs": "抵抗不住而受害",
+    "succumbed": "抵抗不住而受害",
+    "succumbing": "抵抗不住而受害",
+    "Several young trees succumbed to the disease": "幾棵幼樹抵抗不住這種疾病而死亡"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 1，Reading Passage 2〈To Britain（榆樹重引入英國）〉（2026-10-11 提供詞形：Succumbed；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
+  "lang": "english_ielts",
+  "sentence1_hl": "Several young trees <b>succumbed</b> to the disease."
+},
+{
+  "id": "en_2030",
+  "category": "IELTS Reading Vocabulary",
+  "word": "birch",
+  "pos": "noun",
+  "zh_def": "樺樹",
+  "zh": "樺樹",
+  "definition": "A tree of the genus Betula, often recognised by its thin, pale, peeling bark.",
+  "meaning": "a tree of the genus Betula, often recognised by its thin, pale, peeling bark",
+  "ipa": "bɜːtʃ",
+  "forms": [
+    "birch",
+    "birches"
+  ],
+  "tip": "birch 是樺樹，beech 是山毛櫸，拼字與讀音都不同。複數加 -es：birches；birch wood「樺木」則是木材的不可數用法。",
+  "sentence1": "A silver birch grew beside the lake.",
+  "sentence1_en": "湖邊長著一棵垂枝樺。",
+  "sentence2": "The path continued through a group of young birches.",
+  "sentence2_en": "小徑延伸穿過一叢幼樺樹。",
+  "sentence3": "Leaves from the birch covered the bench.",
+  "sentence3_en": "樺樹落下的葉子覆蓋了長椅。",
+  "word_map": {
+    "birch": "樺樹",
+    "birches": "樺樹",
+    "A silver birch grew beside the lake": "湖邊長著一棵垂枝樺"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 1，Reading Passage 2〈To Britain（榆樹重引入英國）〉（2026-10-11 提供詞形：Birch；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
+  "lang": "english_ielts",
+  "sentence1_hl": "A silver <b>birch</b> grew beside the lake."
+},
+{
+  "id": "en_2031",
+  "category": "IELTS Reading Vocabulary",
+  "word": "keel",
+  "pos": "noun",
+  "zh_def": "龍骨；沿船底中央由船首延伸至船尾的主要構造",
+  "zh": "龍骨",
+  "definition": "The main structure running along the centre of a boat's bottom from front to back.",
+  "meaning": "the main structure running along the centre of a boat's bottom from front to back",
+  "ipa": "kiːl",
+  "forms": [
+    "keel",
+    "keels"
+  ],
+  "tip": "keel 是船底龍骨，hull 是船體外殼，兩者不同。keel 讀音和 feel 押韻，不是 kill /kɪl/；on an even keel 還可比喻情況保持平穩。",
+  "sentence1": "The shipwright inspected the wooden keel for damage.",
+  "sentence1_en": "造船工匠檢查木製龍骨是否受損。",
+  "sentence2": "The keel runs along the centre of the hull.",
+  "sentence2_en": "龍骨沿著船體底部中央延伸。",
+  "sentence3": "Repairs to the keel kept the boat out of the water.",
+  "sentence3_en": "由於龍骨需要維修，那艘船暫時無法下水。",
+  "word_map": {
+    "keel": "龍骨",
+    "keels": "龍骨",
+    "The shipwright inspected the wooden keel for damage": "造船工匠檢查木製龍骨是否受損"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 1，Reading Passage 2〈To Britain（榆樹重引入英國）〉（2026-10-11 提供詞形：Keel；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The shipwright inspected the wooden <b>keel</b> for damage."
+},
+{
+  "id": "en_2032",
+  "category": "IELTS Reading Vocabulary",
+  "word": "precarious",
+  "pos": "adjective",
+  "zh_def": "不穩定的；岌岌可危、容易出問題的",
+  "zh": "不穩定的",
+  "definition": "Insecure or unstable and at risk of failing, falling or being lost.",
+  "meaning": "insecure or unstable and at risk of failing, falling or being lost",
+  "ipa": "prɪˈkeəriəs",
+  "forms": [
+    "precarious"
+  ],
+  "tip": "a precarious situation／existence／balance。它不只表示目前有危險，也強調原有狀態難以穩固維持；precaution「預防措施」是另一個字。",
+  "sentence1": "The remaining trees face a precarious future.",
+  "sentence1_en": "倖存樹木的未來仍岌岌可危。",
+  "sentence2": "The village depends on a precarious water supply.",
+  "sentence2_en": "村莊仰賴不穩定的供水。",
+  "sentence3": "The ladder was balanced in a precarious position.",
+  "sentence3_en": "梯子勉強立在一個不穩的位置。",
+  "word_map": {
+    "precarious": "不穩定的",
+    "The remaining trees face a precarious future": "倖存樹木的未來仍岌岌可危"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 1，Reading Passage 2〈To Britain（榆樹重引入英國）〉（2026-10-11 提供詞形：Precarious；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The remaining trees face a <b>precarious</b> future."
+},
+{
+  "id": "en_2033",
+  "category": "IELTS Reading Vocabulary",
+  "word": "slit",
+  "pos": "noun",
+  "zh_def": "細長的切口、裂縫或狹窄開口",
+  "zh": "細長的切口、裂縫或狹窄開口",
+  "definition": "A narrow opening or a long, thin cut in a surface.",
+  "meaning": "a narrow opening or a long, thin cut in a surface",
+  "ipa": "slɪt",
+  "forms": [
+    "slit",
+    "slits"
+  ],
+  "tip": "make a slit in + 表面；a slit 強調細長、狹窄，不是任意形狀的洞。原文 cutting a small slit 中，cutting 是動詞，slit 是受詞名詞。",
+  "sentence1": "The scientist made a small slit in the bark.",
+  "sentence1_en": "科學家在樹皮上切了一道細小的切口。",
+  "sentence2": "Light entered the room through a slit in the shutter.",
+  "sentence2_en": "光線從百葉窗上的一道細縫射入房間。",
+  "sentence3": "A narrow slit allowed water to drain from the container.",
+  "sentence3_en": "一道狹窄開口讓水從容器中排出。",
+  "word_map": {
+    "slit": "細長的切口、裂縫或狹窄開口",
+    "slits": "細長的切口、裂縫或狹窄開口",
+    "The scientist made a small slit in the bark": "科學家在樹皮上切了一道細小的切口"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 1，Reading Passage 2〈To Britain（榆樹重引入英國）〉（2026-10-11 提供詞形：Slit；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The scientist made a small <b>slit</b> in the bark."
+},
+{
+  "id": "en_2034",
+  "category": "IELTS Reading Vocabulary",
+  "word": "hectic",
+  "pos": "adjective",
+  "zh_def": "忙亂的；活動密集而繁忙的",
+  "zh": "忙亂的",
+  "definition": "Full of activity and often involving hurried or disorganised movement.",
+  "meaning": "full of activity and often involving hurried or disorganised movement",
+  "ipa": "ˈhektɪk",
+  "forms": [
+    "hectic"
+  ],
+  "tip": "a hectic day／schedule／pace。busy 可以只是忙碌；hectic 通常還帶有節奏急促、事情接連湧來的感覺，不必然表示有危險。",
+  "sentence1": "It was a hectic morning at the fire station.",
+  "sentence1_en": "消防分隊度過了一個忙亂的早晨。",
+  "sentence2": "Her hectic schedule left little time for lunch.",
+  "sentence2_en": "她繁忙的行程幾乎沒有留下吃午餐的時間。",
+  "sentence3": "The office became hectic as the deadline approached.",
+  "sentence3_en": "截止期限逼近時，辦公室變得忙亂起來。",
+  "word_map": {
+    "hectic": "忙亂的",
+    "It was a hectic morning at the fire station": "消防分隊度過了一個忙亂的早晨"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 1，Reading Passage 3〈How stress affects our judgement〉（2026-10-11 提供詞形：Hectic；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
+  "lang": "english_ielts",
+  "sentence1_hl": "It was a <b>hectic</b> morning at the fire station."
+},
+{
+  "id": "en_2035",
+  "category": "IELTS Reading Vocabulary",
+  "word": "adverse",
+  "pos": "adjective",
+  "zh_def": "不利的；有害或造成負面影響的",
+  "zh": "不利的",
+  "definition": "Harmful or making a situation less favourable.",
+  "meaning": "harmful or making a situation less favourable",
+  "ipa": "ˈædvɜːs",
+  "forms": [
+    "adverse"
+  ],
+  "tip": "adverse effects／conditions／events。別和 averse「反感、不願意」混淆：adverse conditions 是不利條件，be averse to something 是不喜歡某事。",
+  "sentence1": "Adverse weather delayed the rescue operation.",
+  "sentence1_en": "惡劣天候延誤了救援行動。",
+  "sentence2": "The policy had an adverse effect on small businesses.",
+  "sentence2_en": "這項政策對小型企業產生了不利影響。",
+  "sentence3": "The study examined how people respond to adverse events.",
+  "sentence3_en": "這項研究探討人們如何回應不利事件。",
+  "word_map": {
+    "adverse": "不利的",
+    "Adverse weather delayed the rescue operation": "惡劣天候延誤了救援行動"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 1，Reading Passage 3〈How stress affects our judgement〉（2026-10-11 提供詞形：Adverse；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
+  "lang": "english_ielts",
+  "sentence1_hl": "<b>Adverse</b> weather delayed the rescue operation."
+},
+{
+  "id": "en_2036",
+  "category": "IELTS Reading Vocabulary",
+  "word": "panel",
+  "pos": "noun",
+  "zh_def": "評審小組；負責討論、評估或作決定的一組人",
+  "zh": "評審小組",
+  "definition": "A group of people selected to discuss, assess or decide something.",
+  "meaning": "a group of people selected to discuss, assess or decide something",
+  "ipa": "ˈpænl",
+  "forms": [
+    "panel",
+    "panels"
+  ],
+  "tip": "a panel of judges／experts；serve on a panel 是擔任小組成員。文章中評分的是一組人，與第1430項 solar panel「太陽能板」的 panel 不同義。",
+  "sentence1": "A panel of experts assessed the research proposal.",
+  "sentence1_en": "一個專家小組評估了這份研究提案。",
+  "sentence2": "The panel asked each speaker two questions.",
+  "sentence2_en": "評審小組向每位講者提出兩個問題。",
+  "sentence3": "She presented her work to an independent panel.",
+  "sentence3_en": "她向一個獨立評審小組展示自己的工作成果。",
+  "word_map": {
+    "panel": "評審小組",
+    "panels": "評審小組",
+    "A panel of experts assessed the research proposal": "一個專家小組評估了這份研究提案"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 1，Reading Passage 3〈How stress affects our judgement〉（2026-10-11 提供詞形：Panel；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
+  "lang": "english_ielts",
+  "sentence1_hl": "A <b>panel</b> of experts assessed the research proposal."
+},
+{
+  "id": "en_2037",
+  "category": "IELTS Reading Vocabulary",
+  "word": "spike",
+  "pos": "verb",
+  "zh_def": "急升；在短時間內突然大幅上升",
+  "zh": "急升",
+  "definition": "To rise sharply and suddenly in level or amount.",
+  "meaning": "to rise sharply and suddenly in level or amount",
+  "ipa": "spaɪk",
+  "forms": [
+    "spike",
+    "spikes",
+    "spiked",
+    "spiking"
+  ],
+  "tip": "prices／levels／demand spike；常指突然而明顯的上升，不等於長期穩定增長。a spike in prices 是對應的名詞用法；原文 spiked 是動詞過去式。",
+  "sentence1": "Electricity demand spiked during the heatwave.",
+  "sentence1_en": "熱浪期間，用電需求突然大幅攀升。",
+  "sentence2": "Her stress levels spiked before the interview.",
+  "sentence2_en": "面試前，她的壓力程度急劇上升。",
+  "sentence3": "Prices briefly spiked when the supply route closed.",
+  "sentence3_en": "運輸路線關閉時，價格一度急升。",
+  "word_map": {
+    "spike": "急升",
+    "spikes": "急升",
+    "spiked": "急升",
+    "spiking": "急升",
+    "Electricity demand spiked during the heatwave": "熱浪期間，用電需求突然大幅攀升"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 1，Reading Passage 3〈How stress affects our judgement〉（2026-10-11 提供詞形：Spike；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
+  "lang": "english_ielts",
+  "sentence1_hl": "Electricity demand <b>spiked</b> during the heatwave."
+},
+{
+  "id": "en_2038",
+  "category": "IELTS Reading Vocabulary",
+  "word": "demanding",
+  "pos": "adjective",
+  "zh_def": "費力的；需要投入很多時間、精力或能力的",
+  "zh": "費力的",
+  "definition": "Requiring a great deal of effort, attention or skill.",
+  "meaning": "requiring a great deal of effort, attention or skill",
+  "ipa": "dɪˈmɑːndɪŋ",
+  "forms": [
+    "demanding"
+  ],
+  "tip": "a demanding task／job；physically／mentally demanding 分別強調體力或心力。這裡的 -ing 構成常用形容詞，不能和動詞 demand「要求、需要」只當成一種時態。",
+  "sentence1": "The course includes several demanding assignments.",
+  "sentence1_en": "這門課包含幾項需要下功夫的作業。",
+  "sentence2": "Caring for the injured birds is demanding work.",
+  "sentence2_en": "照顧受傷鳥類是一項費力的工作。",
+  "sentence3": "She completed a physically demanding training programme.",
+  "sentence3_en": "她完成了一項體力要求很高的訓練課程。",
+  "word_map": {
+    "demanding": "費力的",
+    "The course includes several demanding assignments": "這門課包含幾項需要下功夫的作業"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 1，Reading Passage 3〈How stress affects our judgement〉（2026-10-11 提供詞形：Demanding；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The course includes several <b>demanding</b> assignments."
+},
+{
+  "id": "en_2039",
+  "category": "IELTS Reading Vocabulary",
+  "word": "famished",
+  "pos": "adjective",
+  "zh_def": "飢腸轆轆的；非常飢餓的",
+  "zh": "飢腸轆轆的",
+  "definition": "Extremely hungry.",
+  "meaning": "extremely hungry",
+  "ipa": "ˈfæmɪʃt",
+  "forms": [
+    "famished"
+  ],
+  "tip": "比 hungry 程度強，可用來誇張地說「我餓死了」，不一定真的面臨餓死。字尾 -ed 在這裡讀 /t/；學習主詞條保留形容詞 famished。",
+  "sentence1": "We were famished after walking all afternoon.",
+  "sentence1_en": "走了一整個下午後，我們餓極了。",
+  "sentence2": "The famished animals searched the empty field for food.",
+  "sentence2_en": "那些飢餓難耐的動物在空曠田野中尋找食物。",
+  "sentence3": "By the time dinner arrived, the children were famished.",
+  "sentence3_en": "晚餐送到時，孩子們已經餓得受不了。",
+  "word_map": {
+    "famished": "飢腸轆轆的",
+    "We were famished after walking all afternoon": "走了一整個下午後，我們餓極了"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 1，Reading Passage 3〈How stress affects our judgement〉（2026-10-11 提供詞形：Famished；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
+  "lang": "english_ielts",
+  "sentence1_hl": "We were <b>famished</b> after walking all afternoon."
+},
+{
+  "id": "en_2040",
+  "category": "IELTS Reading Vocabulary",
+  "word": "definite",
+  "pos": "adjective",
+  "zh_def": "確定的；明確、無疑的",
+  "zh": "確定的",
+  "definition": "Clear and certain rather than doubtful or vague.",
+  "meaning": "clear and certain rather than doubtful or vague",
+  "ipa": "ˈdefɪnət",
+  "forms": [
+    "definite"
+  ],
+  "tip": "definite evidence／answer／improvement。第11題的 definite sighting 指確實的目擊紀錄；definite「確定」不同於 definitive「具決定性、權威性」。",
+  "sentence1": "We need definite evidence before announcing the discovery.",
+  "sentence1_en": "宣布這項發現之前，我們需要確切證據。",
+  "sentence2": "She gave us a definite answer the next morning.",
+  "sentence2_en": "第二天早上，她給了我們明確答覆。",
+  "sentence3": "There has been a definite improvement in the bird's condition.",
+  "sentence3_en": "那隻鳥的狀況已有明確改善。",
+  "word_map": {
+    "definite": "確定的",
+    "We need definite evidence before announcing the discovery": "宣布這項發現之前，我們需要確切證據"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 1，Reading Passage 1〈The kākāpō〉（2026-10-11 提供詞形：Definite；第11題筆記中的 definite，指確實無疑的觀察紀錄）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
+  "lang": "english_ielts",
+  "sentence1_hl": "We need <b>definite</b> evidence before announcing the discovery."
+},
+{
+  "id": "en_2041",
+  "category": "IELTS Reading Vocabulary",
+  "word": "specify",
+  "pos": "verb",
+  "zh_def": "明確說明；具體指定",
+  "zh": "明確說明",
+  "definition": "To state or identify something clearly and precisely.",
+  "meaning": "to state or identify something clearly and precisely",
+  "ipa": "ˈspesɪfaɪ",
+  "forms": [
+    "specify",
+    "specifies",
+    "specified",
+    "specifying"
+  ],
+  "tip": "specify what／when／how，也可直接接名詞；通常不寫 specify about。specified 把 y 改成 i，但 specifying 保留 y；這次來源是題目選項的用語。",
+  "sentence1": "Please specify the date on which you need the equipment.",
+  "sentence1_en": "請明確說明你需要設備的日期。",
+  "sentence2": "The instructions specify how much water to add.",
+  "sentence2_en": "說明書明確指出要加入多少水。",
+  "sentence3": "The contract specifies a maximum delivery time.",
+  "sentence3_en": "合約明定了最長交貨時間。",
+  "word_map": {
+    "specify": "明確說明",
+    "specifies": "明確說明",
+    "specified": "明確說明",
+    "specifying": "明確說明",
+    "Please specify the date on which you need the equipment": "請明確說明你需要設備的日期"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 1，Reading Passage 3〈How stress affects our judgement〉（2026-10-11 提供詞形：Specifying；第27題選項D中的 specifying；收錄選項用語，不把選項內容當成文章事實）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
+  "lang": "english_ielts",
+  "sentence1_hl": "Please <b>specify</b> the date on which you need the equipment."
+},
+{
+  "id": "en_2042",
+  "category": "IELTS Reading Vocabulary",
+  "word": "omnivorous",
+  "pos": "adjective",
+  "zh_def": "雜食性的；同時吃植物與動物性食物的",
+  "zh": "雜食性的",
+  "definition": "Feeding on both plant and animal material.",
+  "meaning": "feeding on both plant and animal material",
+  "ipa": "ɒmˈnɪvərəs",
+  "forms": [
+    "omnivorous"
+  ],
+  "tip": "omnivorous「雜食的」、herbivorous「草食的」、carnivorous「肉食的」可一起比較。雜食表示食物來源包含植物與動物，不表示任何東西都能吃。",
+  "sentence1": "The omnivorous fish eats both algae and small insects.",
+  "sentence1_en": "這種雜食性魚類既吃藻類，也吃小昆蟲。",
+  "sentence2": "Researchers examined the diet of several omnivorous mammals.",
+  "sentence2_en": "研究人員檢視了幾種雜食性哺乳動物的食性。",
+  "sentence3": "An omnivorous animal may change its diet as food supplies change.",
+  "sentence3_en": "雜食性動物可能隨著食物供應改變飲食內容。",
+  "word_map": {
+    "omnivorous": "雜食性的",
+    "The omnivorous fish eats both algae and small insects": "這種雜食性魚類既吃藻類，也吃小昆蟲"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 2，Reading Passage 1〈Manatees〉（2026-10-11 提供詞形：Omnivorous；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-2/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The <b>omnivorous</b> fish eats both algae and small insects."
+},
+{
+  "id": "en_2043",
+  "category": "IELTS Reading Vocabulary",
+  "word": "abrasive",
+  "pos": "adjective",
+  "zh_def": "有磨蝕作用的；會摩擦、磨耗表面的",
+  "zh": "有磨蝕作用的",
+  "definition": "Rough enough to wear away another surface through rubbing.",
+  "meaning": "rough enough to wear away another surface through rubbing",
+  "ipa": "əˈbreɪsɪv",
+  "forms": [
+    "abrasive"
+  ],
+  "tip": "abrasive material／cleaner 指會磨耗表面的物質。原文談食物磨損牙齒；形容人 an abrasive person 時則是「態度粗暴、使人不快」，不要混用。",
+  "sentence1": "Abrasive particles gradually wore down the animal's teeth.",
+  "sentence1_en": "有磨蝕作用的顆粒逐漸磨損了那隻動物的牙齒。",
+  "sentence2": "Avoid using abrasive cleaners on this delicate surface.",
+  "sentence2_en": "避免在這個易受損的表面使用研磨性清潔劑。",
+  "sentence3": "The workers used an abrasive pad to remove the old paint.",
+  "sentence3_en": "工人用研磨墊去除舊油漆。",
+  "word_map": {
+    "abrasive": "有磨蝕作用的",
+    "Abrasive particles gradually wore down the animal's teeth": "有磨蝕作用的顆粒逐漸磨損了那隻動物的牙齒"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 2，Reading Passage 1〈Manatees〉（2026-10-11 提供詞形：Abrasive；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-2/",
+  "lang": "english_ielts",
+  "sentence1_hl": "<b>Abrasive</b> particles gradually wore down the animal's teeth."
+},
+{
+  "id": "en_2044",
+  "category": "IELTS Reading Vocabulary",
+  "word": "by means of",
+  "pos": "prepositional phrase",
+  "zh_def": "藉由；利用某種工具或方法",
+  "zh": "藉由",
+  "definition": "Using a particular method, instrument or resource.",
+  "meaning": "using a particular method, instrument or resource",
+  "ipa": "baɪ ˈmiːnz əv",
+  "forms": [
+    "by means of"
+  ],
+  "tip": "後面接方法或工具，如 by means of a sensor；意思接近 using，語氣較正式。means 在這個片語中保留 s；不要寫成 by mean of。",
+  "sentence1": "The signal is transmitted by means of a cable.",
+  "sentence1_en": "訊號藉由一條纜線傳送。",
+  "sentence2": "The researchers identified the species by means of DNA analysis.",
+  "sentence2_en": "研究人員利用 DNA 分析辨識出該物種。",
+  "sentence3": "Water was lifted by means of a simple pump.",
+  "sentence3_en": "水藉由一個簡單的幫浦抽送上來。",
+  "word_map": {
+    "by means of": "藉由",
+    "The signal is transmitted by means of a cable": "訊號藉由一條纜線傳送"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 2，Reading Passage 1〈Manatees〉（2026-10-11 提供詞形：By means of；第3題筆記中的 by means of）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-2/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The signal is transmitted <b>by means of</b> a cable."
+},
+{
+  "id": "en_2045",
+  "category": "IELTS Reading Vocabulary",
+  "word": "compose",
+  "pos": "verb",
+  "zh_def": "撰寫；構思並寫出文字",
+  "zh": "撰寫",
+  "definition": "To create and write a piece of text.",
+  "meaning": "to create and write a piece of text",
+  "ipa": "kəmˈpəʊz",
+  "forms": [
+    "compose",
+    "composes",
+    "composed",
+    "composing"
+  ],
+  "tip": "compose a message／letter／poem 強調構思、組織文字，比 write 更著重創作過程。compose music 是作曲；be composed of「由……組成」則是另一種用法。",
+  "sentence1": "She composed a careful reply to the complaint.",
+  "sentence1_en": "她仔細斟酌，寫了一封回應投訴的信。",
+  "sentence2": "He spent an hour composing a message to his supervisor.",
+  "sentence2_en": "他花了一個小時撰寫給主管的訊息。",
+  "sentence3": "The students composed short descriptions of the paintings.",
+  "sentence3_en": "學生們為那些畫作撰寫簡短說明。",
+  "word_map": {
+    "compose": "撰寫",
+    "composes": "撰寫",
+    "composed": "撰寫",
+    "composing": "撰寫",
+    "She composed a careful reply to the complaint": "她仔細斟酌，寫了一封回應投訴的信"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 2，Reading Passage 2〈Procrastination〉（2026-10-11 提供詞形：Composing；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-2/",
+  "lang": "english_ielts",
+  "sentence1_hl": "She <b>composed</b> a careful reply to the complaint."
+},
+{
+  "id": "en_2046",
+  "category": "IELTS Reading Vocabulary",
+  "word": "get on with",
+  "pos": "verb phrase",
+  "zh_def": "繼續做；開始認真處理手上的工作",
+  "zh": "繼續做",
+  "definition": "To continue or make progress with a task, especially after a delay or interruption.",
+  "meaning": "to continue or make progress with a task, especially after a delay or interruption",
+  "ipa": "ɡet ˈɒn wɪð",
+  "forms": [
+    "get on with",
+    "gets on with",
+    "got on with",
+    "getting on with"
+  ],
+  "tip": "get on with + 工作／-ing；with 後接正在處理的事。Getting on 不足以表達原文結構。get on with someone 也可表示和某人相處，這裡學的是做事的用法。",
+  "sentence1": "After the break, we got on with the report.",
+  "sentence1_en": "休息後，我們繼續處理報告。",
+  "sentence2": "I need a quiet place to get on with my work.",
+  "sentence2_en": "我需要一個安靜的地方，好繼續做事。",
+  "sentence3": "Stop worrying about the first sentence and get on with writing.",
+  "sentence3_en": "別再糾結第一句了，繼續寫下去吧。",
+  "word_map": {
+    "get on with": "繼續做",
+    "gets on with": "繼續做",
+    "got on with": "繼續做",
+    "getting on with": "繼續做",
+    "After the break, we got on with the report": "休息後，我們繼續處理報告"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 2，Reading Passage 2〈Procrastination〉（2026-10-11 提供詞形：Getting on；原文 getting on with it；補全不可省略的 with，主詞條 get on with）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-2/",
+  "lang": "english_ielts",
+  "sentence1_hl": "After the break, we <b>got on with</b> the report."
+},
+{
+  "id": "en_2047",
+  "category": "IELTS Reading Vocabulary",
+  "word": "berate",
+  "pos": "verb",
+  "zh_def": "嚴厲責備；痛斥",
+  "zh": "嚴厲責備",
+  "definition": "To criticise someone angrily and strongly.",
+  "meaning": "to criticise someone angrily and strongly",
+  "ipa": "bɪˈreɪt",
+  "forms": [
+    "berate",
+    "berates",
+    "berated",
+    "berating"
+  ],
+  "tip": "berate someone for doing something；也可用 berate yourself 表示嚴厲自責。程度比一般的 criticise 強，不是平靜地提出建議。",
+  "sentence1": "The coach berated the players for ignoring the instructions.",
+  "sentence1_en": "教練嚴厲責備球員不聽指示。",
+  "sentence2": "She berated herself for missing the deadline.",
+  "sentence2_en": "她因錯過截止期限而狠狠自責。",
+  "sentence3": "He was berated in public over a minor mistake.",
+  "sentence3_en": "他因一個小錯誤而當眾遭到斥責。",
+  "word_map": {
+    "berate": "嚴厲責備",
+    "berates": "嚴厲責備",
+    "berated": "嚴厲責備",
+    "berating": "嚴厲責備",
+    "The coach berated the players for ignoring the instructions": "教練嚴厲責備球員不聽指示"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 2，Reading Passage 2〈Procrastination〉（2026-10-11 提供詞形：Berating；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-2/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The coach <b>berated</b> the players for ignoring the instructions."
+},
+{
+  "id": "en_2048",
+  "category": "IELTS Reading Vocabulary",
+  "word": "chronically",
+  "pos": "adverb",
+  "zh_def": "長期地；持續或經常發生地，通常指不良狀況",
+  "zh": "長期地",
+  "definition": "In a way that continues for a long time or occurs repeatedly, usually with harmful effects.",
+  "meaning": "in a way that continues for a long time or occurs repeatedly, usually with harmful effects",
+  "ipa": "ˈkrɒnɪkli",
+  "forms": [
+    "chronically"
+  ],
+  "tip": "chronically ill／understaffed／late 強調長期或反覆問題。chronic 是形容詞，chronically 是副詞；不要和 chronologically「按時間順序地」混淆。",
+  "sentence1": "The service has been chronically underfunded for years.",
+  "sentence1_en": "這項服務多年來一直資金不足。",
+  "sentence2": "People who chronically delay difficult tasks may feel trapped by them.",
+  "sentence2_en": "長期拖延困難工作的人，可能感覺自己被那些工作困住。",
+  "sentence3": "The company is chronically short of skilled workers.",
+  "sentence3_en": "這家公司長期缺乏熟練員工。",
+  "word_map": {
+    "chronically": "長期地",
+    "The service has been chronically underfunded for years": "這項服務多年來一直資金不足"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 2，Reading Passage 2〈Procrastination〉（2026-10-11 提供詞形：Chronically；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-2/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The service has been <b>chronically</b> underfunded for years."
+},
+{
+  "id": "en_2049",
+  "category": "IELTS Reading Vocabulary",
+  "word": "fend off",
+  "pos": "verb phrase",
+  "zh_def": "擋開；抵禦、設法避開不想要的事物",
+  "zh": "擋開",
+  "definition": "To defend yourself against or keep away something unwanted.",
+  "meaning": "to defend yourself against or keep away something unwanted",
+  "ipa": "ˌfend ˈɒf",
+  "forms": [
+    "fend off",
+    "fends off",
+    "fended off",
+    "fending off"
+  ],
+  "tip": "fend off attacks／criticism／distractions。可說 fend them off，代名詞放中間；fend for yourself 則是「自力照料自己」，介系詞不同，意思也不同。",
+  "sentence1": "She turned off notifications to fend off distractions.",
+  "sentence1_en": "她關掉通知，以免受到干擾。",
+  "sentence2": "The bird spread its wings to fend off an attacker.",
+  "sentence2_en": "那隻鳥張開翅膀，抵禦攻擊者。",
+  "sentence3": "The team fended off repeated criticism of its methods.",
+  "sentence3_en": "團隊設法應對外界對其方法的一再批評。",
+  "word_map": {
+    "fend off": "擋開",
+    "fends off": "擋開",
+    "fended off": "擋開",
+    "fending off": "擋開",
+    "She turned off notifications to fend off distractions": "她關掉通知，以免受到干擾"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 2，Reading Passage 2〈Procrastination〉（2026-10-11 提供詞形：Fend off；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-2/",
+  "lang": "english_ielts",
+  "sentence1_hl": "She turned off notifications to <b>fend off</b> distractions."
+},
+{
+  "id": "en_2050",
+  "category": "IELTS Reading Vocabulary",
+  "word": "prime",
+  "pos": "adjective",
+  "zh_def": "最適合的；最可能被選中或受到某種影響的",
+  "zh": "最適合的",
+  "definition": "Especially suitable or likely to be selected or affected in a particular way.",
+  "meaning": "especially suitable or likely to be selected or affected in a particular way",
+  "ipa": "praɪm",
+  "forms": [
+    "prime"
+  ],
+  "tip": "prime candidate／target 常放在名詞前，表示特別適合或容易成為某種對象。原文指某些工作特別容易被拖延，不是稱讚拖延「品質優良」。",
+  "sentence1": "The empty warehouse is a prime candidate for conversion into flats.",
+  "sentence1_en": "那座空置倉庫非常適合改建成公寓。",
+  "sentence2": "Unlocked bicycles are prime targets for thieves.",
+  "sentence2_en": "沒上鎖的腳踏車特別容易成為竊賊下手的目標。",
+  "sentence3": "Repetitive tasks are prime candidates for automation.",
+  "sentence3_en": "重複性的工作特別適合自動化。",
+  "word_map": {
+    "prime": "最適合的",
+    "The empty warehouse is a prime candidate for conversion into flats": "那座空置倉庫非常適合改建成公寓"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 2，Reading Passage 2〈Procrastination〉（2026-10-11 提供詞形：Prime；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-2/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The empty warehouse is a <b>prime</b> candidate for conversion into flats."
+},
+{
+  "id": "en_2051",
+  "category": "IELTS Reading Vocabulary",
+  "word": "toll",
+  "pos": "noun",
+  "zh_def": "損害；長期壓力或不良事件造成的代價、負面影響",
+  "zh": "損害",
+  "definition": "The harm or loss caused by a difficult situation or repeated strain.",
+  "meaning": "the harm or loss caused by a difficult situation or repeated strain",
+  "ipa": "təʊl",
+  "forms": [
+    "toll"
+  ],
+  "tip": "take a toll on + 受影響者，是很常見的搭配；a heavy toll 表示沉重代價。原文是對生產力的損害，與第879項「通行費」分開。",
+  "sentence1": "Constant delays took a toll on the team's morale.",
+  "sentence1_en": "持續延誤打擊了團隊士氣。",
+  "sentence2": "The report describes the emotional toll of displacement.",
+  "sentence2_en": "報告描述了被迫遷離對情緒造成的傷害。",
+  "sentence3": "Years of neglect exacted a heavy toll on the building.",
+  "sentence3_en": "多年失修使這棟建築嚴重受損。",
+  "word_map": {
+    "toll": "損害",
+    "Constant delays took a toll on the team's morale": "持續延誤打擊了團隊士氣"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 2，Reading Passage 2〈Procrastination〉（2026-10-11 提供詞形：Toll；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-2/",
+  "lang": "english_ielts",
+  "sentence1_hl": "Constant delays took a <b>toll</b> on the team's morale."
+},
+{
+  "id": "en_2052",
+  "category": "IELTS Reading Vocabulary",
+  "word": "fraudulent",
+  "pos": "adjective",
+  "zh_def": "欺詐的；為了欺騙而偽造或不實的",
+  "zh": "欺詐的",
+  "definition": "Intended to deceive people, especially to gain an unfair advantage.",
+  "meaning": "intended to deceive people, especially to gain an unfair advantage",
+  "ipa": "ˈfrɔːdʒələnt",
+  "forms": [
+    "fraudulent"
+  ],
+  "tip": "fraudulent claims／documents／excuses 涉及有意欺騙，不是單純無心犯錯。fraud 是名詞「詐欺」，fraudulent 是形容詞。",
+  "sentence1": "The company rejected the fraudulent insurance claim.",
+  "sentence1_en": "公司拒絕了那筆欺詐性的保險理賠申請。",
+  "sentence2": "He used a fraudulent excuse to obtain an extension.",
+  "sentence2_en": "他編造不實藉口來取得延期。",
+  "sentence3": "Investigators discovered several fraudulent transactions.",
+  "sentence3_en": "調查人員發現了數筆詐欺交易。",
+  "word_map": {
+    "fraudulent": "欺詐的",
+    "The company rejected the fraudulent insurance claim": "公司拒絕了那筆欺詐性的保險理賠申請"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 2，Reading Passage 2〈Procrastination〉（2026-10-11 提供詞形：Fraudulent；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-2/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The company rejected the <b>fraudulent</b> insurance claim."
+},
+{
+  "id": "en_2053",
+  "category": "IELTS Reading Vocabulary",
+  "word": "profoundly",
+  "pos": "adverb",
+  "zh_def": "深刻地；極大程度地",
+  "zh": "深刻地",
+  "definition": "To a very great or deeply significant degree.",
+  "meaning": "to a very great or deeply significant degree",
+  "ipa": "prəˈfaʊndli",
+  "forms": [
+    "profoundly"
+  ],
+  "tip": "profoundly affect／change／different，程度通常比一般 very 更強、更深入。它不一定表示思想「深奧」；副詞可修飾動詞，也可修飾形容詞。",
+  "sentence1": "The experience profoundly changed her view of education.",
+  "sentence1_en": "這次經歷深刻改變了她對教育的看法。",
+  "sentence2": "The two systems are profoundly different.",
+  "sentence2_en": "這兩個系統有極大的差異。",
+  "sentence3": "We were profoundly grateful for their help.",
+  "sentence3_en": "我們對他們的幫助深懷感激。",
+  "word_map": {
+    "profoundly": "深刻地",
+    "The experience profoundly changed her view of education": "這次經歷深刻改變了她對教育的看法"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 2，Reading Passage 3〈Invasion of the robot umpires〉（2026-10-11 提供詞形：Profoundly；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-2/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The experience <b>profoundly</b> changed her view of education."
+},
+{
+  "id": "en_2054",
+  "category": "IELTS Reading Vocabulary",
+  "word": "fraction",
+  "pos": "noun",
+  "zh_def": "小部分；很小的量",
+  "zh": "小部分",
+  "definition": "A small part or amount of a larger whole.",
+  "meaning": "a small part or amount of a larger whole",
+  "ipa": "ˈfrækʃn",
+  "forms": [
+    "fraction",
+    "fractions"
+  ],
+  "tip": "a fraction of + 整體／單位，常強調很小的部分；fractions of an inch 是英寸以下的微小尺度。數學中的 fraction 另可指「分數」，不必每次都譯成分數。",
+  "sentence1": "The new method uses a fraction of the energy.",
+  "sentence1_en": "新方法只需使用原先一小部分的能源。",
+  "sentence2": "The two runners finished a fraction of a second apart.",
+  "sentence2_en": "兩名跑者抵達終點的時間只差不到一秒。",
+  "sentence3": "The sensor detects movements of a fraction of a millimetre.",
+  "sentence3_en": "這個感測器能偵測到不到一毫米的微小移動。",
+  "word_map": {
+    "fraction": "小部分",
+    "fractions": "小部分",
+    "The new method uses a fraction of the energy": "新方法只需使用原先一小部分的能源"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 2，Reading Passage 3〈Invasion of the robot umpires〉（2026-10-11 提供詞形：Fraction；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-2/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The new method uses a <b>fraction</b> of the energy."
+},
+{
+  "id": "en_2055",
+  "category": "IELTS Reading Vocabulary",
+  "word": "pedantic",
+  "pos": "adjective",
+  "zh_def": "過度拘泥細節或規則的；迂腐的",
+  "zh": "過度拘泥細節或規則的",
+  "definition": "Giving too much importance to minor details or exact rules.",
+  "meaning": "giving too much importance to minor details or exact rules",
+  "ipa": "pɪˈdæntɪk",
+  "forms": [
+    "pedantic"
+  ],
+  "tip": "pedantic 通常帶批評意味，強調小節壓過整體判斷。precise「精確」可以是稱讚；不能把 pedantic 當成單純的「準確」。",
+  "sentence1": "The reviewer was pedantic about minor punctuation errors.",
+  "sentence1_en": "那位審閱者過度挑剔細微的標點錯誤。",
+  "sentence2": "A pedantic interpretation of the rule made the process harder.",
+  "sentence2_en": "對規則過度拘泥的解讀，使流程更難進行。",
+  "sentence3": "His pedantic comments distracted us from the main issue.",
+  "sentence3_en": "他那些拘泥小節的評論，讓我們偏離了主要議題。",
+  "word_map": {
+    "pedantic": "過度拘泥細節或規則的",
+    "The reviewer was pedantic about minor punctuation errors": "那位審閱者過度挑剔細微的標點錯誤"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 2，Reading Passage 3〈Invasion of the robot umpires〉（2026-10-11 提供詞形：Pedantic；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-2/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The reviewer was <b>pedantic</b> about minor punctuation errors."
+},
+{
+  "id": "en_2056",
+  "category": "IELTS Reading Vocabulary",
+  "word": "umpire",
+  "pos": "noun",
+  "zh_def": "裁判；棒球、板球、網球等運動中的裁判員",
+  "zh": "裁判",
+  "definition": "An official who applies the rules and makes decisions in sports such as baseball, cricket or tennis.",
+  "meaning": "an official who applies the rules and makes decisions in sports such as baseball, cricket or tennis",
+  "ipa": "ˈʌmpaɪə(r)",
+  "forms": [
+    "umpire",
+    "umpires"
+  ],
+  "tip": "棒球、板球、網球常用 umpire；足球等運動常用 referee，搭配隨項目而異。the umpire's decision 是裁判判決；不要誤讀成 empire「帝國」。",
+  "sentence1": "The umpire signalled that the ball was out.",
+  "sentence1_en": "裁判示意球出界了。",
+  "sentence2": "The batter disagreed with the umpire's decision.",
+  "sentence2_en": "打者不認同裁判的判決。",
+  "sentence3": "Each umpire received training on the new system.",
+  "sentence3_en": "每位裁判都接受了新系統的操作訓練。",
+  "word_map": {
+    "umpire": "裁判",
+    "umpires": "裁判",
+    "The umpire signalled that the ball was out": "裁判示意球出界了"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 2，Reading Passage 3〈Invasion of the robot umpires〉（2026-10-11 提供詞形：Umpire；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-2/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The <b>umpire</b> signalled that the ball was out."
+},
+{
+  "id": "en_2057",
+  "category": "IELTS Reading Vocabulary",
+  "word": "feed",
+  "pos": "verb",
+  "zh_def": "傳送、提供資訊；將資料輸入系統",
+  "zh": "傳送、提供資訊",
+  "definition": "To supply information to a person or send data into a system.",
+  "meaning": "to supply information to a person or send data into a system",
+  "ipa": "fiːd",
+  "forms": [
+    "feed",
+    "feeds",
+    "fed",
+    "feeding"
+  ],
+  "tip": "feed information to someone／feed data into a system；feed–fed–fed。原文是裁判透過耳機收到判決，不能把 fed 誤解為吃飽或被餵食。",
+  "sentence1": "The control room fed updates to the rescue team.",
+  "sentence1_en": "控制室向救援隊傳送最新資訊。",
+  "sentence2": "Measurements are fed into the computer every second.",
+  "sentence2_en": "測量資料每秒都會輸入電腦。",
+  "sentence3": "An assistant fed her instructions through an earpiece.",
+  "sentence3_en": "一名助理透過耳機向她傳達指示。",
+  "word_map": {
+    "feed": "傳送、提供資訊",
+    "feeds": "傳送、提供資訊",
+    "fed": "傳送、提供資訊",
+    "feeding": "傳送、提供資訊",
+    "The control room fed updates to the rescue team": "控制室向救援隊傳送最新資訊"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 2，Reading Passage 3〈Invasion of the robot umpires〉（2026-10-11 提供詞形：Fed；原文 fed 指把判決傳送給裁判；feed–fed–fed，不取餵食義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-2/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The control room <b>fed</b> updates to the rescue team."
+},
+{
+  "id": "en_2058",
+  "category": "IELTS Reading Vocabulary",
+  "word": "earpiece",
+  "pos": "noun",
+  "zh_def": "耳機；置於耳內或貼近耳朵、用來接收聲音的裝置",
+  "zh": "耳機",
+  "definition": "A small device placed in or against the ear to receive sound.",
+  "meaning": "a small device placed in or against the ear to receive sound",
+  "ipa": "ˈɪəpiːs",
+  "forms": [
+    "earpiece",
+    "earpieces"
+  ],
+  "tip": "through an earpiece 是透過耳機聽到聲音。earpiece 常指單耳接收裝置；headphones 常指一組耳機，microphone 則是接收說話聲的麥克風。",
+  "sentence1": "The presenter heard the producer through an earpiece.",
+  "sentence1_en": "主持人透過耳機聽到製作人的聲音。",
+  "sentence2": "She adjusted the earpiece before the broadcast began.",
+  "sentence2_en": "播出前，她調整了耳機。",
+  "sentence3": "The guide gave each visitor an earpiece for the tour.",
+  "sentence3_en": "導覽員發給每位訪客一個耳機，供導覽時使用。",
+  "word_map": {
+    "earpiece": "耳機",
+    "earpieces": "耳機",
+    "The presenter heard the producer through an earpiece": "主持人透過耳機聽到製作人的聲音"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 2，Reading Passage 3〈Invasion of the robot umpires〉（2026-10-11 提供詞形：Earpiece；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-2/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The presenter heard the producer through an <b>earpiece</b>."
+},
+{
+  "id": "en_2059",
+  "category": "IELTS Reading Vocabulary",
+  "word": "contraption",
+  "pos": "noun",
+  "zh_def": "奇特的裝置；看起來複雜或不尋常的機器",
+  "zh": "奇特的裝置",
+  "definition": "A device that looks unusual, complicated or awkward, often described with mild amusement.",
+  "meaning": "a device that looks unusual, complicated or awkward, often described with mild amusement",
+  "ipa": "kənˈtræpʃn",
+  "forms": [
+    "contraption",
+    "contraptions"
+  ],
+  "tip": "contraption 是較口語、帶好奇或調侃語氣的稱呼，不表示機器一定壞掉。一般中性介紹可用 device；不要和 contraction「收縮」混淆。",
+  "sentence1": "He built a contraption for watering the plants automatically.",
+  "sentence1_en": "他做了一個能自動澆水的奇特裝置。",
+  "sentence2": "Nobody could explain what the metal contraption was for.",
+  "sentence2_en": "沒人說得出那個奇怪的金屬裝置有什麼用途。",
+  "sentence3": "The contraption made a loud clicking noise when switched on.",
+  "sentence3_en": "那個裝置一開啟，就發出很大的喀噠聲。",
+  "word_map": {
+    "contraption": "奇特的裝置",
+    "contraptions": "奇特的裝置",
+    "He built a contraption for watering the plants automatically": "他做了一個能自動澆水的奇特裝置"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 2，Reading Passage 3〈Invasion of the robot umpires〉（2026-10-11 提供詞形：Contraption；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-2/",
+  "lang": "english_ielts",
+  "sentence1_hl": "He built a <b>contraption</b> for watering the plants automatically."
+},
+{
+  "id": "en_2060",
+  "category": "IELTS Reading Vocabulary",
+  "word": "mount",
+  "pos": "verb",
+  "zh_def": "安裝；把設備固定在支架或表面上",
+  "zh": "安裝",
+  "definition": "To fix an object securely to a surface or support for use.",
+  "meaning": "to fix an object securely to a surface or support for use",
+  "ipa": "maʊnt",
+  "forms": [
+    "mount",
+    "mounts",
+    "mounted",
+    "mounting"
+  ],
+  "tip": "mount something on a wall／stand；be mounted above something 說明安裝位置。這裡不是攀登，也不是 costs mount「成本上升」；原文 mounted 是被動式的一部分。",
+  "sentence1": "The technicians mounted the camera above the doorway.",
+  "sentence1_en": "技術人員把攝影機安裝在門口上方。",
+  "sentence2": "The monitor is mounted on an adjustable arm.",
+  "sentence2_en": "螢幕固定在可調整的支架上。",
+  "sentence3": "We need a stable frame to mount the sensor.",
+  "sentence3_en": "我們需要穩固的框架來安裝感測器。",
+  "word_map": {
+    "mount": "安裝",
+    "mounts": "安裝",
+    "mounted": "安裝",
+    "mounting": "安裝",
+    "The technicians mounted the camera above the doorway": "技術人員把攝影機安裝在門口上方"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 2，Reading Passage 3〈Invasion of the robot umpires〉（2026-10-11 提供詞形：Mounted；原文 was mounted，指設備安裝在高處；還原 mount）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-2/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The technicians <b>mounted</b> the camera above the doorway."
+},
+{
+  "id": "en_2061",
+  "category": "IELTS Reading Vocabulary",
+  "word": "batter",
+  "pos": "noun",
+  "zh_def": "打者；棒球等運動中負責擊球的球員",
+  "zh": "打者",
+  "definition": "The player who attempts to hit the ball with a bat.",
+  "meaning": "the player who attempts to hit the ball with a bat",
+  "ipa": "ˈbætə(r)",
+  "forms": [
+    "batter",
+    "batters"
+  ],
+  "tip": "batter 是打者，pitcher 是投手，bat 是球棒。batter 也可指不可數的「麵糊」或動詞「連續猛擊」，棒球語境不要選錯詞性。",
+  "sentence1": "The batter waited for the next pitch.",
+  "sentence1_en": "打者等待下一球。",
+  "sentence2": "A new batter stepped up to the plate.",
+  "sentence2_en": "一名新打者走上打擊區。",
+  "sentence3": "The pitcher watched the batter closely.",
+  "sentence3_en": "投手密切注視著打者。",
+  "word_map": {
+    "batter": "打者",
+    "batters": "打者",
+    "The batter waited for the next pitch": "打者等待下一球"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 2，Reading Passage 3〈Invasion of the robot umpires〉（2026-10-11 提供詞形：Batter；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-2/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The <b>batter</b> waited for the next pitch."
+},
+{
+  "id": "en_2062",
+  "category": "IELTS Reading Vocabulary",
+  "word": "heckle",
+  "pos": "verb",
+  "zh_def": "起鬨打斷；以喊叫、嘲弄或質問干擾講者、表演者等",
+  "zh": "起鬨打斷",
+  "definition": "To interrupt someone publicly by shouting criticism, questions or insults.",
+  "meaning": "to interrupt someone publicly by shouting criticism, questions or insults",
+  "ipa": "ˈhekl",
+  "forms": [
+    "heckle",
+    "heckles",
+    "heckled",
+    "heckling"
+  ],
+  "tip": "heckle someone 可直接接受詞；heckling 是行為名詞或 -ing 形式，主詞條採 heckle。它是帶干擾性的喊叫，不是一般的 cheer「歡呼加油」。",
+  "sentence1": "A spectator began to heckle the umpire.",
+  "sentence1_en": "一名觀眾開始對裁判起鬨叫罵。",
+  "sentence2": "The speaker continued despite being heckled from the back row.",
+  "sentence2_en": "儘管後排有人起鬨干擾，講者仍繼續發言。",
+  "sentence3": "Several fans were asked to stop heckling.",
+  "sentence3_en": "幾名球迷被要求停止起鬨。",
+  "word_map": {
+    "heckle": "起鬨打斷",
+    "heckles": "起鬨打斷",
+    "heckled": "起鬨打斷",
+    "heckling": "起鬨打斷",
+    "A spectator began to heckle the umpire": "一名觀眾開始對裁判起鬨叫罵"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 2，Reading Passage 3〈Invasion of the robot umpires〉（2026-10-11 提供詞形：Heckling；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-2/",
+  "lang": "english_ielts",
+  "sentence1_hl": "A spectator began to <b>heckle</b> the umpire."
+},
+{
+  "id": "en_2063",
+  "category": "IELTS Reading Vocabulary",
+  "word": "vehicle",
+  "pos": "noun",
+  "zh_def": "手段；用以傳達想法或促成某個目的的媒介",
+  "zh": "手段",
+  "definition": "A means through which an idea is expressed or a purpose is achieved.",
+  "meaning": "a means through which an idea is expressed or a purpose is achieved",
+  "ipa": "ˈviːəkl",
+  "forms": [
+    "vehicle",
+    "vehicles"
+  ],
+  "tip": "a vehicle for + 目的／想法，這裡是抽象的工具或管道。原文談推動改變的手段，不是交通工具；英式常見讀音中 h 不發音。",
+  "sentence1": "The exhibition became a vehicle for public debate.",
+  "sentence1_en": "這場展覽成為促進公共討論的媒介。",
+  "sentence2": "The programme provides a vehicle for sharing local knowledge.",
+  "sentence2_en": "這項計畫提供了分享地方知識的管道。",
+  "sentence3": "She used comedy as a vehicle for social criticism.",
+  "sentence3_en": "她以喜劇作為社會批判的媒介。",
+  "word_map": {
+    "vehicle": "手段",
+    "vehicles": "手段",
+    "The exhibition became a vehicle for public debate": "這場展覽成為促進公共討論的媒介"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 2，Reading Passage 3〈Invasion of the robot umpires〉（2026-10-11 提供詞形：Vehicle；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-2/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The exhibition became a <b>vehicle</b> for public debate."
+},
+{
+  "id": "en_2064",
+  "category": "IELTS Reading Vocabulary",
+  "word": "blob",
+  "pos": "noun",
+  "zh_def": "一團；沒有清楚形狀的塊狀物或斑塊",
+  "zh": "一團",
+  "definition": "A small mass or mark without a clear or regular shape.",
+  "meaning": "a small mass or mark without a clear or regular shape",
+  "ipa": "blɒb",
+  "forms": [
+    "blob",
+    "blobs"
+  ],
+  "tip": "a blob of paint／ink，也能指影像中輪廓不清的斑塊。blob 強調形狀不規則或不清楚，不一定是球形的 ball。",
+  "sentence1": "A blob of paint fell onto the floor.",
+  "sentence1_en": "一團油漆掉到了地板上。",
+  "sentence2": "The distant building appeared as a dark blob in the photograph.",
+  "sentence2_en": "照片中，遠處的建築看起來像一塊深色斑影。",
+  "sentence3": "She drew an irregular blob in the centre of the page.",
+  "sentence3_en": "她在頁面中央畫了一個不規則的團塊。",
+  "word_map": {
+    "blob": "一團",
+    "blobs": "一團",
+    "A blob of paint fell onto the floor": "一團油漆掉到了地板上"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 2，Reading Passage 3〈Invasion of the robot umpires〉（2026-10-11 提供詞形：Blob；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-2/",
+  "lang": "english_ielts",
+  "sentence1_hl": "A <b>blob</b> of paint fell onto the floor."
+},
+{
+  "id": "en_2065",
+  "category": "IELTS Reading Vocabulary",
+  "word": "delineate",
+  "pos": "verb",
+  "zh_def": "劃定；清楚描出邊界或輪廓",
+  "zh": "劃定",
+  "definition": "To mark or show the boundaries or outline of something clearly.",
+  "meaning": "to mark or show the boundaries or outline of something clearly",
+  "ipa": "dɪˈlɪnieɪt",
+  "forms": [
+    "delineate",
+    "delineates",
+    "delineated",
+    "delineating"
+  ],
+  "tip": "delineate a boundary／area／outline；也可延伸為清楚說明職責或概念的範圍。原文談活動區域的界線，重點在劃分清楚，而非裝飾性的描畫。",
+  "sentence1": "White lines delineate the playing area.",
+  "sentence1_en": "白線劃出了比賽區域的邊界。",
+  "sentence2": "The map delineates the limits of the protected zone.",
+  "sentence2_en": "地圖清楚標出了保護區的界線。",
+  "sentence3": "The surveyor delineated the property boundaries.",
+  "sentence3_en": "測量員劃定了這塊土地的產權邊界。",
+  "word_map": {
+    "delineate": "劃定",
+    "delineates": "劃定",
+    "delineated": "劃定",
+    "delineating": "劃定",
+    "White lines delineate the playing area": "白線劃出了比賽區域的邊界"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 2，Reading Passage 3〈Invasion of the robot umpires〉（2026-10-11 提供詞形：Delineate；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-2/",
+  "lang": "english_ielts",
+  "sentence1_hl": "White lines <b>delineate</b> the playing area."
+},
+{
+  "id": "en_2066",
+  "category": "IELTS Reading Vocabulary",
+  "word": "discretion",
+  "pos": "noun",
+  "zh_def": "裁量權；依情況自行判斷與決定的自由",
+  "zh": "裁量權",
+  "definition": "The freedom to make a decision using your own judgement.",
+  "meaning": "the freedom to make a decision using your own judgement",
+  "ipa": "dɪˈskreʃn",
+  "forms": [
+    "discretion"
+  ],
+  "tip": "at someone's discretion「由某人酌情決定」；exercise／use discretion「行使裁量」。另一義是「謹慎、不張揚」，但裁判語境談的是判斷空間。",
+  "sentence1": "The referee used her discretion when applying the rule.",
+  "sentence1_en": "那位裁判在適用規則時運用了自己的裁量。",
+  "sentence2": "Small changes may be approved at the manager's discretion.",
+  "sentence2_en": "小幅變更可由經理自行酌情核准。",
+  "sentence3": "The policy gives teachers some discretion over deadlines.",
+  "sentence3_en": "這項政策讓教師對截止期限擁有一定的裁量權。",
+  "word_map": {
+    "discretion": "裁量權",
+    "The referee used her discretion when applying the rule": "那位裁判在適用規則時運用了自己的裁量"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 2，Reading Passage 3〈Invasion of the robot umpires〉（2026-10-11 提供詞形：Discretion；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-2/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The referee used her <b>discretion</b> when applying the rule."
+},
+{
+  "id": "en_2067",
+  "category": "IELTS Reading Vocabulary",
+  "word": "dissenting",
+  "pos": "adjective",
+  "zh_def": "持不同意見的；表示反對的",
+  "zh": "持不同意見的",
+  "definition": "Expressing disagreement with a decision or a widely accepted opinion.",
+  "meaning": "expressing disagreement with a decision or a widely accepted opinion",
+  "ipa": "dɪˈsentɪŋ",
+  "forms": [
+    "dissenting"
+  ],
+  "tip": "a dissenting opinion／voice／vote 是固定常見搭配，因此保留形容詞 dissenting；dissent 是相關名詞或動詞。持不同意見不等於意見必定錯誤。",
+  "sentence1": "The committee recorded one dissenting opinion.",
+  "sentence1_en": "委員會記錄了一項不同意見。",
+  "sentence2": "Dissenting voices were heard during the discussion.",
+  "sentence2_en": "討論中出現了反對的聲音。",
+  "sentence3": "She took a dissenting stance on the proposed changes.",
+  "sentence3_en": "她對擬議的變更持反對立場。",
+  "word_map": {
+    "dissenting": "持不同意見的",
+    "The committee recorded one dissenting opinion": "委員會記錄了一項不同意見"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 2，Reading Passage 3〈Invasion of the robot umpires〉（2026-10-11 提供詞形：Dissenting；原文 dissenting stance；保留有獨立用法的形容詞 dissenting）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-2/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The committee recorded one <b>dissenting</b> opinion."
+},
+{
+  "id": "en_2068",
+  "category": "IELTS Reading Vocabulary",
+  "word": "stance",
+  "pos": "noun",
+  "zh_def": "立場；對某議題所持的態度或看法",
+  "zh": "立場",
+  "definition": "A position or attitude towards an issue.",
+  "meaning": "a position or attitude towards an issue",
+  "ipa": "stɑːns",
+  "forms": [
+    "stance",
+    "stances"
+  ],
+  "tip": "take／adopt a stance on an issue；stance towards something 也可用。stance 另可指站姿，但 dissenting stance 是反對立場，不是身體站立方式。",
+  "sentence1": "The association adopted a firm stance on data privacy.",
+  "sentence1_en": "協會在資料隱私議題上採取了堅定立場。",
+  "sentence2": "His stance towards the proposal changed after the meeting.",
+  "sentence2_en": "會議後，他對提案的立場改變了。",
+  "sentence3": "The report explains the government's current stance.",
+  "sentence3_en": "報告說明了政府目前的立場。",
+  "word_map": {
+    "stance": "立場",
+    "stances": "立場",
+    "The association adopted a firm stance on data privacy": "協會在資料隱私議題上採取了堅定立場"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 2，Reading Passage 3〈Invasion of the robot umpires〉（2026-10-11 提供詞形：Stance；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-2/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The association adopted a firm <b>stance</b> on data privacy."
+},
+{
+  "id": "en_2069",
+  "category": "IELTS Reading Vocabulary",
+  "word": "shove",
+  "pos": "verb",
+  "zh_def": "猛推；粗魯地推擠",
+  "zh": "猛推",
+  "definition": "To push someone or something roughly or forcefully.",
+  "meaning": "to push someone or something roughly or forcefully",
+  "ipa": "ʃʌv",
+  "forms": [
+    "shove",
+    "shoves",
+    "shoved",
+    "shoving"
+  ],
+  "tip": "shove 比一般的 push 更強、更粗魯。讀 /ʃʌv/，不要看到 o 就讀成 /əʊ/；shoving 去掉字尾 e，不雙寫 v。",
+  "sentence1": "A passenger shoved past me to reach the door.",
+  "sentence1_en": "一名乘客推擠著越過我，想走到門口。",
+  "sentence2": "He shoved the heavy box across the floor.",
+  "sentence2_en": "他用力把沉重的箱子沿地板推了過去。",
+  "sentence3": "The players were warned not to shove one another.",
+  "sentence3_en": "球員受到警告，不得互相推擠。",
+  "word_map": {
+    "shove": "猛推",
+    "shoves": "猛推",
+    "shoved": "猛推",
+    "shoving": "猛推",
+    "A passenger shoved past me to reach the door": "一名乘客推擠著越過我，想走到門口"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 2，Reading Passage 3〈Invasion of the robot umpires〉（2026-10-11 提供詞形：Shove；第33–37題摘要中的 shoving；還原 shove）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-2/",
+  "lang": "english_ielts",
+  "sentence1_hl": "A passenger <b>shoved</b> past me to reach the door."
+},
+{
+  "id": "en_2070",
+  "category": "IELTS Reading Vocabulary",
+  "word": "tactic",
+  "pos": "noun",
+  "zh_def": "戰術；為達成特定目標而採取的具體做法",
+  "zh": "戰術",
+  "definition": "A particular method used to gain an advantage or achieve a goal.",
+  "meaning": "a particular method used to gain an advantage or achieve a goal",
+  "ipa": "ˈtæktɪk",
+  "forms": [
+    "tactic",
+    "tactics"
+  ],
+  "tip": "a tactic／team tactics；strategy 常指整體策略，tactics 常指執行時的具體方法。來源是題目選項，收錄詞義不表示該選項一定填得進空格。",
+  "sentence1": "The coach changed tactics during the second half.",
+  "sentence1_en": "教練在下半場改變了戰術。",
+  "sentence2": "Asking for more time was a useful negotiating tactic.",
+  "sentence2_en": "要求更多時間是一種有效的談判策略。",
+  "sentence3": "The team discussed a new tactic for defending corners.",
+  "sentence3_en": "球隊討論了一種防守角球的新戰術。",
+  "word_map": {
+    "tactic": "戰術",
+    "tactics": "戰術",
+    "The coach changed tactics during the second half": "教練在下半場改變了戰術"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 2，Reading Passage 3〈Invasion of the robot umpires〉（2026-10-11 提供詞形：Tactic；第33–37題摘要選項C中的 team tactics；收錄選項用語，不認定為正確答案）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-2/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The coach changed <b>tactics</b> during the second half."
+},
+{
+  "id": "en_2071",
+  "category": "IELTS Reading Vocabulary",
+  "word": "amend",
+  "pos": "verb",
+  "zh_def": "修訂；修改內容以改善或更正",
+  "zh": "修訂",
+  "definition": "To change a rule, document or arrangement to correct or improve it.",
+  "meaning": "to change a rule, document or arrangement to correct or improve it",
+  "ipa": "əˈmend",
+  "forms": [
+    "amend",
+    "amends",
+    "amended",
+    "amending"
+  ],
+  "tip": "amend a law／rule／document，通常是對現有內容作修訂，不一定全部推翻。amend「修改」和 mend「修補壞掉的東西」用法不同。",
+  "sentence1": "The committee amended the rules after receiving feedback.",
+  "sentence1_en": "委員會收到回饋後修訂了規則。",
+  "sentence2": "Please amend the report to include the missing figures.",
+  "sentence2_en": "請修改報告，補入遺漏的數字。",
+  "sentence3": "The organisers amended the dimensions of the playing area.",
+  "sentence3_en": "主辦單位修改了比賽區域的尺寸。",
+  "word_map": {
+    "amend": "修訂",
+    "amends": "修訂",
+    "amended": "修訂",
+    "amending": "修訂",
+    "The committee amended the rules after receiving feedback": "委員會收到回饋後修訂了規則"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 2，Reading Passage 3〈Invasion of the robot umpires〉（2026-10-11 提供詞形：Amend；第28題敘述中的 amend）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-2/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The committee <b>amended</b> the rules after receiving feedback."
+},
+{
+  "id": "en_2072",
+  "category": "IELTS Reading Vocabulary",
+  "word": "contamination",
+  "pos": "noun",
+  "zh_def": "污染；有害或不潔物質混入的情況",
+  "zh": "污染",
+  "definition": "The presence or introduction of harmful or unwanted substances in something.",
+  "meaning": "the presence or introduction of harmful or unwanted substances in something",
+  "ipa": "kənˌtæmɪˈneɪʃn",
+  "forms": [
+    "contamination"
+  ],
+  "tip": "contamination of + 被污染物，contamination by／from + 污染來源。通常不可數；contaminate 是動詞，contaminated 是被污染的狀態或過去分詞。",
+  "sentence1": "The tests revealed contamination in the water supply.",
+  "sentence1_en": "檢測顯示供水受到污染。",
+  "sentence2": "Sealed containers help prevent food contamination.",
+  "sentence2_en": "密封容器有助於防止食物受到污染。",
+  "sentence3": "The team investigated possible contamination from industrial waste.",
+  "sentence3_en": "團隊調查了工業廢棄物可能造成的污染。",
+  "word_map": {
+    "contamination": "污染",
+    "The tests revealed contamination in the water supply": "檢測顯示供水受到污染"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 3，Reading Passage 2〈Can the planet’s coral reefs be saved?〉（2026-10-11 提供詞形：Contamination；第20–21題選項C中的 contamination）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-3/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The tests revealed <b>contamination</b> in the water supply."
+},
+{
+  "id": "en_2073",
+  "category": "IELTS Reading Vocabulary",
+  "word": "trample",
+  "pos": "verb",
+  "zh_def": "踩踏；用力或反覆踩壓",
+  "zh": "踩踏",
+  "definition": "To step heavily or repeatedly on something, often crushing or damaging it.",
+  "meaning": "to step heavily or repeatedly on something, often crushing or damaging it",
+  "ipa": "ˈtræmpl",
+  "forms": [
+    "trample",
+    "tramples",
+    "trampled",
+    "trampling"
+  ],
+  "tip": "trample something 和 trample on something 都可用。它常暗示踩壞，但也能是有目的的踩壓；原文是踩壓食物以排出水分，不是動物逃跑造成的踐踏。",
+  "sentence1": "Visitors had trampled the flowers beside the path.",
+  "sentence1_en": "訪客踩壞了小徑旁的花。",
+  "sentence2": "Please avoid trampling on the young plants.",
+  "sentence2_en": "請避免踩踏幼苗。",
+  "sentence3": "The workers trampled the fruit to release its juice.",
+  "sentence3_en": "工人踩壓水果，讓果汁流出。",
+  "word_map": {
+    "trample": "踩踏",
+    "tramples": "踩踏",
+    "trampled": "踩踏",
+    "trampling": "踩踏",
+    "Visitors had trampled the flowers beside the path": "訪客踩壞了小徑旁的花"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 3，Reading Passage 1〈Frozen food〉（2026-10-11 提供詞形：Trample；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-3/",
+  "lang": "english_ielts",
+  "sentence1_hl": "Visitors had <b>trampled</b> the flowers beside the path."
+},
+{
+  "id": "en_2074",
+  "category": "IELTS Reading Vocabulary",
+  "word": "aesthetic",
+  "pos": "adjective",
+  "zh_def": "美感上的；與外觀、美的感受或欣賞有關的",
+  "zh": "美感上的",
+  "definition": "Relating to beauty, appearance or the appreciation of beauty.",
+  "meaning": "relating to beauty, appearance or the appreciation of beauty",
+  "ipa": "esˈθetɪk",
+  "forms": [
+    "aesthetic",
+    "esthetic"
+  ],
+  "tip": "aesthetic appeal／value／considerations。它表示「與美感有關」，不是說每件事物一定很漂亮。esthetic 是美式拼字變體；英式也有 /iːsˈθetɪk/ 的讀法。",
+  "sentence1": "The renovation improved the building's aesthetic appeal.",
+  "sentence1_en": "翻修提升了建築在外觀上的吸引力。",
+  "sentence2": "The decision was based on practical rather than aesthetic concerns.",
+  "sentence2_en": "這項決定基於實用考量，而非美感考量。",
+  "sentence3": "Food packaging has both functional and aesthetic purposes.",
+  "sentence3_en": "食品包裝兼具功能與美感上的目的。",
+  "word_map": {
+    "aesthetic": "美感上的",
+    "esthetic": "美感上的",
+    "The renovation improved the building's aesthetic appeal": "翻修提升了建築在外觀上的吸引力"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 3，Reading Passage 1〈Frozen food〉（2026-10-11 提供詞形：Aesthetic；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-3/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The renovation improved the building's <b>aesthetic</b> appeal."
+},
+{
+  "id": "en_2075",
+  "category": "IELTS Reading Vocabulary",
+  "word": "coil",
+  "pos": "noun",
+  "zh_def": "盤管；盤繞成圈的管線或線圈",
+  "zh": "盤管",
+  "definition": "A tube, wire or other length of material arranged in a series of loops.",
+  "meaning": "a tube, wire or other length of material arranged in a series of loops",
+  "ipa": "kɔɪl",
+  "forms": [
+    "coil",
+    "coils"
+  ],
+  "tip": "a coil of wire 是一卷線，a cooling coil 是冷卻盤管。coil 不限於通電的線圈；原文 evaporator coil 指蒸發器的盤管，不能只譯為電磁線圈。",
+  "sentence1": "The engineer checked the cooling coil for leaks.",
+  "sentence1_en": "工程師檢查冷卻盤管是否滲漏。",
+  "sentence2": "A coil of copper tubing sat beside the workbench.",
+  "sentence2_en": "工作檯旁放著一卷銅管。",
+  "sentence3": "Dust had collected around the refrigerator's coils.",
+  "sentence3_en": "冰箱盤管周圍積了灰塵。",
+  "word_map": {
+    "coil": "盤管",
+    "coils": "盤管",
+    "The engineer checked the cooling coil for leaks": "工程師檢查冷卻盤管是否滲漏"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 3，Reading Passage 1〈Frozen food〉（2026-10-11 提供詞形：Coil；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-3/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The engineer checked the cooling <b>coil</b> for leaks."
+},
+{
+  "id": "en_2076",
+  "category": "IELTS Reading Vocabulary",
+  "word": "mutton",
+  "pos": "noun",
+  "zh_def": "成年綿羊肉",
+  "zh": "成年綿羊肉",
+  "definition": "Meat from an adult sheep, eaten as food.",
+  "meaning": "meat from an adult sheep, eaten as food",
+  "ipa": "ˈmʌtn",
+  "forms": [
+    "mutton"
+  ],
+  "tip": "mutton 通常指成年綿羊肉；lamb 指羔羊，也可指羔羊肉。肉品義通常不可數，說 some mutton／a piece of mutton，不把一份肉寫成 a mutton。",
+  "sentence1": "The stew was made with mutton and root vegetables.",
+  "sentence1_en": "這道燉菜用成年綿羊肉與根莖類蔬菜製成。",
+  "sentence2": "The ship carried frozen mutton to an overseas market.",
+  "sentence2_en": "那艘船將冷凍成年綿羊肉運往海外市場。",
+  "sentence3": "The butcher cut the mutton into small pieces.",
+  "sentence3_en": "肉販將成年綿羊肉切成小塊。",
+  "word_map": {
+    "mutton": "成年綿羊肉",
+    "The stew was made with mutton and root vegetables": "這道燉菜用成年綿羊肉與根莖類蔬菜製成"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 3，Reading Passage 1〈Frozen food〉（2026-10-11 提供詞形：Mutton；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-3/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The stew was made with <b>mutton</b> and root vegetables."
+},
+{
+  "id": "en_2077",
+  "category": "IELTS Reading Vocabulary",
+  "word": "palatable",
+  "pos": "adjective",
+  "zh_def": "適口的；味道可接受、吃起來不難受的",
+  "zh": "適口的",
+  "definition": "Pleasant or acceptable enough to eat or drink.",
+  "meaning": "pleasant or acceptable enough to eat or drink",
+  "ipa": "ˈpælətəbl",
+  "forms": [
+    "palatable"
+  ],
+  "tip": "palatable 不一定是美味絕倫，常只是味道可以接受。make something palatable 也可比喻讓提案較容易被接受；食物語境則重在味覺與口感。",
+  "sentence1": "The soup became more palatable after she added a little salt.",
+  "sentence1_en": "她加了一點鹽後，湯變得較適口。",
+  "sentence2": "The meal was plain but perfectly palatable.",
+  "sentence2_en": "這餐雖然簡單，吃起來卻完全沒問題。",
+  "sentence3": "Freezing kept the food palatable for longer.",
+  "sentence3_en": "冷凍讓食物在更長時間內仍保持適口。",
+  "word_map": {
+    "palatable": "適口的",
+    "The soup became more palatable after she added a little salt": "她加了一點鹽後，湯變得較適口"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 3，Reading Passage 1〈Frozen food〉（2026-10-11 提供詞形：Palatable；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-3/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The soup became more <b>palatable</b> after she added a little salt."
+},
+{
+  "id": "en_2078",
+  "category": "IELTS Reading Vocabulary",
+  "word": "Inuit",
+  "pos": "noun",
+  "zh_def": "因紐特人；原居北美洲與格陵蘭北極地區的原住民族群",
+  "zh": "因紐特人",
+  "definition": "Indigenous peoples of Arctic regions of North America and Greenland, or members of these peoples.",
+  "meaning": "indigenous peoples of Arctic regions of North America and Greenland, or members of these peoples",
+  "ipa": "ˈɪnjuɪt",
+  "forms": [
+    "Inuit",
+    "Inuk"
+  ],
+  "tip": "民族名稱保留大寫。Inuit 通常作複數或集體稱呼；單指一人也常用 Inuk。Inuit communities／Inuit culture 中可作名詞前的修飾語；不能泛指所有北極原住民。",
+  "sentence1": "The exhibition includes photographs taken by Inuit.",
+  "sentence1_en": "展覽收錄了因紐特人拍攝的照片。",
+  "sentence2": "The project was developed in partnership with local Inuit.",
+  "sentence2_en": "這項計畫是與當地因紐特人合作發展的。",
+  "sentence3": "The book explores the history of the Inuit in the region.",
+  "sentence3_en": "這本書探討了該地區因紐特人的歷史。",
+  "word_map": {
+    "Inuit": "因紐特人",
+    "Inuk": "因紐特人",
+    "The exhibition includes photographs taken by Inuit": "展覽收錄了因紐特人拍攝的照片"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 3，Reading Passage 1〈Frozen food〉（2026-10-11 提供詞形：Inuit；正文中的 Inuit people 及 the Inuit；民族名稱大寫）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-3/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The exhibition includes photographs taken by <b>Inuit</b>."
+},
+{
+  "id": "en_2079",
+  "category": "IELTS Reading Vocabulary",
+  "word": "munitions",
+  "pos": "noun",
+  "zh_def": "軍火；武器、彈藥等軍用物資",
+  "zh": "軍火",
+  "definition": "Weapons, ammunition and related supplies used in warfare.",
+  "meaning": "weapons, ammunition and related supplies used in warfare",
+  "ipa": "mjuːˈnɪʃnz",
+  "forms": [
+    "munitions"
+  ],
+  "tip": "這個統稱通常用複數 munitions，原文也是如此；不要為了去掉 s 而強行換成單數。ammunition 通常指彈藥且不可數；a munition 可在專業語境指一件武器或彈藥。",
+  "sentence1": "The factory produced munitions during the war.",
+  "sentence1_en": "戰爭期間，那座工廠生產軍火。",
+  "sentence2": "The warehouse had once been used to store munitions.",
+  "sentence2_en": "那座倉庫曾經用來存放軍火。",
+  "sentence3": "The museum explains how munitions were transported by rail.",
+  "sentence3_en": "博物館說明了軍火如何透過鐵路運輸。",
+  "word_map": {
+    "munitions": "軍火",
+    "The factory produced munitions during the war": "戰爭期間，那座工廠生產軍火"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 3，Reading Passage 1〈Frozen food〉（2026-10-11 提供詞形：Munition；原文 munitions；武器彈藥統稱慣用複數，不機械改成 munition）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-3/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The factory produced <b>munitions</b> during the war."
+},
+{
+  "id": "en_2080",
+  "category": "IELTS Reading Vocabulary",
+  "word": "ration",
+  "pos": "verb",
+  "zh_def": "限量配給；限制每人可以取得或使用的份量",
+  "zh": "限量配給",
+  "definition": "To limit the amount of a scarce item that each person may receive or use.",
+  "meaning": "to limit the amount of a scarce item that each person may receive or use",
+  "ipa": "ˈræʃn",
+  "forms": [
+    "ration",
+    "rations",
+    "rationed",
+    "rationing"
+  ],
+  "tip": "ration food／fuel；be rationed to + 限額。原文 were rationed 是被動動詞，不是名詞 rations「配給糧食」；配給也不代表完全禁止使用。",
+  "sentence1": "The authorities rationed fuel during the shortage.",
+  "sentence1_en": "短缺期間，當局對燃料實施限量配給。",
+  "sentence2": "Drinking water was rationed on the damaged ship.",
+  "sentence2_en": "受損船隻上的飲用水受到限量配給。",
+  "sentence3": "Each household was rationed to a fixed amount of rice.",
+  "sentence3_en": "每戶只能領取固定份量的米。",
+  "word_map": {
+    "ration": "限量配給",
+    "rations": "限量配給",
+    "rationed": "限量配給",
+    "rationing": "限量配給",
+    "The authorities rationed fuel during the shortage": "短缺期間，當局對燃料實施限量配給"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 3，Reading Passage 1〈Frozen food〉（2026-10-11 提供詞形：Ration；原文 were rationed，指限制配給；採動詞 ration）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-3/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The authorities <b>rationed</b> fuel during the shortage."
+},
+{
+  "id": "en_2081",
+  "category": "IELTS Reading Vocabulary",
+  "word": "curator",
+  "pos": "noun",
+  "zh_def": "館藏或專業收藏的管理研究人員；策展人",
+  "zh": "館藏或專業收藏的管理研究人員",
+  "definition": "A specialist responsible for caring for, studying or presenting a collection in a museum, gallery or similar institution.",
+  "meaning": "a specialist responsible for caring for, studying or presenting a collection in a museum, gallery or similar institution",
+  "ipa": "kjʊəˈreɪtə(r)",
+  "forms": [
+    "curator",
+    "curators"
+  ],
+  "tip": "curator 不限於替藝術展排展的人，也可能長期負責館藏、研究或動物收藏管理。原文的 zoo curator 不宜直接縮成導覽員或一般飼育員。",
+  "sentence1": "The curator selected objects for the new exhibition.",
+  "sentence1_en": "策展人為新展覽挑選展品。",
+  "sentence2": "A senior curator oversees the zoo's collection of invertebrates.",
+  "sentence2_en": "一位資深專業管理人員負責動物園的無脊椎動物收藏。",
+  "sentence3": "The museum's curator explained how the artefacts were preserved.",
+  "sentence3_en": "博物館的館藏管理人員說明了文物的保存方式。",
+  "word_map": {
+    "curator": "館藏或專業收藏的管理研究人員",
+    "curators": "館藏或專業收藏的管理研究人員",
+    "The curator selected objects for the new exhibition": "策展人為新展覽挑選展品"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 3，Reading Passage 2〈Can the planet’s coral reefs be saved?〉（2026-10-11 提供詞形：Curator；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-3/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The <b>curator</b> selected objects for the new exhibition."
+},
+{
+  "id": "en_2082",
+  "category": "IELTS Reading Vocabulary",
+  "word": "strip",
+  "pos": "verb",
+  "zh_def": "剝去；使失去原有的覆蓋物、特徵或權利",
+  "zh": "剝去",
+  "definition": "To remove something from a surface or deprive someone or something of a quality or possession.",
+  "meaning": "to remove something from a surface or deprive someone or something of a quality or possession",
+  "ipa": "strɪp",
+  "forms": [
+    "strip",
+    "strips",
+    "stripped",
+    "stripping"
+  ],
+  "tip": "strip A of B＝使 A 失去 B；strip B from A＝把 B 從 A 剝除。stripped／stripping 雙寫 p；原文是失去色彩，不是衣物的「脫光」。",
+  "sentence1": "The disease stripped the tree of its leaves.",
+  "sentence1_en": "這種疾病使那棵樹失去了葉子。",
+  "sentence2": "The workers stripped the old paint from the door.",
+  "sentence2_en": "工人剝除了門上的舊油漆。",
+  "sentence3": "The decision stripped the organisation of its authority.",
+  "sentence3_en": "這項決定剝奪了該組織的職權。",
+  "word_map": {
+    "strip": "剝去",
+    "strips": "剝去",
+    "stripped": "剝去",
+    "stripping": "剝去",
+    "The disease stripped the tree of its leaves": "這種疾病使那棵樹失去了葉子"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 3，Reading Passage 2〈Can the planet’s coral reefs be saved?〉（2026-10-11 提供詞形：Strip；原文 strip reefs of their colour；採 strip A of B 剝奪構式）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-3/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The disease <b>stripped</b> the tree of its leaves."
+},
+{
+  "id": "en_2083",
+  "category": "IELTS Reading Vocabulary",
+  "word": "hardy",
+  "pos": "adjective",
+  "zh_def": "耐受力強的；能在惡劣環境中存活的",
+  "zh": "耐受力強的",
+  "definition": "Able to survive difficult conditions such as cold, heat or lack of water.",
+  "meaning": "able to survive difficult conditions such as cold, heat or lack of water",
+  "ipa": "ˈhɑːdi",
+  "forms": [
+    "hardy",
+    "hardier",
+    "hardiest"
+  ],
+  "tip": "hardy plants／species 強調能承受不利條件，不是摸起來硬的 hard。hardly 是「幾乎不」，不是 hardy 的一般副詞形式。",
+  "sentence1": "The gardener chose hardy plants for the exposed site.",
+  "sentence1_en": "園丁為那處缺乏遮蔽的地點選擇耐受力強的植物。",
+  "sentence2": "Researchers are looking for hardier varieties of coral.",
+  "sentence2_en": "研究人員正在尋找耐受力更強的珊瑚品種。",
+  "sentence3": "These hardy shrubs can survive poor soil.",
+  "sentence3_en": "這些耐受力強的灌木能在貧瘠土壤中存活。",
+  "word_map": {
+    "hardy": "耐受力強的",
+    "hardier": "耐受力強的",
+    "hardiest": "耐受力強的",
+    "The gardener chose hardy plants for the exposed site": "園丁為那處缺乏遮蔽的地點選擇耐受力強的植物"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 3，Reading Passage 2〈Can the planet’s coral reefs be saved?〉（2026-10-11 提供詞形：Hardy；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-3/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The gardener chose <b>hardy</b> plants for the exposed site."
+},
+{
+  "id": "en_2084",
+  "category": "IELTS Reading Vocabulary",
+  "word": "spawn",
+  "pos": "verb",
+  "zh_def": "產卵；魚類、兩棲類或其他水生動物釋放卵進行繁殖",
+  "zh": "產卵",
+  "definition": "To produce or release eggs in water as part of reproduction.",
+  "meaning": "to produce or release eggs in water as part of reproduction",
+  "ipa": "spɔːn",
+  "forms": [
+    "spawn",
+    "spawns",
+    "spawned",
+    "spawning"
+  ],
+  "tip": "spawning season 是產卵季；珊瑚也是動物，因此也能用 spawn。文章談繁殖，不是另一個引申義 spawn new ideas「催生新想法」。",
+  "sentence1": "The fish return to the river to spawn.",
+  "sentence1_en": "那些魚回到河裡產卵。",
+  "sentence2": "Researchers recorded when the corals spawned.",
+  "sentence2_en": "研究人員記錄了珊瑚產卵的時間。",
+  "sentence3": "The frogs spawned in a shallow pond.",
+  "sentence3_en": "青蛙在一個淺池中產卵。",
+  "word_map": {
+    "spawn": "產卵",
+    "spawns": "產卵",
+    "spawned": "產卵",
+    "spawning": "產卵",
+    "The fish return to the river to spawn": "那些魚回到河裡產卵"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 3，Reading Passage 2〈Can the planet’s coral reefs be saved?〉（2026-10-11 提供詞形：Spawn；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-3/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The fish return to the river to <b>spawn</b>."
+},
+{
+  "id": "en_2085",
+  "category": "IELTS Reading Vocabulary",
+  "word": "asteroid",
+  "pos": "noun",
+  "zh_def": "小行星；繞恆星運行、比行星小得多的岩石或金屬天體",
+  "zh": "小行星",
+  "definition": "A relatively small rocky or metallic body that orbits a star, especially the Sun.",
+  "meaning": "a relatively small rocky or metallic body that orbits a star, especially the Sun",
+  "ipa": "ˈæstərɔɪd",
+  "forms": [
+    "asteroid",
+    "asteroids"
+  ],
+  "tip": "asteroid 是太空中的小行星；meteor 是進入大氣時看到的流星現象，meteorite 是落到地面的隕石。不要把三者當成完全相同的天體名稱。",
+  "sentence1": "The spacecraft photographed the surface of an asteroid.",
+  "sentence1_en": "太空船拍攝了一顆小行星的表面。",
+  "sentence2": "Scientists tracked the asteroid as it passed the Earth.",
+  "sentence2_en": "那顆小行星經過地球時，科學家追蹤了它的動向。",
+  "sentence3": "The mission aims to collect material from an asteroid.",
+  "sentence3_en": "這項任務的目標是從小行星採集物質。",
+  "word_map": {
+    "asteroid": "小行星",
+    "asteroids": "小行星",
+    "The spacecraft photographed the surface of an asteroid": "太空船拍攝了一顆小行星的表面"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 3，Reading Passage 3〈Robots and us〉（2026-10-11 提供詞形：Asteroid；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-3/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The spacecraft photographed the surface of an <b>asteroid</b>."
+},
+{
+  "id": "en_2086",
+  "category": "IELTS Reading Vocabulary",
+  "word": "analogous",
+  "pos": "adjective",
+  "zh_def": "類似的；在某些方面可相互比擬的",
+  "zh": "類似的",
+  "definition": "Similar in a way that makes a comparison useful or meaningful.",
+  "meaning": "similar in a way that makes a comparison useful or meaningful",
+  "ipa": "əˈnæləɡəs",
+  "forms": [
+    "analogous"
+  ],
+  "tip": "analogous to 是常見搭配，表示可比較的相似性，不是完全相同。重音在 /ˈnæl/；analogical「類比推理的」與 analogously「類似地」是不同詞，不能共用讀音或當成屈折變化。",
+  "sentence1": "The two systems perform analogous functions.",
+  "sentence1_en": "這兩個系統執行相似的功能。",
+  "sentence2": "Her role is analogous to that of a project coordinator.",
+  "sentence2_en": "她的角色可比擬為專案協調員。",
+  "sentence3": "The researchers found an analogous pattern in another species.",
+  "sentence3_en": "研究人員在另一個物種中發現了類似的模式。",
+  "word_map": {
+    "analogous": "類似的",
+    "The two systems perform analogous functions": "這兩個系統執行相似的功能"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 3，Reading Passage 3〈Robots and us〉（2026-10-11 提供詞形：Analogous；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-3/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The two systems perform <b>analogous</b> functions."
+},
+{
+  "id": "en_2087",
+  "category": "IELTS Reading Vocabulary",
+  "word": "impose",
+  "pos": "verb",
+  "zh_def": "強加；要求別人接受規則、觀點或負擔",
+  "zh": "強加",
+  "definition": "To make someone accept a rule, belief, restriction or burden, often without giving them a choice.",
+  "meaning": "to make someone accept a rule, belief, restriction or burden, often without giving them a choice",
+  "ipa": "ɪmˈpəʊz",
+  "forms": [
+    "impose",
+    "imposes",
+    "imposed",
+    "imposing"
+  ],
+  "tip": "impose A on B＝把 A 強加給 B；常接 restrictions／taxes／burdens。它不只是提出建議，也不等於 pose a problem「造成問題」。",
+  "sentence1": "The authorities imposed restrictions on water use.",
+  "sentence1_en": "當局對用水施加了限制。",
+  "sentence2": "We should not impose our values on every community.",
+  "sentence2_en": "我們不應把自己的價值觀強加給每個社群。",
+  "sentence3": "The change imposed extra costs on small suppliers.",
+  "sentence3_en": "這項變更讓小型供應商承擔了額外成本。",
+  "word_map": {
+    "impose": "強加",
+    "imposes": "強加",
+    "imposed": "強加",
+    "imposing": "強加",
+    "The authorities imposed restrictions on water use": "當局對用水施加了限制"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 3，Reading Passage 3〈Robots and us〉（2026-10-11 提供詞形：Impose；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-3/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The authorities <b>imposed</b> restrictions on water use."
+},
+{
+  "id": "en_2088",
+  "category": "IELTS Reading Vocabulary",
+  "word": "outstrip",
+  "pos": "verb",
+  "zh_def": "超過；在程度、速度或能力上勝過",
+  "zh": "超過",
+  "definition": "To exceed or develop faster than someone or something else.",
+  "meaning": "to exceed or develop faster than someone or something else",
+  "ipa": "ˌaʊtˈstrɪp",
+  "forms": [
+    "outstrip",
+    "outstrips",
+    "outstripped",
+    "outstripping"
+  ],
+  "tip": "outstrip 直接接受詞，不需要 than；比較某方面可接 in speed／performance。outstripped／outstripping 要雙寫 p。",
+  "sentence1": "Demand for the service has outstripped supply.",
+  "sentence1_en": "對這項服務的需求已超過供給。",
+  "sentence2": "The new processor outstrips the old model in speed.",
+  "sentence2_en": "新處理器的速度超越了舊款。",
+  "sentence3": "Her progress soon outstripped our expectations.",
+  "sentence3_en": "她的進步很快就超出了我們的預期。",
+  "word_map": {
+    "outstrip": "超過",
+    "outstrips": "超過",
+    "outstripped": "超過",
+    "outstripping": "超過",
+    "Demand for the service has outstripped supply": "對這項服務的需求已超過供給"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 3，Reading Passage 3〈Robots and us〉（2026-10-11 提供詞形：Outstrip；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-3/",
+  "lang": "english_ielts",
+  "sentence1_hl": "Demand for the service has <b>outstripped</b> supply."
+},
+{
+  "id": "en_2089",
+  "category": "IELTS Reading Vocabulary",
+  "word": "adeptly",
+  "pos": "adverb",
+  "zh_def": "熟練地；靈巧、擅長地",
+  "zh": "熟練地",
+  "definition": "In a skilful and effective way.",
+  "meaning": "in a skilful and effective way",
+  "ipa": "əˈdeptli",
+  "forms": [
+    "adeptly"
+  ],
+  "tip": "adept 是形容詞，常用 adept at doing something；adeptly 是副詞，直接修飾 handled／managed 等動詞。注意 adept「熟練」與 adapt「適應、改編」的拼字。",
+  "sentence1": "She adeptly handled questions from the audience.",
+  "sentence1_en": "她熟練地應對觀眾的提問。",
+  "sentence2": "The robot navigated adeptly around the obstacles.",
+  "sentence2_en": "那台機器人靈巧地繞過障礙物。",
+  "sentence3": "He adapted the explanation adeptly for younger readers.",
+  "sentence3_en": "他巧妙調整了說明方式，讓年幼讀者更容易理解。",
+  "word_map": {
+    "adeptly": "熟練地",
+    "She adeptly handled questions from the audience": "她熟練地應對觀眾的提問"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 3，Reading Passage 3〈Robots and us〉（2026-10-11 提供詞形：Adeptly；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-3/",
+  "lang": "english_ielts",
+  "sentence1_hl": "She <b>adeptly</b> handled questions from the audience."
+},
+{
+  "id": "en_2090",
+  "category": "IELTS Reading Vocabulary",
+  "word": "fret",
+  "pos": "verb",
+  "zh_def": "焦慮；反覆擔憂",
+  "zh": "焦慮",
+  "definition": "To worry repeatedly or unnecessarily about something.",
+  "meaning": "to worry repeatedly or unnecessarily about something",
+  "ipa": "fret",
+  "forms": [
+    "fret",
+    "frets",
+    "fretted",
+    "fretting"
+  ],
+  "tip": "fret about／over something，也可接 that 子句。fretted／fretting 雙寫 t；此處是擔憂動詞，與弦樂器指板上的 fret「品格」無關。",
+  "sentence1": "She fretted about the results all evening.",
+  "sentence1_en": "她整個晚上都在擔心結果。",
+  "sentence2": "There is no need to fret over every small mistake.",
+  "sentence2_en": "不必為每一個小錯誤焦慮不已。",
+  "sentence3": "He was fretting that the equipment might fail.",
+  "sentence3_en": "他一直擔心設備可能故障。",
+  "word_map": {
+    "fret": "焦慮",
+    "frets": "焦慮",
+    "fretted": "焦慮",
+    "fretting": "焦慮",
+    "She fretted about the results all evening": "她整個晚上都在擔心結果"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 3，Reading Passage 3〈Robots and us〉（2026-10-11 提供詞形：Fret；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-3/",
+  "lang": "english_ielts",
+  "sentence1_hl": "She <b>fretted</b> about the results all evening."
+},
+{
+  "id": "en_2091",
+  "category": "IELTS Reading Vocabulary",
+  "word": "outwit",
+  "pos": "verb",
+  "zh_def": "以智取勝；比對方更機智而勝過對方",
+  "zh": "以智取勝",
+  "definition": "To defeat or gain an advantage over someone by being cleverer.",
+  "meaning": "to defeat or gain an advantage over someone by being cleverer",
+  "ipa": "ˌaʊtˈwɪt",
+  "forms": [
+    "outwit",
+    "outwits",
+    "outwitted",
+    "outwitting"
+  ],
+  "tip": "outwit someone 直接接受詞；重點在機智或策略，不一定是力量或計算速度。outwitted／outwitting 雙寫 t；不同於 outnumber「數量超過」。",
+  "sentence1": "The detective tried to outwit the thief.",
+  "sentence1_en": "偵探試圖用計勝過小偷。",
+  "sentence2": "The smaller player outwitted her stronger opponent.",
+  "sentence2_en": "體型較小的選手以智取勝，擊敗了較強壯的對手。",
+  "sentence3": "The programme was designed to outwit experienced players.",
+  "sentence3_en": "這個程式被設計成能用巧妙策略勝過有經驗的玩家。",
+  "word_map": {
+    "outwit": "以智取勝",
+    "outwits": "以智取勝",
+    "outwitted": "以智取勝",
+    "outwitting": "以智取勝",
+    "The detective tried to outwit the thief": "偵探試圖用計勝過小偷"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 3，Reading Passage 3〈Robots and us〉（2026-10-11 提供詞形：Outwit；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-3/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The detective tried to <b>outwit</b> the thief."
+},
+{
+  "id": "en_2092",
+  "category": "IELTS Reading Vocabulary",
+  "word": "malicious",
+  "pos": "adjective",
+  "zh_def": "惡意的；蓄意傷害他人或造成損害的",
+  "zh": "惡意的",
+  "definition": "Intended to hurt someone or cause harm.",
+  "meaning": "intended to hurt someone or cause harm",
+  "ipa": "məˈlɪʃəs",
+  "forms": [
+    "malicious"
+  ],
+  "tip": "malicious intent／damage／software；核心是有意造成傷害。malicious 和 accidental「意外的」不同；不要只因結果不好就認定是惡意行為。",
+  "sentence1": "Someone spread a malicious rumour about the manager.",
+  "sentence1_en": "有人散播了一則惡意中傷經理的謠言。",
+  "sentence2": "The filter blocked a file containing malicious code.",
+  "sentence2_en": "過濾機制擋下了一個含有惡意程式碼的檔案。",
+  "sentence3": "The damage appeared to be deliberate and malicious.",
+  "sentence3_en": "這些損壞看起來是刻意且帶有惡意造成的。",
+  "word_map": {
+    "malicious": "惡意的",
+    "Someone spread a malicious rumour about the manager": "有人散播了一則惡意中傷經理的謠言"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 3，Reading Passage 3〈Robots and us〉（2026-10-11 提供詞形：Malicious；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-3/",
+  "lang": "english_ielts",
+  "sentence1_hl": "Someone spread a <b>malicious</b> rumour about the manager."
+},
+{
+  "id": "en_2093",
+  "category": "IELTS Reading Vocabulary",
+  "word": "outweigh",
+  "pos": "verb",
+  "zh_def": "超過；在重要性、價值或影響上大於",
+  "zh": "超過",
+  "definition": "To be greater in importance, value or effect than something else.",
+  "meaning": "to be greater in importance, value or effect than something else",
+  "ipa": "ˌaʊtˈweɪ",
+  "forms": [
+    "outweigh",
+    "outweighs",
+    "outweighed",
+    "outweighing"
+  ],
+  "tip": "A outweighs B，直接接比較對象，後面不加 than。它比較重要性或影響，並不表示 B 完全不存在；英語常用 benefits outweigh risks。",
+  "sentence1": "The benefits outweigh the initial costs.",
+  "sentence1_en": "這些好處大於初期成本。",
+  "sentence2": "The risks may outweigh any short-term gains.",
+  "sentence2_en": "風險可能超過任何短期收益。",
+  "sentence3": "For her, reliable service outweighed a lower price.",
+  "sentence3_en": "對她而言，可靠的服務比低價更重要。",
+  "word_map": {
+    "outweigh": "超過",
+    "outweighs": "超過",
+    "outweighed": "超過",
+    "outweighing": "超過",
+    "The benefits outweigh the initial costs": "這些好處大於初期成本"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 3，Reading Passage 3〈Robots and us〉（2026-10-11 提供詞形：Outweigh；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-3/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The benefits <b>outweigh</b> the initial costs."
+},
+{
+  "id": "en_2094",
+  "category": "IELTS Reading Vocabulary",
+  "word": "supremacy",
+  "pos": "noun",
+  "zh_def": "至高地位；支配或優越地位",
+  "zh": "至高地位",
+  "definition": "A position of being more powerful, influential or successful than others.",
+  "meaning": "a position of being more powerful, influential or successful than others",
+  "ipa": "suːˈpreməsi",
+  "forms": [
+    "supremacy"
+  ],
+  "tip": "supremacy over + 對象；compete for supremacy 是爭奪主導地位。這是「優勢地位」的名詞，supreme 才是相關形容詞；不等於單次比賽的 victory。",
+  "sentence1": "The two companies competed for technological supremacy.",
+  "sentence1_en": "兩家公司競爭科技上的領先地位。",
+  "sentence2": "The discovery challenged the theory of human supremacy.",
+  "sentence2_en": "這項發現挑戰了人類居於至高地位的理論。",
+  "sentence3": "The team maintained its supremacy throughout the season.",
+  "sentence3_en": "這支隊伍整個賽季都維持著優勢地位。",
+  "word_map": {
+    "supremacy": "至高地位",
+    "The two companies competed for technological supremacy": "兩家公司競爭科技上的領先地位"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 3，Reading Passage 3〈Robots and us〉（2026-10-11 提供詞形：Supremacy；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-3/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The two companies competed for technological <b>supremacy</b>."
+},
+{
+  "id": "en_2095",
+  "category": "IELTS Reading Vocabulary",
+  "word": "collide",
+  "pos": "verb",
+  "zh_def": "（不同觀點、利益或領域）發生碰撞、衝突",
+  "zh": "（不同觀點、利益或領域）發生碰撞、衝突",
+  "definition": "To come into conflict because of differences in interests, beliefs or ways of thinking.",
+  "meaning": "to come into conflict because of differences in interests, beliefs or ways of thinking",
+  "ipa": "kəˈlaɪd",
+  "forms": [
+    "collide",
+    "collides",
+    "collided",
+    "colliding"
+  ],
+  "tip": "A collides with B；兩方作複數主詞也可直接說 A and B collide。原文是不同世界或理解方式碰撞，不是兩台車真的相撞；名詞是 collision。",
+  "sentence1": "Their artistic ideals collided with commercial demands.",
+  "sentence1_en": "他們的藝術理想與商業要求產生衝突。",
+  "sentence2": "Different views of privacy collided during the debate.",
+  "sentence2_en": "辯論中，不同的隱私觀點互相衝突。",
+  "sentence3": "Science and storytelling sometimes collide in this novel.",
+  "sentence3_en": "這部小說中的科學與敘事有時會發生碰撞。",
+  "word_map": {
+    "collide": "（不同觀點、利益或領域）發生碰撞、衝突",
+    "collides": "（不同觀點、利益或領域）發生碰撞、衝突",
+    "collided": "（不同觀點、利益或領域）發生碰撞、衝突",
+    "colliding": "（不同觀點、利益或領域）發生碰撞、衝突",
+    "Their artistic ideals collided with commercial demands": "他們的藝術理想與商業要求產生衝突"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 3，Reading Passage 3〈Robots and us〉（2026-10-11 提供詞形：Collide；原文不同領域的 worlds collide；採觀點、領域衝突義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-3/",
+  "lang": "english_ielts",
+  "sentence1_hl": "Their artistic ideals <b>collided</b> with commercial demands."
+},
+{
+  "id": "en_2096",
+  "category": "IELTS Reading Vocabulary",
+  "word": "figure",
+  "pos": "noun",
+  "zh_def": "人物；在某領域具有特定地位或影響力的人",
+  "zh": "人物",
+  "definition": "A person who has a particular role, reputation or importance in a field.",
+  "meaning": "a person who has a particular role, reputation or importance in a field",
+  "ipa": "ˈfɪɡə(r)",
+  "forms": [
+    "figure",
+    "figures"
+  ],
+  "tip": "a major／leading／influential figure in + 領域。原文談藝術家的地位，不是數字、身材或圖表；不要把 a major figure 譯成「主要數字」。",
+  "sentence1": "She became a leading figure in modern architecture.",
+  "sentence1_en": "她成為現代建築領域的領軍人物。",
+  "sentence2": "The exhibition celebrates an influential figure in local history.",
+  "sentence2_en": "這場展覽紀念一位對地方歷史有影響力的人物。",
+  "sentence3": "Several public figures attended the opening ceremony.",
+  "sentence3_en": "幾位公眾人物出席了開幕典禮。",
+  "word_map": {
+    "figure": "人物",
+    "figures": "人物",
+    "She became a leading figure in modern architecture": "她成為現代建築領域的領軍人物"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 4，Reading Passage 1〈Georgia O’Keeffe〉（2026-10-11 提供詞形：Figure；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-4/",
+  "lang": "english_ielts",
+  "sentence1_hl": "She became a leading <b>figure</b> in modern architecture."
+},
+{
+  "id": "en_2097",
+  "category": "IELTS Reading Vocabulary",
+  "word": "vigorously",
+  "pos": "adverb",
+  "zh_def": "積極有力地；充滿幹勁、強烈地",
+  "zh": "積極有力地",
+  "definition": "With considerable energy, effort or force.",
+  "meaning": "with considerable energy, effort or force",
+  "ipa": "ˈvɪɡərəsli",
+  "forms": [
+    "vigorously"
+  ],
+  "tip": "vigorously promote／oppose／defend，也可形容用力搖晃等動作。vigorous 是形容詞；副詞是 vigorously，不要漏掉 -ous- 而拼成 vigorly。",
+  "sentence1": "The gallery vigorously promoted the young artist's work.",
+  "sentence1_en": "畫廊積極推廣那位年輕藝術家的作品。",
+  "sentence2": "She vigorously defended the team's decision.",
+  "sentence2_en": "她強力捍衛團隊的決定。",
+  "sentence3": "Shake the bottle vigorously before opening it.",
+  "sentence3_en": "打開瓶子之前，先用力搖晃。",
+  "word_map": {
+    "vigorously": "積極有力地",
+    "The gallery vigorously promoted the young artist's work": "畫廊積極推廣那位年輕藝術家的作品"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 4，Reading Passage 1〈Georgia O’Keeffe〉（2026-10-11 提供詞形：Vigorously；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-4/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The gallery <b>vigorously</b> promoted the young artist's work."
+},
+{
+  "id": "en_2098",
+  "category": "IELTS Reading Vocabulary",
+  "word": "exquisitely",
+  "pos": "adverb",
+  "zh_def": "精妙地；細膩而優美地",
+  "zh": "精妙地",
+  "definition": "In a finely detailed, skilful or beautiful way.",
+  "meaning": "in a finely detailed, skilful or beautiful way",
+  "ipa": "ɪkˈskwɪzɪtli",
+  "forms": [
+    "exquisitely"
+  ],
+  "tip": "exquisitely painted／crafted／detailed 指精緻的製作或呈現。與第1979項 exquisitely sensitive「極度敏感」的程度副詞用法分開；這裡重點是精妙細膩。",
+  "sentence1": "The artist exquisitely captured the folds of the fabric.",
+  "sentence1_en": "藝術家細膩地捕捉了布料的褶皺。",
+  "sentence2": "Each wooden panel was exquisitely carved.",
+  "sentence2_en": "每塊木板都雕刻得精美細緻。",
+  "sentence3": "The room was decorated with exquisitely painted tiles.",
+  "sentence3_en": "房間以彩繪精美的瓷磚裝飾。",
+  "word_map": {
+    "exquisitely": "精妙地",
+    "The artist exquisitely captured the folds of the fabric": "藝術家細膩地捕捉了布料的褶皺"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 4，Reading Passage 1〈Georgia O’Keeffe〉（2026-10-11 提供詞形：Exquisitely；原文 exquisitely reproduce，指精妙細膩地呈現；與第1979項程度副詞分開）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-4/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The artist <b>exquisitely</b> captured the folds of the fabric."
+},
+{
+  "id": "en_2099",
+  "category": "IELTS Reading Vocabulary",
+  "word": "convex",
+  "pos": "adjective",
+  "zh_def": "凸出的；表面向外彎曲的",
+  "zh": "凸出的",
+  "definition": "Curving outwards rather than inwards.",
+  "meaning": "curving outwards rather than inwards",
+  "ipa": "ˈkɒnveks",
+  "forms": [
+    "convex"
+  ],
+  "tip": "convex「凸」與 concave「凹」相對；a convex lens 是凸透鏡。要看表面向哪個方向彎曲，不能把 convex 籠統理解成「任何彎曲」。",
+  "sentence1": "The mirror has a convex surface.",
+  "sentence1_en": "那面鏡子有向外凸的表面。",
+  "sentence2": "The artist contrasted convex shapes with hollow spaces.",
+  "sentence2_en": "藝術家把凸起形狀與中空空間形成對比。",
+  "sentence3": "We examined the convex side of the object.",
+  "sentence3_en": "我們檢查了那件物體向外凸的一面。",
+  "word_map": {
+    "convex": "凸出的",
+    "The mirror has a convex surface": "那面鏡子有向外凸的表面"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 4，Reading Passage 1〈Georgia O’Keeffe〉（2026-10-11 提供詞形：Convex；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-4/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The mirror has a <b>convex</b> surface."
+},
+{
+  "id": "en_2100",
+  "category": "IELTS Reading Vocabulary",
+  "word": "nestle",
+  "pos": "verb",
+  "zh_def": "依偎；安穩地坐落或安置於受遮蔽的位置",
+  "zh": "依偎",
+  "definition": "To settle or be situated comfortably in a sheltered place, or to place something there.",
+  "meaning": "to settle or be situated comfortably in a sheltered place, or to place something there",
+  "ipa": "ˈnesl",
+  "forms": [
+    "nestle",
+    "nestles",
+    "nestled",
+    "nestling"
+  ],
+  "tip": "nestle against／in／between／beneath；描述房屋位置時帶有安穩、被環繞的感覺。t 不發音。原文 was nestled 描述坐落位置，不是說房屋正在築巢。",
+  "sentence1": "A small cottage nestles beneath the wooded hillside.",
+  "sentence1_en": "一間小屋靜靜坐落在林木覆蓋的山坡下。",
+  "sentence2": "The child nestled against her mother's shoulder.",
+  "sentence2_en": "孩子依偎在母親肩旁。",
+  "sentence3": "The village is nestled between two steep ridges.",
+  "sentence3_en": "那座村莊安穩地坐落在兩道陡峭山脊之間。",
+  "word_map": {
+    "nestle": "依偎",
+    "nestles": "依偎",
+    "nestled": "依偎",
+    "nestling": "依偎",
+    "A small cottage nestles beneath the wooded hillside": "一間小屋靜靜坐落在林木覆蓋的山坡下"
+  },
+  "source": "Cambridge IELTS 20 Academic，Test 4，Reading Passage 1〈Georgia O’Keeffe〉（2026-10-11 提供詞形：Nestle；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-4/",
+  "lang": "english_ielts",
+  "sentence1_hl": "A small cottage <b>nestles</b> beneath the wooded hillside."
 }
 );

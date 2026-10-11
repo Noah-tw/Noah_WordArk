@@ -1,4 +1,4 @@
-// en_batch_0006.js — English IELTS batch 6; WordArk V68
+// en_batch_0006.js — English IELTS batch 6; WordArk V69
 // 100 active entries: en_0501 to en_0600
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -2445,7 +2445,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "foraged",
     "foraging"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "使用者收集的 YouTube 影片（原始檔未記錄影片名稱與原句；此義依 Cambridge Dictionary 常用用法複核）；使用者另收集自 Cambridge IELTS 17 Academic，Test 4（本次先保留來源，待逐項回查原句，不另立同義重複卡）；另見 Cambridge IELTS 20 Academic，Test 1，Reading Passage 1〈The kākāpō〉（2026-10-11 提供詞形：Forage；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/"
 },
 {
   "id": "en_0583",
@@ -2686,7 +2687,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "tackled",
     "tackling"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "使用者收集的 YouTube 影片（原始檔中出現兩次，均未記錄影片名稱與原句）；兩筆無語境可證明不同詞義或詞性，故合併為一項，並依 Cambridge Dictionary 保留一般常用的「著手處理問題」義；使用者另收集自 Cambridge IELTS 16 Academic，Test 1；Cambridge IELTS 17 Academic，Test 3（本次先保留來源，待逐項回查原句，不另立同義重複卡）；另見 Cambridge IELTS 18 Academic，Test 2，Reading Passage 2〈Living with artificial intelligence〉（本次提供詞形：Tackle；文章正文中的相同詞形或屈折變化；依所在語境判義；2026-09-15 依公開文章／題目轉錄頁核對）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-18-academic-reading-test-2/；另見 Cambridge IELTS 18 Academic，Test 4，Reading Passage 1〈Green roofs〉（本次提供詞形：Tackle；文章正文中的相同詞形或屈折變化；依所在語境判義；2026-09-15 依公開文章／題目轉錄頁核對）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-18-academic-reading-test-4/；另見 Cambridge IELTS 19 Academic，Test 2，Reading Passage 2〈Athletes and stress〉（2026-09-17 提供詞形：Tackle；C段；處理面臨的要求與挑戰；依公開正文／題目轉錄定位）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-19-academic-reading-test-2/；另見 The Official Cambridge Guide to IELTS，Academic Reading Test 2，Passage 2〈Dawn of the robots〉（2026-09-21 提供詞形：Tackle；標題選項 i 中的 Tackling；著手處理問題的動詞義）；https://practicepteonline.com/ielts-reading-test-82/；另見 Cambridge IELTS 20 Academic，Test 1，Reading Passage 3〈How stress affects our judgement〉（2026-10-11 提供詞形：Tackle；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/"
 },
 {
   "id": "en_0591",

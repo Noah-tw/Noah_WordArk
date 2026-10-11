@@ -1,4 +1,4 @@
-// en_batch_0020.js — English IELTS batch 20; WordArk V68
+// en_batch_0020.js — English IELTS batch 20; WordArk V69
 // 100 active entries: en_1901 to en_2000
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -636,7 +636,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "The complaint prompted an immediate investigation": "這項申訴促使相關單位立即展開調查"
   },
   "lang": "english_ielts",
-  "source": "The Official Cambridge Guide to IELTS，Academic Reading Test 5，Passage 1〈Trees in trouble〉（2026-10-01 提供詞形：Prompting；正文中的同字或屈折形式；依該段語境判定詞義）；https://www.meridean.org/blog/trees-in-trouble-ielts-reading-answers",
+  "source": "The Official Cambridge Guide to IELTS，Academic Reading Test 5，Passage 1〈Trees in trouble〉（2026-10-01 提供詞形：Prompting；正文中的同字或屈折形式；依該段語境判定詞義）；https://www.meridean.org/blog/trees-in-trouble-ielts-reading-answers；另見 Cambridge IELTS 20 Academic，Test 1，Reading Passage 1〈The kākāpō〉（2026-10-11 提供詞形：Prompted；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
   "sentence1_hl": "The complaint <b>prompted</b> an immediate investigation."
 },
 {
@@ -666,7 +666,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "Stress and poor sleep can form a vicious cycle": "壓力與睡眠不佳可能形成惡性循環"
   },
   "lang": "english_ielts",
-  "source": "The Official Cambridge Guide to IELTS，Academic Reading Test 5，Passage 1〈Trees in trouble〉（2026-10-01 提供詞形：Vicious；森林縮減與氣候段；補全vicious cycle，表示相互加劇的惡性循環）；https://www.meridean.org/blog/trees-in-trouble-ielts-reading-answers",
+  "source": "The Official Cambridge Guide to IELTS，Academic Reading Test 5，Passage 1〈Trees in trouble〉（2026-10-01 提供詞形：Vicious；森林縮減與氣候段；補全vicious cycle，表示相互加劇的惡性循環）；https://www.meridean.org/blog/trees-in-trouble-ielts-reading-answers；另見 Cambridge IELTS 20 Academic，Test 2，Reading Passage 2〈Procrastination〉（2026-10-11 提供詞形：Vicious；原文 vicious cycle；沿用惡性循環搭配）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-2/",
   "sentence1_hl": "Stress and poor sleep can form a <b>vicious cycle</b>."
 },
 {
@@ -2894,7 +2894,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "Subsequent research supported the original findings": "後續研究支持了原先的發現"
   },
   "lang": "english_ielts",
-  "source": "The Official Cambridge Guide to IELTS，Academic Reading Test 8，Passage 1〈The Phoenicians: an almost forgotten people〉（2026-10-01 提供詞形：Subsequent；正文中的同字或屈折形式；依該段語境判定詞義）；https://engnovate.com/ielts-reading-answers/the-phoenicians-an-almost-forgotten-people/",
+  "source": "The Official Cambridge Guide to IELTS，Academic Reading Test 8，Passage 1〈The Phoenicians: an almost forgotten people〉（2026-10-01 提供詞形：Subsequent；正文中的同字或屈折形式；依該段語境判定詞義）；https://engnovate.com/ielts-reading-answers/the-phoenicians-an-almost-forgotten-people/；另見 Cambridge IELTS 20 Academic，Test 1，Reading Passage 1〈The kākāpō〉（2026-10-11 提供詞形：Subsequent；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
   "sentence1_hl": "<b>Subsequent</b> research supported the original findings."
 },
 {
@@ -3112,7 +3112,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "The investigation found that workers had been exploited": "調查發現，工人曾遭到剝削"
   },
   "lang": "english_ielts",
-  "source": "The Official Cambridge Guide to IELTS，Academic Reading Test 8，Passage 2〈The Hollywood film industry〉（2026-10-01 提供詞形：Exploited；D段；明星受到不公平利用，新增exploit剝削義，不併入第453項善用機會義）；https://engnovate.com/ielts-reading-answers/the-hollywood-film-industry/",
+  "source": "The Official Cambridge Guide to IELTS，Academic Reading Test 8，Passage 2〈The Hollywood film industry〉（2026-10-01 提供詞形：Exploited；D段；明星受到不公平利用，新增exploit剝削義，不併入第453項善用機會義）；https://engnovate.com/ielts-reading-answers/the-hollywood-film-industry/；另見 Cambridge IELTS 20 Academic，Test 3，Reading Passage 3〈Robots and us〉（2026-10-11 提供詞形：Exploit；同篇同時出現開發礦產資源與對機器人不公平利用的設問；分別對應第453及2000項）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-3/",
   "sentence1_hl": "The investigation found that workers had been <b>exploited</b>."
 }
 );

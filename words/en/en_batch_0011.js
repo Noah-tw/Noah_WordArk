@@ -1,4 +1,4 @@
-// en_batch_0011.js — English IELTS batch 11; WordArk V68
+// en_batch_0011.js — English IELTS batch 11; WordArk V69
 // 100 active entries: en_1001 to en_1100
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -191,7 +191,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "be confined to": "be 要依主詞與時態改成 is、are、was 或 were。"
   },
   "lang": "english_ielts",
-  "source": "Cambridge IELTS 15 Academic，Test 4，Reading Passage 1〈The return of the huarango〉（原文 Life has always been confined to corridors and islands here，指生命僅存在於特定範圍）"
+  "source": "Cambridge IELTS 15 Academic，Test 4，Reading Passage 1〈The return of the huarango〉（原文 Life has always been confined to corridors and islands here，指生命僅存在於特定範圍）；另見 Cambridge IELTS 20 Academic，Test 1，Reading Passage 1〈The kākāpō〉（2026-10-11 提供詞形：Confined；原文 become confined to；沿用既有 be confined to 限於某地義，不重複建立 confined）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/"
 },
 {
   "id": "en_1007",
@@ -1209,7 +1209,8 @@ window.VOCAB_DATA['english_ielts'].push(
   "forms": [
     "intrinsic"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 15 Academic，Test 1，Reading Passage 3〈What is exploration?〉，Question 27，選項 A（intrinsic element of being human，指人類本質中固有的要素）；與第 527 項限定於「內在動機」的義項分列；另見 Cambridge IELTS 20 Academic，Test 3，Reading Passage 3〈Robots and us〉（2026-10-11 提供詞形：Intrinsic；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-3/"
 },
 {
   "id": "en_1041",
@@ -1715,7 +1716,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "uprooted",
     "uprooting"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 15 Academic，Test 1，Reading Passage 1〈Nutmeg – a valuable spice〉（原文動名詞 uprooting，指連根拔除種植區外的樹木）；另見 Cambridge IELTS 20 Academic，Test 2，Reading Passage 1〈Manatees〉（2026-10-11 提供詞形：Uprooting；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-2/"
 },
 {
   "id": "en_1058",

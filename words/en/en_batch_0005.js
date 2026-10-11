@@ -1,4 +1,4 @@
-// en_batch_0005.js — English IELTS batch 5; WordArk V68
+// en_batch_0005.js — English IELTS batch 5; WordArk V69
 // 100 active entries: en_0401 to en_0500
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -1584,7 +1584,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "exploiting"
   ],
   "lang": "english_ielts",
-  "source": "Cambridge IELTS 13 Academic，Test 2，Reading Passage 3〈Making the most of trends〉（原文 analyzing and exploiting trends，指善用趨勢帶來的商業機會）；另見 Cambridge IELTS 15 Academic，Test 1，Reading Passage 1〈Nutmeg – a valuable spice〉（原文 began exploiting its precious resources，指利用珍貴資源），以及 Test 4，Reading Passage 1〈The return of the huarango〉（原文動名詞 exploiting water when it arrives，指充分利用偶爾取得的水資源）；同詞性同一「利用資源、趨勢或機會」義項合併於此；另見 Cambridge IELTS 19 Academic，Reading Test 4，Passage 2〈Deep-sea Mining〉（2026-09-21 提供詞形：Exploit；正文中已定位詞形或屈折變化；與既有基本詞義合併）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-19-academic-reading-test-4/"
+  "source": "Cambridge IELTS 13 Academic，Test 2，Reading Passage 3〈Making the most of trends〉（原文 analyzing and exploiting trends，指善用趨勢帶來的商業機會）；另見 Cambridge IELTS 15 Academic，Test 1，Reading Passage 1〈Nutmeg – a valuable spice〉（原文 began exploiting its precious resources，指利用珍貴資源），以及 Test 4，Reading Passage 1〈The return of the huarango〉（原文動名詞 exploiting water when it arrives，指充分利用偶爾取得的水資源）；同詞性同一「利用資源、趨勢或機會」義項合併於此；另見 Cambridge IELTS 19 Academic，Reading Test 4，Passage 2〈Deep-sea Mining〉（2026-09-21 提供詞形：Exploit；正文中已定位詞形或屈折變化；與既有基本詞義合併）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-19-academic-reading-test-4/；另見 Cambridge IELTS 20 Academic，Test 3，Reading Passage 3〈Robots and us〉（2026-10-11 提供詞形：Exploit；同篇同時出現開發礦產資源與對機器人不公平利用的設問；分別對應第453及2000項）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-3/"
 },
 {
   "id": "en_0454",

@@ -1,4 +1,4 @@
-// en_batch_0019.js — English IELTS batch 19; WordArk V68
+// en_batch_0019.js — English IELTS batch 19; WordArk V69
 // 100 active entries: en_1801 to en_1900
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -1872,7 +1872,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "We insulated the roof to reduce heat loss": "我們替屋頂加上隔熱層，以減少熱量散失"
   },
   "lang": "english_ielts",
-  "source": "The Official Cambridge Guide to IELTS，Academic Reading Test 3，Passage 2〈High Speed, High Rise〉（2026-10-01 提供詞形：Insulate；正文中的同字或屈折形式；依該段語境判定詞義）；https://engnovate.com/ielts-reading-answers/high-speed-high-rise/",
+  "source": "The Official Cambridge Guide to IELTS，Academic Reading Test 3，Passage 2〈High Speed, High Rise〉（2026-10-01 提供詞形：Insulate；正文中的同字或屈折形式；依該段語境判定詞義）；https://engnovate.com/ielts-reading-answers/high-speed-high-rise/；另見 Cambridge IELTS 20 Academic，Test 3，Reading Passage 1〈Frozen food〉（2026-10-11 提供詞形：Insulated；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-3/",
   "sentence1_hl": "We <b>insulated</b> the roof to reduce heat loss."
 },
 {
@@ -2715,7 +2715,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "An autonomous robot checks the crops at night": "一台自主機器人在夜間檢查作物"
   },
   "lang": "english_ielts",
-  "source": "The Official Cambridge Guide to IELTS，Academic Reading Test 4，Passage 2〈The rise of the agribots〉（2026-10-01 提供詞形：Autonomous；正文中的同字或屈折形式；依該段語境判定詞義）；https://engnovate.com/ielts-reading-answers/the-rise-of-the-agribots/",
+  "source": "The Official Cambridge Guide to IELTS，Academic Reading Test 4，Passage 2〈The rise of the agribots〉（2026-10-01 提供詞形：Autonomous；正文中的同字或屈折形式；依該段語境判定詞義）；https://engnovate.com/ielts-reading-answers/the-rise-of-the-agribots/；另見 Cambridge IELTS 20 Academic，Test 3，Reading Passage 3〈Robots and us〉（2026-10-11 提供詞形：Autonomous；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-3/",
   "sentence1_hl": "An <b>autonomous</b> robot checks the crops at night."
 },
 {
