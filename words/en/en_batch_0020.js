@@ -1,4 +1,4 @@
-// en_batch_0020.js — English IELTS batch 20; WordArk V69
+// en_batch_0020.js — English IELTS batch 20; WordArk V70
 // 100 active entries: en_1901 to en_2000
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -1414,7 +1414,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "The council subsidises bus services in rural areas": "地方政府補助鄉村地區的公車服務"
   },
   "lang": "english_ielts",
-  "source": "The Official Cambridge Guide to IELTS，Academic Reading Test 6，Passage 1〈Why are Finland’s schools successful?〉（2026-10-01 提供詞形：Subsidize；正文中的同字或屈折形式；依該段語境判定詞義）；https://engnovate.com/ielts-reading-answers/why-are-finlands-schools-successful/",
+  "source": "The Official Cambridge Guide to IELTS，Academic Reading Test 6，Passage 1〈Why are Finland’s schools successful?〉（2026-10-01 提供詞形：Subsidize；正文中的同字或屈折形式；依該段語境判定詞義）；https://engnovate.com/ielts-reading-answers/why-are-finlands-schools-successful/；另見 Cambridge IELTS 21 Academic，Test 1，Reading Passage 3〈Book review: The World of Sugar by Ulbe Bosma〉（2026-10-13 提供詞形：Subsidize；正文subsidised；美式subsidize對應既有英式主詞條subsidise）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-1/",
   "sentence1_hl": "The council <b>subsidises</b> bus services in rural areas."
 },
 {

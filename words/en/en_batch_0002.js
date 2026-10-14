@@ -1,4 +1,4 @@
-// en_batch_0002.js — English IELTS batch 2; WordArk V69
+// en_batch_0002.js — English IELTS batch 2; WordArk V70
 // 100 active entries: en_0101 to en_0200
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -646,7 +646,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "sheds light on",
     "shedding light on"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 11 Academic，Test 2，Reading Passage 3〈Neuroaesthetics〉（原文詞組 shed light on 與語境已定位）；另見 Cambridge IELTS 15 Academic，Test 4，Reading Passage 2〈Silbo Gomero – the whistle ‘language’ of the Canary Islands〉（原文現在分詞詞組 shedding light on，指幫助了解大腦的語言處理能力）；後置同義項已合併於此；另見 Cambridge IELTS 21 Academic，Test 2，Reading Passage 1〈Do animals dream?〉（2026-10-13 提供詞形：Shed；正文shed light on；直接併入第122項完整片語，不另建「脫落」義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-2/"
 },
 {
   "id": "en_0123",
@@ -1819,7 +1820,8 @@ window.VOCAB_DATA['english_ielts'].push(
   "forms": [
     "intriguing"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 11 Academic，Test 2，Reading Passage 3〈Neuroaesthetics〉（原文詞形與語境已定位）；另見使用者收集的 YouTube 影片（原始檔未記錄影片名稱與原句）；YouTube 同字未附原句，不能證明另有不同詞義或詞性，故不另立項並保留可驗證的 IELTS 語境義；使用者另收集自 Cambridge IELTS 17 Academic，Test 2（本次先保留來源，待逐項回查原句，不另立同義重複卡）；另見 使用者收集的 YouTube 影片（2026-09-15 再提供 Intriguing；未記錄影片名稱與原句）；僅補記來源，不推定另一義項；另見 Cambridge IELTS 18 Academic，Test 4，Reading Passage 3〈Alfred Wegener: science, exploration and the theory of continental drift〉（本次提供詞形：Intriguing；文章正文中的相同詞形或屈折變化；依所在語境判義；2026-09-15 依公開文章／題目轉錄頁核對）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-18-academic-reading-test-4/；另見 Cambridge IELTS 21 Academic，Test 2，Reading Passage 1〈Do animals dream?〉（2026-10-13 提供詞形：Intriguing；正文中的同字或屈折形式；依上下文選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-2/"
 },
 {
   "id": "en_0163",
@@ -2222,7 +2224,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "amassed",
     "amassing"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 12 Academic，Test 1，Reading Passage 2〈Collecting as a hobby〉（原文詞形 Amassing／amassed 與大量收集語境已定位）；另見 Cambridge IELTS 21 Academic，Test 1，Reading Passage 1〈The Davies Sisters〉（2026-10-13 提供詞形：Amass；正文中的同字或屈折形式；依上下文選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-1/"
 },
 {
   "id": "en_0177",

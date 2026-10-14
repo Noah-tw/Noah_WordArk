@@ -1,4 +1,4 @@
-// en_batch_0008.js — English IELTS batch 8; WordArk V69
+// en_batch_0008.js — English IELTS batch 8; WordArk V70
 // 100 active entries: en_0701 to en_0800
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -1503,7 +1503,8 @@ window.VOCAB_DATA['english_ielts'].push(
   "forms": [
     "appalling"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "使用者收集的 YouTube 影片（原始檔未記錄影片名稱與原句；此義依 Cambridge Dictionary／Merriam-Webster 的一般常用用法複核）；另見 Cambridge IELTS 21 Academic，Test 1，Reading Passage 3〈Book review: The World of Sugar by Ulbe Bosma〉（2026-10-13 提供詞形：Appalling；正文appalling，沿用第752項形容詞；不誤併至第1439項appall動詞）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-1/"
 },
 {
   "id": "en_0753",

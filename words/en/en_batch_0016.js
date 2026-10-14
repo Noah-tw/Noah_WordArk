@@ -1,4 +1,4 @@
-// en_batch_0016.js — English IELTS batch 16; WordArk V69
+// en_batch_0016.js — English IELTS batch 16; WordArk V70
 // 100 active entries: en_1501 to en_1600
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -2882,7 +2882,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "predated",
     "predating"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 19 Academic，Test 1，Reading Passage 2〈The pirates of the ancient Mediterranean〉（本次提供詞形：Predate；B段 predated；時間上早於，不採捕食義；2026-09-16 依公開正文／題目轉錄頁核對）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-19-academic-reading-test-1/；另見 Cambridge IELTS 21 Academic，Test 2，Reading Passage 2〈Mapungubwe〉（2026-10-13 提供詞形：Predate；正文中的同字或屈折形式；依上下文選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-2/"
 },
 {
   "id": "en_1598",

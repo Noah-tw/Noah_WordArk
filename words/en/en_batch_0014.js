@@ -1,4 +1,4 @@
-// en_batch_0014.js — English IELTS batch 14; WordArk V69
+// en_batch_0014.js — English IELTS batch 14; WordArk V70
 // 100 active entries: en_1301 to en_1400
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -1639,7 +1639,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "domesticated",
     "domesticating"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 17 Academic，Test 2，Reading Passage 2〈A second attempt at domesticating the tomato〉（原文詞形／屈折變化與本卡詞性、義項已定位）；另見 Cambridge IELTS 21 Academic，Test 2，Reading Passage 2〈Mapungubwe〉（2026-10-13 提供詞形：Domesticated；正文domesticated修飾cattle，表示已馴化的狀態；沿用既有domesticate，Forms保留domesticated）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-2/"
 },
 {
   "id": "en_1357",
@@ -1694,7 +1695,8 @@ window.VOCAB_DATA['english_ielts'].push(
   "forms": [
     "maize"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 17 Academic，Test 2，Reading Passage 2〈A second attempt at domesticating the tomato〉（原文詞形／屈折變化與本卡詞性、義項已定位）；另見 Cambridge IELTS 21 Academic，Test 1，Reading Passage 3〈Book review: The World of Sugar by Ulbe Bosma〉（2026-10-13 提供詞形：Maize；正文中的同字或屈折形式；依上下文選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-1/"
 },
 {
   "id": "en_1359",
@@ -2187,7 +2189,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "concluded",
     "concluding"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 17 Academic，Test 2，Reading Passage 3〈Insight or evolution?〉（原文詞形／屈折變化與本卡詞性、義項已定位）；另見 The Official Cambridge Guide to IELTS，Academic Reading Test 1，Passage 3〈Is photography art?〉（2026-09-21 提供詞形：Conclude；正文中已定位詞形或屈折變化；與既有基本詞義合併）；https://engnovate.com/ielts-reading-answers/is-photography-art/；另見 Cambridge IELTS 21 Academic，Test 1，Reading Passage 2〈Why we need silence〉（2026-10-13 提供詞形：Conclude；正文中的同字或屈折形式；依上下文選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-1/"
 },
 {
   "id": "en_1376",

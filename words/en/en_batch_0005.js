@@ -1,4 +1,4 @@
-// en_batch_0005.js — English IELTS batch 5; WordArk V69
+// en_batch_0005.js — English IELTS batch 5; WordArk V70
 // 100 active entries: en_0401 to en_0500
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -987,7 +987,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "emerged",
     "emerging"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 13 Academic，Test 2，Reading Passage 2〈Oxytocin〉（原文 Oxytocin’s role in human behaviour first emerged／contrasting findings began to emerge，為資訊或現象「逐漸顯現」；與《The Little Prince》中花朵從花苞出現的實體義分開保留）；另見 Cambridge IELTS 19 Academic，Test 2，Reading Passage 3〈An inquiry into the existence of the gifted child〉（2026-09-17 提供詞形：Emerge；正文首段；資訊或情況逐漸顯現；依公開正文／題目轉錄定位）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-19-academic-reading-test-2/；另見 Cambridge IELTS 19 Academic，Test 2，Reading Passage 3〈An inquiry into the existence of the gifted child〉（2026-09-17 提供詞形：Emerge；正文 Bloom 的家庭研究段；emerged as 表示研究後顯示出某種情況，同資訊顯現義；依公開正文／題目轉錄定位）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-19-academic-reading-test-2/；另見 Cambridge IELTS 21 Academic，Test 2，Reading Passage 1〈Do animals dream?〉（2026-10-13 提供詞形：Emerge；正文emerged，指報告、資訊出現，對應第433項而非第969項移出義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-2/"
 },
 {
   "id": "en_0434",
@@ -1644,7 +1645,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "retained",
     "retaining"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 13 Academic，Test 2，Reading Passage 3〈Making the most of trends〉（原文 retains most of the attributes and functions）；另見 Cambridge IELTS 14 Academic，Test 1，Reading Passage 3〈Motivational factors and the hospitality industry〉（原文 retain great／competent employees），以及 Cambridge IELTS 15 Academic，Test 3，Reading Passage 3〈Why fairy tales are really scary tales〉（原文 details retained by generations of storytellers）；各處均屬 Cambridge Dictionary 的核心義「keep or continue to have」，故不因受詞是功能、員工或故事細節另拆。原始檔另有一筆使用者收集的 YouTube 同字（未記錄影片名稱與原句），無法證明為 retain heat 義，故只記錄來源而不另立第三項；另見 Cambridge IELTS 21 Academic，Test 1，Reading Passage 1〈The Davies Sisters〉（2026-10-13 提供詞形：Retain；正文retained，指仍保有某種角色；與同批T1.31合用原編號）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-1/；另見 Cambridge IELTS 21 Academic，Test 1，Reading Passage 3〈Book review: The World of Sugar by Ulbe Bosma〉（2026-10-13 提供詞形：Retain；Passage 3正文retained，指仍維持某種做法；同批重複詞但補留不同文章來源）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-1/"
 },
 {
   "id": "en_0456",
@@ -1908,7 +1910,8 @@ window.VOCAB_DATA['english_ielts'].push(
   "forms": [
     "vital"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 13 Academic，Test 3，Reading Passage 3〈Whatever happened to the Harappan Civilisation?〉，Question 37（題目敘述 Finding further information ... is vital，指至關重要的）；另見 Cambridge IELTS 19 Academic，Test 1，Reading Passage 2〈The pirates of the ancient Mediterranean〉（本次提供詞形：Vital；A段 vital trade routes；2026-09-16 依公開正文／題目轉錄頁核對）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-19-academic-reading-test-1/；另見 The Official Cambridge Guide to IELTS，Academic Reading Test 5，Passage 3〈Science in space〉（2026-10-01 提供詞形：Vital；正文中的同字或屈折形式；依該段語境判定詞義）；https://engnovate.com/ielts-reading-answers/science-in-space/；另見 Cambridge IELTS 21 Academic，Test 1，Reading Passage 2〈Why we need silence〉（2026-10-13 提供詞形：Vital；正文中的同字或屈折形式；依上下文選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-1/"
 },
 {
   "id": "en_0465",
@@ -2519,7 +2522,8 @@ window.VOCAB_DATA['english_ielts'].push(
   "forms": [
     "infrastructure"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 13 Academic，Test 4，Reading Passage 2〈Saving the soil〉，Questions 14–17 摘要（原文 prevents damage to property and infrastructure，指維持社會運作的基礎設施）；另見使用者收集的 YouTube 影片（原始檔未記錄影片名稱與原句）；YouTube 同字未附原句，不能證明另有不同詞義或詞性，故不另立項並保留可驗證的 IELTS 語境義；另見 Cambridge IELTS 18 Academic，Test 2，Reading Passage 3〈An ideal city〉（本次提供詞形：infrastructure；文章正文中的相同詞形或屈折變化；依所在語境判義；2026-09-15 依公開文章／題目轉錄頁核對）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-18-academic-reading-test-2/；另見 Cambridge IELTS 21 Academic，Test 2，Reading Passage 3〈Artificial Intelligence〉（2026-10-13 提供詞形：Infrastructure；正文中的同字或屈折形式；依上下文選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-2/"
 },
 {
   "id": "en_0486",

@@ -1,4 +1,4 @@
-// en_batch_0011.js — English IELTS batch 11; WordArk V69
+// en_batch_0011.js — English IELTS batch 11; WordArk V70
 // 100 active entries: en_1001 to en_1100
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -2048,7 +2048,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "disregarded",
     "disregarding"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 15 Academic，Test 1，Reading Passage 3〈What is exploration?〉（原文 to disregard the role of the human mind，指忽視其作用）；使用者另收集自 Cambridge IELTS 17 Academic，Test 2（本次先保留來源，待逐項回查原句，不另立同義重複卡）；另見 Cambridge IELTS 21 Academic，Test 2，Reading Passage 3〈Artificial Intelligence〉（2026-10-13 提供詞形：Disregarding；正文disregarding，還原動詞disregard，對應第1068項）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-2/"
 },
 {
   "id": "en_1069",
@@ -2827,7 +2828,8 @@ window.VOCAB_DATA['english_ielts'].push(
   "forms": [
     "tedious"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 15 Academic，Test 2，Reading Passage 3〈Having a laugh〉（原文 tedious situations／task，指冗長重複而令人厭煩的工作）；另見 Cambridge IELTS 21 Academic，Test 1，Reading Passage 1〈The Davies Sisters〉（2026-10-13 提供詞形：Tedious；正文中的同字或屈折形式；依上下文選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-1/"
 },
 {
   "id": "en_1095",

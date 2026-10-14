@@ -1,4 +1,4 @@
-// en_batch_0012.js — English IELTS batch 12; WordArk V68
+// en_batch_0012.js — English IELTS batch 12; WordArk V70
 // 99 active entries: en_1101 to en_1200
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -2259,7 +2259,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "took the likely cost into account",
     "take age and experience into account"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 16 Academic，Test 2，Reading Passage 3〈How to make wise decisions〉，Questions 31–35 摘要（原文詞組 take into account 已定位）；另見 Cambridge IELTS 21 Academic，Test 2，Reading Passage 3〈Artificial Intelligence〉（2026-10-13 提供詞形：Account；Passage 3第38題，taken into account對應既有完整片語take into account）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-2/"
 },
 {
   "id": "en_1177",
@@ -2341,7 +2342,8 @@ window.VOCAB_DATA['english_ielts'].push(
   "forms": [
     "excessive"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 16 Academic，Test 2，Reading Passage 2〈I contain multitudes〉（原文詞形／屈折變化與本卡詞性、義項已定位）；另見 Cambridge IELTS 18 Academic，Test 2，Reading Passage 3〈An ideal city〉（本次提供詞形：Excessive；文章正文中的相同詞形或屈折變化；依所在語境判義；2026-09-15 依公開文章／題目轉錄頁核對）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-18-academic-reading-test-2/；另見 Cambridge IELTS 21 Academic，Test 1，Reading Passage 2〈Why we need silence〉（2026-10-13 提供詞形：Excessive；正文中的同字或屈折形式；依上下文選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-1/"
 },
 {
   "id": "en_1180",
@@ -2478,7 +2480,8 @@ window.VOCAB_DATA['english_ielts'].push(
   "forms": [
     "gleaming"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 16 Academic，Test 2，Reading Passage 1〈The White Horse of Uffington〉（原文詞形／屈折變化與本卡詞性、義項已定位）；另見 Cambridge IELTS 21 Academic，Test 1，Reading Passage 3〈Book review: The World of Sugar by Ulbe Bosma〉（2026-10-13 提供詞形：Gleaming；正文gleaming，沿用既有獨立形容詞）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-1/"
 },
 {
   "id": "en_1186",

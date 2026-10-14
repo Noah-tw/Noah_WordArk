@@ -1,4 +1,4 @@
-// en_batch_0019.js — English IELTS batch 19; WordArk V69
+// en_batch_0019.js — English IELTS batch 19; WordArk V70
 // 100 active entries: en_1801 to en_1900
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -2315,7 +2315,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "The manager outlined the plan at the meeting": "經理在會議上概述了計畫"
   },
   "lang": "english_ielts",
-  "source": "The Official Cambridge Guide to IELTS，Academic Reading Test 4，Passage 1〈South Pole adventurer〉（2026-10-01 提供詞形：Outline；行程計畫段；outlined為動詞，表示概述計畫）；https://engnovate.com/ielts-reading-tests/official-cambridge-guide-to-ielts-academic-reading-test-4/",
+  "source": "The Official Cambridge Guide to IELTS，Academic Reading Test 4，Passage 1〈South Pole adventurer〉（2026-10-01 提供詞形：Outline；行程計畫段；outlined為動詞，表示概述計畫）；https://engnovate.com/ielts-reading-tests/official-cambridge-guide-to-ielts-academic-reading-test-4/；另見 Cambridge IELTS 21 Academic，Test 2，Reading Passage 3〈Artificial Intelligence〉（2026-10-13 提供詞形：Outline；Passage 3第27題選項C，outlining還原outline）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-2/",
   "sentence1_hl": "The manager <b>outlined</b> the plan at the meeting."
 },
 {

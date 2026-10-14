@@ -1,4 +1,4 @@
-// en_batch_0007.js — English IELTS batch 7; WordArk V68
+// en_batch_0007.js — English IELTS batch 7; WordArk V70
 // 100 active entries: en_0601 to en_0700
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -885,7 +885,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "jeopardised",
     "jeopardising"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "使用者收集的 YouTube 影片（原始檔中出現兩次，均未記錄影片名稱與原句）；兩筆無語境可證明不同詞義或詞性，故合併為一項，並依 Cambridge Dictionary 保留一般常用義；另見 Cambridge IELTS 21 Academic，Test 2，Reading Passage 3〈Artificial Intelligence〉（2026-10-13 提供詞形：Jeopardize；正文jeopardises；併回既有jeopardize，保留英美拼字對應）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-2/"
 },
 {
   "id": "en_0630",

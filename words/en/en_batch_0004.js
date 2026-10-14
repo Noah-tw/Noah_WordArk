@@ -1,4 +1,4 @@
-// en_batch_0004.js — English IELTS batch 4; WordArk V69
+// en_batch_0004.js — English IELTS batch 4; WordArk V70
 // 100 active entries: en_0301 to en_0400
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -652,7 +652,8 @@ window.VOCAB_DATA['english_ielts'].push(
   "forms": [
     "extensively"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 12 Academic，Test 4，Reading Passage 3〈UK companies need more effective boards of directors〉（原文 failures have been extensively picked over）；另見 Cambridge IELTS 14 Academic，Test 2，Reading Passage 1〈Alexander Henderson (1831–1913)〉（原文 photographing extensively along the railway line）；原第 566 項同詞性同義，已合併於此；另見 Cambridge IELTS 21 Academic，Test 1，Reading Passage 1〈The Davies Sisters〉（2026-10-13 提供詞形：Extensively；正文中的同字或屈折形式；依上下文選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-1/"
 },
 {
   "id": "en_0323",
@@ -1608,7 +1609,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "corporation",
     "corporations"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 12 Academic，Test 4，Reading Passage 3〈UK companies need more effective boards of directors〉（原文 Trust in the corporation has been eroded）；另見 Cambridge IELTS 19 Academic，Reading Test 4，Passage 2〈Deep-sea Mining〉（2026-09-21 提供詞形：Corporation；正文中已定位詞形或屈折變化；與既有基本詞義合併）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-19-academic-reading-test-4/；另見 Cambridge IELTS 21 Academic，Test 1，Reading Passage 3〈Book review: The World of Sugar by Ulbe Bosma〉（2026-10-13 提供詞形：Corporation；正文中的同字或屈折形式；依上下文選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-1/"
 },
 {
   "id": "en_0355",
@@ -1726,7 +1728,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "sector",
     "sectors"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 12 Academic，Test 4，Reading Passage 3〈UK companies need more effective boards of directors〉（原文 companies in all sectors）；另見 Cambridge IELTS 21 Academic，Test 2，Reading Passage 3〈Artificial Intelligence〉（2026-10-13 提供詞形：Sector；正文中的同字或屈折形式；依上下文選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-2/"
 },
 {
   "id": "en_0359",

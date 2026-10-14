@@ -1,4 +1,4 @@
-// en_batch_0003.js — English IELTS batch 3; WordArk V69
+// en_batch_0003.js — English IELTS batch 3; WordArk V70
 // 100 active entries: en_0201 to en_0300
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -852,7 +852,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "upbringing",
     "upbringings"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 12 Academic，Test 2，Reading Passage 3〈The Benefits of Being Bilingual〉，Question 38（題目出現 bilingual upbringing）；另見 Cambridge IELTS 21 Academic，Test 1，Reading Passage 1〈The Davies Sisters〉（2026-10-13 提供詞形：Upbringing；正文中的同字或屈折形式；依上下文選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-1/"
 },
 {
   "id": "en_0230",
@@ -969,7 +970,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "settlement",
     "settlements"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 12 Academic，Test 2，Reading Passage 2〈The Lost City〉（原文 settlement）；使用者另收集自 Cambridge IELTS 16 Academic，Test 3（本次先保留來源，待逐項回查原句，不另立同義重複卡）；另見 Cambridge IELTS 21 Academic，Test 2，Reading Passage 2〈Mapungubwe〉（2026-10-13 提供詞形：Settlement；正文中的同字或屈折形式；依上下文選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-2/"
 },
 {
   "id": "en_0234",
@@ -1028,7 +1030,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "plateaus",
     "plateaux"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 12 Academic，Test 2，Reading Passage 2〈The Lost City〉（原文 plateau）；另見 Cambridge IELTS 21 Academic，Test 2，Reading Passage 2〈Mapungubwe〉（2026-10-13 提供詞形：Plateau；正文中的同字或屈折形式；依上下文選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-2/"
 },
 {
   "id": "en_0236",

@@ -1,4 +1,4 @@
-// en_batch_0006.js — English IELTS batch 6; WordArk V69
+// en_batch_0006.js — English IELTS batch 6; WordArk V70
 // 100 active entries: en_0501 to en_0600
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -852,7 +852,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "perception",
     "perceptions"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 14 Academic，Test 1，Reading Passage 3〈Motivational factors and the hospitality industry〉（the perceptions of employees，指員工對工作環境的看法）；另見使用者收集的 YouTube 影片（原始檔未記錄影片名稱與原句）；YouTube 同字未附原句，不能證明另有不同詞義或詞性，故不另立項並保留可驗證的 IELTS 語境義；另見 Cambridge IELTS 21 Academic，Test 2，Reading Passage 3〈Artificial Intelligence〉（2026-10-13 提供詞形：Perception；Passage 3第27題選項B，public perception的觀點義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-2/"
 },
 {
   "id": "en_0530",
@@ -1778,7 +1779,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "reaped",
     "reaping"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "使用者收集的 YouTube 影片（原始檔未記錄影片名稱與原句；此義依 Cambridge Dictionary 常用用法複核）；另見 Cambridge IELTS 21 Academic，Test 2，Reading Passage 3〈Artificial Intelligence〉（2026-10-13 提供詞形：Reap；正文中的同字或屈折形式；依上下文選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-2/"
 },
 {
   "id": "en_0561",
@@ -1992,7 +1994,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "multitudes",
     "a multitude of"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "使用者收集的 YouTube 影片（原始檔未記錄影片名稱與原句；此義依 Cambridge Dictionary 常用用法複核）；另見 Cambridge IELTS 21 Academic，Test 1，Reading Passage 2〈Why we need silence〉（2026-10-13 提供詞形：Multitude；正文中的同字或屈折形式；依上下文選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-1/"
 },
 {
   "id": "en_0568",
@@ -2148,7 +2151,8 @@ window.VOCAB_DATA['english_ielts'].push(
   "forms": [
     "therapeutic"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "使用者收集的 YouTube 影片（原始檔未記錄影片名稱與原句；此義依 Cambridge Dictionary 常用用法複核）；另見 Cambridge IELTS 21 Academic，Test 1，Reading Passage 2〈Why we need silence〉（2026-10-13 提供詞形：Therapeutic；正文中的同字或屈折形式；依上下文選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-1/"
 },
 {
   "id": "en_0573",
