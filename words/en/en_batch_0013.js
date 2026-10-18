@@ -1,4 +1,4 @@
-// en_batch_0013.js — English IELTS batch 13; WordArk V69
+// en_batch_0013.js — English IELTS batch 13; WordArk V71
 // 100 active entries: en_1201 to en_1300
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -1957,7 +1957,8 @@ window.VOCAB_DATA['english_ielts'].push(
   "forms": [
     "demographic"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 17 Academic，Test 4，Reading Passage 2〈Does education fuel economic growth?〉（原文詞形／屈折變化與本卡詞性、義項已定位）；另見 Cambridge IELTS 21 Academic，Test 4，Reading Passage 1〈The problems and benefits created by the spread of the water hyacinth in Kenya〉（2026-10-18 提供詞形：Demographic；形容詞，沿用人口統計義；不併到第544項群體名詞）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-4/"
 },
 {
   "id": "en_1268",
@@ -2095,7 +2096,8 @@ window.VOCAB_DATA['english_ielts'].push(
   "forms": [
     "devastating"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 17 Academic，Test 4，Reading Passage 1〈Bats to the rescue〉（原文詞形／屈折變化與本卡詞性、義項已定位）；另見 Cambridge IELTS 19 Academic，Test 3，Reading Passage 2〈The global importance of wetlands〉（2026-09-17 提供詞形：Devastating；F段；形容造成嚴重損害的影響；依公開正文／題目轉錄定位）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-19-academic-reading-test-3/；另見 其它來源（使用者2026-10-18提供詞形：devastating；未提供文章／影片標題與原句；獨立形容詞devastating；不誤併到devastate動詞）"
 },
 {
   "id": "en_1273",
@@ -2482,31 +2484,32 @@ window.VOCAB_DATA['english_ielts'].push(
 {
   "id": "en_1286",
   "category": "IELTS Reading Vocabulary",
-  "pos": "noun",
   "word": "census",
-  "meaning": "an official count and survey of a population and its characteristics",
+  "pos": "noun",
+  "zh_def": "普查；對人口或特定動物族群數量的系統性調查",
+  "zh": "普查",
+  "definition": "A systematic count or survey of a population, including people or animals.",
+  "meaning": "a systematic count or survey of a population, including people or animals",
   "ipa": "ˈsensəs",
-  "zh": "人口普查",
-  "zh_def": "人口普查；官方對人口及其特徵所作的全面統計",
-  "definition": "An official count and survey of a population and its characteristics.",
-  "sentence1": "The national census is conducted every ten years.",
-  "sentence1_en": "全國人口普查每十年進行一次。",
-  "sentence1_hl": "The national <b>census</b> is conducted every ten years.",
-  "sentence2": "Census data show that the town is growing rapidly.",
-  "sentence2_en": "人口普查資料顯示這座城鎮正在快速成長。",
-  "sentence3": "Researchers used the census to estimate household size.",
-  "sentence3_en": "研究人員利用人口普查估算家戶規模。",
-  "tip": "conduct／carry out a census 是進行普查，census data 是普查資料。複數為 censuses；census 著重全面清查人口或對象，不等於只抽部分人回答的 sample survey。",
-  "word_map": {
-    "census": "人口普查",
-    "censuses": "人口普查",
-    "The national census is conducted every ten years": "全國人口普查每十年進行一次"
-  },
   "forms": [
     "census",
     "censuses"
   ],
-  "lang": "english_ielts"
+  "tip": "conduct／carry out a census；人口普查常稱 population census，野生動物也可做 census。animal census 不應譯為人類人口普查；實際野外調查可能用估算方法。複數 censuses，不是 consensus「共識」。",
+  "sentence1": "The national census is conducted every ten years.",
+  "sentence1_en": "全國人口普查每十年進行一次。",
+  "sentence2": "Census data show that the town is growing rapidly.",
+  "sentence2_en": "人口普查資料顯示這座城鎮正在快速成長。",
+  "sentence3": "Researchers carried out an aerial census of the deer population.",
+  "sentence3_en": "研究人員從空中調查了鹿群的數量。",
+  "word_map": {
+    "census": "普查",
+    "censuses": "普查",
+    "The national census is conducted every ten years": "全國人口普查每十年進行一次"
+  },
+  "source": "Cambridge IELTS 17 Academic，Test 4，Reading Passage 2〈Does education fuel economic growth?〉（原文詞形／屈折變化與本卡詞性、義項已定位）；另見 Cambridge IELTS 21 Academic，Test 3，Reading Passage 1〈Saving the saiga〉（2026-10-18 提供詞形：Census；動物數量調查；擴充第1286項以涵蓋非人類族群）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-3/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The national <b>census</b> is conducted every ten years."
 },
 {
   "id": "en_1287",

@@ -1,4 +1,4 @@
-// en_batch_0011.js — English IELTS batch 11; WordArk V70
+// en_batch_0011.js — English IELTS batch 11; WordArk V71
 // 100 active entries: en_1001 to en_1100
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -911,7 +911,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "venture",
     "ventures"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 15 Academic，Test 3，Reading Passage 2〈The Desolenator: producing clean water〉（原文 a venture with a social mission，指具有社會使命的新創事業）；另見 Cambridge IELTS 21 Academic，Test 4，Reading Passage 3〈The Globemakers: The Curious Story of an Ancient Craft〉（2026-10-18 提供詞形：Venture；正文同字或屈折形式已定位；依所在語境選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-4/"
 },
 {
   "id": "en_1031",
@@ -1266,7 +1267,8 @@ window.VOCAB_DATA['english_ielts'].push(
   "forms": [
     "foliage"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 15 Academic，Test 1，Reading Passage 1〈Nutmeg – a valuable spice〉（原文 dense foliage，指樹木濃密的葉片總體）；另見 其它來源（使用者2026-10-18提供詞形：foliage；未提供文章／影片標題與原句；一般常用義；未宣稱已還原原始語境）；另見 Cambridge IELTS 21 Academic，Test 4，Reading Passage 1〈The problems and benefits created by the spread of the water hyacinth in Kenya〉（2026-10-18 提供詞形：Foliage；正文同字或屈折形式已定位；依所在語境選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-4/"
 },
 {
   "id": "en_1043",
@@ -1749,7 +1751,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "smuggled",
     "smuggling"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 15 Academic，Test 1，Reading Passage 1〈Nutmeg – a valuable spice〉（原文過去式 smuggled，指秘密且未經允許把肉豆蔻植株帶離控制區）；另見 使用者收集的雜誌（未提供刊名、篇名與原句）（2026-09-21 提供詞形：Smuggle；只補充使用者收集來源；未提供原句，不據此另造同字異義項，也不宣稱已核實雜誌語境）；另見 其它來源（使用者2026-10-18提供詞形：Smuggle；未提供文章／影片標題與原句；一般常用義；未宣稱已還原原始語境）"
 },
 {
   "id": "en_1059",
@@ -2684,7 +2687,8 @@ window.VOCAB_DATA['english_ielts'].push(
   "form_notes": {
     "millennia": "常見的不規則複數；millenniums 也正確。"
   },
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 15 Academic，Test 2，Reading Passage 2〈Should we try to bring extinct species back to life?〉（原文複數 millennia，指過去數千年的時間）；另見 Cambridge IELTS 21 Academic，Test 4，Reading Passage 3〈The Globemakers: The Curious Story of an Ancient Craft〉（2026-10-18 提供詞形：Millennia；正文同字或屈折形式已定位；依所在語境選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-4/"
 },
 {
   "id": "en_1090",

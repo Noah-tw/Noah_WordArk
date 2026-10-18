@@ -1,4 +1,4 @@
-// en_batch_0014.js — English IELTS batch 14; WordArk V70
+// en_batch_0014.js — English IELTS batch 14; WordArk V71
 // 100 active entries: en_1301 to en_1400
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -2246,7 +2246,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "enterprise",
     "enterprises"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 17 Academic，Test 2，Reading Passage 3〈Insight or evolution?〉（原文詞形／屈折變化與本卡詞性、義項已定位）；另見 Cambridge IELTS 21 Academic，Test 4，Reading Passage 3〈The Globemakers: The Curious Story of an Ancient Craft〉（2026-10-18 提供詞形：enterprise；艱鉅計畫義，對應第1377項；不是本批T4.17的營業實體義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-4/"
 },
 {
   "id": "en_1378",

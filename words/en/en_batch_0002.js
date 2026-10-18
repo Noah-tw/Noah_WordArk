@@ -1,4 +1,4 @@
-// en_batch_0002.js — English IELTS batch 2; WordArk V70
+// en_batch_0002.js — English IELTS batch 2; WordArk V71
 // 100 active entries: en_0101 to en_0200
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -793,7 +793,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "inclination",
     "inclinations"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 11 Academic，Test 2，Reading Passage 3〈Neuroaesthetics〉（原文詞組 an inclination to follow the crowd 與語境已定位）；另見 Cambridge IELTS 15 Academic，Test 3，Reading Passage 1〈Henry Moore (1898–1986)〉（原文 did not show any inclination to please the British public）；同一「傾向／意願」義項合併於此；另見 其它來源（使用者2026-10-18提供詞形：Inclination；未提供文章／影片標題與原句；一般常用義；未宣稱已還原原始語境）"
 },
 {
   "id": "en_0128",
@@ -997,7 +998,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "resembled",
     "resembling"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 11 Academic，Test 3，Reading Passage 2〈Great Migrations〉（原文詞形 resembles 與語境已定位）；另見 Cambridge IELTS 21 Academic，Test 3，Reading Passage 3〈Rethinking the Past〉（2026-10-18 提供詞形：Resembling；正文同字或屈折形式已定位；依所在語境選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-3/"
 },
 {
   "id": "en_0135",
@@ -2283,7 +2285,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "antique",
     "antiques"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 12 Academic，Test 1，Reading Passage 2〈Collecting as a hobby〉（原文複數名詞 antiques 與收藏語境已定位）；另見 Cambridge IELTS 21 Academic，Test 4，Reading Passage 3〈The Globemakers: The Curious Story of an Ancient Craft〉（2026-10-18 提供詞形：Antique；正文同字或屈折形式已定位；依所在語境選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-4/"
 },
 {
   "id": "en_0179",
@@ -2341,7 +2344,8 @@ window.VOCAB_DATA['english_ielts'].push(
   "forms": [
     "inferior"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 12 Academic，Test 1，Reading Passage 2〈Collecting as a hobby〉（greatly inferior）；另見 Cambridge IELTS 13 Academic，Test 1，Reading Passage 3〈Artificial artists〉之第 28 題選項（aesthetically inferior to human art）；兩處均為「較差」；另見 The Official Cambridge Guide to IELTS，Academic Reading Test 1，Passage 3〈Is photography art?〉（2026-09-21 提供詞形：Inferior；正文中已定位詞形或屈折變化；與既有基本詞義合併）；https://engnovate.com/ielts-reading-answers/is-photography-art/；另見 Cambridge IELTS 21 Academic，Test 4，Reading Passage 3〈The Globemakers: The Curious Story of an Ancient Craft〉（2026-10-18 提供詞形：Inferior；Passage 3摘要備選詞C，品質較差的）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-4/"
 },
 {
   "id": "en_0181",
@@ -2370,7 +2374,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "practitioner",
     "practitioners"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 12 Academic，Test 1，Reading Passage 2〈Collecting as a hobby〉（原文複數詞形 practitioners 與從事嗜好者的語境已定位）；另見 Cambridge IELTS 21 Academic，Test 3，Reading Passage 1〈Saving the saiga〉（2026-10-18 提供詞形：Practitioner；醫療從業者；沿用可涵蓋專業實務工作者的既有義項）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-3/"
 },
 {
   "id": "en_0182",
@@ -2777,34 +2782,36 @@ window.VOCAB_DATA['english_ielts'].push(
 {
   "id": "en_0196",
   "category": "IELTS Reading Vocabulary",
-  "pos": "verb",
   "word": "establish",
-  "meaning": "to create or set up something that will continue to exist",
-  "ipa": "ɪˈstæb.lɪʃ",
-  "zh": "建立；形成",
-  "zh_def": "建立一套證據鏈、程序、制度或系統，使其能持續運作",
-  "definition": "To create, form, or set up a system, procedure, relationship, or structure.",
-  "sentence1": "Investigators must establish a clear chain of evidence before prosecution.",
-  "sentence1_en": "調查人員在提出起訴前，必須建立清楚的證據鏈。",
-  "sentence1_hl": "Investigators must <b>establish</b> a clear chain of evidence before prosecution.",
-  "sentence2": "The agency established a formal procedure for handling digital evidence.",
-  "sentence2_en": "該機構建立了一套處理數位證據的正式程序。",
-  "sentence3": "The two laboratories established a secure system for sharing records.",
-  "sentence3_en": "兩間實驗室建立了一套安全的紀錄共享系統。",
-  "tip": "本卡的 establish 是「建立、設立」，常接 chain of evidence、procedure、system；不是「查明、證實」的另一義。",
-  "word_map": {
-    "Investigators": "調查人員",
-    "must establish": "必須建立",
-    "a clear chain of evidence": "清楚的證據鏈",
-    "before prosecution": "在提出起訴前"
-  },
+  "pos": "verb",
+  "zh_def": "建立；創立組織，或形成制度、關係等",
+  "zh": "建立",
+  "definition": "To set up an organization or bring a system, arrangement or relationship into existence.",
+  "meaning": "to set up an organization or bring a system, arrangement or relationship into existence",
+  "ipa": "ɪˈstæblɪʃ",
   "forms": [
     "establish",
     "establishes",
     "established",
     "establishing"
   ],
-  "lang": "english_ielts"
+  "tip": "establish a company／system／relationship 是使其成立或形成；establish the facts 則是查明、確立事實的另一用法。建立公司與建立程序共用此動詞義，不因受詞換領域就再增一張重複卡。",
+  "sentence1": "Investigators must establish a clear chain of evidence before prosecution.",
+  "sentence1_en": "調查人員必須在起訴前建立清楚的證據鏈。",
+  "sentence2": "The agency established a formal procedure for handling digital evidence.",
+  "sentence2_en": "該機構建立了一套處理數位證據的正式程序。",
+  "sentence3": "She established a small company to manufacture custom furniture.",
+  "sentence3_en": "她創立了一家製造訂製家具的小公司。",
+  "word_map": {
+    "establish": "建立",
+    "establishes": "建立",
+    "established": "建立",
+    "establishing": "建立",
+    "Investigators must establish a clear chain of evidence before prosecution": "調查人員必須在起訴前建立清楚的證據鏈"
+  },
+  "source": "Cambridge IELTS 12 Academic，Test 1，Reading Passage 3〈What's the purpose of gaining knowledge?〉（原文詞形 establishing，詞組為 establishing a chain of evidence）；另見 Cambridge IELTS 21 Academic，Test 4，Reading Passage 3〈The Globemakers: The Curious Story of an Ancient Craft〉（2026-10-18 提供詞形：Establishing；創立公司，沿用建立義，補全既有第196項的說明及例句）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-4/",
+  "lang": "english_ielts",
+  "sentence1_hl": "Investigators must <b>establish</b> a clear chain of evidence before prosecution."
 },
 {
   "id": "en_0197",

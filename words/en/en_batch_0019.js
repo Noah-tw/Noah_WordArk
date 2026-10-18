@@ -1,4 +1,4 @@
-// en_batch_0019.js — English IELTS batch 19; WordArk V70
+// en_batch_0019.js — English IELTS batch 19; WordArk V71
 // 100 active entries: en_1801 to en_1900
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -2561,7 +2561,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "We need to rethink how the service is funded": "我們需要重新思考這項服務的經費來源"
   },
   "lang": "english_ielts",
-  "source": "The Official Cambridge Guide to IELTS，Academic Reading Test 4，Passage 2〈The rise of the agribots〉（2026-10-01 提供詞形：Rethinking；正文中的同字或屈折形式；依該段語境判定詞義）；https://engnovate.com/ielts-reading-answers/the-rise-of-the-agribots/",
+  "source": "The Official Cambridge Guide to IELTS，Academic Reading Test 4，Passage 2〈The rise of the agribots〉（2026-10-01 提供詞形：Rethinking；正文中的同字或屈折形式；依該段語境判定詞義）；https://engnovate.com/ielts-reading-answers/the-rise-of-the-agribots/；另見 Cambridge IELTS 21 Academic，Test 3，Reading Passage 3〈Rethinking the Past〉（2026-10-18 提供詞形：Rethink；正文同字或屈折形式已定位；依所在語境選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-3/",
   "sentence1_hl": "We need to <b>rethink</b> how the service is funded."
 },
 {
@@ -2687,7 +2687,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "The system works, albeit slowly": "這套系統可以運作，雖然速度很慢"
   },
   "lang": "english_ielts",
-  "source": "The Official Cambridge Guide to IELTS，Academic Reading Test 4，Passage 2〈The rise of the agribots〉（2026-10-01 提供詞形：Albeit；正文中的同字或屈折形式；依該段語境判定詞義）；https://engnovate.com/ielts-reading-answers/the-rise-of-the-agribots/",
+  "source": "The Official Cambridge Guide to IELTS，Academic Reading Test 4，Passage 2〈The rise of the agribots〉（2026-10-01 提供詞形：Albeit；正文中的同字或屈折形式；依該段語境判定詞義）；https://engnovate.com/ielts-reading-answers/the-rise-of-the-agribots/；另見 Cambridge IELTS 21 Academic，Test 4，Reading Passage 3〈The Globemakers: The Curious Story of an Ancient Craft〉（2026-10-18 提供詞形：Albeit；正文同字或屈折形式已定位；依所在語境選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-4/",
   "sentence1_hl": "The system works, <b>albeit</b> slowly."
 },
 {

@@ -1,4 +1,4 @@
-// en_batch_0012.js — English IELTS batch 12; WordArk V70
+// en_batch_0012.js — English IELTS batch 12; WordArk V71
 // 99 active entries: en_1101 to en_1200
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -271,7 +271,8 @@ window.VOCAB_DATA['english_ielts'].push(
   "forms": [
     "lateral"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 16 Academic，Test 4，Reading Passage 1〈Roman tunnels〉（原文 a lateral link，指向側面延伸、連接兩條未能會合通道的橫向連結）；另見 其它來源（使用者2026-10-18提供詞形：lateral；未提供文章／影片標題與原句；一般常用義；未宣稱已還原原始語境）"
 },
 {
   "id": "en_1110",
@@ -2111,31 +2112,32 @@ window.VOCAB_DATA['english_ielts'].push(
 {
   "id": "en_1172",
   "category": "IELTS Reading Vocabulary",
-  "pos": "noun",
   "word": "yield",
-  "meaning": "the amount of a crop or other agricultural product produced",
-  "ipa": "jiːld",
+  "pos": "noun",
+  "zh_def": "產量；農作物或製程所產出的產品數量",
   "zh": "產量",
-  "zh_def": "產量；土地或農作物在一定期間內生產出的數量",
-  "definition": "The amount of a crop or other agricultural product produced.",
+  "definition": "The amount of a product obtained from a crop or production process.",
+  "meaning": "the amount of a product obtained from a crop or production process",
+  "ipa": "jiːld",
+  "forms": [
+    "yield",
+    "yields"
+  ],
+  "tip": "crop yield 是作物產量，the yield of gas 是氣體產量；都在計算產出，不因產品不同就另立同義項。可說 a high yield／an increase in yield／a yield of + 數量。yield 作動詞另見第1732項。",
   "sentence1": "The new wheat variety produced a higher yield.",
   "sentence1_en": "這個小麥新品種帶來較高產量。",
-  "sentence1_hl": "The new wheat variety produced a higher <b>yield</b>.",
   "sentence2": "Heavy rain reduced the rice yield that season.",
   "sentence2_en": "大雨降低了那一季的稻米產量。",
-  "sentence3": "Farmers compared the yield from treated and untreated fields.",
-  "sentence3_en": "農民比較經處理與未處理田地的產量。",
-  "tip": "農業名詞 yield 指產量，可說 crop yield、a high yield、an increase in yield。high-yielding 放在作物前表示高產的；a yield of + 數量可交代實際產出。",
+  "sentence3": "The new process increased the yield of gas from the same amount of material.",
+  "sentence3_en": "新製程使相同數量的材料能產出更多氣體。",
   "word_map": {
     "yield": "產量",
     "yields": "產量",
     "The new wheat variety produced a higher yield": "這個小麥新品種帶來較高產量"
   },
-  "forms": [
-    "yield",
-    "yields"
-  ],
-  "lang": "english_ielts"
+  "source": "Cambridge IELTS 16 Academic，Test 3，Reading Passage 3〈Plant ‘thermometer’ triggers springtime growth by measuring night-time heat〉（原文名詞詞形 yields 已定位）；另見 Cambridge IELTS 21 Academic，Test 4，Reading Passage 1〈The problems and benefits created by the spread of the water hyacinth in Kenya〉（2026-10-18 提供詞形：Yield；名詞產量；擴充第1172項至加工製程，不另製同義重複項）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-4/",
+  "lang": "english_ielts",
+  "sentence1_hl": "The new wheat variety produced a higher <b>yield</b>."
 },
 {
   "id": "en_1173",

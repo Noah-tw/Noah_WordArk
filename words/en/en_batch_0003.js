@@ -1,4 +1,4 @@
-// en_batch_0003.js — English IELTS batch 3; WordArk V70
+// en_batch_0003.js — English IELTS batch 3; WordArk V71
 // 100 active entries: en_0201 to en_0300
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -614,7 +614,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "intervention",
     "interventions"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 12 Academic，Test 2，Reading Passage 1〈The risks agriculture faces in developing countries〉（原文 state intervention）；另見 Cambridge IELTS 18 Academic，Test 4，Reading Passage 2〈The growth mindset〉（本次提供詞形：Intervention；文章正文中的相同詞形或屈折變化；依所在語境判義；2026-09-15 依公開文章／題目轉錄頁核對）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-18-academic-reading-test-4/；另見 Cambridge IELTS 21 Academic，Test 3，Reading Passage 1〈Saving the saiga〉（2026-10-18 提供詞形：Intervention；正文同字或屈折形式已定位；依所在語境選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-3/"
 },
 {
   "id": "en_0222",
@@ -704,7 +705,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "addressed",
     "addressing"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 12 Academic，Test 2，Reading Passage 1〈The risks agriculture faces in developing countries〉（原文 address the underlying causes）；另見 Cambridge IELTS 13 Academic，Test 2，Reading Passage 3〈Making the most of trends〉（address the needs）；兩處均為「處理／因應」；使用者另收集自 Cambridge IELTS 17 Academic，Test 3（本次先保留來源，待逐項回查原句，不另立同義重複卡）；另見 Cambridge IELTS 19 Academic，Test 3，Reading Passage 3〈Is the era of artificial speech translation upon us?〉（2026-09-17 提供詞形：Address；正文雲端資料段；address 指處理對資料隱私的疑慮；下一段稱呼人的用法另列第1695項；依公開正文／題目轉錄定位）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-19-academic-reading-test-3/；另見 The Official Cambridge Guide to IELTS，Academic Reading Test 4，Passage 2〈The rise of the agribots〉（2026-10-01 提供詞形：Address；正文中的同字或屈折形式；依該段語境判定詞義）；https://engnovate.com/ielts-reading-answers/the-rise-of-the-agribots/；另見 Cambridge IELTS 21 Academic，Test 4，Reading Passage 1〈The problems and benefits created by the spread of the water hyacinth in Kenya〉（2026-10-18 提供詞形：Address；正文同字或屈折形式已定位；依所在語境選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-4/"
 },
 {
   "id": "en_0225",
@@ -2730,7 +2732,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "respite",
     "respites"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 12 Academic，Test 3，Reading Passage 1〈Flying tortoises〉（原文 offers respite from the barren terrain）；另見 Cambridge IELTS 15 Academic，Test 2，Reading Passage 3〈Having a laugh〉（原文 humour might provide a respite from tedious situations）；同一「暫時喘息／舒緩」義項合併於此；另見 Cambridge IELTS 21 Academic，Test 3，Reading Passage 1〈Saving the saiga〉（2026-10-18 提供詞形：Respite；正文同字或屈折形式已定位；依所在語境選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-3/"
 },
 {
   "id": "en_0294",

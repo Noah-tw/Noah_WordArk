@@ -1,5 +1,5 @@
-// en_batch_0022.js — English IELTS batch 22; WordArk V70
-// 91 active entries: en_2101 to en_2191
+// en_batch_0022.js — English IELTS batch 22; WordArk V71
+// 100 active entries: en_2101 to en_2200
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
 window.VOCAB_DATA['english_ielts'].push(
@@ -63,7 +63,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "seeping": "滲出",
     "Water seeped up through the cracks in the floor": "水從地板裂縫緩慢向上滲出"
   },
-  "source": "Cambridge IELTS 20 Academic，Test 4，Reading Passage 2〈Adapting to the effects of climate change〉（2026-10-11 提供詞形：Seep up；原文 seeping up through the ground；up 是向上的方向，採 seep 液體滲流義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-4/",
+  "source": "Cambridge IELTS 20 Academic，Test 4，Reading Passage 2〈Adapting to the effects of climate change〉（2026-10-11 提供詞形：Seep up；原文 seeping up through the ground；up 是向上的方向，採 seep 液體滲流義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-4/；另見 Cambridge IELTS 21 Academic，Test 4，Reading Passage 3〈The Globemakers: The Curious Story of an Ancient Craft〉（2026-10-18 提供詞形：Seep；正文同字或屈折形式已定位；依所在語境選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-4/",
   "lang": "english_ielts",
   "sentence1_hl": "Water <b>seeped</b> up through the cracks in the floor."
 },
@@ -1753,7 +1753,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "manure": "廄肥",
     "The farmer spread well-rotted manure over the field": "農民在田地上施撒充分腐熟的廄肥"
   },
-  "source": "Cambridge IELTS 21 Academic，Test 2，Reading Passage 2〈Mapungubwe〉（2026-10-13 提供詞形：Manure；正文中的同字或屈折形式；依上下文選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-2/",
+  "source": "Cambridge IELTS 21 Academic，Test 2，Reading Passage 2〈Mapungubwe〉（2026-10-13 提供詞形：Manure；正文中的同字或屈折形式；依上下文選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-2/；另見 Cambridge IELTS 21 Academic，Test 4，Reading Passage 1〈The problems and benefits created by the spread of the water hyacinth in Kenya〉（2026-10-18 提供詞形：Manure；正文同字或屈折形式已定位；依所在語境選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-4/",
   "lang": "english_ielts",
   "sentence1_hl": "The farmer spread well-rotted <b>manure</b> over the field."
 },
@@ -2802,5 +2802,275 @@ window.VOCAB_DATA['english_ielts'].push(
   "source": "Cambridge IELTS 21 Academic，Test 2，Reading Passage 3〈Artificial Intelligence〉（2026-10-13 提供詞形：Trial；正文trialled，還原動詞trial，指試行而非審判名詞）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-2/",
   "lang": "english_ielts",
   "sentence1_hl": "The hospital <b>trialled</b> a new booking system for three months."
+},
+{
+  "id": "en_2192",
+  "category": "IELTS Reading Vocabulary",
+  "word": "run the gamut",
+  "pos": "phrase",
+  "zh_def": "涵蓋整個範圍；經歷某一類事物的各種不同情況",
+  "zh": "涵蓋整個範圍",
+  "definition": "To include or experience the full range of something.",
+  "meaning": "to include or experience the full range of something",
+  "ipa": "rʌn ðə ˈɡæmət",
+  "forms": [
+    "run the gamut",
+    "runs the gamut",
+    "ran the gamut",
+    "running the gamut"
+  ],
+  "tip": "慣用 run the gamut of + 類別，或 run the gamut from A to B。gamut 本身是名詞「整個範圍」，常見 the full gamut；這裡採標準搭配 the，不照抄輸入的 a。gambit 是策略，gauntlet 是護手套／嚴峻考驗，均不同。",
+  "sentence1": "The workshops run the gamut from basic drawing to advanced animation.",
+  "sentence1_en": "這些工作坊涵蓋從基礎繪畫到進階動畫的各種內容。",
+  "sentence2": "Her reactions ran the gamut of emotions during the final match.",
+  "sentence2_en": "在決賽期間，她經歷了各種不同的情緒反應。",
+  "sentence3": "The reviews run the gamut from enthusiastic praise to harsh criticism.",
+  "sentence3_en": "這些評論從熱烈讚賞到嚴厲批評，各種評價都有。",
+  "word_map": {
+    "run the gamut": "涵蓋整個範圍",
+    "runs the gamut": "涵蓋整個範圍",
+    "ran the gamut": "涵蓋整個範圍",
+    "running the gamut": "涵蓋整個範圍",
+    "The workshops run the gamut from basic drawing to advanced animation": "這些工作坊涵蓋從基礎繪畫到進階動畫的各種內容"
+  },
+  "source": "其它來源（使用者2026-10-18提供詞形：run a gamut /gamut；未提供文章／影片標題與原句；慣用式整理為run the gamut；gamut的名詞義在筆記一併說明）",
+  "lang": "english_ielts",
+  "sentence1_hl": "The workshops <b>run the gamut</b> from basic drawing to advanced animation."
+},
+{
+  "id": "en_2193",
+  "category": "IELTS Reading Vocabulary",
+  "word": "contour",
+  "pos": "noun",
+  "zh_def": "輪廓；物體或地表外緣的形狀與曲線",
+  "zh": "輪廓",
+  "definition": "The outline or curved shape of an object or an area of land.",
+  "meaning": "the outline or curved shape of an object or an area of land",
+  "ipa": "ˈkɒntʊə(r)",
+  "forms": [
+    "contour",
+    "contours"
+  ],
+  "tip": "the contours of a face／landscape 常用複數，指整體起伏線條。地圖上的 contour line 是「等高線」；輪廓本身不一定是畫在地圖上的線，也不要與 content「內容」混淆。",
+  "sentence1": "Soft light revealed the contours of her face.",
+  "sentence1_en": "柔和的光線映出了她臉部的輪廓。",
+  "sentence2": "The path follows the natural contours of the hillside.",
+  "sentence2_en": "這條小徑沿著山坡自然的地形曲線延伸。",
+  "sentence3": "He traced the contour of the bowl with a pencil.",
+  "sentence3_en": "他用鉛筆描出了碗的輪廓。",
+  "word_map": {
+    "contour": "輪廓",
+    "contours": "輪廓",
+    "Soft light revealed the contours of her face": "柔和的光線映出了她臉部的輪廓"
+  },
+  "source": "其它來源（使用者2026-10-18提供詞形：Contours；未提供文章／影片標題與原句；一般常用義；未宣稱已還原原始語境）",
+  "lang": "english_ielts",
+  "sentence1_hl": "Soft light revealed the <b>contours</b> of her face."
+},
+{
+  "id": "en_2194",
+  "category": "IELTS Reading Vocabulary",
+  "word": "resin",
+  "pos": "noun",
+  "zh_def": "樹脂；植物分泌或人工製成、可硬化的黏性物質",
+  "zh": "樹脂",
+  "definition": "A sticky substance produced by certain plants, or a synthetic material with similar properties.",
+  "meaning": "a sticky substance produced by certain plants, or a synthetic material with similar properties",
+  "ipa": "ˈrezɪn",
+  "forms": [
+    "resin",
+    "resins"
+  ],
+  "tip": "說材料通常不可數；resins 表示不同種類。natural resin 與 synthetic resin 分別是天然及合成樹脂。不是所有樹液都叫 resin；sap 是更一般的植物汁液。",
+  "sentence1": "A drop of resin clung to the damaged bark.",
+  "sentence1_en": "一滴樹脂黏在受損的樹皮上。",
+  "sentence2": "The artist poured clear resin into a silicone mould.",
+  "sentence2_en": "那位藝術家把透明樹脂倒入矽膠模具。",
+  "sentence3": "Different resins are used to make coatings and adhesives.",
+  "sentence3_en": "不同種類的樹脂被用來製作塗層與黏著劑。",
+  "word_map": {
+    "resin": "樹脂",
+    "resins": "樹脂",
+    "A drop of resin clung to the damaged bark": "一滴樹脂黏在受損的樹皮上"
+  },
+  "source": "其它來源（使用者2026-10-18提供詞形：Resin；未提供文章／影片標題與原句；一般常用義；未宣稱已還原原始語境）",
+  "lang": "english_ielts",
+  "sentence1_hl": "A drop of <b>resin</b> clung to the damaged bark."
+},
+{
+  "id": "en_2195",
+  "category": "IELTS Reading Vocabulary",
+  "word": "unhinged",
+  "pos": "adjective",
+  "zh_def": "失去理智的；精神失常似的（非正式、常帶貶義）",
+  "zh": "失去理智的",
+  "definition": "Behaving or thinking in a wildly irrational or disturbed way.",
+  "meaning": "behaving or thinking in a wildly irrational or disturbed way",
+  "ipa": "ʌnˈhɪndʒd",
+  "forms": [
+    "unhinged"
+  ],
+  "tip": "原意與門脫離鉸鏈有關；形容人的言行時是強烈負面評價，不是正式醫療診斷。它不等於單純 eccentric「古怪的」，也不宜隨意用來稱呼心理困擾者。",
+  "sentence1": "The villain delivers an unhinged speech in the final scene.",
+  "sentence1_en": "那名反派在最後一幕發表了一段瘋狂失控的演說。",
+  "sentence2": "His increasingly unhinged threats frightened the neighbours.",
+  "sentence2_en": "他越來越失去理智的威脅嚇壞了鄰居。",
+  "sentence3": "The reviewer described the fictional ruler as utterly unhinged.",
+  "sentence3_en": "那位評論者形容這名虛構統治者完全失去了理智。",
+  "word_map": {
+    "unhinged": "失去理智的",
+    "The villain delivers an unhinged speech in the final scene": "那名反派在最後一幕發表了一段瘋狂失控的演說"
+  },
+  "source": "其它來源（使用者2026-10-18提供詞形：Unhinged；未提供文章／影片標題與原句；一般常用義；未宣稱已還原原始語境）",
+  "lang": "english_ielts",
+  "sentence1_hl": "The villain delivers an <b>unhinged</b> speech in the final scene."
+},
+{
+  "id": "en_2196",
+  "category": "IELTS Reading Vocabulary",
+  "word": "tack",
+  "pos": "noun",
+  "zh_def": "做事的方法；處理問題的方針",
+  "zh": "做事的方法",
+  "definition": "A particular approach to dealing with a problem or achieving something.",
+  "meaning": "a particular approach to dealing with a problem or achieving something",
+  "ipa": "tæk",
+  "forms": [
+    "tack",
+    "tacks"
+  ],
+  "tip": "take／try a different tack、change tack 是常見搭配。此義源於航行方向的比喻；第2174項另收「短釘」。本次未附原句，所以補收常用的方法義，不聲稱它就是你原文中的意思。",
+  "sentence1": "When persuasion failed, she tried a different tack.",
+  "sentence1_en": "說服無效後，她改採另一種方法。",
+  "sentence2": "The negotiators changed tack after the first meeting.",
+  "sentence2_en": "談判人員在第一次會議後改變了策略。",
+  "sentence3": "His latest article takes a more practical tack.",
+  "sentence3_en": "他最新的文章採取了比較務實的論述方向。",
+  "word_map": {
+    "tack": "做事的方法",
+    "tacks": "做事的方法",
+    "When persuasion failed, she tried a different tack": "說服無效後，她改採另一種方法"
+  },
+  "source": "其它來源（使用者2026-10-18提供詞形：Tack；未提供文章／影片標題與原句；未附原句；補收常見的處事方法義，不宣稱還原原語境；短釘義已見第2174項）",
+  "lang": "english_ielts",
+  "sentence1_hl": "When persuasion failed, she tried a different <b>tack</b>."
+},
+{
+  "id": "en_2197",
+  "category": "IELTS Reading Vocabulary",
+  "word": "exceptional",
+  "pos": "adjective",
+  "zh_def": "非凡的；遠超一般水準的；異常而罕見的",
+  "zh": "非凡的",
+  "definition": "Unusually good, or sufficiently unusual to be outside normal circumstances.",
+  "meaning": "unusually good, or sufficiently unusual to be outside normal circumstances",
+  "ipa": "ɪkˈsepʃənl",
+  "forms": [
+    "exceptional"
+  ],
+  "tip": "exceptional talent／quality 常含稱讚；exceptional circumstances 只表示非一般情況，不一定是好事。exceptionable 則是「令人反感、可提出異議的」，不可因拼法相近而混用。",
+  "sentence1": "Her exceptional memory helped her learn the script quickly.",
+  "sentence1_en": "她非凡的記憶力幫助她迅速記住劇本。",
+  "sentence2": "The team showed exceptional skill under pressure.",
+  "sentence2_en": "這個團隊在壓力下展現了超凡的技巧。",
+  "sentence3": "The deadline may be extended in exceptional circumstances.",
+  "sentence3_en": "在特殊而罕見的情況下，期限可以延長。",
+  "word_map": {
+    "exceptional": "非凡的",
+    "Her exceptional memory helped her learn the script quickly": "她非凡的記憶力幫助她迅速記住劇本"
+  },
+  "source": "其它來源（使用者2026-10-18提供詞形：Exceptional；未提供文章／影片標題與原句；一般常用義；未宣稱已還原原始語境）",
+  "lang": "english_ielts",
+  "sentence1_hl": "Her <b>exceptional</b> memory helped her learn the script quickly."
+},
+{
+  "id": "en_2198",
+  "category": "IELTS Reading Vocabulary",
+  "word": "dermatitis",
+  "pos": "noun",
+  "zh_def": "皮膚炎；皮膚發炎的情況",
+  "zh": "皮膚炎",
+  "definition": "Inflammation of the skin.",
+  "meaning": "inflammation of the skin",
+  "ipa": "ˌdɜːməˈtaɪtɪs",
+  "forms": [
+    "dermatitis"
+  ],
+  "tip": "contact dermatitis 是接觸性皮膚炎；dermatologist 是皮膚科醫師。字尾 -itis 表示發炎，但 dermatitis 本身不指定病因；不能只從這個詞推論是感染或具有傳染性。",
+  "sentence1": "The textbook includes a chapter on dermatitis.",
+  "sentence1_en": "這本教科書有一章介紹皮膚炎。",
+  "sentence2": "The doctor explained the difference between dermatitis and a bruise.",
+  "sentence2_en": "醫師說明了皮膚炎與瘀青的差別。",
+  "sentence3": "The questionnaire asks whether workers have ever had dermatitis.",
+  "sentence3_en": "這份問卷詢問員工是否曾經患過皮膚炎。",
+  "word_map": {
+    "dermatitis": "皮膚炎",
+    "The textbook includes a chapter on dermatitis": "這本教科書有一章介紹皮膚炎"
+  },
+  "source": "其它來源（使用者2026-10-18提供詞形：dermatitis；未提供文章／影片標題與原句；一般常用義；未宣稱已還原原始語境）",
+  "lang": "english_ielts",
+  "sentence1_hl": "The textbook includes a chapter on <b>dermatitis</b>."
+},
+{
+  "id": "en_2199",
+  "category": "IELTS Reading Vocabulary",
+  "word": "intimidating",
+  "pos": "adjective",
+  "zh_def": "令人畏懼的；使人緊張、缺乏信心的",
+  "zh": "令人畏懼的",
+  "definition": "Making someone feel frightened, nervous or less confident.",
+  "meaning": "making someone feel frightened, nervous or less confident",
+  "ipa": "ɪnˈtɪmɪdeɪtɪŋ",
+  "forms": [
+    "intimidating"
+  ],
+  "tip": "intimidating 描述造成畏懼的人或事；intimidated 描述感到受威嚇的人。可以說 find something intimidating；不一定真的有人恐嚇，也可能只是任務看起來很難。",
+  "sentence1": "Speaking to a large audience can be intimidating.",
+  "sentence1_en": "面對大量聽眾發言可能令人緊張畏懼。",
+  "sentence2": "The manual looked intimidating until I read the simple examples.",
+  "sentence2_en": "那本手冊原本看起來令人望而生畏，直到我讀到簡單的範例。",
+  "sentence3": "She found his aggressive manner intimidating.",
+  "sentence3_en": "她覺得他咄咄逼人的態度很嚇人。",
+  "word_map": {
+    "intimidating": "令人畏懼的",
+    "Speaking to a large audience can be intimidating": "面對大量聽眾發言可能令人緊張畏懼"
+  },
+  "source": "其它來源（使用者2026-10-18提供詞形：intimidating；未提供文章／影片標題與原句；保留獨立形容詞intimidating，不機械還原成動詞）",
+  "lang": "english_ielts",
+  "sentence1_hl": "Speaking to a large audience can be <b>intimidating</b>."
+},
+{
+  "id": "en_2200",
+  "category": "IELTS Reading Vocabulary",
+  "word": "appease",
+  "pos": "verb",
+  "zh_def": "安撫；以讓步或滿足要求使人平息不滿",
+  "zh": "安撫",
+  "definition": "To calm an angry or dissatisfied person or group, often by giving them something they want.",
+  "meaning": "to calm an angry or dissatisfied person or group, often by giving them something they want",
+  "ipa": "əˈpiːz",
+  "forms": [
+    "appease",
+    "appeases",
+    "appeased",
+    "appeasing"
+  ],
+  "tip": "appease someone 常帶「為平息對方而讓步」的意味；不保證真正解決問題。reassure 強調消除憂慮，appease 偏向平息怒氣或不滿；名詞為 appeasement。",
+  "sentence1": "The manager offered a refund to appease the angry customer.",
+  "sentence1_en": "經理提出退款，以安撫那位憤怒的顧客。",
+  "sentence2": "The small concession did little to appease the protesters.",
+  "sentence2_en": "那一點讓步幾乎沒有平息抗議者的不滿。",
+  "sentence3": "Officials hoped the revised plan would appease local residents.",
+  "sentence3_en": "官員希望修訂後的計畫能安撫當地居民。",
+  "word_map": {
+    "appease": "安撫",
+    "appeases": "安撫",
+    "appeased": "安撫",
+    "appeasing": "安撫",
+    "The manager offered a refund to appease the angry customer": "經理提出退款，以安撫那位憤怒的顧客"
+  },
+  "source": "其它來源（使用者2026-10-18提供詞形：appease；未提供文章／影片標題與原句；一般常用義；未宣稱已還原原始語境）",
+  "lang": "english_ielts",
+  "sentence1_hl": "The manager offered a refund to <b>appease</b> the angry customer."
 }
 );

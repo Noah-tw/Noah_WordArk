@@ -1,4 +1,4 @@
-// en_batch_0006.js — English IELTS batch 6; WordArk V70
+// en_batch_0006.js — English IELTS batch 6; WordArk V71
 // 100 active entries: en_0501 to en_0600
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -2450,7 +2450,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "foraging"
   ],
   "lang": "english_ielts",
-  "source": "使用者收集的 YouTube 影片（原始檔未記錄影片名稱與原句；此義依 Cambridge Dictionary 常用用法複核）；使用者另收集自 Cambridge IELTS 17 Academic，Test 4（本次先保留來源，待逐項回查原句，不另立同義重複卡）；另見 Cambridge IELTS 20 Academic，Test 1，Reading Passage 1〈The kākāpō〉（2026-10-11 提供詞形：Forage；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/"
+  "source": "使用者收集的 YouTube 影片（原始檔未記錄影片名稱與原句；此義依 Cambridge Dictionary 常用用法複核）；使用者另收集自 Cambridge IELTS 17 Academic，Test 4（本次先保留來源，待逐項回查原句，不另立同義重複卡）；另見 Cambridge IELTS 20 Academic，Test 1，Reading Passage 1〈The kākāpō〉（2026-10-11 提供詞形：Forage；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/；另見 Cambridge IELTS 21 Academic，Test 3，Reading Passage 3〈Rethinking the Past〉（2026-10-18 提供詞形：Foraging；正文同字或屈折形式已定位；依所在語境選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-3/"
 },
 {
   "id": "en_0583",
@@ -2963,7 +2963,8 @@ window.VOCAB_DATA['english_ielts'].push(
   "forms": [
     "gregarious"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "使用者收集的 YouTube 影片（原始檔未記錄影片名稱與原句；此義依 Cambridge Dictionary 常用用法複核）；另見 其它來源（使用者2026-10-18提供詞形：gregarious；未提供文章／影片標題與原句；一般常用義；未宣稱已還原原始語境）"
 },
 {
   "id": "en_0600",

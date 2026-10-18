@@ -1,4 +1,4 @@
-// en_batch_0001.js — English IELTS batch 1; WordArk V70
+// en_batch_0001.js — English IELTS batch 1; WordArk V71
 // 100 active entries: en_0001 to en_0100
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -127,7 +127,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "storey",
     "storeys"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 11 Academic，Test 1，Reading Passage 1〈Crop-growing skyscrapers〉（原文詞形與語境已定位）；另見 Cambridge IELTS 21 Academic，Test 3，Reading Passage 2〈The problems of getting around the city of Dar es Salaam〉（2026-10-18 提供詞形：Storey；正文同字或屈折形式已定位；依所在語境選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-3/"
 },
 {
   "id": "en_0005",
@@ -1749,7 +1750,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "overlooking"
   ],
   "lang": "english_ielts",
-  "source": "Cambridge IELTS 11 Academic，Test 4，Reading Passage 2〈An Introduction to Film Sound〉，Question 14，以及 Reading Passage 3〈This Marvellous Invention〉，Questions 33–36（overlook／overlooked 均已定位）；使用者另收集自 Cambridge IELTS 16 Academic，Test 1；Cambridge IELTS 17 Academic，Test 1（本次先保留來源，待逐項回查原句，不另立同義重複卡）；另見 Cambridge IELTS 21 Academic，Test 2，Reading Passage 3〈Artificial Intelligence〉（2026-10-13 提供詞形：Overlook；正文中的同字或屈折形式；依上下文選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-2/"
+  "source": "Cambridge IELTS 11 Academic，Test 4，Reading Passage 2〈An Introduction to Film Sound〉，Question 14，以及 Reading Passage 3〈This Marvellous Invention〉，Questions 33–36（overlook／overlooked 均已定位）；使用者另收集自 Cambridge IELTS 16 Academic，Test 1；Cambridge IELTS 17 Academic，Test 1（本次先保留來源，待逐項回查原句，不另立同義重複卡）；另見 Cambridge IELTS 21 Academic，Test 2，Reading Passage 3〈Artificial Intelligence〉（2026-10-13 提供詞形：Overlook；正文中的同字或屈折形式；依上下文選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-2/；另見 Cambridge IELTS 21 Academic，Test 4，Reading Passage 3〈The Globemakers: The Curious Story of an Ancient Craft〉（2026-10-18 提供詞形：Overlook；Passage 3第40題選項B，忽略義；記錄詞彙不表示該選項正確）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-4/"
 },
 {
   "id": "en_0059",

@@ -1,4 +1,4 @@
-// en_batch_0007.js — English IELTS batch 7; WordArk V70
+// en_batch_0007.js — English IELTS batch 7; WordArk V71
 // 100 active entries: en_0601 to en_0700
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -1663,7 +1663,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "deviations"
   ],
   "lang": "english_ielts",
-  "source": "使用者收集的 YouTube 影片（原始檔未記錄影片名稱與原句；此義依 Cambridge Dictionary 常用用法複核）；另見 Cambridge IELTS 16 Academic，Test 4，Reading Passage 1〈Roman tunnels〉（原文複數 deviations，指隧道施工方向偏離既定路線）；同一「偏離原定標準或路線」義項合併於此"
+  "source": "使用者收集的 YouTube 影片（原始檔未記錄影片名稱與原句；此義依 Cambridge Dictionary 常用用法複核）；另見 Cambridge IELTS 16 Academic，Test 4，Reading Passage 1〈Roman tunnels〉（原文複數 deviations，指隧道施工方向偏離既定路線）；同一「偏離原定標準或路線」義項合併於此；另見 其它來源（使用者2026-10-18提供詞形：Deviation；未提供文章／影片標題與原句；一般常用義；未宣稱已還原原始語境）"
 },
 {
   "id": "en_0656",

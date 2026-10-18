@@ -1,4 +1,4 @@
-// en_batch_0020.js — English IELTS batch 20; WordArk V70
+// en_batch_0020.js — English IELTS batch 20; WordArk V71
 // 100 active entries: en_1901 to en_2000
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -572,7 +572,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "The study recorded unusually high mortality among young trees": "研究記錄到幼樹的死亡情況異常嚴重"
   },
   "lang": "english_ielts",
-  "source": "The Official Cambridge Guide to IELTS，Academic Reading Test 5，Passage 1〈Trees in trouble〉（2026-10-01 提供詞形：Mortality；正文中的同字或屈折形式；依該段語境判定詞義）；https://www.meridean.org/blog/trees-in-trouble-ielts-reading-answers",
+  "source": "The Official Cambridge Guide to IELTS，Academic Reading Test 5，Passage 1〈Trees in trouble〉（2026-10-01 提供詞形：Mortality；正文中的同字或屈折形式；依該段語境判定詞義）；https://www.meridean.org/blog/trees-in-trouble-ielts-reading-answers；另見 Cambridge IELTS 21 Academic，Test 3，Reading Passage 1〈Saving the saiga〉（2026-10-18 提供詞形：Mortality；正文同字或屈折形式已定位；依所在語境選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-3/",
   "sentence1_hl": "The study recorded unusually high <b>mortality</b> among young trees."
 },
 {
@@ -1072,7 +1072,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "The team presented a preliminary design": "團隊提出了初步設計"
   },
   "lang": "english_ielts",
-  "source": "The Official Cambridge Guide to IELTS，Academic Reading Test 5，Passage 3〈Science in space〉（2026-10-01 提供詞形：Preliminary；正文中的同字或屈折形式；依該段語境判定詞義）；https://engnovate.com/ielts-reading-answers/science-in-space/",
+  "source": "The Official Cambridge Guide to IELTS，Academic Reading Test 5，Passage 3〈Science in space〉（2026-10-01 提供詞形：Preliminary；正文中的同字或屈折形式；依該段語境判定詞義）；https://engnovate.com/ielts-reading-answers/science-in-space/；另見 Cambridge IELTS 21 Academic，Test 3，Reading Passage 2〈The problems of getting around the city of Dar es Salaam〉（2026-10-18 提供詞形：Preliminary；正文同字或屈折形式已定位；依所在語境選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-3/；另見 Cambridge IELTS 21 Academic，Test 4，Reading Passage 2〈How could multilingualism benefit India's poorest schoolchildren?〉（2026-10-18 提供詞形：Preliminary；正文同字或屈折形式已定位；依所在語境選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-4/",
   "sentence1_hl": "The team presented a <b>preliminary</b> design."
 },
 {
@@ -1612,7 +1612,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "Each pupil received a new workbook": "每位學生都拿到一本新的練習簿"
   },
   "lang": "english_ielts",
-  "source": "The Official Cambridge Guide to IELTS，Academic Reading Test 6，Passage 1〈Why are Finland’s schools successful?〉（2026-10-01 提供詞形：Pupils；題目10；pupils指學生，與第254項瞳孔義分開）；https://engnovate.com/ielts-reading-answers/why-are-finlands-schools-successful/",
+  "source": "The Official Cambridge Guide to IELTS，Academic Reading Test 6，Passage 1〈Why are Finland’s schools successful?〉（2026-10-01 提供詞形：Pupils；題目10；pupils指學生，與第254項瞳孔義分開）；https://engnovate.com/ielts-reading-answers/why-are-finlands-schools-successful/；另見 Cambridge IELTS 21 Academic，Test 4，Reading Passage 2〈How could multilingualism benefit India's poorest schoolchildren?〉（2026-10-18 提供詞形：Pupil；學生義，不併到第254項瞳孔）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-4/",
   "sentence1_hl": "Each <b>pupil</b> received a new workbook."
 },
 {
@@ -2492,7 +2492,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "Collectors had poached rare orchids from the reserve": "採集者從保護區非法採走了珍稀蘭花"
   },
   "lang": "english_ielts",
-  "source": "The Official Cambridge Guide to IELTS，Academic Reading Test 7，Passage 2〈Fatal attraction〉（2026-10-01 提供詞形：Poaching；I段；poaching指非法採集野生食蟲植物，收poach，筆記說明常見於非法獵捕）；https://engnovate.com/ielts-reading-answers/fatal-attraction/",
+  "source": "The Official Cambridge Guide to IELTS，Academic Reading Test 7，Passage 2〈Fatal attraction〉（2026-10-01 提供詞形：Poaching；I段；poaching指非法採集野生食蟲植物，收poach，筆記說明常見於非法獵捕）；https://engnovate.com/ielts-reading-answers/fatal-attraction/；另見 Cambridge IELTS 21 Academic，Test 3，Reading Passage 1〈Saving the saiga〉（2026-10-18 提供詞形：Poaching；正文同字或屈折形式已定位；依所在語境選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-3/",
   "sentence1_hl": "Collectors had <b>poached</b> rare orchids from the reserve."
 },
 {

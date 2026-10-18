@@ -1,4 +1,4 @@
-// en_batch_0016.js — English IELTS batch 16; WordArk V70
+// en_batch_0016.js — English IELTS batch 16; WordArk V71
 // 100 active entries: en_1501 to en_1600
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -953,7 +953,8 @@ window.VOCAB_DATA['english_ielts'].push(
   "forms": [
     "erratic"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 18 Academic，Test 3，Reading Passage 2〈The steam car〉（本次提供詞形：Erratic；文章正文中的相同詞形或屈折變化；依所在語境判義；2026-09-15 依公開文章／題目轉錄頁核對）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-18-academic-reading-test-3/；另見 其它來源（使用者2026-10-18提供詞形：Erratic；未提供文章／影片標題與原句；一般常用義；未宣稱已還原原始語境）"
 },
 {
   "id": "en_1533",

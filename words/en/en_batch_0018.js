@@ -1,4 +1,4 @@
-// en_batch_0018.js — English IELTS batch 18; WordArk V69
+// en_batch_0018.js — English IELTS batch 18; WordArk V71
 // 100 active entries: en_1701 to en_1800
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -252,7 +252,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "Police detained a suspect for questioning": "警方拘留一名嫌疑人進行訊問"
   },
   "lang": "english_ielts",
-  "source": "使用者收集的雜誌（未提供刊名、篇名與原句）（2026-09-21 提供詞形：Detained；採一般常用義；未宣稱已還原原始語境）",
+  "source": "使用者收集的雜誌（未提供刊名、篇名與原句）（2026-09-21 提供詞形：Detained；採一般常用義；未宣稱已還原原始語境）；另見 其它來源（使用者2026-10-18提供詞形：Detain；未提供文章／影片標題與原句；一般常用義；未宣稱已還原原始語境）",
   "sentence1_hl": "Police <b>detained</b> a suspect for questioning."
 },
 {
@@ -560,7 +560,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "In the story, the wizard conjures a bridge across the river": "在故事中，巫師用魔法變出一座跨河的橋"
   },
   "lang": "english_ielts",
-  "source": "使用者收集的 YouTube 影片（未提供影片名稱與原句）（2026-09-21 提供詞形：Conjure；採一般常用義；未宣稱已還原原始語境）",
+  "source": "使用者收集的 YouTube 影片（未提供影片名稱與原句）（2026-09-21 提供詞形：Conjure；採一般常用義；未宣稱已還原原始語境）；另見 其它來源（使用者2026-10-18提供詞形：Conjuring；未提供文章／影片標題與原句；一般常用義；未宣稱已還原原始語境）",
   "sentence1_hl": "In the story, the wizard <b>conjures</b> a bridge across the river."
 },
 {
@@ -2899,7 +2899,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "The film tells an uplifting story of friendship": "這部電影講述了一個振奮人心的友誼故事"
   },
   "lang": "english_ielts",
-  "source": "The Official Cambridge Guide to IELTS，Academic Reading Test 1，Passage 3〈Is photography art?〉（2026-09-21 提供詞形：Uplifting；正文中已定位詞形或屈折變化，依上下文固定本項詞性與義項）；https://engnovate.com/ielts-reading-answers/is-photography-art/；另見 Cambridge IELTS 20 Academic，Test 1，Reading Passage 3〈How stress affects our judgement〉（2026-10-11 提供詞形：Uplifting；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
+  "source": "The Official Cambridge Guide to IELTS，Academic Reading Test 1，Passage 3〈Is photography art?〉（2026-09-21 提供詞形：Uplifting；正文中已定位詞形或屈折變化，依上下文固定本項詞性與義項）；https://engnovate.com/ielts-reading-answers/is-photography-art/；另見 Cambridge IELTS 20 Academic，Test 1，Reading Passage 3〈How stress affects our judgement〉（2026-10-11 提供詞形：Uplifting；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/；另見 Cambridge IELTS 21 Academic，Test 3，Reading Passage 1〈Saving the saiga〉（2026-10-18 提供詞形：Uplifting；正文同字或屈折形式已定位；依所在語境選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-3/",
   "sentence1_hl": "The film tells an <b>uplifting</b> story of friendship."
 },
 {

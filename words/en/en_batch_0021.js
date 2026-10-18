@@ -1,4 +1,4 @@
-// en_batch_0021.js — English IELTS batch 21; WordArk V69
+// en_batch_0021.js — English IELTS batch 21; WordArk V71
 // 100 active entries: en_2001 to en_2100
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -220,7 +220,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "The birds take turns incubating the eggs": "這些鳥輪流孵卵"
   },
   "lang": "english_ielts",
-  "source": "The Official Cambridge Guide to IELTS，Academic Reading Test 8，Passage 3〈Left or right?〉（2026-10-01 提供詞形：Incubated；D段；incubated指卵在受光條件下孵育；不解為小鳥身體被照光後才長大）；https://engnovate.com/ielts-reading-answers/left-or-right/；另見 Cambridge IELTS 20 Academic，Test 1，Reading Passage 1〈The kākāpō〉（2026-10-11 提供詞形：Incubate；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/",
+  "source": "The Official Cambridge Guide to IELTS，Academic Reading Test 8，Passage 3〈Left or right?〉（2026-10-01 提供詞形：Incubated；D段；incubated指卵在受光條件下孵育；不解為小鳥身體被照光後才長大）；https://engnovate.com/ielts-reading-answers/left-or-right/；另見 Cambridge IELTS 20 Academic，Test 1，Reading Passage 1〈The kākāpō〉（2026-10-11 提供詞形：Incubate；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-1/；另見 Cambridge IELTS 21 Academic，Test 4，Reading Passage 1〈The problems and benefits created by the spread of the water hyacinth in Kenya〉（2026-10-18 提供詞形：Incubate；正文用於孵育；例句採標準incubate eggs搭配，不教成將已孵出的雛鳥重新孵化）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-4/",
   "sentence1_hl": "The birds take turns <b>incubating</b> the eggs."
 },
 {

@@ -1,4 +1,4 @@
-// en_batch_0008.js — English IELTS batch 8; WordArk V70
+// en_batch_0008.js — English IELTS batch 8; WordArk V71
 // 100 active entries: en_0701 to en_0800
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -1307,7 +1307,8 @@ window.VOCAB_DATA['english_ielts'].push(
   "forms": [
     "inherently"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "使用者收集的 YouTube 影片（原始檔未記錄影片名稱與原句；此義依 Cambridge Dictionary／Merriam-Webster 的一般常用用法複核）；另見 Cambridge IELTS 21 Academic，Test 3，Reading Passage 3〈Rethinking the Past〉（2026-10-18 提供詞形：Inherently；正文同字或屈折形式已定位；依所在語境選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-3/"
 },
 {
   "id": "en_0746",

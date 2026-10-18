@@ -1,4 +1,4 @@
-// en_batch_0017.js — English IELTS batch 17; WordArk V68
+// en_batch_0017.js — English IELTS batch 17; WordArk V71
 // 100 active entries: en_1601 to en_1700
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -651,7 +651,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "distributed",
     "distributing"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 19 Academic，Test 1，Reading Passage 3〈The persistence and peril of misinformation〉（本次提供詞形：Distribute；科技傳播段 audiences distributed across the globe；被動分詞還原 distribute，採空間分布義，與第539項分發／配置物品分開；2026-09-16 依公開正文／題目轉錄頁核對）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-19-academic-reading-test-1/；另見 Cambridge IELTS 21 Academic，Test 3，Reading Passage 1〈Saving the saiga〉（2026-10-18 提供詞形：Distribute；第8題敘述，分布義；記錄題目用字不表示題目敘述為真）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-3/"
 },
 {
   "id": "en_1623",
@@ -1211,7 +1212,8 @@ window.VOCAB_DATA['english_ielts'].push(
   "forms": [
     "arduous"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 19 Academic，Test 1，Reading Passage 3〈The persistence and peril of misinformation〉（本次提供詞形：Arduous；結尾 long and arduous；艱鉅、費力的；2026-09-16 依公開正文／題目轉錄頁核對）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-19-academic-reading-test-1/；另見 其它來源（使用者2026-10-18提供詞形：arduous；未提供文章／影片標題與原句；一般常用義；未宣稱已還原原始語境）"
 },
 {
   "id": "en_1642",
@@ -2289,7 +2291,8 @@ window.VOCAB_DATA['english_ielts'].push(
   "forms": [
     "determination"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 19 Academic，Test 2，Reading Passage 3〈An inquiry into the existence of the gifted child〉（2026-09-17 提供詞形：Determination；正文末段；指堅持到底的決心；依公開正文／題目轉錄定位）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-19-academic-reading-test-2/；另見 Cambridge IELTS 21 Academic，Test 4，Reading Passage 3〈The Globemakers: The Curious Story of an Ancient Craft〉（2026-10-18 提供詞形：Determination；正文同字或屈折形式已定位；依所在語境選義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-4/"
 },
 {
   "id": "en_1678",
