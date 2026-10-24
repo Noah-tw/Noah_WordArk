@@ -1,4 +1,4 @@
-// en_batch_0002.js — English IELTS batch 2; WordArk V71
+// en_batch_0002.js — English IELTS batch 2; WordArk V72
 // 100 active entries: en_0101 to en_0200
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -1794,7 +1794,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "spectator",
     "spectators"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 11 Academic，Test 3，Reading Passage 3〈Preface to How the other half thinks〉（原文詞組 tantalized spectator 與語境已定位）；使用者另收集自 Cambridge IELTS 17 Academic，Test 1（本次先保留來源，待逐項回查原句，不另立同義重複卡）；使用者於2026-10-24「其它來源」再次收集（輸入Spectator；未提供原句，保留既有常用義與學習內容，不推定新來源的特定語境）"
 },
 {
   "id": "en_0162",

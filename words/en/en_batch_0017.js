@@ -1,4 +1,4 @@
-// en_batch_0017.js — English IELTS batch 17; WordArk V71
+// en_batch_0017.js — English IELTS batch 17; WordArk V72
 // 100 active entries: en_1601 to en_1700
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -618,7 +618,8 @@ window.VOCAB_DATA['english_ielts'].push(
   "forms": [
     "interpersonal"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 19 Academic，Test 1，Reading Passage 3〈The persistence and peril of misinformation〉（本次提供詞形：Interpersonal；首段 interpersonal bonds；2026-09-16 依公開正文／題目轉錄頁核對）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-19-academic-reading-test-1/；另見 The Official Cambridge Guide to IELTS，Academic Reading Test 3，Passage 3〈When conversations flow〉（2026-10-01 提供詞形：Interpersonal；正文中的同字或屈折形式；依該段語境判定詞義）；https://engnovate.com/ielts-reading-tests/official-cambridge-guide-to-ielts-academic-reading-test-3/；使用者於2026-10-24「其它來源」再次收集（輸入Interpersonal；未提供原句，保留既有常用義與學習內容，不推定新來源的特定語境）"
 },
 {
   "id": "en_1622",

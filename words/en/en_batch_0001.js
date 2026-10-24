@@ -1,4 +1,4 @@
-// en_batch_0001.js — English IELTS batch 1; WordArk V71
+// en_batch_0001.js — English IELTS batch 1; WordArk V72
 // 100 active entries: en_0001 to en_0100
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -1996,7 +1996,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "menaces"
   ],
   "lang": "english_ielts",
-  "source": "Cambridge IELTS 11 Academic，Test 4，Reading Passage 2〈An Introduction to Film Sound〉（原文詞形與語境已定位）；另見 Cambridge IELTS 19 Academic，Test 1，Reading Passage 2〈The pirates of the ancient Mediterranean〉（本次提供詞形：Menace；G段 Mediterranean menace／maritime menace；名詞威脅；2026-09-16 依公開正文／題目轉錄頁核對）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-19-academic-reading-test-1/；另見 Cambridge IELTS 20 Academic，Test 3，Reading Passage 2〈Can the planet’s coral reefs be saved?〉（2026-10-11 提供詞形：Menace；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-3/"
+  "source": "Cambridge IELTS 11 Academic，Test 4，Reading Passage 2〈An Introduction to Film Sound〉（原文詞形與語境已定位）；另見 Cambridge IELTS 19 Academic，Test 1，Reading Passage 2〈The pirates of the ancient Mediterranean〉（本次提供詞形：Menace；G段 Mediterranean menace／maritime menace；名詞威脅；2026-09-16 依公開正文／題目轉錄頁核對）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-19-academic-reading-test-1/；另見 Cambridge IELTS 20 Academic，Test 3，Reading Passage 2〈Can the planet’s coral reefs be saved?〉（2026-10-11 提供詞形：Menace；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-3/；使用者於2026-10-24「其它來源」再次收集（輸入Menace；未提供原句，保留既有常用義與學習內容，不推定新來源的特定語境）"
 },
 {
   "id": "en_0067",

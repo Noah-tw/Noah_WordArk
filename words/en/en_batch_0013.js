@@ -1,4 +1,4 @@
-// en_batch_0013.js — English IELTS batch 13; WordArk V71
+// en_batch_0013.js — English IELTS batch 13; WordArk V72
 // 100 active entries: en_1201 to en_1300
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -328,7 +328,8 @@ window.VOCAB_DATA['english_ielts'].push(
     "halted",
     "halting"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 16 Academic，Test 2，Reading Passage 2〈I contain multitudes〉（原文詞形／屈折變化與本卡詞性、義項已定位）；另見 Cambridge IELTS 19 Academic，Reading Test 4，Passage 1〈The impact of climate change on butterflies in Britain〉（2026-09-21 提供詞形：Halt；正文中已定位詞形或屈折變化；與既有基本詞義合併）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-19-academic-reading-test-4/；另見 The Official Cambridge Guide to IELTS，Academic Reading Test 7，Passage 2〈Fatal attraction〉（2026-10-01 提供詞形：Halt；正文中的同字或屈折形式；依該段語境判定詞義）；https://engnovate.com/ielts-reading-answers/fatal-attraction/；使用者於2026-10-24「其它來源」再次收集（輸入Halt；未提供原句，保留既有常用義與學習內容，不推定新來源的特定語境）"
 },
 {
   "id": "en_1212",

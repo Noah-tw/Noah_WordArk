@@ -1,5 +1,5 @@
-// en_batch_0024.js — English IELTS batch 24; WordArk V71
-// 29 active entries: en_2301 to en_2329
+// en_batch_0024.js — English IELTS batch 24; WordArk V72
+// 52 active entries: en_2301 to en_2352
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
 window.VOCAB_DATA['english_ielts'].push(
@@ -876,5 +876,721 @@ window.VOCAB_DATA['english_ielts'].push(
   "source": "Cambridge IELTS 21 Academic，Test 4，Reading Passage 3〈The Globemakers: The Curious Story of an Ancient Craft〉（2026-10-18 提供詞形：Makes；Passage 3摘要備選詞C；複數名詞還原make，指廠牌／產品類型，不是製造動詞）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-21-academic-reading-test-4/",
   "lang": "english_ielts",
   "sentence1_hl": "What <b>make</b> of camera did you use?"
+},
+{
+  "id": "en_2330",
+  "category": "IELTS Reading Vocabulary",
+  "word": "riot",
+  "pos": "verb",
+  "zh_def": "暴動；在公共場所聚眾進行喧鬧、失控的暴力行為",
+  "zh": "暴動",
+  "definition": "To take part in violent and uncontrolled behaviour by a crowd in a public place.",
+  "meaning": "to take part in violent and uncontrolled behaviour by a crowd in a public place",
+  "ipa": "ˈraɪət",
+  "forms": [
+    "riot",
+    "riots",
+    "rioted",
+    "rioting"
+  ],
+  "tip": "riot涉及暴力與失控，不等於所有protest「抗議」。動詞變化為riot／rioted／rioting；名詞a riot／riots指一場或多場暴動。rioting也可獨立作不可數名詞「暴動行為」，如widespread rioting，不能把所有rioting都判成動詞。",
+  "sentence1": "Groups of people rioted in the streets after the announcement.",
+  "sentence1_en": "公告發布後，成群的民眾在街頭暴動。",
+  "sentence2": "The crowd began to riot, smashing several shop windows.",
+  "sentence2_en": "群眾開始暴動，砸碎了幾家商店的窗戶。",
+  "sentence3": "The report showed people rioting near the station.",
+  "sentence3_en": "報導畫面顯示，有人在車站附近暴動。",
+  "word_map": {
+    "riot": "暴動",
+    "riots": "暴動",
+    "rioted": "暴動",
+    "rioting": "暴動",
+    "Groups of people rioted in the streets after the announcement": "公告發布後，成群的民眾在街頭暴動"
+  },
+  "source": "使用者2026-10-24「其它來源」（輸入rioting；未提供原句。以動詞原形riot收錄，筆記另說明rioting的不可數名詞用法）；詞義與詞性參考：https://dictionary.cambridge.org/us/dictionary/english/riot 及 https://dictionary.cambridge.org/dictionary/english/rioting",
+  "lang": "english_ielts",
+  "sentence1_hl": "Groups of people <b>rioted</b> in the streets after the announcement."
+},
+{
+  "id": "en_2331",
+  "category": "IELTS Reading Vocabulary",
+  "word": "protest",
+  "pos": "verb",
+  "zh_def": "抗議；以言語或行動表達反對",
+  "zh": "抗議",
+  "definition": "To express opposition or disapproval through words or actions.",
+  "meaning": "to express opposition or disapproval through words or actions",
+  "ipa": "prəˈtest",
+  "forms": [
+    "protest",
+    "protests",
+    "protested",
+    "protesting"
+  ],
+  "tip": "常用protest against／about something；不一定指上街，也可以用言語表達反對。這裡的動詞重音在第二音節/prəˈtest/；英式名詞protest「抗議、抗議活動」通常讀/ˈprəʊtest/，重音在第一音節。美式英語也常用及物的protest a decision。",
+  "sentence1": "Residents protested against the closure of the library.",
+  "sentence1_en": "居民抗議關閉圖書館。",
+  "sentence2": "Several workers are protesting about unsafe conditions.",
+  "sentence2_en": "幾名工人正在抗議不安全的工作環境。",
+  "sentence3": "Students plan to protest outside the town hall.",
+  "sentence3_en": "學生計畫在市政廳外抗議。",
+  "word_map": {
+    "protest": "抗議",
+    "protests": "抗議",
+    "protested": "抗議",
+    "protesting": "抗議",
+    "Residents protested against the closure of the library": "居民抗議關閉圖書館"
+  },
+  "source": "使用者2026-10-24「其它來源」（輸入Protest；未提供原句，採動詞「抗議、表示反對」常用義）；詞義與讀音參考：https://dictionary.cambridge.org/us/dictionary/english/protest 及 https://dictionary.cambridge.org/pronunciation/english/protest",
+  "lang": "english_ielts",
+  "sentence1_hl": "Residents <b>protested</b> against the closure of the library."
+},
+{
+  "id": "en_2332",
+  "category": "IELTS Reading Vocabulary",
+  "word": "clash",
+  "pos": "verb",
+  "zh_def": "發生衝突；激烈爭執或打鬥",
+  "zh": "發生衝突",
+  "definition": "To argue fiercely or fight with another person or group.",
+  "meaning": "to argue fiercely or fight with another person or group",
+  "ipa": "klæʃ",
+  "forms": [
+    "clash",
+    "clashes",
+    "clashed",
+    "clashing"
+  ],
+  "tip": "clash with someone表示與誰衝突；clash over／about something表示爭執的議題。可能是言語，也可能是肢體衝突，須看上下文。另有時段撞期、顏色不搭等意思；名詞可用a clash of opinions「意見衝突」。",
+  "sentence1": "The two candidates clashed over education policy.",
+  "sentence1_en": "兩位候選人為教育政策激烈交鋒。",
+  "sentence2": "Fans from rival teams clashed outside the stadium.",
+  "sentence2_en": "兩支對手球隊的球迷在體育場外發生衝突。",
+  "sentence3": "She often clashes with her manager about deadlines.",
+  "sentence3_en": "她經常為了截止期限與經理爭執。",
+  "word_map": {
+    "clash": "發生衝突",
+    "clashes": "發生衝突",
+    "clashed": "發生衝突",
+    "clashing": "發生衝突",
+    "The two candidates clashed over education policy": "兩位候選人為教育政策激烈交鋒"
+  },
+  "source": "使用者2026-10-24「其它來源」（輸入Clash；未提供原句，採人與人「激烈爭執、發生衝突」的動詞常用義）；詞義參考：https://dictionary.cambridge.org/us/dictionary/english/clash",
+  "lang": "english_ielts",
+  "sentence1_hl": "The two candidates <b>clashed</b> over education policy."
+},
+{
+  "id": "en_2333",
+  "category": "IELTS Reading Vocabulary",
+  "word": "frigid",
+  "pos": "adjective",
+  "zh_def": "極冷的；寒冷刺骨的",
+  "zh": "極冷的",
+  "definition": "Extremely cold, especially in temperature or weather conditions.",
+  "meaning": "extremely cold, especially in temperature or weather conditions",
+  "ipa": "ˈfrɪdʒɪd",
+  "forms": [
+    "frigid"
+  ],
+  "tip": "frigid air／water／temperatures表示非常冷，語氣比cold強。也可比喻態度冷淡、不友善，如a frigid reception；這不代表實際溫度低。不要與rigid「僵硬的、僵化的」混淆。",
+  "sentence1": "A frigid wind swept across the empty platform.",
+  "sentence1_en": "刺骨的寒風吹過空蕩蕩的月台。",
+  "sentence2": "The hikers avoided crossing the frigid stream.",
+  "sentence2_en": "健行者避免橫渡那條冰冷的溪流。",
+  "sentence3": "We spent the night in a frigid room with no heating.",
+  "sentence3_en": "我們在沒有暖氣、冷得刺骨的房間裡過了一夜。",
+  "word_map": {
+    "frigid": "極冷的",
+    "A frigid wind swept across the empty platform": "刺骨的寒風吹過空蕩蕩的月台"
+  },
+  "source": "使用者2026-10-24「其它來源」（輸入Frigid；未提供原句，採形容氣溫或環境「極冷」的常用義）；詞義與讀音參考：https://dictionary.cambridge.org/dictionary/english/frigid",
+  "lang": "english_ielts",
+  "sentence1_hl": "A <b>frigid</b> wind swept across the empty platform."
+},
+{
+  "id": "en_2334",
+  "category": "IELTS Reading Vocabulary",
+  "word": "freight",
+  "pos": "noun",
+  "zh_def": "貨物；由船、飛機、火車或卡車運送的貨品",
+  "zh": "貨物",
+  "definition": "Goods transported from one place to another by ship, aircraft, train or lorry.",
+  "meaning": "goods transported from one place to another by ship, aircraft, train or lorry",
+  "ipa": "freɪt",
+  "forms": [
+    "freight"
+  ],
+  "tip": "freight作貨物總稱時不可數，說some freight，不說a freight。也可指貨運服務或運費，須看上下文；air freight／rail freight常指空運／鐵路貨運。a freight train中的a修飾train，不是freight。",
+  "sentence1": "The railway carries freight between the port and the capital.",
+  "sentence1_en": "這條鐵路在港口與首都之間運送貨物。",
+  "sentence2": "All freight must be secured before the ship departs.",
+  "sentence2_en": "船隻出發前，所有貨物都必須固定妥當。",
+  "sentence3": "The new terminal can handle more freight each day.",
+  "sentence3_en": "新的貨運站每天能處理更多貨物。",
+  "word_map": {
+    "freight": "貨物",
+    "The railway carries freight between the port and the capital": "這條鐵路在港口與首都之間運送貨物"
+  },
+  "source": "使用者2026-10-24「其它來源」（輸入Freight；未提供原句，採名詞「運輸中的貨物」常用義）；詞義與可數性參考：https://dictionary.cambridge.org/dictionary/english/freight",
+  "lang": "english_ielts",
+  "sentence1_hl": "The railway carries <b>freight</b> between the port and the capital."
+},
+{
+  "id": "en_2335",
+  "category": "IELTS Reading Vocabulary",
+  "word": "barge",
+  "pos": "noun",
+  "zh_def": "駁船；主要用於河流或運河貨運的平底船",
+  "zh": "駁船",
+  "definition": "A flat-bottomed boat used mainly to carry goods on rivers and canals.",
+  "meaning": "a flat-bottomed boat used mainly to carry goods on rivers and canals",
+  "ipa": "bɑːdʒ",
+  "forms": [
+    "barge",
+    "barges"
+  ],
+  "tip": "by barge表示以駁船運送；load goods onto a barge表示把貨物裝上駁船。barge也能作動詞，barge in是冒失闖入或打斷，不能把該片語解成船隻進港。名詞複數為barges。",
+  "sentence1": "The barge carried sand along the canal.",
+  "sentence1_en": "那艘駁船沿著運河運送沙子。",
+  "sentence2": "Workers loaded timber onto two barges.",
+  "sentence2_en": "工人把木材裝上兩艘駁船。",
+  "sentence3": "A small tug pulled the barge towards the harbour.",
+  "sentence3_en": "一艘小拖船將駁船拖向港口。",
+  "word_map": {
+    "barge": "駁船",
+    "barges": "駁船",
+    "The barge carried sand along the canal": "那艘駁船沿著運河運送沙子"
+  },
+  "source": "使用者2026-10-24「其它來源」（輸入Barge；未提供原句，採船隻名詞的常用義）；詞義參考：https://dictionary.cambridge.org/us/dictionary/english/barge",
+  "lang": "english_ielts",
+  "sentence1_hl": "The <b>barge</b> carried sand along the canal."
+},
+{
+  "id": "en_2336",
+  "category": "IELTS Reading Vocabulary",
+  "word": "programme",
+  "pos": "noun",
+  "zh_def": "節目單；介紹演出、演員或活動內容的節目冊",
+  "zh": "節目單",
+  "definition": "A printed leaflet or booklet giving details of a performance or event and the people taking part.",
+  "meaning": "a printed leaflet or booklet giving details of a performance or event and the people taking part",
+  "ipa": "ˈprəʊɡræm",
+  "forms": [
+    "programme",
+    "programmes",
+    "program",
+    "programs"
+  ],
+  "tip": "theatre programme在這段聽力中指印製的節目冊，能刊出演員介紹、文章與廣告；不是電視節目或電腦程式。此名詞英式拼programme，美式拼program；複數各加s。電腦程式在英式英語中通常也拼program。",
+  "sentence1": "The theatre programme includes photographs of the cast.",
+  "sentence1_en": "這本戲劇節目冊附有演員的照片。",
+  "sentence2": "She kept the programme as a souvenir of the concert.",
+  "sentence2_en": "她留下那本節目冊，作為這場音樂會的紀念。",
+  "sentence3": "We compared two programmes from different productions of the play.",
+  "sentence3_en": "我們比較了這齣戲兩個不同製作版本的節目冊。",
+  "word_map": {
+    "programme": "節目單",
+    "programmes": "節目單",
+    "program": "節目單",
+    "programs": "節目單",
+    "The theatre programme includes photographs of the cast": "這本戲劇節目冊附有演員的照片"
+  },
+  "source": "使用者2026-10-24輸入Programme並註「IELTS 20 test3? Listening」；依此線索，Cambridge IELTS 20，Listening Test 3，Part 3〈Project on Theatre Programmes〉的公開題目與逐字稿中已定位「戲劇節目冊」義，採此義收錄。使用者未提供確切原句，不推定其他段落的programme也同義。轉錄：https://www.ielts-hub.com/exams/listening/cambridge-ielts-20-test-3/transcript ；辭典：https://dictionary.cambridge.org/dictionary/english/programme",
+  "lang": "english_ielts",
+  "sentence1_hl": "The theatre <b>programme</b> includes photographs of the cast."
+},
+{
+  "id": "en_2337",
+  "category": "IELTS Reading Vocabulary",
+  "word": "goalkeeper",
+  "pos": "noun",
+  "zh_def": "守門員；負責阻止對方把球送入球門的球員",
+  "zh": "守門員",
+  "definition": "A player whose role is to protect the goal and stop the opposing team from scoring.",
+  "meaning": "a player whose role is to protect the goal and stop the opposing team from scoring",
+  "ipa": "ˈɡəʊlˌkiːpə",
+  "forms": [
+    "goalkeeper",
+    "goalkeepers"
+  ],
+  "tip": "goalkeeper寫成一個字；口語也叫goalie。常用make a save「救球」與save a penalty「撲出十二碼罰球」。守門員是球員的一種，所以可稱player；spectator則是觀眾。",
+  "sentence1": "Our goalkeeper caught the ball just below the crossbar.",
+  "sentence1_en": "我們的守門員在橫梁正下方接住了球。",
+  "sentence2": "Both goalkeepers wore gloves during the match.",
+  "sentence2_en": "兩位守門員在比賽中都戴著手套。",
+  "sentence3": "The goalkeeper rushed forward to block the shot.",
+  "sentence3_en": "守門員向前衝出，擋下那記射門。",
+  "word_map": {
+    "goalkeeper": "守門員",
+    "goalkeepers": "守門員",
+    "Our goalkeeper caught the ball just below the crossbar": "我們的守門員在橫梁正下方接住了球"
+  },
+  "source": "使用者2026-10-24「其它來源」（輸入Goalkeeper；未提供原句，採運動員名詞的常用義）；詞義與讀音參考：https://dictionary.cambridge.org/dictionary/english/goalkeeper",
+  "lang": "english_ielts",
+  "sentence1_hl": "Our <b>goalkeeper</b> caught the ball just below the crossbar."
+},
+{
+  "id": "en_2338",
+  "category": "IELTS Reading Vocabulary",
+  "word": "crusade",
+  "pos": "noun",
+  "zh_def": "為信念而發起的長期運動；致力推動改變的積極行動",
+  "zh": "為信念而發起的長期運動",
+  "definition": "A sustained and determined campaign to achieve a goal or oppose something because of strong beliefs.",
+  "meaning": "a sustained and determined campaign to achieve a goal or oppose something because of strong beliefs",
+  "ipa": "kruːˈseɪd",
+  "forms": [
+    "crusade",
+    "crusades"
+  ],
+  "tip": "a crusade for支持的目標、against反對的事物，或to do something。比一般campaign更強調信念與投入，但用這個字不代表立場必然正確。歷史語境中的the Crusades則指十字軍東征，通常大寫並用複數。",
+  "sentence1": "She began a crusade against illegal dumping.",
+  "sentence1_en": "她發起了一場反對非法傾倒廢棄物的長期運動。",
+  "sentence2": "The journalist led a crusade for safer roads.",
+  "sentence2_en": "那名記者帶頭推動改善道路安全的運動。",
+  "sentence3": "His crusade to protect the wetlands attracted local support.",
+  "sentence3_en": "他積極推動的濕地保護運動獲得了當地支持。",
+  "word_map": {
+    "crusade": "為信念而發起的長期運動",
+    "crusades": "為信念而發起的長期運動",
+    "She began a crusade against illegal dumping": "她發起了一場反對非法傾倒廢棄物的長期運動"
+  },
+  "source": "使用者2026-10-24「其它來源」（輸入Crusade；未提供原句，採名詞「為信念長期積極投入的運動」常用比喻義）；詞義參考：https://dictionary.cambridge.org/dictionary/english/crusade",
+  "lang": "english_ielts",
+  "sentence1_hl": "She began a <b>crusade</b> against illegal dumping."
+},
+{
+  "id": "en_2339",
+  "category": "IELTS Reading Vocabulary",
+  "word": "compass",
+  "pos": "noun",
+  "zh_def": "指南針；用磁針判斷方向的儀器",
+  "zh": "指南針",
+  "definition": "An instrument whose magnetic needle indicates north and helps the user find directions.",
+  "meaning": "an instrument whose magnetic needle indicates north and helps the user find directions",
+  "ipa": "ˈkʌmpəs",
+  "forms": [
+    "compass",
+    "compasses"
+  ],
+  "tip": "compass的第一個母音是/ʌ/，不是/ɒ/；磁針指向磁北，不一定等於地理正北。英式a pair of compasses常指畫圓用的「圓規」；因此compasses要依上下文判斷是多個指南針，還是圓規。",
+  "sentence1": "We used a compass to find our way through the forest.",
+  "sentence1_en": "我們用指南針辨認穿越森林的路線。",
+  "sentence2": "She checked her compass before leaving the marked path.",
+  "sentence2_en": "她離開有標記的小徑前，先查看了指南針。",
+  "sentence3": "The guides carried compasses in case their phones failed.",
+  "sentence3_en": "嚮導們帶著指南針，以防手機無法使用。",
+  "word_map": {
+    "compass": "指南針",
+    "compasses": "指南針",
+    "We used a compass to find our way through the forest": "我們用指南針辨認穿越森林的路線"
+  },
+  "source": "使用者2026-10-24「其它來源」（輸入Compass；未提供原句，採方向儀器名詞的常用義）；詞義與讀音參考：https://dictionary.cambridge.org/dictionary/english/compass",
+  "lang": "english_ielts",
+  "sentence1_hl": "We used a <b>compass</b> to find our way through the forest."
+},
+{
+  "id": "en_2340",
+  "category": "IELTS Reading Vocabulary",
+  "word": "inclement",
+  "pos": "adjective",
+  "zh_def": "（天氣）惡劣的；尤其指寒冷、風雨交加等不宜戶外活動的天氣",
+  "zh": "（天氣）惡劣的",
+  "definition": "Unpleasant or severe, especially when describing cold, wet or windy weather.",
+  "meaning": "unpleasant or severe, especially when describing cold, wet or windy weather",
+  "ipa": "ɪnˈklemənt",
+  "forms": [
+    "inclement"
+  ],
+  "tip": "inclement weather是常見而較正式的搭配，公告中常見due to inclement weather。通常描述天氣，不把普通的壞心情或壞消息稱為inclement。重音在第二音節：in-CLEM-ent。",
+  "sentence1": "The outdoor concert was postponed because of inclement weather.",
+  "sentence1_en": "戶外音樂會因天候惡劣而延期。",
+  "sentence2": "This shelter protects walkers from inclement conditions.",
+  "sentence2_en": "這處遮蔽所讓步行者免受惡劣天候侵襲。",
+  "sentence3": "Flights were delayed by inclement weather over the island.",
+  "sentence3_en": "島嶼上空天候惡劣，導致航班延誤。",
+  "word_map": {
+    "inclement": "（天氣）惡劣的",
+    "The outdoor concert was postponed because of inclement weather": "戶外音樂會因天候惡劣而延期"
+  },
+  "source": "使用者2026-10-24「其它來源」（輸入Inclement；未提供原句，採形容惡劣天氣的常用義）；詞義與讀音參考：https://dictionary.cambridge.org/dictionary/english/inclement",
+  "lang": "english_ielts",
+  "sentence1_hl": "The outdoor concert was postponed because of <b>inclement</b> weather."
+},
+{
+  "id": "en_2341",
+  "category": "IELTS Reading Vocabulary",
+  "word": "immensely",
+  "pos": "adverb",
+  "zh_def": "極其；非常；在很大的程度上",
+  "zh": "極其",
+  "definition": "To a very great degree.",
+  "meaning": "to a very great degree",
+  "ipa": "ɪˈmensli",
+  "forms": [
+    "immensely"
+  ],
+  "tip": "immensely是副詞，可修飾動詞或形容詞：enjoy something immensely、immensely helpful／popular。immense才是形容詞，如an immense amount of work；不要把immensely直接放在普通名詞前充當形容詞。",
+  "sentence1": "I enjoyed the concert immensely.",
+  "sentence1_en": "我非常享受那場音樂會。",
+  "sentence2": "Her clear explanation was immensely helpful.",
+  "sentence2_en": "她清楚的解說非常有幫助。",
+  "sentence3": "The volunteers contributed immensely to the success of the event.",
+  "sentence3_en": "志工們對活動成功有極大的貢獻。",
+  "word_map": {
+    "immensely": "極其",
+    "I enjoyed the concert immensely": "我非常享受那場音樂會"
+  },
+  "source": "使用者2026-10-24「其它來源」（輸入Immensely；未提供原句，採程度副詞的常用義）；詞義與讀音參考：https://dictionary.cambridge.org/dictionary/english/immensely 及 https://dictionary.cambridge.org/pronunciation/english/immensely",
+  "lang": "english_ielts",
+  "sentence1_hl": "I enjoyed the concert <b>immensely</b>."
+},
+{
+  "id": "en_2342",
+  "category": "IELTS Reading Vocabulary",
+  "word": "serendipitous",
+  "pos": "adjective",
+  "zh_def": "源於幸運巧合的；偶然發生或發現而帶來好結果的",
+  "zh": "源於幸運巧合的",
+  "definition": "Happening or being discovered by chance in a fortunate or beneficial way.",
+  "meaning": "happening or being discovered by chance in a fortunate or beneficial way",
+  "ipa": "ˌserənˈdɪpɪtəs",
+  "forms": [
+    "serendipitous"
+  ],
+  "tip": "a serendipitous meeting／discovery都可用，重點是「非刻意安排，卻帶來好結果」。形容詞serendipitous、通常不可數的名詞serendipity、以及副詞serendipitously，詞性不同，不能直接互換。普通的巧合或不幸意外不一定適用此字。",
+  "sentence1": "A serendipitous meeting led to a lasting friendship.",
+  "sentence1_en": "一次幸運的偶遇促成了長久的友誼。",
+  "sentence2": "The researchers made a serendipitous discovery while testing another idea.",
+  "sentence2_en": "研究人員在測試另一個想法時，意外有了可喜的發現。",
+  "sentence3": "Finding the perfect book in that tiny shop was serendipitous.",
+  "sentence3_en": "在那間小店找到正合心意的書，是一次幸運的巧遇。",
+  "word_map": {
+    "serendipitous": "源於幸運巧合的",
+    "A serendipitous meeting led to a lasting friendship": "一次幸運的偶遇促成了長久的友誼"
+  },
+  "source": "使用者2026-10-24「其它來源」（輸入Serendipitous；未提供原句，採意外帶來好結果的形容詞義；與第1384項名詞serendipity及第2322項副詞serendipitously分開）；詞義與讀音參考：https://dictionary.cambridge.org/dictionary/english/serendipitous 及 https://dictionary.cambridge.org/pronunciation/english/serendipitous",
+  "lang": "english_ielts",
+  "sentence1_hl": "A <b>serendipitous</b> meeting led to a lasting friendship."
+},
+{
+  "id": "en_2343",
+  "category": "IELTS Reading Vocabulary",
+  "word": "secular",
+  "pos": "adjective",
+  "zh_def": "非宗教的；世俗的",
+  "zh": "非宗教的",
+  "definition": "Not religious in purpose, character or connection.",
+  "meaning": "not religious in purpose, character or connection",
+  "ipa": "ˈsekjələ",
+  "forms": [
+    "secular"
+  ],
+  "tip": "secular education／music／institutions強調與宗教分開或無關，不等於敵視宗教。secular「非宗教的」與atheist「無神論者／無神論的」不能一概互換；「世俗」在這裡也不必帶貶義。",
+  "sentence1": "The choir performs both sacred and secular music.",
+  "sentence1_en": "這個合唱團既演唱宗教音樂，也演唱世俗音樂。",
+  "sentence2": "The college offers a secular education to students of different faiths.",
+  "sentence2_en": "這所學院為不同信仰的學生提供非宗教性質的教育。",
+  "sentence3": "The festival includes secular celebrations as well as religious ceremonies.",
+  "sentence3_en": "這個節慶除了宗教儀式，也包含非宗教性的慶祝活動。",
+  "word_map": {
+    "secular": "非宗教的",
+    "The choir performs both sacred and secular music": "這個合唱團既演唱宗教音樂，也演唱世俗音樂"
+  },
+  "source": "使用者2026-10-24「其它來源」（輸入Secular；未提供原句，採「非宗教的」常用義）；詞義與讀音參考：https://dictionary.cambridge.org/dictionary/english/secular 及 https://dictionary.cambridge.org/pronunciation/english/secular",
+  "lang": "english_ielts",
+  "sentence1_hl": "The choir performs both sacred and <b>secular</b> music."
+},
+{
+  "id": "en_2344",
+  "category": "IELTS Reading Vocabulary",
+  "word": "rattle",
+  "pos": "verb",
+  "zh_def": "喀啦作響；使發出連續、短促的碰撞聲",
+  "zh": "喀啦作響",
+  "definition": "To make, or cause something to make, a series of short knocking or clattering sounds.",
+  "meaning": "to make, or cause something to make, a series of short knocking or clattering sounds",
+  "ipa": "ˈrætəl",
+  "forms": [
+    "rattle",
+    "rattles",
+    "rattled",
+    "rattling"
+  ],
+  "tip": "The window rattled是不及物用法；He rattled the box則直接接受詞。rattle someone另可指「使某人慌張、不安」；a rattle作名詞也能指嬰兒搖鈴。rattling的拼法先去掉rattle字尾的e，再加ing。",
+  "sentence1": "The loose window rattled in the wind.",
+  "sentence1_en": "鬆動的窗戶在風中喀啦作響。",
+  "sentence2": "He rattled the box to check whether anything was inside.",
+  "sentence2_en": "他搖動盒子讓它發出聲響，確認裡面是否有東西。",
+  "sentence3": "Coins were rattling in the metal tin.",
+  "sentence3_en": "硬幣在金屬罐裡喀啦作響。",
+  "word_map": {
+    "rattle": "喀啦作響",
+    "rattles": "喀啦作響",
+    "rattled": "喀啦作響",
+    "rattling": "喀啦作響",
+    "The loose window rattled in the wind": "鬆動的窗戶在風中喀啦作響"
+  },
+  "source": "使用者2026-10-24「其它來源」（輸入Rattle；未提供原句，採動詞「發出連續碰撞聲、使發出這種聲音」常用義）；詞義與讀音參考：https://dictionary.cambridge.org/dictionary/english/rattle",
+  "lang": "english_ielts",
+  "sentence1_hl": "The loose window <b>rattled</b> in the wind."
+},
+{
+  "id": "en_2345",
+  "category": "IELTS Reading Vocabulary",
+  "word": "summon",
+  "pos": "verb",
+  "zh_def": "召喚；召集；正式或急切地要求某人前來",
+  "zh": "召喚",
+  "definition": "To call someone to come or appear somewhere, especially officially or urgently.",
+  "meaning": "to call someone to come or appear somewhere, especially officially or urgently",
+  "ipa": "ˈsʌmən",
+  "forms": [
+    "summon",
+    "summons",
+    "summoned",
+    "summoning"
+  ],
+  "tip": "summon someone to a place／meeting，或summon someone to do something；語氣通常比普通invite更正式或急切。summon up courage／strength另指鼓起勇氣、振作精神。動詞原形是summon，summons可作它的第三人稱單數。",
+  "sentence1": "The manager summoned the team to an urgent meeting.",
+  "sentence1_en": "經理召集團隊參加緊急會議。",
+  "sentence2": "A doctor was summoned to the hotel after a guest collapsed.",
+  "sentence2_en": "一名住客倒下後，有人緊急請醫師到旅館。",
+  "sentence3": "The committee summoned three witnesses to give evidence.",
+  "sentence3_en": "委員會傳召三名證人作證。",
+  "word_map": {
+    "summon": "召喚",
+    "summons": "召喚",
+    "summoned": "召喚",
+    "summoning": "召喚",
+    "The manager summoned the team to an urgent meeting": "經理召集團隊參加緊急會議"
+  },
+  "source": "使用者2026-10-24「其它來源」（輸入Summon；未提供原句，採動詞「召喚、正式叫人前來」常用義）；詞義與讀音參考：https://dictionary.cambridge.org/dictionary/english/summon",
+  "lang": "english_ielts",
+  "sentence1_hl": "The manager <b>summoned</b> the team to an urgent meeting."
+},
+{
+  "id": "en_2346",
+  "category": "IELTS Reading Vocabulary",
+  "word": "presumptuous",
+  "pos": "adjective",
+  "zh_def": "冒昧的；自以為有權而擅自越過分際的",
+  "zh": "冒昧的",
+  "definition": "Acting as though one has a right or permission that one does not have, showing insufficient respect for others.",
+  "meaning": "acting as though one has a right or permission that one does not have, showing insufficient respect for others",
+  "ipa": "prɪˈzʌmptʃəs",
+  "forms": [
+    "presumptuous"
+  ],
+  "tip": "常用It is presumptuous of someone to do something，指出某人的行為太冒昧。這不是單純「有自信」，而是自作主張、欠缺應有尊重。英式常見讀音/prɪˈzʌmptʃəs/中，-tuous可合成/tʃəs/。",
+  "sentence1": "It was presumptuous of him to invite extra guests without asking.",
+  "sentence1_en": "他未先詢問就邀請額外賓客，實在太冒昧了。",
+  "sentence2": "She thought it presumptuous to speak on behalf of the whole group.",
+  "sentence2_en": "她認為擅自代表整個團體發言很冒昧。",
+  "sentence3": "His presumptuous demand annoyed the staff.",
+  "sentence3_en": "他那項逾越分際的要求惹惱了工作人員。",
+  "word_map": {
+    "presumptuous": "冒昧的",
+    "It was presumptuous of him to invite extra guests without asking": "他未先詢問就邀請額外賓客，實在太冒昧了"
+  },
+  "source": "使用者2026-10-24「其它來源」（輸入Presumptuous；未提供原句，採自作主張、越過分際的常用義）；詞義與英式讀音參考：https://dictionary.cambridge.org/dictionary/english/presumptuous",
+  "lang": "english_ielts",
+  "sentence1_hl": "It was <b>presumptuous</b> of him to invite extra guests without asking."
+},
+{
+  "id": "en_2347",
+  "category": "IELTS Reading Vocabulary",
+  "word": "gallop",
+  "pos": "verb",
+  "zh_def": "（馬）疾馳；騎馬疾馳",
+  "zh": "（馬）疾馳",
+  "definition": "For a horse to run at its fastest gait, or for a rider to make a horse move in this way.",
+  "meaning": "for a horse to run at its fastest gait, or for a rider to make a horse move in this way",
+  "ipa": "ˈɡæləp",
+  "forms": [
+    "gallop",
+    "gallops",
+    "galloped",
+    "galloping"
+  ],
+  "tip": "a horse gallops是不及物用法；gallop a horse則指騎馬疾馳。過去式galloped、現在分詞galloping，字尾的p不加倍。gallop也能作名詞，at a gallop表示以疾馳的步態前進；trot通常指小跑。",
+  "sentence1": "The horse galloped across the open field.",
+  "sentence1_en": "那匹馬疾馳穿過開闊的田野。",
+  "sentence2": "We watched two ponies galloping along the beach.",
+  "sentence2_en": "我們看著兩匹小馬沿著海灘疾馳。",
+  "sentence3": "She gallops her horse around the paddock every morning.",
+  "sentence3_en": "她每天早上都騎著馬繞圍場疾馳。",
+  "word_map": {
+    "gallop": "（馬）疾馳",
+    "gallops": "（馬）疾馳",
+    "galloped": "（馬）疾馳",
+    "galloping": "（馬）疾馳",
+    "The horse galloped across the open field": "那匹馬疾馳穿過開闊的田野"
+  },
+  "source": "使用者2026-10-24「其它來源」（輸入Gallop；未提供原句，採馬匹疾馳或騎馬疾馳的常用義）；詞義與讀音參考：https://dictionary.cambridge.org/dictionary/english/gallop",
+  "lang": "english_ielts",
+  "sentence1_hl": "The horse <b>galloped</b> across the open field."
+},
+{
+  "id": "en_2348",
+  "category": "IELTS Reading Vocabulary",
+  "word": "morgue",
+  "pos": "noun",
+  "zh_def": "停屍間；暫時存放遺體的房間或建築物",
+  "zh": "停屍間",
+  "definition": "A room or building where dead bodies are kept before identification, examination or burial.",
+  "meaning": "a room or building where dead bodies are kept before identification, examination or burial",
+  "ipa": "mɔːɡ",
+  "forms": [
+    "morgue",
+    "morgues"
+  ],
+  "tip": "英式英語也常用mortuary指停屍間。morgue字尾的-ue不發音，最後是/ɡ/，不讀成/dʒ/。停屍間是存放遺體的場所，不能直接當作cemetery「墓園」使用。",
+  "sentence1": "The body was taken to the hospital morgue.",
+  "sentence1_en": "遺體被送往醫院的停屍間。",
+  "sentence2": "The pathologist examined the body in the morgue.",
+  "sentence2_en": "病理醫師在停屍間檢驗遺體。",
+  "sentence3": "The city opened a temporary morgue after the disaster.",
+  "sentence3_en": "災難發生後，市府設立了臨時停屍間。",
+  "word_map": {
+    "morgue": "停屍間",
+    "morgues": "停屍間",
+    "The body was taken to the hospital morgue": "遺體被送往醫院的停屍間"
+  },
+  "source": "使用者2026-10-24「其它來源」（輸入Morgue；未提供原句，採停放遺體場所的常用義）；詞義與英式讀音參考：https://dictionary.cambridge.org/us/dictionary/english/morgue 及 https://dictionary.cambridge.org/pronunciation/english/morgue",
+  "lang": "english_ielts",
+  "sentence1_hl": "The body was taken to the hospital <b>morgue</b>."
+},
+{
+  "id": "en_2349",
+  "category": "IELTS Reading Vocabulary",
+  "word": "forfeit",
+  "pos": "verb",
+  "zh_def": "因違規或未符合條件而喪失；被沒收；被判輸掉",
+  "zh": "因違規或未符合條件而喪失",
+  "definition": "To lose a right, possession or contest because a rule or required condition has not been met.",
+  "meaning": "to lose a right, possession or contest because a rule or required condition has not been met",
+  "ipa": "ˈfɔːfɪt",
+  "forms": [
+    "forfeit",
+    "forfeits",
+    "forfeited",
+    "forfeiting"
+  ],
+  "tip": "forfeit a deposit／a right／a match，通常有違規、未達條件或棄賽等原因，不是所有lose都能換成forfeit。He forfeited his deposit是「他失去訂金」，不是「他沒收別人的訂金」。過去式forfeited、現在分詞forfeiting。",
+  "sentence1": "Players who cheat forfeit their right to compete.",
+  "sentence1_en": "作弊的選手會喪失參賽權。",
+  "sentence2": "He forfeited his deposit by cancelling after the deadline.",
+  "sentence2_en": "他超過期限才取消，因此被沒收了訂金。",
+  "sentence3": "The team had to forfeit the match because it could not field enough players.",
+  "sentence3_en": "那支球隊因無法派出足夠球員，只得棄賽並被判落敗。",
+  "word_map": {
+    "forfeit": "因違規或未符合條件而喪失",
+    "forfeits": "因違規或未符合條件而喪失",
+    "forfeited": "因違規或未符合條件而喪失",
+    "forfeiting": "因違規或未符合條件而喪失",
+    "Players who cheat forfeit their right to compete": "作弊的選手會喪失參賽權"
+  },
+  "source": "使用者2026-10-24「其它來源」（輸入Forfeit；未提供原句，採因違規或未符合條件而失去權利、金錢或比賽的動詞常用義）；詞義與讀音參考：https://dictionary.cambridge.org/us/dictionary/english/forfeit 及 https://dictionary.cambridge.org/pronunciation/english/forfeit",
+  "lang": "english_ielts",
+  "sentence1_hl": "Players who cheat <b>forfeit</b> their right to compete."
+},
+{
+  "id": "en_2350",
+  "category": "IELTS Reading Vocabulary",
+  "word": "instigate",
+  "pos": "verb",
+  "zh_def": "發起；促使開始；挑起或煽動",
+  "zh": "發起",
+  "definition": "To cause an action, event or process to begin, often by deliberately encouraging or arranging it.",
+  "meaning": "to cause an action, event or process to begin, often by deliberately encouraging or arranging it",
+  "ipa": "ˈɪnstɪɡeɪt",
+  "forms": [
+    "instigate",
+    "instigates",
+    "instigated",
+    "instigating"
+  ],
+  "tip": "instigate直接接受詞，如instigate an investigation／reform／violence。常見於挑起爭端，但也可以指發起調查或改革，不必一律譯成「煽動」。instigator指發起人或煽動者；investigate才是「調查」這個動作。",
+  "sentence1": "The committee instigated an independent investigation.",
+  "sentence1_en": "委員會啟動了一項獨立調查。",
+  "sentence2": "Someone was trying to instigate a fight outside the club.",
+  "sentence2_en": "有人試圖在俱樂部外挑起打鬥。",
+  "sentence3": "The director instigated a review of safety procedures.",
+  "sentence3_en": "主管發起了安全程序檢討。",
+  "word_map": {
+    "instigate": "發起",
+    "instigates": "發起",
+    "instigated": "發起",
+    "instigating": "發起",
+    "The committee instigated an independent investigation": "委員會啟動了一項獨立調查"
+  },
+  "source": "使用者2026-10-24「其它來源」（輸入Instigate；未提供原句，採促使行動、事件或程序開始的常用義）；詞義與詞性參考：https://dictionary.cambridge.org/dictionary/english/instigate",
+  "lang": "english_ielts",
+  "sentence1_hl": "The committee <b>instigated</b> an independent investigation."
+},
+{
+  "id": "en_2351",
+  "category": "IELTS Reading Vocabulary",
+  "word": "budge",
+  "pos": "verb",
+  "zh_def": "移動；使挪動（常指原本難以移動的東西）",
+  "zh": "移動",
+  "definition": "To move, or make something move, especially something that resists being moved.",
+  "meaning": "to move, or make something move, especially something that resists being moved",
+  "ipa": "bʌdʒ",
+  "forms": [
+    "budge",
+    "budges",
+    "budged",
+    "budging"
+  ],
+  "tip": "常見won't budge、can't budge it，表示怎麼也不動或移不動。budge也可比喻改變立場，如refuse to budge on the price「在價格上不肯讓步」。budging先去掉字尾e再加ing，不是budgeing。",
+  "sentence1": "The heavy cabinet would not budge.",
+  "sentence1_en": "那座沉重的櫃子怎麼也移不動。",
+  "sentence2": "We tried to budge the stone, but it was too heavy.",
+  "sentence2_en": "我們試著挪動石頭，但它太重了。",
+  "sentence3": "Even with both hands, she could not budge the lid.",
+  "sentence3_en": "即使用上雙手，她仍無法把蓋子移開一點。",
+  "word_map": {
+    "budge": "移動",
+    "budges": "移動",
+    "budged": "移動",
+    "budging": "移動",
+    "The heavy cabinet would not budge": "那座沉重的櫃子怎麼也移不動"
+  },
+  "source": "使用者2026-10-24「其它來源」（輸入Budge；未提供原句，採使物體移動或物體移動的常用義）；詞義與詞性參考：https://dictionary.cambridge.org/us/dictionary/english/budge",
+  "lang": "english_ielts",
+  "sentence1_hl": "The heavy cabinet would not <b>budge</b>."
+},
+{
+  "id": "en_2352",
+  "category": "IELTS Reading Vocabulary",
+  "word": "chute",
+  "pos": "noun",
+  "zh_def": "滑道；溜槽；讓人或物品向下滑行的狹長通道",
+  "zh": "滑道",
+  "definition": "A sloping or vertical passage that allows objects or people to slide down to a lower level.",
+  "meaning": "a sloping or vertical passage that allows objects or people to slide down to a lower level",
+  "ipa": "ʃuːt",
+  "forms": [
+    "chute",
+    "chutes"
+  ],
+  "tip": "laundry chute／rubbish chute分別是衣物投遞槽／垃圾投遞槽，常用down a chute。chute與shoot同音/ʃuːt/，開頭不讀/tʃ/。chute有時也作parachute「降落傘」的簡稱，須由上下文判斷。",
+  "sentence1": "The workers sent parcels down a metal chute.",
+  "sentence1_en": "工人讓包裹沿著金屬滑道向下滑。",
+  "sentence2": "The laundry chute leads to a room in the basement.",
+  "sentence2_en": "洗衣投遞槽通往地下室的一個房間。",
+  "sentence3": "The passengers escaped through an emergency chute.",
+  "sentence3_en": "乘客經由緊急逃生滑道撤離。",
+  "word_map": {
+    "chute": "滑道",
+    "chutes": "滑道",
+    "The workers sent parcels down a metal chute": "工人讓包裹沿著金屬滑道向下滑"
+  },
+  "source": "使用者2026-10-24「其它來源」（輸入Chute；未提供原句，採讓物品或人向下滑行的通道義）；詞義與讀音參考：https://dictionary.cambridge.org/dictionary/english/chute",
+  "lang": "english_ielts",
+  "sentence1_hl": "The workers sent parcels down a metal <b>chute</b>."
 }
 );

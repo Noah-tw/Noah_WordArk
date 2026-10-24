@@ -1,4 +1,4 @@
-// en_batch_0014.js — English IELTS batch 14; WordArk V71
+// en_batch_0014.js — English IELTS batch 14; WordArk V72
 // 100 active entries: en_1301 to en_1400
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -2458,7 +2458,8 @@ window.VOCAB_DATA['english_ielts'].push(
   "forms": [
     "serendipity"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 17 Academic，Test 2，Reading Passage 3〈Insight or evolution?〉（原文詞形／屈折變化與本卡詞性、義項已定位）；另見 The Official Cambridge Guide to IELTS，Academic Reading Test 6，Passage 3〈The Swiffer〉（2026-10-01 提供詞形：Serendipity；正文中的同字或屈折形式；依該段語境判定詞義）；https://engnovate.com/ielts-reading-answers/the-swiffer/；使用者於2026-10-24「其它來源」再次收集（輸入Serendipity；未提供原句，保留既有常用義與學習內容，不推定新來源的特定語境）"
 },
 {
   "id": "en_1385",

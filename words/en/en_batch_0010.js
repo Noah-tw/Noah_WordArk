@@ -1,4 +1,4 @@
-// en_batch_0010.js — English IELTS batch 10; WordArk V69
+// en_batch_0010.js — English IELTS batch 10; WordArk V72
 // 100 active entries: en_0901 to en_1000
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -402,7 +402,8 @@ window.VOCAB_DATA['english_ielts'].push(
   "forms": [
     "upkeep"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "使用者收集的 YouTube 影片（原始檔未記錄影片名稱與原句。因無原句，本卡依 Cambridge Dictionary／Merriam-Webster 選定「持續保養與維護」這一常用義，不再把三句混在維護過程與維護費用之間，亦不宣稱還原影片語境）；使用者於2026-10-24「其它來源」再次收集（輸入Upkeep；未提供原句，保留既有常用義與學習內容，不推定新來源的特定語境）"
 },
 {
   "id": "en_0915",

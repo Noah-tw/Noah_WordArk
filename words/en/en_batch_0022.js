@@ -1,4 +1,4 @@
-// en_batch_0022.js — English IELTS batch 22; WordArk V71
+// en_batch_0022.js — English IELTS batch 22; WordArk V72
 // 100 active entries: en_2101 to en_2200
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -465,7 +465,7 @@ window.VOCAB_DATA['english_ielts'].push(
     "displacing": "迫使離開原處",
     "The fire displaced hundreds of residents": "火災迫使數百名居民離開原居所"
   },
-  "source": "Cambridge IELTS 20 Academic，Test 4，Reading Passage 3〈A new role for livestock guard dogs〉（2026-10-11 提供詞形：Displace；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-4/",
+  "source": "Cambridge IELTS 20 Academic，Test 4，Reading Passage 3〈A new role for livestock guard dogs〉（2026-10-11 提供詞形：Displace；正文中的同字或屈折形式；按所在語境判定詞義）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-20-academic-reading-test-4/；使用者於2026-10-24「其它來源」再次收集（輸入Displace；未提供原句，保留既有常用義與學習內容，不推定新來源的特定語境）",
   "lang": "english_ielts",
   "sentence1_hl": "The fire <b>displaced</b> hundreds of residents."
 },

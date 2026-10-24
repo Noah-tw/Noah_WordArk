@@ -1,4 +1,4 @@
-// en_batch_0015.js — English IELTS batch 15; WordArk V69
+// en_batch_0015.js — English IELTS batch 15; WordArk V72
 // 100 active entries: en_1401 to en_1500
 window.VOCAB_DATA = window.VOCAB_DATA || {};
 window.VOCAB_DATA['english_ielts'] = window.VOCAB_DATA['english_ielts'] || [];
@@ -2548,7 +2548,8 @@ window.VOCAB_DATA['english_ielts'].push(
   "forms": [
     "prodigious"
   ],
-  "lang": "english_ielts"
+  "lang": "english_ielts",
+  "source": "Cambridge IELTS 18 Academic，Test 2，Reading Passage 2〈Living with artificial intelligence〉（本次提供詞形：Prodigious；文章正文中的相同詞形或屈折變化；依所在語境判義；2026-09-15 依公開文章／題目轉錄頁核對）；https://engnovate.com/ielts-reading-tests/cambridge-ielts-18-academic-reading-test-2/；使用者於2026-10-24「其它來源」再次收集（輸入Prodigious；未提供原句，保留既有常用義與學習內容，不推定新來源的特定語境）"
 },
 {
   "id": "en_1488",
